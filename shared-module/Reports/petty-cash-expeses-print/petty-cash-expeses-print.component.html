@@ -1,0 +1,124 @@
+<div id="PrintArea">
+    <main class="main-content" style="margin-left: 0px;">
+        <div class="container">
+
+          
+
+                <h2 style="text-align:center;text-transform:uppercase">{{CompanyName}}</h2>
+                <p style="margin: 0px !important;font-family:Arial, Helvetica, sans-serif;font-size: 11px; font-weight: 100; 
+                padding-top:0px; ">
+                <!-- 6-2-103/119, SHIRIDI SAI BABA COLONY, OPP, SHOBANA COLONY, BALANAGAR , HYDERABAD, MEDCHAL - MALKAJGIRI, TELANGANA-500042 -->
+                {{CompanyAddress}}<br>{{CompanyAddress1}},{{CompanyAddress2}}<br>
+                {{CompanyState}}-{{CompanyZipcode}}
+              
+              </p>
+                <h3 style="text-align:center;text-transform:uppercase;width:38%;margin-left:auto;margin-right:auto">{{VoucherNo}}</h3>
+                
+                <table style="width:100%;border:none !important">
+                
+                <tr> 
+                  <th rowspan="2" style="border:none;vertical-align: bottom;">Receiver Name : {{EmployeeName }}</th> 
+                  <th style="width: 10%;">Voucher No.</th> 
+                  <td style="width: 25%;">{{VoucherNo}}</td> 
+                </tr>
+               
+
+                <tr >
+                  <th style="border-bottom: none;">Date:</th>
+                  <td style="border-bottom: none;">{{VoucherDate|date:'mediumDate'}}</td>
+                 </tr>
+                <tr>
+                  <th style="border-bottom: none;">Ref No:</th>
+                  <td style="border-bottom: none;">{{BillRefNo}}</td>
+                 </tr>
+                </table>
+                
+                <table style="width:100%; border-width: 1px; border-style:solid;">
+                    <tr>
+                        <th style="width:15% ; border-width: 1px; border-style:solid;">SNo.</th>
+                        <th style="width:30% ; border-width: 1px; border-style:solid;">Details</th>
+                        <th style="width:30% ; border-width: 1px; border-style:solid;">Narration</th>
+                        <th  style="width:25% ; border-width: 1px; border-style:solid;">AMOUNT</th>
+                    </tr>
+                    
+                    <tr *ngFor="let d of lstExpenses;let ind=index">
+                        <td style="width:15% ; border-width: 1px; border-style:solid;">{{ind+1}}</td>
+                        <td style="width:30% ; border-width: 1px; border-style:solid;">{{d.ExpenseTypeName}}</td>
+                        <td style="width:30% ; border-width: 1px; border-style:solid;">{{d.Narration}}</td>
+                        <td style="width:15% ; border-width: 1px; border-style:solid;">{{(+d.Amount).toFixed(2)}}</td>
+                      
+                    </tr>
+                    
+                     
+                    <tr>
+                        <td></td>
+                        <td style="text-align:center">Total:</td>
+                        
+                        <th>{{TotalAmount|currency:'INR' }}</th>
+                       
+                    </tr>
+                </table>
+                
+                
+                
+                <br>
+                
+                <table style="width:100%">
+                
+                    <tr>
+                        <th rowspan="2" style="width:15%">Amount In Words</th>
+                        <th colspan="10">{{Amountinwords}}</th>
+                        
+                    </tr>
+                    
+                </table>
+                
+                
+                
+                <br>
+                
+                
+                <table style="width:100%">
+                
+                  <tr>
+                    <th style="width:15%">Narration</th>
+                    <td>{{Narration}}</td>
+                  </tr>
+                  
+                </table>
+                
+                <br>
+                <br>
+                <br>
+                <br>
+                <table style="width:100%;border:none !important">
+                <tr>
+                <th style="border:none;width:25%;text-align:center">Prepared By</th>
+                <th style="border:none;width:25%;text-align:center">Verified By</th>
+                <th style="border:none;width:25%;text-align:center">Authorised By</th>
+                <th style="border:none;width:25%;text-align:center">Receiver's Signature</th>
+                </tr>
+                </table>
+                
+                
+               
+
+
+        </div>
+    </main>
+
+</div>
+<div class="text-right d-print-none">
+    <hr class="m-t-b-50">
+    <a hidden href="#" class="btn btn-primary waves-effect waves-button waves-light">
+        <i class="fa fa-send m-r-5"></i> Send 
+    </a>
+    <a href="javascript:window.print()" class="btn btn-success m-l-5 waves-effect waves-button waves-light">
+        <i class="fa fa-print m-r-5"></i> Print
+    </a>
+
+
+    <a  (click)="btnClose()"  class="btn btn-primary m-l-5 waves-effect waves-button waves-light">
+            <i class="fa fa-print m-r-5"></i> Close
+        </a>
+</div>

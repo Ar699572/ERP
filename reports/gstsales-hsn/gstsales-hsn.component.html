@@ -1,0 +1,128 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton"
+       
+    >
+
+
+ <!-- <a class="actionbutton" (click)="OnAdd()" 
+ href="javascript:void(0)" id="product_edit_submit">
+       <i class="fa fa-plus side-icons"></i>
+   </a>
+
+ <a class="actionbutton"
+ id="btnSearch"
+ data-toggle="modal"   data-target="#SearchModel"  data-backdrop="static" data-keyboard="false" 
+ href="javascript:void(0)" >
+       <i class="fa fa-search side-icons"></i>
+   </a> -->
+
+
+
+      
+
+
+       
+    </div>
+    <form [formGroup]="GSTSalesHsn1">
+    <div class="container pl-0">
+
+
+
+        
+        <!-- begin::page header -->
+        <div class="page-header">
+            <h3>GST SALES HSN</h3>
+            <!-- <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Reports</li>
+                    <li class="breadcrumb-item">Transactions</li>
+                    <li class="breadcrumb-item active" aria-current="page">Proforma Invoice</li>
+                </ol>
+            </nav> -->
+        </div>
+        <!-- end::page header -->
+
+        <div class="row row-sm">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-1 mt-4">
+                                <label for="">From Date</label></div>
+                                <div class="col-md-4 mt-4">
+                                <input type="date" class="mb-3 form-control"  formControlName="FromDate"  id="FromDate"
+                     placeholder="Enter Date">
+                            </div>
+                            <div class="col-md-1 mt-4">
+                                <label for="">To Date</label></div>
+                                <div class="col-md-4 mt-4">
+                                <input type="date" class="form-control"   formControlName="ToDate"  id="ToDate"
+                     placeholder="Enter Date">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="" style="visibility: hidden;">hide</label>
+                                <br>
+                                <button class="btn btn-warning"  (click)="GO()">Go</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <!-- <h6 class="card-title">GST SALES</h6> -->
+                        <div class="row">
+                            <div class="col-md-12"  #TABLE #table>
+                                <div class="col-sm-12 mb-3"><button (click)="ExportTOExcel()" class="btn btn-success">Export To Excel</button></div>
+
+                                <table  aria-describedby="example1_info" class="table table-striped table-bordered dataTable dtr-inline" id="example1" role="grid">
+                                    <thead  class="table-head">
+                                        <tr  role="row">
+                                            <th style="width: 40px;">#</th>
+                                            <th style="width: 80px;">hsn</th>
+                                            <th style="width: 80px;">particulars</th>
+                                            <th style="width: 120px;">type of supply</th> 
+                                            <th style="width: 60px;">qty</th>
+                                            <th style="width: 80px;">Uom</th>
+                                            <th style="width: 80px;">Taxable value </th>
+                                            <th style="width: 50px;">IGST</th>
+                                            <th style="width: 50px;">CGST</th>
+                                            <th style="width: 50px;">SGST</th>
+                                            <th style="width: 90px;">Cess</th>
+                                            <th style="width: 90px;">Total tax</th>
+                                            <th style="width: 90px;">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        <tr  class="odd" role="row" *ngFor="let d of lstsalseshsn;let ind=index;">
+                                            <td style="width: 40px;vertical-align: baseline;">{{ind+1}}</td>
+                                            <td style="width: 80px;vertical-align: baseline;">{{d.HSNSAC}}</td>
+                                            <td style="width: 80px;vertical-align: baseline;">{{d.Particulars}}</td>
+                                            <td style="width: 120px;vertical-align: baseline;">{{d.TypeOfSupply}}</td>
+                                            <td style="width: 60px;vertical-align: baseline;">{{d.Qty}}</td>
+                                            <td style="width: 80px;vertical-align: baseline;">{{d.UOM}}</td>
+                                            <td style="width: 80px;vertical-align: baseline;">{{d.TaxableValue}}</td>
+                                            <td style="width: 50px;vertical-align: baseline;">{{d.IGST}}</td>
+                                            <td style="width: 50px;vertical-align: baseline;">{{d.CGST}}</td>
+                                            <td style="width: 50px;vertical-align: baseline;">{{d.SGST}}</td>
+                                            <td style="width: 90px;vertical-align: baseline;">{{d.CessAmount}}</td>
+                                            <td style="width: 90px;vertical-align: baseline;">{{d.TotalTaxAmount}}</td>
+                                            <td style="width: 90px;vertical-align: baseline;">{{d.TotalAmount}}</td>
+                                        </tr>
+        
+                                        
+                                      
+                                
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                       
+
+
+                    </div>
+                </div> 
+            </div>
+            </div>
+        </div>
+</form>

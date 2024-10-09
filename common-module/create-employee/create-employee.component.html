@@ -1,0 +1,887 @@
+
+                                
+                              
+                        
+                                <main class="main-content p-0">
+                                    <div class="layoutactionbutton"
+                                       
+                                    >
+
+                                       
+                                    </div>
+                                    <form [formGroup]="CreateEmployee">
+                                           
+                              
+                                         <div class="container pl-0">
+                                       
+                                        <div class="page-header">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <h3>Create/ Modify Employee</h3>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="#">COMMON</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page">CREATE EMPLOYEE </li>
+                                                </ol>
+                                            </nav>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <div class="row">
+                                                        <div class="col-md-12 text-right m-top-bot-auto" style="padding-right: 0px;">
+                                                            <button class="btn btn-danger" (click)="Search()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-bars" style="margin-top: -2px;margin-right: 9px;"></i>Overview</button>
+                                                            <button class="btn btn-warning" (click)="ClearViewData()" style="margin-right: 10px;background: #fbc400  !important; border: 1px solid #fbc400  !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Clear</button>
+                                                            <button class="btn btn-warning" (click)="OnSave()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Save</button>
+                                                            <button class="btn btn-danger" (click)="OnDelete()" style="margin-right: 10px;background: #dc3545 !important; border: 1px solid #dc3545 !important;color: white;"><i class="fa fa-trash" style="margin-top: -2px;margin-right: 9px;"></i>Delete</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end::page header -->
+                                
+                                        <div class="row row-sm">
+                                            
+                                              
+
+                                            <div class="col-md-8">
+                                                
+                                                <div class="card">
+                                                    <div class="card-header">Overview</div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <div class="row">
+                                                                        <div class="col-md-2">
+                                                                        <label for="firstname">First Name</label></div>
+                                                                        <div class="col-md-4">
+                                                                        <input type="text" class="form-control" id="firstname" formControlName="firstname" placeholder="Enter Firstname"
+                                                                        
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }"
+                                                                        >
+                                                                        <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.firstname.errors.required" style="color:red " >First Name Required</div>
+                                                                        </div>
+                                                                         </div>
+                                                                         <div class="col-md-2">
+                                                                         <label for="employeecode">Employee Code</label></div>
+                                                                         <div class="col-md-4">
+                                                                        <input type="text" class="form-control" id="employeecode" formControlName="employeecode" placeholder="Enter EmployeeCode"
+                                                                        
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.employeecode.errors }"
+                                                                        >
+                                                                        <div *ngIf="submitted && f.employeecode.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.employeecode.errors.required" style="color:red " >EmployeeCode Required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                    <div class="col-md-2" style="margin-top:15px;">
+                                                                         <label for="lastname">Last Name</label></div>
+                                                                             <div class="col-md-4" style="margin-top: 11px;">
+                                                                        <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Enter Lastname"
+                                                                        
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }"
+                                                                        >
+                                                                        <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.lastname.errors.required" style="color:red " >Last Name Required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2" style="margin-top:15px;">
+                                                                     <label for="biometricid" >Biometric Id</label></div>
+                                                                         <div class="col-md-4" style="margin-top: 11px;">
+                                                                        <input type="text" class="form-control" id="biometricid" formControlName="biometricid" placeholder="Enter Biometric Id"
+                                                                        
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.biometricid.errors }"
+                                                                        >
+                                                                        <div *ngIf="submitted && f.biometricid.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.biometricid.errors.required" style="color:red " >Biometric Id Required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-2" style="margin-top:15px;">
+                                                                        <label for="fathername">Father Name</label></div>
+                                                                        <div class="col-md-4" style="margin-top: 11px;">
+                                                                        <input type="text" class="form-control" id="fathername" formControlName="fathername" placeholder="Enter Fathername"
+                                                                        
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.fathername.errors }"
+                                                                        >
+                                                                        <div *ngIf="submitted && f.fathername.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.fathername.errors.required" style="color:red " >Father Name Required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                     <div class="col-md-2" style="margin-top:15px;">
+                                                                    <label for="EmpBranchId">Branch</label></div>
+                                                                    <div class="col-md-4" style="margin-top: 11px;">
+                                                                        <select id="drpEmpbrch"  class="js-example-basic-single">
+                                                                       </select>
+                                                                    </div>
+                                                                </div>
+                                                                        
+                                                                <div class="row">
+                                                                    <div class="col-md-2" style="margin-top:15px;">
+                                                                        <label for="gender">Gender</label></div>
+                                                                        <div class="col-md-4" style="margin-top: 11px;">
+                                                                        <select id="gender" class="form-control" formControlName="gender">
+                                                                            <option value="Male">Male</option>
+                                                                            <option value="Female">Female</option>
+                                                                          </select>
+                                                                        </div>
+                                                                        <div class="col-md-2" style="margin-top:15px;">
+                                                                     <label for="notes">Note</label></div>
+                                                                      <div class="col-md-4" style="margin-top: 11px;">
+                                                                        <textarea  class="form-control" rows="5" cols="5" formControlName="notes">
+                                                                        </textarea>
+                                                                    </div>
+                                                                    <div class="col-md-2" style="margin-top:15px;">
+                                                                        <label for="dob">Date Of Birth</label>
+                                                                        </div>
+                                                                        <div class="col-md-4">  
+                                                                        <input type="text"    name="single-date-picker"  class="form-control" id="dob"  placeholder="Enter required"
+                                                                      
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.dob.errors }"
+                                                                        >
+                                                                        <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.dob.errors.required" style="color:red " >Date Required</div>
+                                                                        </div>
+                                                                    </div> 
+                                                                </div>
+                                                                <!-- <div class="row"> -->
+                                                                   
+                                                                    <!-- </div> -->
+                                                                    <div class="row">
+                                                                        <div class="col-md-2" style="margin-top:15px;">
+                                                                            <label for="status">Status</label></div>
+                                                                            <div class="col-md-4" style="margin-top: 11px;">  
+                                                                            <select id="status" class="form-control" formControlName="status">
+                                                                                <option value="Active">Active</option>
+                                                                                <option value="InActive">InActive</option>
+                                                                              </select>
+                                                                              </div>
+                                                                              </div>
+                                                                              <div class="row">
+                                                                                <div class="col-md-6" style="margin-top: 11px;">
+                                                                              <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                                                                <input type="checkbox" class="custom-control-input" id="customSwitch2_" [(ngModel)]= "chkVal" [checked]="chkVal"
+                                                                                (change)="IsAccountantChange($event.target.checked)">
+                                                                                <label class="custom-control-label" for="customSwitch2_"> 
+                                                                                    IsAccountant</label>
+                                                                            </div>
+                                                                            </div>
+                                                                            </div> 
+                                                                            <label *ngIf="isChecked==true">Petty Cash Limit</label>
+                                                                            <input type="number" class="form-control" id="PettyCashLimit" formControlName="PettyCashLimit"
+                                                                             placeholder="Enter Petty Cash Limit Amount"
+                                                                             *ngIf="isChecked"
+                                                                            [ngClass]="{ 'is-invalid': submitted && f.PettyCashLimit.errors }"
+                                                                            >
+                                                                            <div *ngIf="submitted && f.PettyCashLimit.errors && isChecked" class="invalid-feedback">
+                                                                                <div *ngIf="f.PettyCashLimit.errors.required" style="color:red " >Petty Cash Limit is Required</div>
+                                                                            </div> 
+                                                                      
+                                                                    <!-- <label for="firstname">First Name</label>
+                                                                    <input type="text" class="form-control" id="firstname" formControlName="firstname" placeholder="Enter Firstname"
+                                                                    
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }"
+                                                                    >
+                                                                    <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.firstname.errors.required" style="color:red " >First Name Required</div>
+                                                                    </div>
+        
+                                                                    <label for="lastname">Last Name</label>
+                                                                    <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Enter Lastname"
+                                                                    
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }"
+                                                                    >
+                                                                    <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.lastname.errors.required" style="color:red " >Last Name Required</div>
+                                                                    </div>
+                                                                
+                                                                    <label for="fathername">Father Name</label>
+                                                                    <input type="text" class="form-control" id="fathername" formControlName="fathername" placeholder="Enter Fathername"
+                                                                    
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.fathername.errors }"
+                                                                    >
+                                                                    <div *ngIf="submitted && f.fathername.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.fathername.errors.required" style="color:red " >Father Name Required</div>
+                                                                    </div>
+                                                                    <br>
+                                                                    
+        
+                                                                    <label for="gender">Gender</label>
+                                                                    <select id="gender" class="form-control" formControlName="gender">
+                                                                        <option value="Male">Male</option>
+                                                                        <option value="Female">Female</option>
+                                                                    
+                                                                      
+                                                                      </select>
+                                                                    <br>
+                                    
+        
+                                                                    <!-- <label for="dob">Date Of Birth</label>
+                                                                    <input type="text" name="single-date-picker"  class="form-control"   id="dob" formControlName="dob" 
+                                                                  
+                                                                    >  ->
+                                                                    <label for="dob">Date Of Birth</label>
+        
+                                                                                    
+                                                                    <input type="text"    name="single-date-picker"  class="form-control" id="dob"  placeholder="Enter required"
+                                                                  
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.dob.errors }"
+                                                                    >
+                                                                    <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.dob.errors.required" style="color:red " >Date Required</div>
+                                                                    </div>
+         
+                                                                
+                                                                                                      
+                                                                    
+        
+                                                                    <label for="status">Status</label>
+                                                                    <select id="status" class="form-control" formControlName="status">
+                                                                        <option value="Active">Active</option>
+                                                                        <option value="InActive">InActive</option>
+                                                                      </select>
+
+                                                                    <br>
+
+                                                                    <!-- <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                                                        <input type="checkbox" class="custom-control-input" id="customSwitch2_" [(ngModel)]= "chkVal" [checked]="chkVal"
+                                                                        (change)="IsAccountantChange($event.target.checked)">
+                                                                        <label class="custom-control-label" for="customSwitch2_"> 
+                                                                            IsAccountant</label>
+                                                                    </div> ->
+
+                                                                    <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                                                        <input type="checkbox" class="custom-control-input"  id="customSwitch2_"  [checked]="chkVal"
+                                                                        (change)="IsAccountantChange($event.target.checked)">
+                                                                        <label class="custom-control-label" for="customSwitch2_"> 
+                                                                            IsAccountant</label>
+                                                                    </div>
+
+
+                                                                    <label *ngIf="isChecked==true">Petty Cash Limit</label>
+                                                                    <input type="number" class="form-control" id="PettyCashLimit" formControlName="PettyCashLimit"
+                                                                     placeholder="Enter Petty Cash Limit Amount"
+                                                                     *ngIf="isChecked"
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.PettyCashLimit.errors }"
+                                                                    >
+                                                                    <div *ngIf="submitted && f.PettyCashLimit.errors && isChecked" class="invalid-feedback">
+                                                                        <div *ngIf="f.PettyCashLimit.errors.required" style="color:red " >Petty Cash Limit is Required</div>
+                                                                    </div>
+
+                                                                    </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="employeecode">Employee Code</label>
+                                                                    <input type="text" class="form-control" id="employeecode" formControlName="employeecode" placeholder="Enter EmployeeCode"
+                                                                    
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.employeecode.errors }"
+                                                                    >
+                                                                    <div *ngIf="submitted && f.employeecode.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.employeecode.errors.required" style="color:red " >EmployeeCode Required</div>
+                                                                    </div>
+        
+                                                                    <label for="biometricid">Biometric Id</label>
+                                                                    <input type="text" class="form-control" id="biometricid" formControlName="biometricid" placeholder="Enter Biometric Id"
+                                                                    
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.biometricid.errors }"
+                                                                    >
+                                                                    <div *ngIf="submitted && f.biometricid.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.biometricid.errors.required" style="color:red " >Biometric Id Required</div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <label for="EmpBranchId">Branch</label>
+                                                                    <select id="drpEmpbrch"  class="js-example-basic-single" 
+                                                                    >
+                                                        
+                                                                   </select>
+                                                                   <br>
+                                                                                      
+        
+                                                                    <label for="notes">Note</label>
+                                                                    <textarea  class="form-control" rows="5" cols="5" formControlName="notes">
+        
+                                                                    </textarea> -->
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card">
+                                                    <div class="card-header">Image</div>
+                                                    <div class="card-body">
+                                                       
+                                                        <input #Resourcefile type="file" (change)="ResourcefileChange($event,Resourcefile)"
+                                                            accept="image/*" id="fileOpenModelImage" />
+                            
+                                                        <div *ngIf="imgURL!=''">
+                                                        </div>
+                            
+                                                        <img [src]="imgURL" id="Image" style="width: 100%;max-height: 450px;">
+
+
+                                                    </div>
+
+                                                    
+                                                </div>
+                                            </div>
+
+                                           
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="form-group">
+                                                            <ul class="nav nav-tabs" id="CustomerTab" role="tablist">
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link nav-text active" id="Employment-tab" data-toggle="tab" href="#Employment" role="tab" aria-controls="Employment" aria-selected="true">Employee Info</a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link nav-text" id="Bank-tab" data-toggle="tab" href="#Bank" role="tab" aria-controls="Bank" aria-selected="false">Bank</a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link nav-text" id="Contact-tab" data-toggle="tab" href="#Contact" role="tab" aria-controls="Contact" aria-selected="false">Contact</a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link nav-text" id="Address-tab" data-toggle="tab" href="#Address" role="tab" aria-controls="Address" aria-selected="false">Address</a>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="tab-content" id="myTabContent">
+                                                            <div class="tab-pane fade active show" id="Employment" role="tabpanel" aria-labelledby="Employment-tab">
+                                                                <div class="row row-sm" style="margin-top: 12px;">
+                                                                    <div class="col-md-8">
+                                                                        <div class="card">
+                                                                            
+                                                                            <div class="card-body">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-2">
+                                                                                        <label for="doj">Date Of Joining</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                        <input type="text" class="form-control mb-3"  name="single-date-picker"  id="doj"
+                                                                                         placeholder="Enter Date"
+                                                                                       (change)="QuotDateChange($event)"
+                                                                                        [ngClass]="{ 'is-invalid': submitted && f.doj.errors }"
+                                                                                        >
+                                                                                        <div *ngIf="submitted && f.doj.errors" class="invalid-feedback">
+                                                                                            <div *ngIf="f.doj.errors.required" style="color:red " >Date Required</div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-2">
+                                                                                        <label for="paystructure">Pay Structure</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                        <select id="drppaystructure"  class="js-example-basic-single">
+                                                                                      </select>
+                                                                                      </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-2">
+                                                                                                <label for="designation">Designation</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <select id="drpdesgn"  class="js-example-basic-single">
+                                                                                           </select>
+                                                                                        </div>
+                                                                                        <div class="col-md-2">
+                                                                                            <label for="leavestructure">Leave Structure</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                        <select  id="drpleavestructure"  class="js-example-basic-single">
+                                                                                      </select>
+                                                                                      </div>
+                                                                                        </div>
+                                                                                        <div class="row" style="margin-top:14px;">
+                                                                                            <div class="col-md-2">
+                                                                                                <label for="emptype">Employee Type</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <select id="emptype" class="form-control" formControlName="emptype">
+                                                                                                <option value="Regular">Regular</option>
+                                                                                                <option value="Contract">Contract</option>
+                                                                                              </select>
+                                                                                        </div>
+                                                                                        <div class="col-md-2">
+                                                                                            <label for="department">Department</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <select id="drpdept"  class="js-example-basic-single">
+                                                                                          </select>
+                                                                                      </div>
+                                                                                        </div>
+                                                                                        <div class="row" style="margin-top:14px;">
+                                                                                            <div class="col-md-2">
+                                                                                                <label for="reportto">Report To</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <select id="drpreportto"  class="js-example-basic-single">  </select>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        <!-- <label for="doj">Date Of Joining</label>
+                                                                                        <input type="text" class="form-control mb-3"  name="single-date-picker"  id="doj"
+                                                                                         placeholder="Enter Date"
+                                                                                       (change)="QuotDateChange($event)"
+                                                                                        [ngClass]="{ 'is-invalid': submitted && f.doj.errors }"
+                                                                                        >
+                                                                                        <div *ngIf="submitted && f.doj.errors" class="invalid-feedback">
+                                                                                            <div *ngIf="f.doj.errors.required" style="color:red " >Date Required</div>
+                                                                                        </div>
+                                                                                            <label for="designation">Designation</label>
+                                                                                            <select id="drpdesgn"  class="js-example-basic-single" 
+                                                                                             >
+                                                                                 
+                                                                                            </select>
+                                                                                            <br>
+                                                                                            <label for="emptype">Employee Type</label>
+                                                                                            <select id="emptype" class="form-control" formControlName="emptype">
+                                                                                                <option value="Regular">Regular</option>
+                                                                                                <option value="Contract">Contract</option>
+                                                                                            
+                                                                                              
+                                                                                              </select>
+                                                                                            <br>
+                                                                                            <label for="reportto">Report To</label>
+                                                                                            <select id="drpreportto"  class="js-example-basic-single" 
+                                                                                             >
+                                                                                 
+                                                                                            </select>
+
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <label for="paystructure">Pay Structure</label>
+                                                                                        <select id="drppaystructure"  class="js-example-basic-single" 
+                                                                                        >
+                                                                                      
+                                                                                      </select>
+        
+                                                                                        <label for="leavestructure">Leave Structure</label>
+                                                                                        <select id="drpleavestructure"  class="js-example-basic-single" 
+                                                                                        >
+                                                                                      
+                                                                                      </select>
+                                                                                      
+                                                                              
+                                                                                
+                                                                               <label for="department">Department</label>
+                                                                               <select id="drpdept"  class="js-example-basic-single" 
+                                                                               >
+                                                                             
+                                                                             </select>
+                                                                                    </div> -->
+                                                                                </div>
+                                                                           
+                                                                                
+                             
+                                                                     
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                  </div>
+                                                                    <div class="tab-pane fade" id="Bank" role="tabpanel" aria-labelledby="Bank-tab">
+                                                                <div class="row row-sm" style="margin-top: 12px;">
+                                                                    <div class="col-md-8">
+                                                                        <div class="card">
+                                                                            
+                                                                            <div class="card-body">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-2">
+                                                                                                <label for="panno">Pan No</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="text" class="form-control mb-3" id="panno" formControlName="panno" placeholder="Enter Pan No"
+                                                                        
+                                                                                            [ngClass]="{ 'is-invalid': submitted && f.panno.errors }"
+                                                                                              >
+                                                                                           <div *ngIf="submitted && f.panno.errors" class="invalid-feedback">
+                                                                                            <div *ngIf="f.panno.errors.required" style="color:red " >Pan No Required</div>
+                                                                                           </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-2">
+                                                                                            <label for="adharno">Adhar No</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="text" class="form-control mb-3" id="adharno" formControlName="adharno" placeholder="Enter Adhar No"
+                                                                                   
+                                                                                            [ngClass]="{ 'is-invalid': submitted && f.adharno.errors }"
+                                                                                              >
+                                                                                           <div *ngIf="submitted && f.adharno.errors" class="invalid-feedback">
+                                                                                            <div *ngIf="f.adharno.errors.required" style="color:red " >Adhar No Required</div>
+                                                                                           </div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-2">
+                                                                                                <label for="pfaccountno">Account No</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="text" class="form-control mb-3" id="pfaccountno" formControlName="pfaccountno" placeholder="Enter PF Account No"
+                                                                    
+                                                                                            [ngClass]="{ 'is-invalid': submitted && f.pfaccountno.errors }"
+                                                                                              >
+                                                                                           <div *ngIf="submitted && f.pfaccountno.errors" class="invalid-feedback">
+                                                                                            <div *ngIf="f.pfaccountno.errors.required" style="color:red " >PF Account No Required</div>
+                                                                                           </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-2">
+                                                                                            <label for="bankname">Bank Name</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="text" class="form-control mb-3" id="bankname" formControlName="bankname" placeholder="Enter Bank Name"
+                                                                  
+                                                                                            [ngClass]="{ 'is-invalid': submitted && f.bankname.errors }"
+                                                                                              >
+                                                                                           <div *ngIf="submitted && f.bankname.errors" class="invalid-feedback">
+                                                                                            <div *ngIf="f.bankname.errors.required" style="color:red " >Bank Name Required</div>
+                                                                                           </div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                       
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-2">
+                                                                                                <label for="bankaccount">Branch</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="text" class="form-control mb-3" id="bankaccount" formControlName="bankaccount" placeholder="Enter Branch"
+                                                                  
+                                                                                            [ngClass]="{ 'is-invalid': submitted && f.bankaccount.errors }"
+                                                                                                >
+                                                                                            <div *ngIf="submitted && f.bankaccount.errors" class="invalid-feedback">
+                                                                                            <div *ngIf="f.bankaccount.errors.required" style="color:red " >Branch Required</div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-2">
+                                                                                            <label for="IFSCCode">IFSCCode</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="text" class="form-control mb-3" id="IFSCCode" formControlName="IFSCCode" placeholder="Enter IFSCCode"
+                                                              
+                                                                                                [ngClass]="{ 'is-invalid': submitted && f.IFSCCode.errors }"
+                                                                                                    >
+                                                                                                <div *ngIf="submitted && f.IFSCCode.errors" class="invalid-feedback">
+                                                                                                <div *ngIf="f.IFSCCode.errors.required" style="color:red " >IFSCCode Required</div>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        <!-- <label for="panno">Pan No</label>
+                                                                             <input type="text" class="form-control mb-3" id="panno" formControlName="panno" placeholder="Enter Pan No"
+                                                                        
+                                                                            [ngClass]="{ 'is-invalid': submitted && f.panno.errors }"
+                                                                              >
+                                                                           <div *ngIf="submitted && f.panno.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.panno.errors.required" style="color:red " >Pan No Required</div>
+                                                                           </div>
+                                                                           <label for="pfaccountno">Account No</label>
+                                                                         <input type="text" class="form-control mb-3" id="pfaccountno" formControlName="pfaccountno" placeholder="Enter PF Account No"
+                                                                    
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.pfaccountno.errors }"
+                                                                          >
+                                                                       <div *ngIf="submitted && f.pfaccountno.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.pfaccountno.errors.required" style="color:red " >PF Account No Required</div>
+                                                                       </div>
+                                                                       <label for="bankaccount">Branch</label>
+                                                                       <input type="text" class="form-control mb-3" id="bankaccount" formControlName="bankaccount" placeholder="Enter Branch"
+                                                                  
+                                                                      [ngClass]="{ 'is-invalid': submitted && f.bankaccount.errors }"
+                                                                        >
+                                                                     <div *ngIf="submitted && f.bankaccount.errors" class="invalid-feedback">
+                                                                      <div *ngIf="f.bankaccount.errors.required" style="color:red " >Branch Required</div>
+                                                                     </div>
+
+                                                                                    </div>
+                                                                                     <div class="col-md-6">
+                                                                                        <label for="adharno">Adhar No</label>
+                                                                                        <input type="text" class="form-control mb-3" id="adharno" formControlName="adharno" placeholder="Enter Adhar No"
+                                                                                   
+                                                                                       [ngClass]="{ 'is-invalid': submitted && f.adharno.errors }"
+                                                                                         >
+                                                                                      <div *ngIf="submitted && f.adharno.errors" class="invalid-feedback">
+                                                                                       <div *ngIf="f.adharno.errors.required" style="color:red " >Adhar No Required</div>
+                                                                                      </div>
+                                                                                      <label for="bankname">Bank Name</label>
+                                                                       <input type="text" class="form-control mb-3" id="bankname" formControlName="bankname" placeholder="Enter Bank Name"
+                                                                  
+                                                                      [ngClass]="{ 'is-invalid': submitted && f.bankname.errors }"
+                                                                        >
+                                                                     <div *ngIf="submitted && f.bankname.errors" class="invalid-feedback">
+                                                                      <div *ngIf="f.bankname.errors.required" style="color:red " >Bank Name Required</div>
+                                                                     </div>
+                                                                                                                  
+
+                                                                   <label for="IFSCCode">IFSCCode</label>
+                                                                   <input type="text" class="form-control mb-3" id="IFSCCode" formControlName="IFSCCode" placeholder="Enter IFSCCode"
+                                                              
+                                                                  [ngClass]="{ 'is-invalid': submitted && f.IFSCCode.errors }"
+                                                                    >
+                                                                 <div *ngIf="submitted && f.IFSCCode.errors" class="invalid-feedback">
+                                                                  <div *ngIf="f.IFSCCode.errors.required" style="color:red " >IFSCCode Required</div>
+                                                                 </div>
+                                                                                        
+                                                                                    </div> -->
+                                                                                </div>
+                                                                                
+                                                                           
+                                                                         
+                                                                       
+                       
+                              
+                                                             
+                                                                     
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                    </div>
+                                                                       <div class="tab-pane fade" id="Contact" role="tabpanel" aria-labelledby="Contact-tab">
+                                                                <div class="row row-sm" style="margin-top: 12px;">
+                                                                    <div class="col-md-8">
+                                                                        <div class="card">
+                                                                            
+                                                                            <div class="card-body">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-12">
+                                                                                        
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-2">
+                                                                                                <label for="contact1">Contact1</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="number" class="form-control mb-3" id="contact1" formControlName="contact1" placeholder="Enter Contact1"
+                                                                                        
+                                                                                            [ngClass]="{ 'is-invalid': submitted && f.contact1.errors }"
+                                                                                            >
+                                                                                            <div *ngIf="submitted && f.contact1.errors" class="invalid-feedback">
+                                                                                                <div *ngIf="f.contact1.errors.required" style="color:red " >Contact1 Required</div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-2">
+                                                                                            <label for="contact2">Contact2</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="number" class="form-control mb-3" id="contact2" formControlName="contact2" placeholder="Enter Contact2"
+                                                                        
+                                                                                            [ngClass]="{ 'is-invalid': submitted && f.contact2.errors }"
+                                                                                            >
+                                                                                            <div *ngIf="submitted && f.contact2.errors" class="invalid-feedback">
+                                                                                                <div *ngIf="f.contact2.errors.required" style="color:red " >Contact2 Required</div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-2">
+                                                                                                <label for="emergencycontact">Emergency Contact</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="number" class="form-control mb-3" id="emergencycontact" formControlName="emergencycontact" placeholder="Enter Emergency Contact"
+                                                                        
+                                                                                            [ngClass]="{ 'is-invalid': submitted && f.emergencycontact.errors }"
+                                                                                            >
+                                                                                            <div *ngIf="submitted && f.emergencycontact.errors" class="invalid-feedback">
+                                                                                                <div *ngIf="f.emergencycontact.errors.required" style="color:red " >Emergency Contact Required</div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-2">
+                                                                                            <label for="email">Email</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="text" class="form-control mb-3" id="email" formControlName="email" placeholder="Enter Email"
+                                                                        
+                                                                                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                                                                            >
+                                                                                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                                                                                <div *ngIf="f.email.errors.required" style="color:red " >Email Required</div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-2">
+                                                                                                <label for="Notes1">Note</label></div>
+                                                                                        <div class="col-md-4">
+                                                                                            <textarea  class="form-control" rows="5" cols="5" formControlName="Notes1"></textarea>                    
+                                                                                        </div>
+                                                                                        </div>
+                                                                                        <!-- <label for="contact1">Contact1</label>
+                                                                                        <input type="number" class="form-control mb-3" id="contact1" formControlName="contact1" placeholder="Enter Contact1"
+                                                                                        
+                                                                                        [ngClass]="{ 'is-invalid': submitted && f.contact1.errors }"
+                                                                                        >
+                                                                                        <div *ngIf="submitted && f.contact1.errors" class="invalid-feedback">
+                                                                                            <div *ngIf="f.contact1.errors.required" style="color:red " >Contact1 Required</div>
+                                                                                        </div>
+                                                                                        <label for="emergencycontact">Emergency Contact</label>
+                                                                        <input type="number" class="form-control mb-3" id="emergencycontact" formControlName="emergencycontact" placeholder="Enter Emergency Contact"
+                                                                        
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.emergencycontact.errors }"
+                                                                        >
+                                                                        <div *ngIf="submitted && f.emergencycontact.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.emergencycontact.errors.required" style="color:red " >Emergency Contact Required</div>
+                                                                        </div>
+                                                                        <label for="Notes1">Note</label>
+                                                                        <textarea  class="form-control" rows="5" cols="5" formControlName="Notes1">
+            
+                                                                        </textarea>
+
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <label for="contact2">Contact2</label>
+                                                                        <input type="number" class="form-control mb-3" id="contact2" formControlName="contact2" placeholder="Enter Contact2"
+                                                                        
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.contact2.errors }"
+                                                                        >
+                                                                        <div *ngIf="submitted && f.contact2.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.contact2.errors.required" style="color:red " >Contact2 Required</div>
+                                                                        </div>
+                                                                        <label for="email">Email</label>
+                                                                        <input type="text" class="form-control mb-3" id="email" formControlName="email" placeholder="Enter Email"
+                                                                        
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                                                        >
+                                                                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.email.errors.required" style="color:red " >Email Required</div>
+                                                                        </div> -->
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>     
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                         </div>
+                                                                         <div class="tab-pane fade" id="Address" role="tabpanel" aria-labelledby="Address-tab">
+                                                                            <div class="row row-sm" style="margin-top: 12px;">
+                                                                                <div class="col-md-8">
+                                                                                    <div class="card">
+                                                                                        
+                                                                                        <div class="card-body">
+                                                                                            <div class="row">
+                                                                                                <div class="col-md-12">
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-md-2">
+                                                                                                            <label for="address1">Present Address</label></div>
+                                                                                                    <div class="col-md-4">
+                                                                                                        <textarea  class="form-control" rows="5" cols="5" formControlName="address1">  </textarea>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-2">
+                                                                                                        <label for="address2">Permanent Address</label></div>
+                                                                                                    <div class="col-md-4">
+                                                                                                        <textarea  class="form-control" rows="5" cols="5" formControlName="address2"> </textarea>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-md-2">
+                                                                                                            <label for="country">Country</label></div>
+                                                                                                    <div class="col-md-4" style="margin-top: 8px;">
+                                                                                                        <select id="drpEmpCountry"  class="js-example-basic-single"></select>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-2">
+                                                                                                        <label for="state">State</label></div>
+                                                                                                    <div class="col-md-4" style="margin-top:8px;">
+                                                                                                        <select   id="drpEmpState"  class="js-example-basic-single"> </select>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <div class="row" style="margin-top:8px;">
+                                                                                                        <div class="col-md-2">
+                                                                                                            <label for="city">City</label></div>
+                                                                                                    <div class="col-md-4">
+                                                                                                        <select id="drpEmpCity"   class="js-example-basic-single" > 
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-2">
+                                                                                                        <label for="pincode">pincode</label></div>
+                                                                                                    <div class="col-md-4">
+                                                                                                        <select id="pincode" class="form-control" formControlName="pincode">
+                                                                                                            <option value="500001">500001</option>
+                                                                                                            <option value="500002">500002</option>
+                                                                                                            <option value="500003">500003</option>
+                                                                                                            <option value="500004">500004</option>
+                                                                                                          </select>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <!-- <label for="address1">Present Address</label>
+                                                                                                    <textarea  class="form-control" rows="5" cols="5" formControlName="address1">  </textarea>
+                                                                                                    <label for="country">Country</label>
+                               
+                                                                 
+                                                                                            <select id="drpEmpCountry"  class="js-example-basic-single"></select>
+                                                                                          
+                                                                                          <div class="mb-3"></div>
+                                                                                          <label for="city">City</label>
+                                                                                            <select id="drpEmpCity"   class="js-example-basic-single" > 
+                                                                                             
+                                                                                           
+                                                                                           </select>
+                                                                                           <div class="mb-3"></div>
+
+                                                                                                </div>
+                                                                                                <div class="col-md-6">
+                                                                                                    <label for="address2">Permanent Address</label>
+                                                                                            <textarea  class="form-control" rows="5" cols="5" formControlName="address2"> </textarea>
+                                                                                            <label for="state">State</label>
+                                                                                            <select   id="drpEmpState"  class="js-example-basic-single"> </select>
+                                
+                                                                                            
+                                                                                            <div class="mb-3"></div>
+                                                                                            <label for="pincode">pincode</label>
+                                                                                            <select id="pincode" class="form-control" formControlName="pincode">
+                                                                                                <option value="500001">500001</option>
+                                                                                                <option value="500002">500002</option>
+                                                                                                <option value="500003">500003</option>
+                                                                                                <option value="500004">500004</option>
+                                                                                              </select> -->
+                                                                                                    
+                                                                                                </div>
+                                                                                            </div>
+                                                               
+                                                                                            
+                                                                                            
+                                
+                                                                                           
+                                                                                            
+                                                                                          
+
+                                                                                    <!-- <label for="Countryid">Country</label>
+                                                                                    <DropdownCountry    (CountryValueChange) ="CountryValueChange($event)"      [CountryId]="DisplayCountryId" [CountryName]="DispalyCountryName" ></DropdownCountry>
+                                                            
+                                                            
+                                                                                    <div class="mb-3"></div>
+                                                                                    <label for="State">State</label>
+                                                                                                    
+                                                 
+                                                                                    <DropdownState      (StateValueChange) ="StateValueChange($event)"    [CountryId]="SelectedCountryId"    [StateId]="DisplayStateId" [StateName]="DispalyStateName" ></DropdownState>
+                                                                                    <div class="mb-3"></div>
+                                                                                    <label for="City">City</label>
+                                                                                   
+                        
+                                                                                    <DropdownCity      (CityValueChange) ="CityValueChange($event)"     [StateId]="SelectedStateId"    [CityId]="DisplayCityId" [CityName]="DispalyCityName" ></DropdownCity>
+                                                                                    
+                                                                                    <div class="mb-3"></div>  -->
+                                                                                     
+                                                           
+
+                                                          
+                                                                                    
+                                                                                 
+                                                                                        </div>
+                                                                                        
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                                     </div>
+                                                                
+                                                           
+                                                        </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                             </div>  
+
+                                              
+                                               
+                                              
+                                        </div>
+                                
+                                    </div>
+                                </form>
+                                </main>
+
+                               
+                               

@@ -1,0 +1,149 @@
+<main class="main-content">
+    <div class="layoutactionbutton"     
+    >
+    <a class="actionbutton"
+    id="btnSearch"
+    data-toggle="modal"   data-target="#SearchModel"  data-backdrop="static" data-keyboard="false" 
+    href="javascript:void(0)" >
+          <i class="fa fa-search side-icons" style="
+          font-size: 40px; 
+          margin-top: 12px;
+      "></i>
+      </a>
+
+    <a class="actionbutton" (click)="OnAdd()" 
+    href="javascript:void(0)" id="product_edit_submit">
+          <i class="fa fa-file-text-o side-icons" style="
+          font-size: 40px;
+          margin-top: 12px;
+      "></i>
+      </a>
+    </div>
+  <form [formGroup]="Branches"
+  >
+
+  <div class="container">
+
+    Branches
+
+
+<!-- begin::page header -->
+<div class="page-header">
+<h3>Branches</h3>
+<nav aria-label="breadcrumb">
+   <ol class="breadcrumb">
+       <li class="breadcrumb-item">COMMON</li>
+       <li class="breadcrumb-item">Masters</li>
+       <li class="breadcrumb-item active" aria-current="page">Branches</li>
+   </ol>
+</nav>
+</div>
+<!-- end::page header -->
+
+<div class="row row-sm"></div>
+
+
+
+<div class="col-md-12">
+  
+
+   <div class="card">
+       <div class="card-body">
+           <h6 class="card-title">Branches</h6>
+          
+           <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+               <thead >
+               <tr>
+                   <th>#</th>
+                  <th>Code</th>
+                   <th>Name</th>
+                   <th>Contact No</th>
+                   <th></th>
+                  
+                   
+               </tr>
+               </thead>
+               <tbody>
+                   <tr *ngFor="let d of lstBranches;"> 
+                <td>{{d.SNO}}</td>
+                   <td>{{d.Code}}</td>
+                   <td>{{d.Name}}</td>
+                   <td>{{d.ContactNo}}</td>
+                   
+                   <td (click)="EditBranches(d)"><i style="float: right" class="ti-angle-right" (click)="EditBranches(d)"></i></td>
+               </tr>
+               </tbody>
+           </table>
+          
+       </div>
+   </div> 
+</div>
+<div class="col-md-4">
+    <div class="modal fade" id="SearchModel" tabindex="-1" role="dialog" aria-labelledby="SearchModelTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="SearchModelTitle">Search</h5>
+                        <p *ngIf="showError" style="float: right" ><font color="red">{{errormsg}}</font></p>
+                        <button type="button"  id="btnCloseDetailsItems" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                            <div class="col-md-12">
+                
+                                   <div class="card">
+                <div class="card-header">Search</div>
+                <div class="card-body">
+
+                   
+                            <div class="custom-control custom-switch" style="float:left">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="FilterTypeChange($event)">
+                                    <label class="custom-control-label" for="customSwitch">All Data</label>
+                                </div>
+
+                               
+
+                                <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="SerchTypeChange($event.target.checked)">
+                                        <label class="custom-control-label" for="customSwitch2_"> 
+                                            Like</label>
+                                    </div>
+                        
+
+                                 <div class="row  col-md-12">
+
+                                        <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                                <i class="ti-alert m-r-10"></i>If Like Off Search with  '='
+                                            </div>
+                                 </div>
+                    
+                                 <div class="form-group">
+                    <div class="input-group" *ngIf="FilterType=='All' && SerchType=='Like'">
+                        <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2"  data-dismiss="modal" (click)="SearchClick()">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+</div>
+
+</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</form>
+</main>
+

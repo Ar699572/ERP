@@ -1,0 +1,140 @@
+
+                                
+                              
+                        
+                                <main class="main-content">
+                                    <div class="layoutactionbutton"
+                                       
+                                    >
+
+                                    <a class="actionbutton"  (click)="Search()"
+                                    href="javascript:void(0)" id="product_edit_submit">
+                                          <i class="fa fa-search" style="
+                                          font-size: 40px;
+                                          margin-top: 12px;
+                                      "></i>
+                                      </a>
+
+
+                                    <a class="actionbutton" (click)="ClearViewData()"
+                                    href="javascript:void(0)" id="product_edit_submit">
+                                          <i class="fa fa-file-text-o" style="
+                                          font-size: 40px; 
+                                          margin-top: 12px;
+                                      "></i>
+                                      </a>
+                                        <a class="actionbutton" (click)="OnSave()"
+                                      href="javascript:void(0)" id="product_edit_submit">
+                                            <i class="fa fa-floppy-o"  style="
+                                            font-size: 40px; 
+                                            margin-top: 12px;
+                                        "></i>
+                                        </a>
+
+                                        <a class="actionbutton" (click)="OnDelete()"
+                                        href="javascript:void(0)" id="product_edit_submit">
+                                              <i class="fa fa-trash-o" style="
+                                              font-size: 40px;
+                                              margin-top: 12px;
+                                          "></i>
+                                          </a>
+
+
+                                      
+
+
+                                       
+                                    </div>
+                                    <form  [formGroup]="CreateLoginUser">
+                                           
+                              
+                                         <div class="container">
+                                           
+                                        <!-- begin::page header -->
+                                        <div class="page-header">
+                                            <h3>Create/Modify Login User</h3>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="#">Common</a></li>
+                                                    <li class="breadcrumb-item"><a href="#">Masters</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page">Create Login User</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                        <!-- end::page header -->
+                                
+                                        <div class="row row-sm">
+                                            
+                                              
+
+                                            <div class="col-md-6">
+                                                <div class="card">
+                                                    <div class="card-header">Overview</div>
+                                                    <div class="card-body">
+                                                        <div class="form-group">
+                                                            
+                                                        
+                                                            <label for="UserName">User Name</label>
+                                                            <input type="text" class="form-control" id="UserName" formControlName="UserName" placeholder="Enter User Name"
+                                                            
+                                                            [ngClass]="{ 'is-invalid': submitted && f.UserName.errors }"
+                                                            >
+                                                            <div *ngIf="submitted && f.UserName.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.UserName.errors.required" style="color:red " >User Name Required</div>
+                                                            </div>
+
+
+
+                                                            <label for="Password">Password</label>
+                                                            <input type="text" class="form-control" id="Password" formControlName="Password" placeholder="Enter Password"
+                                                            
+                                                            [ngClass]="{ 'is-invalid': submitted && f.Password.errors }"
+                                                            >
+                                                            <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.Password.errors.required" style="color:red " >Password Required</div>
+                                                            </div>
+
+
+
+
+                                                            <label for="UserType">User Type</label>
+                                                            
+
+
+
+                                                            <select class="form-control" id="UserType"  formControlName="UserType" [ngClass]="{ 'is-invalid': submitted && f.UserType.errors }">
+                                                                <option>Admin
+                                                                </option> 
+                                                                <option>User
+                                                                </option>
+                                                                
+                                                        
+                                                        
+                                                        
+                                                        </select>
+
+
+                                                            <div *ngIf="submitted && f.UserType.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.UserType.errors.required" style="color:red " >User Name Required</div>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+
+                                           
+
+                                              
+                                               
+                                              
+                                        </div>
+                                
+                                    </div>
+                                </form>
+                                </main>
+
+                               
+                               

@@ -1,0 +1,1954 @@
+
+                                
+                              
+                        
+                                <main class="main-content p-0">
+                                   
+                                    <form  [formGroup]="CreatePurchaseOrder" style="overflow-y: hidden;">
+                                         <div class="container-fluid d-print-none pl-0">
+                                        <div class="page-header">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <h3> Purchase Order </h3>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="#">Purchase</a></li>
+                                                    
+                                                    <li class="breadcrumb-item active" aria-current="page">Quotation</li>
+                                                </ol>
+                                            </nav>
+                                                </div>
+                                                <div class="col-md-4 text-right">
+                                                    <div class="arrow-pointer"><strong  style="padding: 4px; margin: 5px; display: inherit;margin-left: 10px;">RFQ</strong></div>
+                                                    <div class="arrow-pointer1"><strong style="padding: 4px; margin: 5px; display: inherit;margin-left: 25px;">Quotation</strong></div>
+                                                    <div class="arrow-pointer2"><strong style="padding: 4px; margin: 5px; display: inherit;margin-left: 25px;">Purchase Order</strong></div>
+                                                    <div class="arrow-pointer4"><strong style="padding: 4px; margin: 5px; display: inherit;margin-left: 25px;">MRN</strong></div>
+                                                    <div class="arrow-pointer3" style="background: #ababab !important;"><strong style="padding: 4px; margin: 5px; display: inherit;margin-left: 25px;">Purchase Invoice</strong></div>
+                                                </div>
+                                                <div class="col-md-6" style="padding-right: 0px;">
+                                                    <div class="row">
+                                                        <div class="col-md-12 text-right m-top-bot-auto" style="padding-right: 0px;">
+                                                            <button class="btn btn-warning" (click)="Search()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-bars" style="margin-top: -2px;margin-right: 9px;"></i> Overview</button>
+                                                            <button class="btn btn-warning" (click)="OnSave()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i> Save</button>
+
+                                                            <button class="btn btn-warning" (click)="OnPrint()"  data-toggle="modal"   data-target="#QuotationPrintId"  data-backdrop="static" style="margin-right: 10px;background: #e98102 !important; border: 1px solid #e78002 !important;color: white;"><i class="fa fa-print" style="margin-top: -2px;margin-right: 9px;"></i> Print</button>
+                                                            <div class="dropdown">
+                                                                <div class="btn btn-gray " data-toggle="dropdown" aria-expanded="false" style="margin-right: 10px;background: #0dbd6c !important; border: 1px solid #0dbd6c !important;color: white; ">
+                                                                    <i  class="fa fa-share-square-o" style="margin-top: -2px;margin-right: 9px;"></i> Export</div>
+                                                                <div  aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right" style="position: absolute; will-change: transform; width: 300px; margin: 9px -1px -1px; padding-top: 0px; border: none; top: 0px; left: -104px; transform: translate3d(-279px, 26px, 0px);">
+                                                                    <div class="row" style="background: #ececec;">
+                                                                        <div class="col-md-12">
+                                                                            <div class="card-header" style="background: #0dbd6c !important; color: white; font-size: 15px;padding: 5px 5px 5px 14px;">
+                                                                                Select Format
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4 m-top-bot-auto">
+                                                                            <p class="p-0" style="margin-left: 20px !important; margin-bottom: 4px;font-weight: 400; font-size: 15px;">Format  </p>
+                                                                        </div>
+                                                                        <div class="col-md-8 mb-3">
+                                                                            <div class="form-check form-check-inline" style="margin-top: 10px;">
+                                                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                                                <label class="form-check-label" for="inlineRadio1"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" style="width: 25px;"></label>
+                                                                            </div>
+                                                                            <div class="form-check form-check-inline" style="margin-top: 10px;">
+                                                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                                                <label class="form-check-label" for="inlineRadio1"><img src="https://cdn.iconscout.com/icon/free/png-512/microsoft-excel-4-722715.png" style="width: 25px;"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="col-md-12 text-right mb-3">
+                                                                            <button class="btn btn-success" style="margin-right: 15px;">Download</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="dropdown">
+                                                                <div class="btn btn-gray " data-toggle="dropdown" aria-expanded="false" style="margin-right: 10px;background: #93bd00; border-color: #93bd00;color: white; ">
+                                                                    <i  class="fa fa-whatsapp" style="margin-top: -2px;margin-right: 9px;"></i> Whatsapp</div>
+                                                                <div  aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right" style="position: absolute; will-change: transform; width: 300px; margin: 9px -1px -1px; padding-top: 0px; border: none; top: 0px; left: -104px; transform: translate3d(-279px, 26px, 0px);">
+                                                                    <div class="row" style="background: #ececec;">
+                                                                        <div class="col-md-12">
+                                                                            <div class="card-header" style="background: #93bd00 !important; color: white; font-size: 15px;padding: 5px 5px 5px 14px;">
+                                                                                Select Nubers To Whatsapp
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-check">
+                                                                                <p class="p-0" style="margin-left: 20px !important; margin-top: 10px;"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1" > Asif - 9849150150 </p>
+                                                                            </div>
+                                
+                                                                            <div class="form-check">
+                                                                                <p class="p-0" style="margin-left: 20px !important; margin-top: 10px;"> <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" > baba - 9849140140 </p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12 text-right mb-3">
+                                                                            <button class="btn btn-danger" style="margin-right: 8px;">Discard</button>
+                                                                            <button class="btn btn-warning" style="margin-right: 15px;">Send</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="dropdown">
+                                                                <div class="btn btn-gray " data-toggle="dropdown" aria-expanded="false" style="margin-right: 10px;background: #525050; border-color: #525050;color: white; ">
+                                                                    <i  class="fa fa-envelope" style="margin-top: -2px;margin-right: 9px;"></i> Mail</div>
+                                                                <div  aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right" style="position: absolute; will-change: transform; width: 470px; margin: 9px -1px -1px; padding-top: 0px; border: none; top: 0px; left: -104px; transform: translate3d(-279px, 26px, 0px);">
+                                                                    <div class="row" style="background: #ececec;">
+                                                                        <div class="col-md-12">
+                                                                            <div class="card-header" style="background: #525050 !important; color: white; font-size: 15px;padding: 5px 5px 5px 14px;">
+                                                                                Select Document Format & Email
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4 m-top-bot-auto">
+                                                                            <p class="p-0" style="margin-left: 20px !important; margin-top: 18px; margin-bottom: 4px;font-weight: 400; font-size: 15px;">Format  </p>
+                                                                        </div>
+                                                                        <div class="col-md-8">
+                                                                            <div class="form-check form-check-inline" style="margin-top: 10px;">
+                                                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                                                <label class="form-check-label" for="inlineRadio1"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" style="width: 25px;"></label>
+                                                                            </div>
+                                                                            <div class="form-check form-check-inline" style="margin-top: 10px;">
+                                                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                                                <label class="form-check-label" for="inlineRadio1"><img src="https://cdn.iconscout.com/icon/free/png-512/microsoft-excel-4-722715.png" style="width: 25px;"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4" >
+                                                                            <p class="p-0" style="margin-left: 20px !important; margin-top: 10px;font-weight: 400; font-size: 15px;">Select Email  </p>
+                                                                        </div>
+                                                                        <div class="col-md-8" >
+                                                                            <select class="form-control" style="width: 95%;background:none">
+                                                                                <option>mechknow@gmail.com</option>
+                                                                                <option>mechknow@gmail.com</option>
+                                                                                <option>mechknow@gmail.com</option>
+                                                                            </select>
+                                
+                                                                        </div>
+                                
+                                                                        <div class="col-md-4" >
+                                                                            <p class="p-0" style="margin-left: 20px !important; margin-top: 10px;">New Email  </p>
+                                                                        </div>
+                                                                        <div class="col-md-8" >
+                                                                            <input type="text" class="form-control" placeholder="Enter email" style="width: 95%;background:none">
+                                                                        </div>
+                                                                        <div class="col-md-12 text-right">
+                                                                            <button class="btn btn-danger" style="margin-right: 8px;">Dscard</button>
+                                                                            <button class="btn btn-warning" style="margin-right: 15px;">Send</button>
+                                                                        </div>
+                                                                        <div class="col-md-12 mb-3" >
+                                                                            <div class="form-check form-check-inline" style="margin-left: 20px !important; margin-top: 10px;">
+                                                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" >
+                                                                                <label class="form-check-label" for="inlineCheckbox1" style="font-family: 'Poppins'; font-weight: 400; color: #0c0c0c">Enter New Email.</label>
+                                                                            </div>
+                                                                        
+                                                                            <div class="form-check form-check-inline" style="margin-left: 20px !important; margin-top: 10px;" >
+                                                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2" >
+                                                                                <label class="form-check-label" for="inlineCheckbox1" style="font-family: 'Poppins'; font-weight: 400; color: #0c0c0c">Existing Email.</label>
+                                                                            </div>
+                                                                        </div>
+                                
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button  class="btn btn-danger " (click)="OnDelete()" style="margin-right: 34px;"><i  class="fa fa-trash" style="margin-top: -2px;margin-right: 9px;"></i> Delete</button>
+                                                        
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row row-sm">
+                                            
+                                              
+
+                                            <div class="col-md-10">
+                                                <div class="card">
+                                                  
+                                                    <div class="card-body">
+                                                        <div >
+                                                            
+                                                            <div class="tab-content" id="VendorTabContent">
+                                                                <div class="tab-pane fade active show" id="Overview" role="tabpanel" aria-labelledby="Overview-tab">
+                                                                    <div class="row row-sm" style="margin-top: 12px;">
+                                                                        <div class="col-md-12">
+                                                                         
+                                                                                    <div class="row">
+                                                                                  
+                                                                                <div class="col-md-6  mb-3">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-2 m-top-bot-auto">
+                                                                                            <label class="p-0 m-0" for="Vendor" id="PartyId">Vendor</label>
+                                                                                        </div>
+                                                                                        <div class="col-md-8 mb-3" style="padding-right: 0px;">
+                                                                                            <div  class="input-group clockpicker-minutes-demo">
+                                                                                                <dropdown-number-sequence formControlName='SequenceNumberId' hidden  
+                                                                                                (NumberSequenceValueChange) ="NumberSequenceValueChange($event)"   
+                                                                                                 [SequenceNumberId]="DisplaySequenceNumberId" [FormName]="DispalyFormName">
+                                                                                                </dropdown-number-sequence>
+                                                                                                <DropdownVendor   (VendorValueChange) ="VendorValueChange($event)"  
+                                                                                                [VendorId]="DisplayVendorId" [Vendorname]="DispalyVendorName" style="width: 100%;">
+                                                                                            </DropdownVendor>
+                                                                                            
+                                                                                            </div>
+                                                                                                <div *ngIf="submitted && f.PartyId.errors" style="font-size: 80%;">
+                                                                                                    <div *ngIf="f.PartyId.errors.required " style="color:red " >Vendor Required</div>
+                                                                                                    <div *ngIf="f.PartyId.errors.min" style="color:red " >Vendor Required</div>
+                                                                                                </div>
+                                                                                        </div>
+    
+                                                                                        <div class="col-md-1 p-0">
+                                                                                            <div  class="dropdown">
+                                                                                                <a  aria-expanded="false" class="btn btn-gray btn-floating btn-icon btn-sm waves-effect waves-button waves-light" data-toggle="dropdown" href="#" style="padding: 11px; height: 39px; width: 38px; margin-left: -2px; border-radius: 0px 5px 5px 0px;">
+                                                                                                    <i  aria-hidden="true" class="fa fa-ellipsis-v" style="color: white !important;font-size: 19px;"></i></a>
+                                                                                                <div class="dropdown-menu dropdown-menu-right" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 24px, 0px);" x-placement="bottom-end">
+                                                                                                <button  class="dropdown-item font-size-15" data-target="#newRefill" data-toggle="modal" type="button" autocomplete="off">Vendor Central<i  aria-hidden="true" class="fa fa-plus" style="float: right;"></i></button>
+                                                                                                <!-- <button class="dropdown-item font-size-15" data-target="#DetailsId" data-toggle="modal" type="button" autocomplete="off">Account Ledger<i  aria-hidden="true" class="fa fa-pencil" style="float: right;"></i></button>
+                                                                                                <button  class="dropdown-item font-size-15" data-target="#adjust" data-toggle="modal" type="button" autocomplete="off">Vendor Master<i  aria-hidden="true" class="fa fa-file" style="float: right;"></i></button> -->
+                                                                                                <button  class="dropdown-item font-size-15" (click)="OpenAccountLedger()" data-toggle="modal" type="button" autocomplete="off">Account Ledger<i  aria-hidden="true" class="fa fa-file" style="float: right;"></i></button>
+                                                                                                <button  class="dropdown-item font-size-15" (click)="VendorMaster()" data-toggle="modal" type="button" autocomplete="off">Vendor Master<i  aria-hidden="true" class="fa fa-file" style="float: right;"></i></button>
+                                                                                              
+                                                                                            </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-1 p-0 text-right">
+                                                                                            <div  >
+                                                                                                <a  aria-expanded="false" class="btn btn-warning btn-floating btn-icon btn-sm waves-effect waves-button waves-light" data-toggle="modal"  *ngIf="f.PartyId.value<=0" data-target="#ModelPartyId" href="#" style="border-radius: 0px;padding: 11px;height: 36px; width: 36px;">
+                                                                                                    <i  aria-hidden="true" class="fa fa-plus" style="color: #000 !important; font-size: 19px; vertical-align: baseline; margin-top: -3px;"></i></a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                            <div class="col-md-2 m-top-bot-auto">
+                                                                                <label class="m-0 p-0">Reference</label>
+                                                                            </div>
+                                                                            <div class="col-md-4  mb-3">
+                                                                                <input type="text" class="form-control"  formControlName="Vendorreference" placeholder="Vendor Reference">
+                                                                            </div>
+                                                                            <div class="col-md-1 mb-3" style="margin-top: auto;">
+                                                                                <i class="fa fa-external-link" data-target="#ReferenceDoc" data-toggle="modal" style="font-size: 20px; color: #8c8c8c; vertical-align: middle; cursor: pointer; margin-bottom: -4px;" ></i>
+                                                                            </div>
+                                                                            <div class="col-md-5 mb-3">
+                                                                                <input type="date" class="form-control" formControlName="vdate" placeholder="Vendor Reference">
+                                                                            </div>
+                                                                           
+                                                                            <div class="col-md-2 m-top-bot-auto">
+                                                                                <label class="m-0 p-0">Incoterms</label>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <select class="form-control" formControlName="Incoterms">
+                                                                                    <option>Ex-Works</option>
+                                                                                    <option>Free On Board</option>
+                                                                                    <option>Cost and Frieght</option>
+                                                                                    <option>Cost, Insurance and Frieght</option>
+                                                                                    <option>Carriage Paid To</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                            <div class="col-md-1 m-top-bot-auto">
+                                                                                <label class="m-0 p-0">Currency</label>
+                                                                            </div>
+                                                                            <div class="col-md-5 mb-3">
+                                                                                <input type="text" class="form-control" readonly>
+                                                                            </div>
+
+                                                                            <div class="col-md-2 m-top-bot-auto">
+                                                                                <label class="m-0 p-0">Ship To</label>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control" readonly>
+                                                                            </div>
+                                                                            
+                                                                            <div class="col-md-1 m-top-bot-auto">
+                                                                                <label class="m-0 p-0">Ship Via</label>
+                                                                            </div>
+                                                                            <div class="col-md-5">
+                                                                                <select class="form-control">
+                                                                                    <option>DHL</option>
+                                                                                    <option>Blue Dart</option>
+                                                                                    <option>DTDC</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                        </div>
+                                                                            </div>
+                                                                            
+                                                                            <div class="col-md-3">
+                                                                                <div class="row">
+                                                                                    <div class="col-md-5 m-top-bot-auto">
+                                                                                        <label class="p-0 m-0">Purchase Type</label>
+                                                                                    </div>
+                                                                                    <div class="col-md-7 mb-3">
+                                                                                        <select class="form-control"  formControlName="PurchaseType">
+                                                                                            <option value="Invoice">Registered Business</option>
+                                                                                            <option value="Unregistered Business">Unregistered Business</option>
+                                                                                            <option value="Import">Overseas</option>
+                                                                                            <option value="Warranty">Warranty</option>
+
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="col-md-5 m-top-bot-auto">
+                                                                                        <label class="m-0 p-0">Payment Terms</label>
+                                                                                    </div>
+                                                                                    <div class="col-md-7 mb-3">
+                                                                                        <select class="form-control" formControlName="PaymentTerms">
+                                                                                            <option>15 Days</option>
+                                                                                            <option>30 Days</option>
+                                                                                            <option>45 Days</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="col-md-5 m-top-bot-auto">
+                                                                                        <label class="m-0 p-0">Purchase Representative</label>
+                                                                                    </div>
+                                                                                    <div class="col-md-7">
+                                                                                        <select class="form-control" formControlName="PurchaseRepresentative">
+                                                                                            <option>Representative 1</option>
+                                                                                            <option>Representative 2</option>
+                                                                                            <option>Representative 3</option>
+                                                                                        </select>
+                                                                                    </div>
+
+                                                                                    
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-3 text-right" >
+                                                                                <div class="row">
+                                                                                    <div class="col-md-2">
+                                                                                        <button class="btn btn-warning" hidden>Create
+                                                                                            Quotation</button>
+                                                                                    </div>
+                                                                                    <div class="col-md-9 text-center mb-3"style="background: #1f1a17;color: white;margin-left: 15px;
+                                                                                    border-radius: 6px;">
+                                                                                        <h3 style="margin-top: 9px">{{Invoiceno}}</h3>
+                                                                                    </div>
+                                                                                    <div class="col-md-5 m-top-bot-auto"><label class="p-0 m-0" for="Date">Date</label> </div>
+                                                                                    <div class="col-md-7 pl-0">
+                                                                                        <input type="text" class="form-control mb-3"  name="single-date-picker"  id="TransactionDate"
+                                                                                        placeholder="Enter Date" (change)="QuotDateChange($event)"
+                                                                                       [ngClass]="{ 'is-invalid': submitted && f.TransactionDate.errors }"
+                                                                                       >
+                                                                                       <div *ngIf="submitted && f.TransactionDate.errors" class="invalid-feedback">
+                                                                                           <div *ngIf="f.TransactionDate.errors.required" style="color:red " >Date Required</div>
+                                                                                       </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-md-5 m-top-bot-auto"><label class="p-0 m-0" for="RequiredDate">Required Date</label></div>
+                                                                                <div class="col-md-7 pl-0">
+                                                                                    <input type="text"    name="single-date-picker"  class="form-control" id="RequiredDate"  placeholder="Enter required"
+                                                                                    [ngClass]="{ 'is-invalid': submitted && f.RequiredDate.errors }"
+                                                                                    >
+                                                                                    <div *ngIf="submitted && f.RequiredDate.errors" class="invalid-feedback">
+                                                                                        <div *ngIf="f.RequiredDate.errors.required" style="color:red " >Date Required</div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        <!-- <div class="col-md-6">
+                                                                            <div class="row">
+                                                                                <div class="col-md-3 m-top-bot-auto"><label class="p-0 m-0" for="Address">Bill To</label></div>
+                                                                                <div class="col-md-9">
+                                                                                    <input type="text" class="form-control" formControlName="Billto">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div> -->
+
+                                                                        
+                                                                       
+
+                                                                        
+                                                                        <!-- <div class="col-md-6">
+                                                                            <label class="p-0 m-0" for="Contact">Currency</label>
+                                                                            <select class="mb-3 form-control" formControlName="CurrencyId">
+                                                                                <option *ngFor="let d of lstCurrencies" value="{{d.CurrencyId}}"  
+                                                                                
+                                                                                [attr.selected]="d.CurrencyId == f.CurrencyId.value ? true : null"
+                                                                                 >{{d.currencyname}}</option>
+                                                                            </select>
+                                                                             <div *ngIf="f.CurrencyId.value!=APICall.GetCurrencyId()">
+                                                                            <label class="p-0 m-0" for="Contact">Exchange Rate</label>
+                                                                            <input type="number"   class="form-control" id="RequiredDate" formControlName="ExchangeRate"  placeholder="Enter Exchange Rate" (change)="ExchangeRateChange($event.target)">
+                                                                        </div>
+                                                                        </div> -->
+
+                                                                                </div>
+                                                                            
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+
+                                                              
+
+                                                                <div class="tab-pane fade" id="Payment" role="tabpanel" aria-labelledby="Payment-tab">
+                                                                    <div class="row row-sm" style="margin-top: 12px;">
+                                                                        <div class="col-md-12">
+                                                                            
+                                                                             <!--  
+                                                                                    <label class="p-0 m-0" for="Payment">Payment Terms</label>
+                                                                                    <div class="col-md-6" style="padding-left: 0px;">
+                                                                                <select id="Payment" class="form-control"
+                                                                                
+                                                                                
+                                                                                (change)="PaymentTermsChange($event.target)" >
+                                                                                <option value="">Select </option>
+                                                                                <option  *ngFor="let d of lstPaymentTerms"
+                                                                                [attr.selected]="(d.TermsId==f.PaymentTerms.value) ? 'selected' : null"
+                                                                                
+                                                                                [value]="d.TermsId">{{d.termname}}</option>
+                                                                               
+                                                                                 </select>
+                                                                                </div> 
+                                                                                
+                                                                                   <br> -->
+                                                                                   <div class ="col-md-12" *ngIf="!termValiidate" style="float: left;font-size: 80%">
+                                                                                    <div  style="color:red ;" >Fill all the Details</div>
+                                                                                    
+                                                                                </div> 
+                                                                                   <a class="actionbutton"
+                                                                                   (click)="AddTerms()"
+                                                                                    data-backdrop="static"
+                                                                                    data-keyboard="false"
+                                                                                    data-target="#"
+                                                                                    data-toggle="modal"
+                                                                                    href="javascript:void(0)"
+                                                                                    id="Details"
+                                                                                    style="width: 40px; height: 40px; float: right; margin-left: 5px;">
+                                                                                    <i  class="fa fa-plus" style="font-size: 20px; margin-top: 10px;"></i>
+                                                                                </a>
+
+                                                                                  <table class="table table-bordered table-striped table-responsive-stack m-0" id="tableOne">
+                                                                                    <thead >
+                                                                                    <tr>
+                                                                                        <th style="width:4%;">#</th>
+                                                                                        <th style="width:25%;">Term Name</th>
+                                                                                        <th style="width:15%;">Pay %</th>
+                                                                                        <th style="width:15%;">Amount</th>
+                                                                                        <th style="width:9%;">Action</th>
+                                                                                       
+                                                                                         <th style="width:30%;">
+                                                                                        
+                                                                                        </th> 
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr  *ngFor="let d of lstTermsChild;let indx=index"> 
+                                                                                            <td style="width:4%;">{{indx+1}}</td>
+                                                                                        <td style="width:25%;"><input type="text" class="form-control" value="{{d.PayName}}" (change)="PayNameChange($event.target,indx)"> </td>
+                                                                                        <td style="width:15%;"><input type="number" class="form-control"  id="PayPercentage" value="{{d.PayPercentage}}" (change)="PayPercentageChange($event.target,indx)" max="100"  > </td>
+                                                                                        <td style="width:15%;">{{d.Amount|currency:'INR' }}</td>
+                                                                                       
+                                                                                        <td style="width:9%;" (click)="RemoveTerm(indx)"><i class="ti-trash"></i></td>
+                                                                                        <td style="width:30%;"></td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                               
+                                                                               
+                                                                                
+                                                                          
+                                                                            
+                                                                              
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+
+                                            <div class="col-md-2 pl-0">
+                                                <!-- <div class="card"> -->
+                                                    <!-- <div class="card-header" >
+                                                        <div class="row">
+                                                        <div class ="col-md-3" style="font-size: large;">
+                                                            <label class="p-0 m-0" >Quotation:</label>  
+                                                        </div>
+
+                                                        <div class ="col-md-9" style="font-size: large;">  
+                                                            <label class="p-0 m-0" >{{f.TransactionNo.value}}</label>  
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+                                                   
+                                                    <!-- <div class="card-body"> -->
+                                                        <!-- <label class="p-0 m-0" for="SequenceNumberId">VoucherNo Type</label>
+                                                        <dropdown-number-sequence formControlName='SequenceNumberId'   (NumberSequenceValueChange) ="NumberSequenceValueChange($event)"    [SequenceNumberId]="DisplaySequenceNumberId" [FormName]="DispalyFormName" 
+                                                        ></dropdown-number-sequence> -->
+                                                                            <!-- <label class="p-0 m-0" for="Date">Date</label> 
+                                                                            <input type="text" class="form-control mb-3"  name="single-date-picker"  id="TransactionDate"
+                                                                             placeholder="Enter Date" (change)="QuotDateChange($event)"
+                                                                            [ngClass]="{ 'is-invalid': submitted && f.TransactionDate.errors }"
+                                                                            >
+                                                                            <div *ngIf="submitted && f.TransactionDate.errors" class="invalid-feedback">
+                                                                                <div *ngIf="f.TransactionDate.errors.required" style="color:red " >Date Required</div>
+                                                                            </div> -->
+                                                                            <!-- <label class="p-0 m-0" for="Time">Time</label>
+
+                                                                            <div class="input-group clockpicker-autoclose-demo">
+                                                                                <div class="input-group-prepend">
+                                                                            <span class="input-group-text">
+                                                                                <i class="fa fa-clock-o"></i>
+                                                                            </span>
+                                                                                </div>
+                                                                                <input type="text" class="form-control"  id="TransactionTime"
+                                                                                
+                                                                                [ngClass]="{ 'is-invalid': submitted && f.TransactionTime.errors }"
+                                                                                >
+                                                                            <div *ngIf="submitted && f.TransactionTime.errors" class="invalid-feedback">
+                                                                                <div *ngIf="f.TransactionTime.errors.required" style="color:red " >Time Required</div>
+                                                                            </div>
+                                                                            </div> -->
+
+                                                                            
+                                                                         
+                                                                           <!-- <br> -->
+                                                                               
+                                                                                 <!-- <input type="checkbox" style="width:15px; height:15px;" >
+                                                                                 <label class="p-0 m-0" for="Inclusive">Inclusive Tax</label>
+                                                                                 -->
+
+                                                           
+                                                    <!-- </div> -->
+
+                                                    
+                                                <!-- </div> -->
+                                                <div class="card">
+                                                    <div class="card-header"  style="font-size: large;">Summary</div>
+                                
+                                                    <div class="card-body pb-4" style="padding-top: 13px !important;">
+                                                        <div class="row">
+                                                            <div class ="col-md-12">
+                                                                
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <label for="Gross" class="m-0"><strong class="f-15">Gross  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <span><strong class="f-15">{{TotalGross}}</strong></span>
+                                                                    </div>
+                                
+                                                                    <div class="col-md-6">
+                                                                        <label for="Gross" class="m-0"><strong class="f-15">Discount  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <span><strong class="f-15">{{TotalDiscount}}</strong></span>
+                                                                    </div>
+                                
+                                                                    <div class="col-md-6">
+                                                                        <label for="Gross" class="m-0"><strong class="f-15">Charges  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <span><strong class="f-15">{{TotalCharges}}</strong></span>
+                                                                    </div>
+                                
+                                                                    <div class="col-md-6">
+                                                                        <label for="Gross" class="m-0"><strong class="f-15">GST  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <span><strong class="f-15">{{TotalTax}}</strong></span>
+                                                                    </div>
+                                
+                                                                </div> 
+                                                            </div>
+                                
+                                                            <div class ="col-md-12 text-center" >
+                                                                <label for="Total" class="f-33 f-w-900 m-0" style="font-family: revert;">{{Total|currency:'INR' }}</label>  
+                                                            </div>
+                                
+                                                           
+                                                            <div class ="col-md-12" *ngIf="submitted && Total<1" style="font-size: 80%;">
+                                                                <div  style="color:red ;font-size: 80%;" >Invalid  Amount to Save</div>
+                                                               
+                                                            </div>
+                                </div>
+                                                    </div>
+                                
+                                
+                                                </div>
+
+                                             </div>
+
+                                            <div class="col-md-10">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div >
+                                                            <div class="row">
+                                                                <div class="col-md-8">
+                                                                    <ul class="nav nav-tabs" id="ProductTab" role="tablist">
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link active" id="Details-tab" data-toggle="tab" href="#Details" role="tab" aria-controls="Price" aria-selected="true">Products</a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link" id="Discount-tab" data-toggle="tab" href="#Discount" role="tab" aria-controls="Discount" aria-selected="false"> Discount</a>
+                                                                        </li>
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link" id="Income-tab" data-toggle="tab" href="#Income" role="tab" aria-controls="Income" aria-selected="false">Tax</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="row">
+                                                                        <div class="col-md-3 text-center">
+                                                                            <button class="btn btn-warning" data-toggle="modal"   data-target="#DetailsId"  data-backdrop="static" data-keyboard="false" (click)="OnAdd()">
+                                                                                <i  class="fa fa-plus" style="margin-top: -2px;margin-right: 9px;"></i> Add</button>
+                                                                        </div>
+
+                                                                        <div class="col-md-9">
+                                                                            <div class="input-group" *ngIf="FilterType=='All'" >
+                                                                                <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                                                <div class="input-group-append">
+                                                                                    <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="GetSearchDetails()">
+                                                                                        <i class="fa fa-search"></i>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                           
+
+                                                            <div class="tab-content" id="ProductTabContent">
+                                                                <div class="tab-pane fade active show" id="Details" role="tabpanel" aria-labelledby="Details-tab">
+                                                                        <div class="row row-sm" style="margin-top: 12px;">
+                                                                                <div class="col-md-12">
+                                                                     
+
+                                                                            <div class ="col-md-12" *ngIf="submitted && lstOrderItems.length==0" style="float: left;font-size: 80%">
+                                                                                <div  style="color:red ;" >Add atleast one product to save</div>
+                                                                                
+                                                                            </div> 
+                                                                            <!-- <a class="actionbutton" style="width:40px;height: 40px; float: right;margin-left: 5px;" 
+                                                                                            
+                                                                                    data-toggle="modal"   data-target="#DetailsId"  data-backdrop="static" data-keyboard="false" (click)="OnAdd()"
+                                                            href="javascript:void(0)" id="Details">
+                                                            
+                                                                  <i class="fa fa-plus"  style="
+                                                                  font-size: 20px;
+                                                                  margin-top: 10px;
+                                                              "></i>
+                                                              </a>
+
+
+                                                              <a class="actionbutton" style="width:40px;height: 40px; float: right" 
+                                                                                            
+                                                                                    data-toggle="modal"   data-target="#ItemDetailsSearch"  data-backdrop="static" data-keyboard="false" 
+                                                                                    
+                                                                                    
+                                                            href="javascript:void(0)" id="ISearch">
+                                                            
+                                                                  <i class="fa fa-search" style="
+                                                                  font-size: 20px;
+                                                                  margin-top: 10px;
+                                                              "></i>
+                                                              </a> -->
+
+                                                              
+                                                                         
+                                                                            <!-- <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                                                                <thead >
+                                                                                <tr>
+                                                                                    <th style="width:4%;">#</th>
+                                                                                    <th style="width:10%;">Partno</th>
+                                                                                    <th style="width:16%;">Description</th>
+                                                                                    <th style="width:10%;">Make</th>
+                                                                                    <th style="width:6%;">UOM</th>
+                                                                                    <th style="width:5%;">Qty</th>
+                                                                                    <th style="width:8%;">Rate</th>
+                                                                                    <th style="width:5%;">Currency Rate</th>
+                                                                                    <th style="width:8%;">Gross</th>
+                                                                                    <th style="width:8%;">Discount</th>
+                                                                                    <th style="width:8%;">Tax</th>
+                                                                                    <th style="width:8%;">Net</th>
+                                                                                    <th style="width:4%;"></th>
+                                                                                </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr  *ngFor="let d of lstQuotationItems;"> 
+                                                                                        <td style="width:4%;" *ngIf="d.Show=='true'" >{{d.SNO}}</td>
+                                                                                        <td  style="width:10%;" *ngIf="d.Show=='true'" >{{d.Partno}}</td>
+                                                                                        <td  style="width:16%;" *ngIf="d.Show=='true'" >{{d.Description}}</td>
+                                                                                        <td  style="width:10%;" *ngIf="d.Show=='true'" >{{d.Make}}</td>
+                                                                                        <td  style="width:6%;" *ngIf="d.Show=='true'" >{{d.UOM}}</td>
+                                                                                        <td style="width:5%;" *ngIf="d.Show=='true'" >{{d.Qty}}</td>
+                                                                                        <td style="width:8%;" *ngIf="d.Show=='true'" >{{d.Rate}}</td>
+                                                                                        <td style="width:5%;" *ngIf="d.Show=='true'" >{{d.CurrencyRate}}</td>
+                                                                                        <td style="width:8%;" *ngIf="d.Show=='true'" >{{d.Gross}}</td>
+                                                                                        <td style="width:8%;" *ngIf="d.Show=='true'" >{{d.DiscountAmount}}</td>
+                                                                                        <td style="width:8%;" *ngIf="d.Show=='true'" >{{d.TotalTax}}</td>
+                                                                                        <td  style="width:8%;" *ngIf="d.Show=='true'" >{{d.NetTotal}}</td> 
+                                                                                        <td  style="width:4%;" *ngIf="d.Show=='true'"  data-toggle="modal"   data-target="#DetailsId"  data-backdrop="static" data-keyboard="false"  (click)="EditItemClick(d)"><i style="float: right" class="ti-angle-right"
+                                                                                            data-toggle="modal"   data-target="#DetailsId"  data-backdrop="static" data-keyboard="false" 
+                                                                                            (click)="EditItemClick(d)"></i></td>
+                                                                                </tr>
+                                                                                </tbody>
+                                                                            </table> -->
+
+                                                                            <div class="dataTables_scroll" #epltable>
+                                                                                <div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;">
+                                                                                    <div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width:100%; padding-right: 17px;">
+                                                                                        <table class="table table-striped table-bordered dataTable m-0" role="grid" style="margin-left: 0px;width: 100%;margin-bottom: 0px;">
+                                                                                            <thead>
+                                                                                                <tr>
+                                                                                                    <th style="width:4%; text-align: center !important;">#</th>
+                                                                                                    <th style="width:13%;text-align: left !important;">Part No</th>
+                                                                                                    <th style="width:14%;text-align: left !important;">Description</th>
+                                                                                                    <th style="width:10%;text-align: center !important;">Make</th>
+                                                                                                    <!-- <th style="width:6%;text-align: center !important;">UOM</th> -->
+                                                                                                    <th style="width:5%;text-align: center !important;">Qty</th>
+                                                                                                    <th style="width:8%;text-align: center !important;">Unit Price</th>
+                                                                                                    <!-- <th style="width:5%;">Currency Rate</th> -->
+                                                                                                    <th style="width:8%;text-align: center !important;">Gross</th>
+                                                                                                    <th style="width:8%;text-align: center !important;">Discount</th>
+                                                                                                    <th style="width:8%;text-align: center !important;">Tax</th>
+                                                                                                    <th style="width:11%;text-align: center !important;">Sub Total</th>
+                                                                                                    <th style="width:7%;text-align: center !important;">Lead Time</th>
+                                                                                                    <th style="width:4%;text-align: center !important;"></th>
+                                                                                                </tr>
+                                                                                            </thead>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="dataTables_scrollBody" style="position: relative; overflow: auto; max-height: 690px; width: 100%;display: inline !important;">
+                                                                                    <table id="example2" class="table table-striped table-bordered dataTable m-0" role="grid" aria-describedby="example2_info" style="width: 100%;">
+                                                                                 
+                                                                                        
+                                                                                        <tbody>
+                                                                                            <tr  *ngFor="let d of lstOrderItems; let i=index"> 
+                                                                                                <td style="width:4%;text-align: center !important;" *ngIf="d.Show=='true'" >{{d.SNO}}</td>
+                                                                                                <td style="width:13%;" *ngIf="d.Show=='true'" >{{d.Partno}}</td>
+                                                                                                <td style="width:14%;" *ngIf="d.Show=='true'" >{{d.Description}}</td>
+                                                                                                <td style="width:10%;text-align:center;" *ngIf="d.Show=='true'" >{{d.Make}}</td>
+                                                                                                <!-- <td style="width:6%;" *ngIf="d.Show=='true'" >{{d.UOM}}</td> -->
+                                                                                                <td style="width:5%;text-align: center !important;" *ngIf="d.Show=='true'" >{{d.Qty}}</td>
+                                                                                                <td style="width:8%;text-align: right !important" *ngIf="d.Show=='true'" >{{d.Rate}}</td>
+                                                                                                <!-- <td style="width:5%;" *ngIf="d.Show=='true'" >{{d.CurrencyRate}}</td> -->
+                                                                                                <td style="width:8%;text-align: right !important" *ngIf="d.Show=='true'" >{{d.Gross.toFixed(2)}}</td>
+                                                                                                <td style="width:8%;text-align: right !important" *ngIf="d.Show=='true'" >{{d.DiscountAmount}}</td>
+                                                                                                <td style="width:8%;text-align: right !important" *ngIf="d.Show=='true'" >{{d.TotalTax}}</td>
+                                                                                                <td style="width:11%;text-align: right !important" *ngIf="d.Show=='true'" >{{d.NetTotal}}</td> 
+                                                                                                <td style="width:7%;text-align: center !important" *ngIf="d.Show=='true'" >10 hrs</td> 
+
+                                                                                                <td style="width:4%;text-align: center;" *ngIf="d.Show=='true'"  data-toggle="modal"   data-target="#DetailsId"  data-backdrop="static" data-keyboard="false"  (click)="EditItemClick(d)">
+                                                                                                    <!-- <i  class="fa fa-pencil" data-toggle="modal"   data-target="#DetailsId"  data-backdrop="static" data-keyboard="false" 
+                                                                                                    (click)="EditItemClick(d)" style="cursor:pointer"></i> -->
+                                                                                                    <div class="dropdown">
+                                                                                                        <div class="btn btn-gray btn-floating btn-icon btn-sm waves-effect waves-button waves-light" data-toggle="dropdown" aria-expanded="false"><i class="ti-more-alt" style="color: white;"></i></div>
+                                                                                                        <div 
+                                                                                                            class="dropdown-menu dropdown-menu-right"
+                                                                                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 26px, 0px);">
+                                                                                                            <a class="dropdown-item">Item Central</a>
+                                                                                                            <a class="dropdown-item" data-toggle="modal"   data-target="#DetailsId" (click)="EditItemClick(d)">Edit</a>
+                                                                                                            <a class="dropdown-item">Item Mastrer</a>
+                                                                                                            <a class="dropdown-item" (click)="RemoveRecord(i)">Delete</a>
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    
+                                                                                                </td>
+                                                                                        </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                                
+                                                                            </div>
+                                                                        
+                                                                      
+
+
+
+                                                                 
+                                                                    
+                                                                </div> 
+                                                                    
+                                                                </div> 
+                                                                </div>
+                                                                <div class="tab-pane fade" id="Discount" role="tabpanel" aria-labelledby="Discount-tab">
+
+
+                                                                    <div class="row row-sm" style="margin-top: 12px;">
+                                                                        <div class="container">
+
+                                                                             
+                                                                                        
+                                                                                      <div class="row col-md-12">
+                                                                                        
+                                                                                            <table class="table table-bordered table-striped table-responsive-stack m-0" id="tableOne">
+                                                                                                <thead >
+                                                                                                <tr>
+                                                                                                    <th  style="width:4%;">#</th>
+                                                                                                    <th  style="width:20%;">Part No</th>
+                                                                                                    <th  style="width:30%;">Description</th>
+                                                                                                    <th  style="width:10%;">Qty</th>
+                                                                                                    <th  style="width:16%;">Gross</th>
+                                                                                                    <th  style="width:10%;">Discount %</th>
+                                                                                                    <th  style="width:10%;">Discount Amount</th>
+                                                                                                     
+                                                                                                </tr>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <tr   *ngFor="let d of lstOrderItems;"> 
+                                                                                                        <td  style="width:4%;" *ngIf="d.Show=='true'" >{{d.SNO}}</td>
+                                                                                                        <td  style="width:20%;" *ngIf="d.Show=='true'" >{{d.Partno}}</td>
+                                                                                                        <td  style="width:30%;" *ngIf="d.Show=='true'" >{{d.Description}}</td>
+                                                                                                        <td style="width:10%;"  *ngIf="d.Show=='true'" >{{d.Qty}}</td>
+                                                                                                        <td  style="width:16%;" *ngIf="d.Show=='true'" >{{d.Gross}}</td>
+                                                                                                        <td   style="width:10%;" *ngIf="d.Show=='true'" >{{d.DiscountPercentage}}</td>  
+                                                                                                        <td  style="width:10%;" *ngIf="d.Show=='true'" >{{d.DiscountAmount}}</td>
+                                                                                                       
+                                                                                                </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                      </div>
+
+                                                                                 
+                                                                            </div>
+                                                                            
+                                                                        </div>
+
+                                                                        
+
+                                                            </div>
+                                                                <div class="tab-pane fade" id="Income" role="tabpanel" aria-labelledby="Income-tab">
+
+
+                                                                        <div class="row row-sm" style="margin-top: 12px;">
+                                                                            <div class="container">
+
+                                                                                    
+                                                                                            
+                                                                                          <div class="row col-md-12">
+                                                                                            
+                                                                                                <table class="table table-bordered table-striped table-responsive-stack m-0" id="tableOne">
+                                                                                                    <thead >
+                                                                                                    <tr>
+                                                                                                        <th style="width:4%;">#</th>
+                                                                                                        <th style="width:13%;">Part No</th>
+                                                                                                        <th style="width:13%;">HSN Code</th>
+                                                                                                      
+                                                                                                        <th style="width:10%;">Taxable Amount</th>
+                                                                                                        <th style="width:8%;" *ngIf="TaxType=='Intra State'">CGST%</th>
+                                                                                                        <th style="width:8%;" *ngIf="TaxType=='Intra State'">CGST Amount</th>
+                                                                                                        <th style="width:8%;" *ngIf="TaxType=='Intra State'">SGST%</th>
+                                                                                                        <th  style="width:8%;"*ngIf="TaxType=='Intra State'">SGST Amount</th>
+                                                                                                        <th  style="width:8%;" *ngIf="TaxType=='Inter State'">IGST%</th>
+                                                                                                        <th  style="width:8%;" *ngIf="TaxType=='Inter State'">IGST Amount</th>
+                                                                                                        <th style="width:12%;">Total Tax</th>
+                                                                                                          
+                                                                                                    </tr>
+                                                                                                    </thead>
+                                                                                                    <tbody>
+                                                                                                        <tr  *ngFor="let d of lstOrderItems;"> 
+                                                                                                            <td  style="width:4%;" *ngIf="d.Show=='true'" >{{d.SNO}}</td>
+                                                                                                            <td style="width:13%;" *ngIf="d.Show=='true'" >{{d.Partno}}</td>
+                                                                                                            <td  style="width:13%;" *ngIf="d.Show=='true'" >{{d.HSN}}</td>
+                                                                                                            
+                                                                                                            <td style="width:10%;"  *ngIf="d.Show=='true'" >{{(+d.Gross)-(+d.DiscountAmount)}}</td>
+                                                                                                            <td style="width:8%;" *ngIf="TaxType=='Intra State'&& d.Show=='true'">{{d.CGST}}</td>
+                                                                                                            <td style="width:8%;" *ngIf="TaxType=='Intra State' && d.Show=='true'">{{d.CGSTAmount}}</td>
+                                                                                                            <td  style="width:8%;" *ngIf="TaxType=='Intra State' && d.Show=='true'">{{d.SGST}}</td>
+                                                                                                            <td style="width:8%;"  *ngIf="TaxType=='Intra State'  &&  d.Show=='true'"> {{d.SGSTAmount}}</td>
+                                                                                                            <td  style="width:8%;" *ngIf="TaxType=='Inter State' && d.Show=='true'">{{d.IGST}}</td>
+                                                                                                            <td  style="width:8%;" *ngIf="TaxType=='Inter State'  && d.Show=='true'">{{d.IGSTAmount}}</td>
+                                                                                                            <td   style="width:12%;" *ngIf="d.Show=='true'">{{d.TotalTax}}</td>
+                                                                                                            
+                                                                                                    </tr>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                          </div>
+ 
+                                                                                      
+                                                                                </div>
+                                                                                
+                                                                            </div>
+
+                                                                            
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-2 pl-0">
+                                                <div  class="card">
+                                                    <div  class="card-header">
+                                                        <div  class="row">
+                                                            <div  class="col-md-7">Activity Tracker</div>
+                                                            <div  class="col-md-5"><button  class="btn btn-warning waves-effect waves-button waves-light" autocomplete="off">Follow Up</button></div>
+                                                        </div>
+                                                    </div>
+                                                    <div  class="card-body" style="padding: 5px;">
+                                                        <div  class="accordion" id="accordionExample">
+                                                            <div  class="card" style="margin-right: 0px !important;">
+                                                                <div  class="card-header" id="headingOne" style="background: #f6c63d;">
+                                                                    <button
+                                                                        
+                                                                        aria-controls="collapseOne"
+                                                                        aria-expanded="true"
+                                                                        class="btn btn-link waves-effect waves-button waves-light acrd-text"
+                                                                        data-target="#collapseTwo"
+                                                                        data-toggle="collapse"
+                                                                        style="color: #212529;"
+                                                                        type="button"
+                                                                        autocomplete="off"
+                                                                    >
+                                                                        Admin <sub >(10 hrs Ago)</sub>
+                                                                    </button>
+                                                                </div>
+                                                                <div  aria-labelledby="headingTwo" class="collapse show" data-parent="#accordionExample" id="collapseTwo">
+                                                                    <div  class="card-body" style="padding: 10px;"><p  class="p-0 m-0">RFQ Created</p></div>
+                                                                </div>
+                                                            </div>
+                                                            <div  class="card" style="margin-right: 0px !important;">
+                                                                <div  class="card-header" id="headingOne" style="background: #f6c63d;">
+                                                                    <button
+                                                                        
+                                                                        aria-controls="collapseOne"
+                                                                        aria-expanded="true"
+                                                                        class="btn btn-link waves-effect waves-button waves-light acrd-text"
+                                                                        data-target="#collapseThree"
+                                                                        data-toggle="collapse"
+                                                                        style="color: #212529;"
+                                                                        type="button"
+                                                                        autocomplete="off"
+                                                                    >
+                                                                        Baba <sub >(30 min Ago)</sub>
+                                                                    </button>
+                                                                </div>
+                                                                <div  aria-labelledby="headingThree" class="collapse show" data-parent="#accordionExample" id="collapseThree">
+                                                                    <div  class="card-body" style="padding: 10px;">
+                                                                        <p  class="p-0 m-0"><strong >Created PQ</strong></p>
+                                                                        <ul  style="margin-left: 14px;">
+                                                                            <li  style="list-style-type: disc;">Added Brake liners</li>
+                                                                            <li  style="list-style-type: disc;">Added brake Oil</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                             
+                                               
+
+                                           
+                                        </div>
+                                
+                                    </div>
+
+                                  
+
+                                  
+
+
+                                    
+                                        
+                                </form>
+
+                                <div class="modal fade" id="DetailsId"  role="dialog" aria-labelledby="DetailsId" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 700px;">
+                                        <div class="modal-content" style="width: 700px;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="DetailsId">Add / Modify Details</h5>
+                                                <p *ngIf="showError" class="invalid-data"><font color="red">{{errormsg}}</font></p>
+                                                <button type="button"   style="display: none;"  id="btnCloseAddItem" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                
+                                               
+                                            </div>
+                                            
+                        
+                                              
+                                             
+
+                                    <div class="row" style ="padding: 15px;">
+                                        <div class="col-md-12">
+
+                                        <app-add-product
+                                        [TransactionDate]="TransactionDate"
+                                        [TransactionType]="TransactionType"
+                                        [TaxType]="TaxType"
+                                        [PartyId]="PartyId"
+                                        [SelectedRow]="SelectedProductData"
+                                        (RemoveItemClick)="RemoveItemClick($event)"
+                                                    (AddItemAndCloseClick)="AddItemAndCloseClick($event)"
+                                                    (AddItemAndNewClick)="AddItemAndNewClick($event)"
+                                        ></app-add-product>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="ItemDetailsSearch"  role="dialog" aria-labelledby="ItemDetailsSearch" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px;">
+                                        <div class="modal-content" style="width: 500px;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="ItemDetailsSearch">Search</h5>
+                                                
+                                                <button type="button"  id="btnItemDetailsSearch" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                
+                                               
+                                            </div>
+                                            
+                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <!-- <div class="card-header">Search</div> -->
+                                                    <div class="card-body">
+
+
+                                                        <div class="custom-control custom-switch" style="float:left">
+                                                                <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="FilterTypeChange($event)">
+                                                                <label class="p-0 m-0" class="custom-control-label" for="customSwitch">All Data</label>
+                                                            </div>
+                        
+                                                           
+                        
+                                                            <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                                                    <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="SerchTypeChange($event.target.checked)">
+                                                                    <label class="p-0 m-0" class="custom-control-label" for="customSwitch2_">Like</label>
+                                                                </div>
+                                                    
+                        
+                                                             <div class="row  col-md-12">
+                        
+                                                                    <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                                                            <i class="ti-alert m-r-10"></i>If Like Off Search with  '='
+                                                                        </div>
+                                                             </div>
+                                                
+                        
+                                                       
+                        
+                        
+                                                             <div class="input-group" *ngIf="FilterType=='All'" >
+                                                                <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                                <div class="input-group-append">
+                                                                    <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="GetSearchDetails()">
+                                                                        <i class="fa fa-search"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                        
+                        <div class="row col-md-12" *ngIf="FilterType=='Field' ">
+                        
+                        
+                        <label class="p-0 m-0" for="searchPartNo"> Part No</label>
+                        <input type="text" class="form-control" id="searchPartNo" formControlName="searchPartNo"  placeholder="Search Part No">
+                        <label class="p-0 m-0" for="searchDescription"> Description</label>
+                        <input type="text" class="form-control" id="searchDescription" formControlName="searchDescription"  placeholder="Search Description">
+
+
+                        <label class="p-0 m-0" for="searchMake"> Make</label>
+                        <input type="text" class="form-control" id="searchMake" formControlName="searchMake"  placeholder="Search Make">
+                        <label class="p-0 m-0" for="searchHSN"> HSN</label>
+                        <input type="text" class="form-control" id="searchHSN" formControlName="searchHSN"  placeholder="Search HSN">
+                        
+                        <div class="col-md-12 " style="float: right;padding-right:unset">
+                        <button type="button" class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"  style="float: right;margin-top:10px " (click)="GetSearchDetails()">
+                        <i class="ti-search m-r-5"></i> Search
+                        </button>
+                        
+                        </div>
+                        </div>
+                        
+                        
+                                            </div>
+                                                </div>
+
+                                            </div>
+                                                  
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                    
+                                <div class="modal fade" id="QuotationPrintId"  role="dialog" aria-labelledby="QuotationPrintId" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1000px;">
+                                        <div class="modal-content" style="width: 1000px;">
+                                            <div class="modal-header d-print-none">
+                                                <h5 class="modal-title " id="QuotationPrintId">Print</h5>
+                                              
+                                                <button type="button"  id="btnCloseQuotationPrint" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                
+                                               
+                                            </div>
+                                            
+                        
+                                              
+                                             
+
+                                    <div class="row" style ="padding: 15px;">
+                                        <div class="col-md-12">
+
+                                            <PurchaseOrderPrint
+                                            [OrderData]="OrderData"
+                                           (PrintCloseClick)="PrintCloseClick()"
+                                            ></PurchaseOrderPrint>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="ModelPartyId"  role="dialog" aria-labelledby="ModelPartyId" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 700px;">
+                                        <div class="modal-content" style="width: 700px;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="ModelPartyId">Add Party</h5>
+                                                <p *ngIf="showError" class="invalid-data"><font color="red">{{errormsg}}</font></p>
+                                                <button type="button"  id="btnCloseAddItem" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                
+                                               
+                                            </div>
+                                            
+                        
+                                              
+                                             
+
+                                    <div class="row" >
+                                        <div class="col-md-12">
+
+                                            <SaveParty
+
+                                            [PartyType]="PartyType"
+                                            (PartySaved)="PartySaved($event)"
+                                            ></SaveParty>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div  aria-labelledby="ReferenceDoc" class="modal fade show" id="ReferenceDoc" role="dialog"  aria-modal="true">
+                                    <div  class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px;">
+                                        <div  class="modal-content" >
+                                            <div  class="modal-header">
+                                                <h5  class="modal-title" id="ReferenceDoc">Upload Reference Documents</h5>
+                                           
+                                                <button  aria-label="Close" class="close" data-dismiss="modal" id="btnCloseAddItem11"  type="button" autocomplete="off"><span  aria-hidden="true">×</span></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <img  id="Image"    alt=""  width="100%" height="300px">
+                                                        <input type="file" nclass="form-control-file"
+                                                        id="fileOpenModelImage"
+                                                        (change)="ImagefileChange($event,'Image')" accept="image/*"
+                                                        
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="container">     
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <!-- <button class="btn btn-warning float-right" (click)="Upload()" style="margin-left: 8px;">Upload</button> -->
+
+                                                            <button class="btn btn-danger float-right" (click)="Removeimg()" >Remove</button>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                </main>
+
+                               
+                               
+                                
+                              
+                        
+<!-- <main class="main-content">
+                                    <div class="layoutactionbutton d-print-none" 
+                                       
+                                    >
+
+                                    <a class="actionbutton"  (click)="Search()"
+                                    href="javascript:void(0)" id="product_edit_submit">
+                                          <i class="fa fa-search side-icons" ></i>
+                                      </a>
+
+
+                                    <a class="actionbutton" (click)="ClearViewData()"
+                                    href="javascript:void(0)" id="product_edit_submit">
+                                          <i class="fa fa-file-text-o side-icons" ></i>
+                                      </a>
+                                        <a class="actionbutton" (click)="OnSave()"
+                                      href="javascript:void(0)" id="product_edit_submit">
+                                            <i class="fa fa-floppy-o side-icons"  ></i>
+                                        </a>
+
+                                        <a class="actionbutton" (click)="OnDelete()"
+                                        href="javascript:void(0)" id="product_edit_submit">
+                                              <i class="fa fa-trash-o side-icons" ></i>
+                                          </a>
+
+
+                                          <a class="actionbutton" 
+                                          href="javascript:void(0)" id="Print"  (click)="OnPrint()"  data-toggle="modal"   data-target="#OrderPrintId"  data-backdrop="static" data-keyboard="false">
+                                                <i class="fa fa-print side-icons"></i>
+                                            </a>
+
+                                    </div>
+                                    <form  [formGroup]="CreatePurchaseOrder">
+                                           
+                              
+                                         <div class="container-fluid d-print-none pl-0">
+                                           
+                                        <div class="page-header">
+                                            <h3> Purchase Order</h3>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="#">Purchase</a></li>
+                                                    
+                                                    <li class="breadcrumb-item active" aria-current="page">Order</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                
+                                        <div class="row row-sm">
+                                            
+                                              
+
+                                            <div class="col-md-8">
+                                                <div class="card">
+                                                  
+                                                    <div class="card-body">
+                                                        <div class="form-group">
+                                                            
+
+                                                            <ul class="nav nav-tabs" id="OrderTab" role="tablist">
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link active" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="true">Overview</a>
+                                                                </li>
+                                                               
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" id="Payment-tab" data-toggle="tab" href="#Payment" role="tab" aria-controls="Payment" aria-selected="false">Payment Terms</a>
+                                                                </li>
+                                                               
+                                                               
+                                                            </ul>
+                                                            <div class="tab-content" id="VendorTabContent">
+                                                                <div class="tab-pane fade active show" id="Overview" role="tabpanel" aria-labelledby="Overview-tab">
+                                                                    <div class="row row-sm" style="margin-top: 12px;">
+                                                                        <div class="col-md-12">
+                                                                         
+                                                                                    <div class="row">
+                                                                                  
+                                                                                <div class="col-md-6">
+                                                                                    <div class="row">
+                                                                                    <div class="col-md-11">
+                                                                                <label for="Vendor" id="PartyId" style="width:90%">Vendor</label>
+                                                                                <DropdownVendor   (VendorValueChange) ="VendorValueChange($event)"  
+                                                                                [VendorId]="DisplayVendorId" [Vendorname]="DispalyVendorName" >
+                                                                            </DropdownVendor>
+                                                                           
+                                                                                <div *ngIf="submitted && f.PartyId.errors" style="font-size: 80%;">
+                                                                                    <div *ngIf="f.PartyId.errors.required " style="color:red " >Vendor Required</div>
+                                                                                    <div *ngIf="f.PartyId.errors.min" style="color:red " >Vendor Required</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-1" style="margin-top: auto;" data-toggle="modal"   data-target="#ModelPartyId" >
+                                                                                <div class="input-group-prepend" style="float: right;display: block;">
+                                                                                    <span class="input-group-text" style="cursor: pointer;height: 38px;background-image: linear-gradient(rgb(255, 199, 0) 27%, rgb(210, 158, 5) 64%);
+                                                                                    border-radius: 50%;box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);">
+                                                                                        <i class="fa fa-plus"></i>
+                                                                                    </span>
+                                                                                        </div>
+                                                                            </div>
+                                                                        </div>
+                                                                            </div>
+                                                                                
+                                                                        <div class="col-md-6">
+                                                                            <label for="Contact">Contact No</label>
+                                                                            <input type="number" class="form-control mb-3" id="Contact" formControlName="Contactno" placeholder="Enter Contact No">
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            
+                                                                            <label for="Email">Email</label>
+                                                                            <input type="text" class="mb-3 form-control" id="Email" formControlName="Email" placeholder="Enter email"
+                                                                            [ngClass]="{ 'is-invalid': submitted && f.Email.errors }"
+                                                                         
+                                                                            >
+                                                                            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                                                                                <div *ngIf="f.Email.errors.email" style="color:red " >Invalid Email</div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="RequiredDate">Required Date</label>
+
+                                                                            
+                                                                            <input type="text"    name="single-date-picker"  class="form-control" id="RequiredDate"  placeholder="Enter required"
+                                                                          
+                                                                            [ngClass]="{ 'is-invalid': submitted && f.RequiredDate.errors }"
+                                                                            >
+                                                                            <div *ngIf="submitted && f.RequiredDate.errors" class="invalid-feedback">
+                                                                                <div *ngIf="f.RequiredDate.errors.required" style="color:red " >Date Required</div>
+                                                                            </div>
+
+                                                                          
+                                                                        </div>
+                                                                       
+
+                                                                            <div class="col-md-6">
+                                                                            <label for="Address">Bill To</label>
+                                                                            
+                                                                            <textarea  class="form-control" rows="5" cols="5" formControlName="Billto">
+                                                                            </textarea>
+                                                                           
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="Contact">Currency</label>
+                                                                            <select class="mb-3 form-control" formControlName="CurrencyId">
+                                                                                <option *ngFor="let d of lstCurrencies" value="{{d.CurrencyId}}"  
+                                                                                
+                                                                                [attr.selected]="d.CurrencyId == f.CurrencyId.value ? true : null"
+                                                                                 >{{d.currencyname}}</option>
+                                                                            </select>
+                                                                             <div *ngIf="f.CurrencyId.value!=APICall.GetCurrencyId()">
+                                                                            <label for="Contact">Exchange Rate</label>
+                                                                            <input type="number"   class="form-control" id="RequiredDate" formControlName="ExchangeRate"  placeholder="Enter Exchange Rate" (change)="ExchangeRateChange($event.target)">
+                                                                        </div>
+                                                                        </div>
+
+                                                                                </div>
+                                                                            
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+
+                                                              
+
+                                                                <div class="tab-pane fade" id="Payment" role="tabpanel" aria-labelledby="Payment-tab">
+                                                                    <div class="row row-sm" style="margin-top: 12px;">
+                                                                        <div class="col-md-12">
+                                                                                   <div class ="col-md-12" *ngIf="!termValiidate" style="float: left;font-size: 80%">
+                                                                                    <div  style="color:red ;" >Fill all the Details</div>
+                                                                                    
+                                                                                </div> 
+                                                                                   <a class="actionbutton"
+                                                                                   (click)="AddTerms()"
+                                                                                    data-backdrop="static"
+                                                                                    data-keyboard="false"
+                                                                                    data-target="#"
+                                                                                    data-toggle="modal"
+                                                                                    href="javascript:void(0)"
+                                                                                    id="Details"
+                                                                                    style="width: 40px; height: 40px; float: right; margin-left: 5px;">
+                                                                                    <i  class="fa fa-plus" style="font-size: 20px; margin-top: 10px;"></i>
+                                                                                </a>
+
+                                                                                  <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                                                                    <thead >
+                                                                                    <tr>
+                                                                                        <th style="width:4%;">#</th>
+                                                                                        <th style="width:25%;">Term Name</th>
+                                                                                        <th style="width:15%;">Pay %</th>
+                                                                                        <th style="width:15%;">Amount</th>
+                                                                                        <th style="width:9%;">Action</th>
+                                                                                       
+                                                                                         <th style="width:30%;">
+                                                                                        
+                                                                                        </th> 
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr  *ngFor="let d of lstTermsChild;let indx=index"> 
+                                                                                            <td style="width:4%;">{{indx+1}}</td>
+                                                                                        <td style="width:25%;"><input type="text" class="form-control" value="{{d.PayName}}" (change)="PayNameChange($event.target,indx)"> </td>
+                                                                                        <td style="width:15%;"><input type="number" class="form-control"  id="PayPercentage" value="{{d.PayPercentage}}" (change)="PayPercentageChange($event.target,indx)" max="100"  > </td>
+                                                                                        <td style="width:15%;">{{d.Amount|currency:'INR' }}</td>
+                                                                                       
+                                                                                        <td style="width:9%;" (click)="RemoveTerm(indx)"><i class="ti-trash"></i></td>
+                                                                                        <td style="width:30%;"></td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                               
+                                                                               
+                                                                                
+                                                                          
+                                                                            
+                                                                              
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+
+                                            <div class="col-md-4">
+                                                <div class="card">
+                                                    <div class="card-header" >
+                                                        <div class="row">
+                                                        <div class ="col-md-3" style="font-size: large;">
+                                                            <label >Order:</label>  
+                                                        </div>
+
+                                                        <div class ="col-md-9" style="font-size: large;">  
+                                                            <label >{{f.TransactionNo.value}}</label>  
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                   
+                                                    <div class="card-body">
+                                                        <label for="SequenceNumberId">VoucherNo Type</label>
+                                                        <dropdown-number-sequence 
+                                                        
+                                                        formControlName='SequenceNumberId'   (NumberSequenceValueChange) ="NumberSequenceValueChange($event)"    [SequenceNumberId]="DisplaySequenceNumberId" [FormName]="DispalyFormName" 
+                                                        >
+
+
+
+                                                        </dropdown-number-sequence>
+                                                        <div class="mb-3"></div>
+                                                        
+                                                                            <label for="Date">Date</label>
+                                                                            <input type="text" class="form-control mb-3"  name="single-date-picker"  id="TransactionDate"
+                                                                             placeholder="Enter Date"
+(change)="QuotDateChange($event)"
+                                                                            [ngClass]="{ 'is-invalid': submitted && f.TransactionDate.errors }"
+                                                                            >
+                                                                            <div *ngIf="submitted && f.TransactionDate.errors" class="invalid-feedback">
+                                                                                <div *ngIf="f.TransactionDate.errors.required" style="color:red " >Date Required</div>
+                                                                            </div>
+                                                                            <label for="Time">Time</label>
+
+                                                                            <div class="input-group clockpicker-autoclose-demo">
+                                                                                <div class="input-group-prepend">
+                                                                            <span class="input-group-text">
+                                                                                <i class="fa fa-clock-o"></i>
+                                                                            </span>
+                                                                                </div>
+                                                                                <input type="text" class="form-control"  id="TransactionTime"
+                                                                                
+                                                                                [ngClass]="{ 'is-invalid': submitted && f.TransactionTime.errors }"
+                                                                                >
+                                                                               
+                                                                            <div *ngIf="submitted && f.TransactionTime.errors" class="invalid-feedback">
+                                                                                <div *ngIf="f.TransactionTime.errors.required" style="color:red " >Time Required</div>
+                                                                            </div>
+                                                                            </div>
+
+                                                                            
+                                                                         
+                                                                           <br>
+                                                    </div>
+
+                                                    
+                                                </div>
+
+                                                <div class="card">
+                                                    <div class="card-header"  style="font-size: large;">Summary</div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class ="col-md-3">
+                                                                <label for="Gross">Gross:</label>  
+                                                            </div>
+  
+                                                            <div class ="col-md-9">  
+                                                                <label for="Gross">{{TotalGross}}</label>  
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class ="col-md-3">
+                                                                <label for="Discount">Discount:</label>  
+                                                            </div>
+  
+                                                            <div class ="col-md-9">  
+                                                                <label for="Discount">{{TotalDiscount}}</label>  
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class ="col-md-3">
+                                                                <label for="Tax">Tax:</label> 
+                                                            </div>
+  
+                                                            <div class ="col-md-9">  
+                                                                <label for="Tax">{{TotalTax}}</label> 
+                                                            </div>
+                                                        </div>
+                                                        <div class="row"  style="font-size: large;">
+                                                            <div class ="col-md-3">
+                                                                <label for="Total">Total:</label>  
+                                                            </div>
+  
+                                                            <div class ="col-md-9">  
+                                                                <label for="Total">{{Total|currency:'INR' }}</label>
+                                                                 
+                                                            </div>
+                                                            <div class ="col-md-12" *ngIf="submitted && Total<1" style="font-size: 80%;">
+                                                                <div  style="color:red ;font-size: 80%;" >Invalid  Amount to Save</div>
+                                                                
+                                                            </div> 
+                                                        </div>
+
+                                                      
+                                                    </div>
+
+                                                    
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="form-group">
+
+                                                            <ul class="nav nav-tabs" id="ProductTab" role="tablist">
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link active" id="Details-tab" data-toggle="tab" href="#Details" role="tab" aria-controls="Price" aria-selected="true">Details</a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" id="Discount-tab" data-toggle="tab" href="#Discount" role="tab" aria-controls="Discount" aria-selected="false"> Discount</a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" id="Income-tab" data-toggle="tab" href="#Income" role="tab" aria-controls="Income" aria-selected="false">Tax</a>
+                                                                </li>
+                                                                
+                                                            </ul>
+
+                                                            <div class="tab-content" id="ProductTabContent">
+                                                                <div class="tab-pane fade active show" id="Details" role="tabpanel" aria-labelledby="Details-tab">
+                                                                        <div class="row row-sm" style="margin-top: 12px;">
+                                                                                <div class="col-md-12">
+                                                                     
+
+                                                                            <div class ="col-md-12" *ngIf="submitted && lstOrderItems.length==0" style="float: left;font-size: 80%">
+                                                                                <div  style="color:red ;" >Add atleast one product to save</div>
+                                                                                
+                                                                            </div> 
+                                                                            <a class="actionbutton" style="width:40px;height: 40px; float: right;margin-left: 5px;" 
+                                                                                            
+                                                                                    data-toggle="modal"   data-target="#DetailsId"  data-backdrop="static" data-keyboard="false" 
+                                                                                    
+                                                                                    (click)="OnAdd()"
+                                                            href="javascript:void(0)" id="Details">
+                                                            
+                                                                  <i class="fa fa-plus"  style="
+                                                                  font-size: 20px;
+                                                                  margin-top: 10px;
+                                                              "></i>
+                                                              </a>
+
+
+                                                              <a class="actionbutton" style="width:40px;height: 40px; float: right" 
+                                                                                            
+                                                                                    data-toggle="modal"   data-target="#ItemDetailsSearch"  data-backdrop="static" data-keyboard="false" 
+                                                                                    
+                                                                                    
+                                                            href="javascript:void(0)" id="ISearch">
+                                                            
+                                                                  <i class="fa fa-search" style="
+                                                                  font-size: 20px;
+                                                                  margin-top: 10px;
+                                                              "></i>
+                                                              </a>
+
+                                                              
+                                                                         
+                                                                            <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                                                                <thead >
+                                                                                <tr>
+                                                                                    <th style="width:4%;">#</th>
+                                                                                    <th style="width:10%;">Partno</th>
+                                                                                    <th style="width:16%;">Description</th>
+                                                                                    <th style="width:10%;">Make</th>
+                                                                                    <th style="width:6%;">UOM</th>
+                                                                                    <th style="width:5%;">Qty</th>
+                                                                                    <th style="width:8%;">Rate</th>
+                                                                                    <th style="width:5%;">Currency Rate</th>
+                                                                                    <th style="width:8%;">Gross</th>
+                                                                                    <th style="width:8%;">Discount</th>
+                                                                                    <th style="width:8%;">Tax</th>
+                                                                                    
+                                                                                    <th style="width:8%;">Net</th>
+                                                                                    <th style="width:4%;"></th>
+                                                                                </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr  *ngFor="let d of lstOrderItems;"> 
+                                                                                        <td style="width:4%;" *ngIf="d.Show=='true'" >{{d.SNO}}</td>
+                                                                                        <td  style="width:10%;" *ngIf="d.Show=='true'" >{{d.Partno}}</td>
+                                                                                        <td  style="width:16%;" *ngIf="d.Show=='true'" >{{d.Description}}</td>
+                                                                                        <td  style="width:10%;" *ngIf="d.Show=='true'" >{{d.Make}}</td>
+                                                                                        <td  style="width:6%;" *ngIf="d.Show=='true'" >{{d.UOM}}</td>
+                                                                                        <td style="width:5%;" *ngIf="d.Show=='true'" >{{d.Qty}}</td>
+                                                                                        <td style="width:8%;" *ngIf="d.Show=='true'" >{{d.Rate}}</td>
+                                                                                        <td style="width:5%;" *ngIf="d.Show=='true'" >{{d.CurrencyRate}}</td>
+                                                                                        <td style="width:8%;" *ngIf="d.Show=='true'" >{{d.Gross}}</td>
+                                                                                        <td style="width:8%;" *ngIf="d.Show=='true'" >{{d.DiscountAmount}}</td>
+                                                                                        <td style="width:8%;" *ngIf="d.Show=='true'" >{{d.TotalTax}}</td>
+                                                                                        
+                                                                                        <td  style="width:8%;" *ngIf="d.Show=='true'" >{{d.NetTotal}}</td> 
+                                                                                        <td  style="width:4%;" *ngIf="d.Show=='true'"  data-toggle="modal"   data-target="#DetailsId"  data-backdrop="static" data-keyboard="false"  (click)="EditItemClick(d)"><i style="float: right" class="ti-angle-right"
+                                                                                            data-toggle="modal"   data-target="#DetailsId"  data-backdrop="static" data-keyboard="false" 
+                                                                                            
+                                                                                            (click)="EditItemClick(
+                                                                                            
+                                                                                            d
+                                                                                            )"></i>
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        </td>
+                                                                                </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        
+                                                                      
+
+
+
+                                                                 
+                                                                    
+                                                                </div> 
+                                                                    
+                                                                </div> 
+                                                                </div>
+                                                                <div class="tab-pane fade" id="Discount" role="tabpanel" aria-labelledby="Discount-tab">
+
+
+                                                                    <div class="row row-sm" style="margin-top: 12px;">
+                                                                        <div class="container">
+
+                                                                             
+                                                                                        
+                                                                                      <div class="row col-md-12">
+                                                                                        
+                                                                                            <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                                                                                <thead >
+                                                                                                <tr>
+                                                                                                    <th  style="width:4%;">#</th>
+                                                                                                    <th  style="width:20%;">Part No</th>
+                                                                                                    <th  style="width:30%;">Description</th>
+                                                                                                    <th  style="width:10%;">Qty</th>
+                                                                                                    <th  style="width:16%;">Gross</th>
+                                                                                                    <th  style="width:10%;">Discount %</th>
+                                                                                                    <th  style="width:10%;">Discount Amount</th>
+                                                                                                     
+                                                                                                </tr>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <tr   *ngFor="let d of lstOrderItems;"> 
+                                                                                                        <td  style="width:4%;" *ngIf="d.Show=='true'" >{{d.SNO}}</td>
+                                                                                                        <td  style="width:20%;" *ngIf="d.Show=='true'" >{{d.Partno}}</td>
+                                                                                                        <td  style="width:30%;" *ngIf="d.Show=='true'" >{{d.Description}}</td>
+                                                                                                        <td style="width:10%;"  *ngIf="d.Show=='true'" >{{d.Qty}}</td>
+                                                                                                        <td  style="width:16%;" *ngIf="d.Show=='true'" >{{d.Gross}}</td>
+                                                                                                        <td   style="width:10%;" *ngIf="d.Show=='true'" >{{d.DiscountPercentage}}</td>  
+                                                                                                        <td  style="width:10%;" *ngIf="d.Show=='true'" >{{d.DiscountAmount}}</td>
+                                                                                                       
+                                                                                                </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                      </div>
+
+                                                                                 
+                                                                            </div>
+                                                                            
+                                                                        </div>
+
+                                                                        
+
+                                                            </div>
+                                                                <div class="tab-pane fade" id="Income" role="tabpanel" aria-labelledby="Income-tab">
+
+
+                                                                        <div class="row row-sm" style="margin-top: 12px;">
+                                                                            <div class="container">
+
+                                                                                    
+                                                                                            
+                                                                                          <div class="row col-md-12">
+                                                                                            
+                                                                                                <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                                                                                    <thead >
+                                                                                                    <tr>
+                                                                                                        <th style="width:4%;">#</th>
+                                                                                                        <th style="width:13%;">Part No</th>
+                                                                                                        <th style="width:13%;">HSN Code</th>
+                                                                                                      
+                                                                                                        <th style="width:10%;">Taxable Amount</th>
+                                                                                                        <th style="width:8%;" *ngIf="TaxType=='Intra State'">CGST%</th>
+                                                                                                        <th style="width:8%;" *ngIf="TaxType=='Intra State'">CGST Amount</th>
+                                                                                                        <th style="width:8%;" *ngIf="TaxType=='Intra State'">SGST%</th>
+                                                                                                        <th  style="width:8%;"*ngIf="TaxType=='Intra State'">SGST Amount</th>
+                                                                                                        <th  style="width:8%;" *ngIf="TaxType=='Inter State'">IGST%</th>
+                                                                                                        <th  style="width:8%;" *ngIf="TaxType=='Inter State'">IGST Amount</th>
+                                                                                                        <th style="width:12%;">Total Tax</th>
+                                                                                                          
+                                                                                                    </tr>
+                                                                                                    </thead>
+                                                                                                    <tbody>
+                                                                                                        <tr  *ngFor="let d of lstOrderItems;"> 
+                                                                                                            <td  style="width:4%;" *ngIf="d.Show=='true'" >{{d.SNO}}</td>
+                                                                                                            <td style="width:13%;" *ngIf="d.Show=='true'" >{{d.Partno}}</td>
+                                                                                                            <td  style="width:13%;" *ngIf="d.Show=='true'" >{{d.HSN}}</td>
+                                                                                                            
+                                                                                                            <td style="width:10%;"  *ngIf="d.Show=='true'" >{{(+d.Gross)-(+d.DiscountAmount)}}</td>
+                                                                                                            <td style="width:8%;" *ngIf="TaxType=='Intra State'&& d.Show=='true'">{{d.CGST}}</td>
+                                                                                                            <td style="width:8%;" *ngIf="TaxType=='Intra State' && d.Show=='true'">{{d.CGSTAmount}}</td>
+                                                                                                            <td  style="width:8%;" *ngIf="TaxType=='Intra State' && d.Show=='true'">{{d.SGST}}</td>
+                                                                                                            <td style="width:8%;"  *ngIf="TaxType=='Intra State'  &&  d.Show=='true'"> {{d.SGSTAmount}}</td>
+                                                                                                            <td  style="width:8%;" *ngIf="TaxType=='Inter State' && d.Show=='true'">{{d.IGST}}</td>
+                                                                                                            <td  style="width:8%;" *ngIf="TaxType=='Inter State'  && d.Show=='true'">{{d.IGSTAmount}}</td>
+                                                                                                            <td   style="width:12%;" *ngIf="d.Show=='true'">{{d.TotalTax}}</td>
+                                                                                                            
+                                                                                                    </tr>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                          </div>
+ 
+                                                                                      
+                                                                                </div>
+                                                                                
+                                                                            </div>
+
+                                                                            
+
+                                                                </div>
+                                                                
+
+
+                                                            
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                                             
+                                               
+
+                                           
+                                        </div>
+                                
+                                    </div>
+
+                                  
+
+                                  
+
+
+                                    
+                                        <div class="modal fade" id="DetailsId"  role="dialog" aria-labelledby="DetailsId" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 700px;">
+                                                <div class="modal-content" style="width: 700px;">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="DetailsId">Add / Modify Details</h5>
+                                                        <p *ngIf="showError" class="invalid-data"><font color="red">{{errormsg}}</font></p>
+                                                        <button type="button"   style="display: none;"  id="btnCloseAddItem" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        
+                                                       
+                                                    </div>
+                                                    
+                                
+                                                      
+                                                     
+
+                                            <div class="row" style ="padding: 15px;">
+                                                <div class="col-md-12">
+
+                                                <app-add-product
+                                                [TransactionDate]="TransactionDate"
+                                                [TransactionType]="TransactionType"
+                                                [TaxType]="TaxType"
+                                                [PartyId]="PartyId"
+                                                [SelectedRow]="SelectedProductData"
+                                                (RemoveItemClick)="RemoveItemClick($event)"
+                                                            (AddItemAndCloseClick)="AddItemAndCloseClick($event)"
+                                                            (AddItemAndNewClick)="AddItemAndNewClick($event)"
+                                                ></app-add-product>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal fade" id="ItemDetailsSearch"  role="dialog" aria-labelledby="ItemDetailsSearch" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px;">
+                                                <div class="modal-content" style="width: 500px;">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="ItemDetailsSearch">Search</h5>
+                                                        
+                                                        <button type="button"  id="btnItemDetailsSearch" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        
+                                                       
+                                                    </div>
+                                                    
+                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="card">
+                                                            <div class="card-body">
+    
+    
+                                                                <div class="custom-control custom-switch" style="float:left">
+                                                                        <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="FilterTypeChange($event)">
+                                                                        <label class="custom-control-label" for="customSwitch">All Data</label>
+                                                                    </div>
+                                
+                                                                   
+                                
+                                                                    <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                                                            <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="SerchTypeChange($event.target.checked)">
+                                                                            <label class="custom-control-label" for="customSwitch2_"> 
+                                                                                Like</label>
+                                                                        </div>
+                                                            
+                                
+                                                                     <div class="row  col-md-12">
+                                
+                                                                            <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                                                                    <i class="ti-alert m-r-10"></i>If Like Off Search with  '='
+                                                                                </div>
+                                                                     </div>
+                                                        
+                                
+                                                               
+                                
+                                
+                                                                     <div class="input-group" *ngIf="FilterType=='All'" >
+                                                                        <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                                        <div class="input-group-append">
+                                                                            <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="GetSearchDetails()">
+                                                                                <i class="fa fa-search"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                
+                                <div class="row col-md-12" *ngIf="FilterType=='Field' ">
+                                
+                                
+                                <label for="searchPartNo"> Part No</label>
+                                <input type="text" class="form-control" id="searchPartNo" formControlName="searchPartNo"  placeholder="Search Part No">
+                                <label for="searchDescription"> Description</label>
+                                <input type="text" class="form-control" id="searchDescription" formControlName="searchDescription"  placeholder="Search Description">
+    
+    
+                                <label for="searchMake"> Make</label>
+                                <input type="text" class="form-control" id="searchMake" formControlName="searchMake"  placeholder="Search Make">
+                                <label for="searchHSN"> HSN</label>
+                                <input type="text" class="form-control" id="searchHSN" formControlName="searchHSN"  placeholder="Search HSN">
+                                
+                                <div class="col-md-12 " style="float: right;padding-right:unset">
+                                <button type="button" class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"  style="float: right;margin-top:10px " (click)="GetSearchDetails()">
+                                <i class="ti-search m-r-5"></i> Search
+                                </button>
+                                
+                                </div>
+                                </div>
+                                
+                                
+                                                    </div>
+                                                        </div>
+        
+                                                    </div>
+                                                          
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                            
+                                        <div class="modal fade" id="OrderPrintId"  role="dialog" aria-labelledby="OrderPrintId" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1000px;">
+                                                <div class="modal-content" style="width: 1000px;">
+                                                    <div class="modal-header d-print-none">
+                                                        <h5 class="modal-title " id="OrderPrintId">Print</h5>
+                                                      
+                                                        <button type="button"  id="btnCloseOrderPrint" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        
+                                                       
+                                                    </div>
+                                                    
+                                
+                                                      
+                                                     
+
+                                            <div class="row" style ="padding: 15px;">
+                                                <div class="col-md-12">
+
+                                                <PurchaseOrderPrint
+                                                [OrderData]="OrderData"
+                                               (PrintCloseClick)="PrintCloseClick()"
+                                                ></PurchaseOrderPrint>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="modal fade" id="ModelPartyId"  role="dialog" aria-labelledby="ModelPartyId" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 700px;">
+                                                <div class="modal-content" style="width: 700px;">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="ModelPartyId">Add Party</h5>
+                                                        <p *ngIf="showError" class="invalid-data"><font color="red">{{errormsg}}</font></p>
+                                                        <button type="button"  id="btnCloseAddItem" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        
+                                                       
+                                                    </div>
+                                                    
+                                
+                                                      
+                                                     
+    
+                                            <div class="row" >
+                                                <div class="col-md-12">
+    
+                                                    <SaveParty
+    
+                                                    [PartyType]="PartyType"
+                                                    (PartySaved)="PartySaved($event)"
+                                                    ></SaveParty>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                </form>
+</main> -->
+
+                               
+                               

@@ -1,0 +1,74 @@
+/* 
+@page {
+     size: auto;   
+     margin: 0; 
+} */
+
+/* @media print{
+
+    tr:nth-of-type(15n){
+        page-break-after: always;
+      }
+} */
+
+
+
+
+@media print {
+
+    /* // Div{height: 100%;
+    //     width: 100%;} */
+
+    table {
+        page-break-inside: avoid;
+         page-break-before: always;
+      
+    }
+   
+    .header
+    {
+        height:300000070px !important;
+
+    }
+
+   /* thead {display: table-header-group;}  */
+
+   /* // footer {page-break-after: always;} */
+
+    /* #pageHeader{
+        position: running(pageHeader);
+      } */
+
+      /* #header {
+       
+        top: 0;
+        display: table-header-group;
+        border-bottom: 1px solid black;
+        height: 800px;
+        position: fixed;
+    } */
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        border-top: 1px solid black;
+    }
+
+      @page { size:A4 portrait;  margin-left: 1cm;margin-right: 1cm; margin-top: 2cm;margin-bottom: 2cm;}
+
+      #sticky-footer 
+      {
+          position: fixed;
+          bottom: 0px;
+      }
+      /* @media print 
+      {
+          #sticky-footer 
+          {
+              position: static;
+              bottom: auto;
+          }
+      } */
+     
+}    
+

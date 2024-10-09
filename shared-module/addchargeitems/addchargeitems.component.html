@@ -1,0 +1,62 @@
+<div class="form-group m-0">
+    <div class="row">
+        <div class="card-body">
+            <div class="row" style="padding: 5px;">
+              <div class="col-md-6">
+                  <label for="drpPartno0Id1">Part No</label>
+                  <select id="drpPartno0Id1"  class="js-example-basic-single mb-3"  name="drpPartno0Id1"> </select>
+                  <label for="drpMaks">Make</label>
+                  <select id="drpMaks"  class="js-example-basic-single mb-3"  name="drpMaks"> </select>
+                  <label for="Quantity">Quantity</label>
+                  <input type="number" [(ngModel)]="Quantity" class="form-control mb-3">
+                  <label for="Taxable">Taxable value</label>
+                  <input type="number" [(ngModel)]="TaxableValue" (change)="amountchange($event.target)" class="form-control mb-3">
+                  <label for="Total">Total </label>
+                  <input type="number" readonly [(ngModel)]="TotalAmount" class="form-control">
+    
+                </div>
+                <div class="col-md-6">
+                  <label for="Description">Description</label>
+                  <input type="text" class="form-control mb-3" id="Description"  [(ngModel)]="description1"  placeholder="Enter description">
+                  <div class="col-md-4" *ngIf="_TaxType=='Intra State'"><label for="drpParts">CGST</label></div>
+                  <div class="row" *ngIf="_TaxType=='Intra State'"> 
+                          <div class="col-md-6"><input type="number" [(ngModel)]="CGST" class="form-control"></div>
+                          <div class="col-md-6"><input type="number" [(ngModel)]="CGSTAmount"  class="form-control mb-3"></div>
+                  </div>
+    
+                  <div class="col-md-4" *ngIf="_TaxType=='Intra State'"><label for="drpParts">SGST</label></div>
+                  <div class="row" *ngIf="_TaxType=='Intra State'"> 
+                          <div class="col-md-6"><input type="number" [(ngModel)]="SGST"  class="form-control"></div>
+                          <div class="col-md-6"><input type="number" [(ngModel)]="SGSTAmount" class="form-control mb-3"></div>
+                  </div>
+    
+                  <div class="col-md-4" *ngIf="_TaxType=='Inter State'"><label for="drpParts">IGST</label></div>
+                  <div class="row" *ngIf="_TaxType=='Inter State'"> 
+                          <div class="col-md-6"><input type="number" [(ngModel)]="IGST"  class="form-control"></div>
+                          <div class="col-md-6"><input type="number" [(ngModel)]="IGSTAmount" class="form-control"></div>
+                  </div>
+                 
+                </div>
+            </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="row">
+        <div class="col-md-12" >
+            <button type="button" class="btn btn-secondary modal-btn" (click)="CloseProduct1()" >
+                <i class="ti-close m-r-5 modal-btn-icon" ></i> Close
+            </button>
+                                                    
+            <button type="button" class="btn btn-danger modal-btn" (click)="RemoveItem1()">
+                <i class="ti-trash m-r-5 modal-btn-icon" ></i> Remove
+            </button>
+        
+            <button type="button" class="btn btn-primary modal-btn" (click)="AddItem1()">
+                <i class="ti-check m-r-5 modal-btn-icon" ></i> Add
+            </button>
+        
+          </div>
+         
+      </div>
+    </div>
+</div>

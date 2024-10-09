@@ -1,0 +1,261 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+     <!-- begin::page loader-->
+     <!-- <div  id="loaderParent" class="page-loader" >
+        <div class="spinner-border"></div>
+        <span>Loading</span>
+    </div> -->
+
+    <!-- Sidebar  -->
+    <nav id="sidebar" class="active">
+        <div class="sidebar-header">
+            <div class="header-logo">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#">
+                            <img class="d-none d-lg-block" src="./assets/media/image/white-logo22.png" alt="..."  style="width: 100%;
+                            margin-right: 0px">
+                            <img class="d-lg-none d-sm-block" src="./assets/media/image/mobile-logo.png" alt="...">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="side-menu-body">
+                <ul    tabindex="4" style="overflow: hidden; outline: none; touch-action: none;">
+                   <!-- <div  style="margin: -27px;"> -->
+                       
+                   
+                    <li 
+                   
+                    
+                    class="side-menu-divider m-t-10" style="padding: 0px 0px;
+                    text-transform: uppercase;
+                    font-size: 11px;
+                    font-weight: 700;
+                    letter-spacing: .5px;margin: 0px;">
+                        <a class="sidenav-text"
+                       
+                        [ngStyle]="{'background-image': ((SelectedModule=='Home') ? 'linear-gradient(#aba9a9 27%, #656262 64%)' :'linear-gradient(#f6c63d 27%, #d8a309 64%)'),
+                        'color':((SelectedModule=='Home') ? '#fff' :'#000000')
+                    
+                        
+                    }"
+                       ><i class="fa fa-home"
+                       
+                       
+                       
+                       [ngStyle]="{'font-size':'20px','margin-right':'15px','color':((SelectedModule=='Home') ? '#fff' :'#000000')}"
+                       
+                      
+                       
+                       
+                       ></i>Home</a>
+                        
+                        <a 
+                        
+                        
+                        *ngFor = "let item of lstMenu" class="sidenav-text" 
+                        
+                        
+                        [ngStyle]="{'background-image': ((SelectedModule==item.MenuName) ? 'linear-gradient(#aba9a9 27%, #656262 64%)':'linear-gradient(#f6c63d 27%, #d8a309 64%)'),
+                        'color':((SelectedModule==item.MenuName) ? '#fff' :'#000000')
+                    }"
+                        (click)="Menuclick(item.MenuName)"  > <i class={{item.MenuImageURL}} 
+                        
+                        [ngStyle]="{'font-size':'20px','margin-right':'15px','color':((SelectedModule==item.MenuName) ? '#fff' :'#000000')}"
+                        ></i> {{item.MenuName }} </a></li> 
+                    <li>
+                    </li>
+                  
+                 
+                
+                   
+                  
+                </ul>
+                
+            </div>
+        <div id="ascrail2003" class="nicescroll-rails nicescroll-rails-vr" style="width: 8px; z-index: auto; cursor: default; position: absolute; top: 0px; left: 241px; height: 785px; touch-action: none; opacity: 0; display: block;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 6px; height: 771px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2003-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 8px; z-index: auto; top: 776.906px; left: 0px; position: absolute; cursor: default; display: none; width: 241px; opacity: 0;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 6px; width: 249px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; left: 0px;"></div></div></div>
+    </nav>
+
+
+    
+    <!-- Page Content  -->
+    <div id="content" class="canceldashboard">
+
+        <nav class="navbar" style="padding: 0px;background: #1f1a17  !important;">
+            <div class="container-fluid" style="padding-left: 0px;">
+                
+                
+        
+                <div class="header-body">
+                    <form class="search" >
+                        <div class="row">
+    
+                            <!--  [routerLink]="ResultPath(data._Url)"  [routerLink]="ResultPath(data._Url)" -->
+                            <div class="col-md-1 m-top-bot-auto text-center">
+                                <button type="button" id="sidebarCollapse" class="btn btn-warning" style="top: 9px;">
+                                    <i class="fa fa-home"></i>
+                                    Menu
+                                </button>
+                            </div>
+                            <div class="col-md-11" style="top: 9px;">
+                                
+    
+
+                                
+
+                                <ul class="nav nav-tabs" id="myTab" role="tablist" style="border-bottom:none ;">
+                                   
+                                    <li class="nav-item " *ngFor="let data of ApplicationLivePages;let indx=index" style="position: relative;">
+                                        <span class="badge"  (click)="PageCloseClick(indx)">X</span>
+    
+                                    
+                                        <a class="nav-link active top-tabs"  *ngIf="data._IsActive==true" id="home-tab" data-toggle="tab"  role="tab" aria-controls="home" 
+                                        
+                                        routerLinkActive="active"
+                                      
+                                        (click)="TabClick(indx)"
+                                      
+                                        [attr.aria-selected]="data._IsActive" 
+                                         >
+                                            
+                                         
+                                            {{data._TabName}} </a> 
+                                        <a class="nav-link top-tabs" *ngIf="data._IsActive!=true" id="home-tab" data-toggle="tab"  role="tab" aria-controls="home" 
+                                        
+                                        (click)="TabClick(indx)"
+                                         routerLinkActive="active"
+                                        
+                                        [attr.aria-selected]="data._IsActive" >{{data._TabName}}</a>
+                                    
+                                    
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                    <!--    -->
+                    <ul class="navbar-nav" >
+                        <li class="nav-item">
+                            <a href="#" class="d-lg-none d-sm-block nav-link search-panel-open side-options">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li><li class="nav-item dropdown">
+                            <a href="#" class="nav-link nav-link-notify" data-toggle="dropdown">
+                                <i class="fa fa-bell"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
+                                <div class="dropdown-menu-title bg-warning-gradient">
+                                    <h6 class="text-uppercase font-size-12 text-dark m-b-0">Log</h6>
+                                    
+                                </div>
+                                <div class="dropdown-menu-body p-t-b-15 p-2" tabindex="2" style="overflow: hidden; outline: none; touch-action: none;">
+                                    <div class="timeline" style="border-bottom: 0.9px solid #cbcbcb;">
+                                        <!-- <div   *ngFor="let d of lstLog;" class="timeline-item">
+                                            <div>
+                                                <figure class="avatar avatar-state-danger avatar-sm m-r-15 bring-forward">
+                                                    <span class="avatar-title bg-info-bright text-info rounded-circle">
+                                                        <i class="fa fa-file-text-o font-size-20"></i>
+                                                    </span>
+                                                </figure>
+                                            </div>
+                                            <div>
+                                                <p class="m-b-5">
+                                                    {{d.Info}}
+                                                    
+                                                </p>
+                                                <small class="text-muted">
+                                                    <i class="fa fa-clock-o m-r-5"></i> {{d.DurationMsg}}
+                                                </small>
+                                            </div>
+                                        </div> -->
+
+                                        <div class="timeline-item  d-block">
+                                            <!-- <div>
+                                                <figure class="avatar avatar-state-danger avatar-sm m-r-15 bring-forward">
+                                                    <span class="avatar-title bg-info-bright text-info rounded-circle">
+                                                        <i class="fa fa-file-text-o font-size-20"></i>
+                                                    </span>
+                                                </figure>
+                                            </div> -->
+                                            <p class="text-danger m-0">
+                                                <!-- Invertory -->
+                                            </p>
+                                            <div class="row" *ngFor="let d of lstNotification">   
+                                                <div class="col-md-12">
+                                                    <small class="text-dark mb-2" style="width: 75%">
+                                                         {{d.Message}}     
+                                                     </small>
+                                                </div>
+                                                <!-- <div class="col-md-3">
+                                                    <strong class="text-dark text-right mb-1" style="float: right;">QTY : {{d.MinimumQty}} </strong>
+                                                </div> -->
+                                                
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu-footer text-right">
+                                    <ul class="list-inline small">
+                                        <li class="list-inline-item">
+                                           <p class="m-0 p-0 text-dark" (click)="ShowAllNotifications()">Go to Notifications <i class="fa fa-arrow-right ml-2"></i></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <div id="ascrail2001" class="nicescroll-rails nicescroll-rails-vr" style="width: 8px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: -8px; height: 0px; touch-action: none; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 6px; height: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2001-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 8px; z-index: 1000; top: -8px; left: 0px; position: absolute; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 6px; width: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div></div>
+                        </li>
+                        <li class="nav-item d-none d-lg-block">
+                            <a href="#" class="nav-link sidebar-open" data-sidebar-target="#settings">
+                                <i class="fa fa-cog"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link" data-toggle="dropdown">
+                                <i class="fa fa-user-o"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
+                                <div class="dropdown-menu-title text-center" data-backround-image="./assets/media/image/image1.png" style="background: url(&quot;./assets/media/image/image1.png&quot;);">
+                                    <figure class="avatar avatar-state-success avatar-sm m-b-10 bring-forward">
+                                        <img src="./assets/media/image/avatar.jpg" class="rounded-circle" alt="image">
+                                    </figure>
+                                    <h6 class="text-uppercase font-size-12 m-b-0">{{UserName}}</h6>
+                                </div>
+                                <div class="dropdown-menu-body" tabindex="3" style="overflow: hidden; outline: none; touch-action: none;">
+                                    <div class="bg-light p-t-b-15 p-l-r-20">
+                                        <h6 class="text-uppercase font-size-11">Profile completion</h6>
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <a href="#" class="list-group-item link-2">Profile</a>
+                                      
+                                        <a href="#" class="list-group-item link-2 sidebar-open" data-sidebar-target="#settings">Settings</a>
+                                        <a href="#" class="list-group-item text-danger"(click)="LogOut()">Logout</a>
+                                    </ul>
+                                </div>
+                            <div id="ascrail2002" class="nicescroll-rails nicescroll-rails-vr" style="width: 8px; z-index: 1000; cursor: default; position: absolute; top: 0px; left: -8px; height: 0px; touch-action: none; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 6px; height: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2002-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 8px; z-index: 1000; top: -8px; left: 0px; position: absolute; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 6px; width: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div></div>
+                        </li>
+                        <li class="nav-item d-lg-none d-sm-block">
+                            <a href="#" class="nav-link side-menu-open">
+                                <i class="ti-menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+    
+    
+    
+                </div>
+        
+            </div>
+        </nav>
+        <router-outlet ></router-outlet>
+
+       </div>
+
+</div>

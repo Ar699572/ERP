@@ -1,0 +1,51 @@
+/* .ul li:hover {
+    color: #1f1a17 !important;
+    background: #c3c3c3 !important;
+} */
+
+.nav-tabs > li .close {
+    margin: -2px 0 0 10px;
+    font-size: 18px;
+}
+.marginBottom {
+    margin-bottom :1px !important;
+}
+.operationDiv {
+    padding:5px 10px 5px 5px;
+}
+.operationDivWrapper {
+    margin-top:-1px;
+}
+.leftMenu {
+    height :70%;
+    background-color: #E6E6E6;
+    border-right: 2px solid #BFBFBF;
+}
+.badge{
+    
+                                        color:transparent;
+                                        font-size: 1.1em;
+                                        font-weight: 300;
+                                        height: 25px;
+                                        line-height: 24px;
+                                        padding: 0;
+                                        position: absolute;
+                                        /* right: 360px; */
+                                        text-align: center;
+                                        top: -12px;
+                                        width: 25px;
+                                        z-index: 0;
+                                        border: none;
+                                        z-index: 1;
+                                        position: absolute;
+                                        right: 0;
+                                        bottom: 0;
+                                      /* margin-left: 66px; */
+                                        cursor: pointer;
+}
+.badge:hover{
+    color:#fff;
+    background-color: #fcc400;
+    border-radius: 50%;
+  
+}

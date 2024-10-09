@@ -1,0 +1,492 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton"
+       
+    >
+
+    <!-- <a class="actionbutton"  (click)="Search()"
+    href="javascript:void(0)" id="product_edit_submit">
+          <i class="fa fa-search side-icons" style="
+          font-size: 40px;
+          margin-top: 12px;
+      "></i>
+      </a> -->
+
+
+    <!-- <a class="actionbutton" (click)="ClearViewData()"
+    href="javascript:void(0)" id="product_edit_submit">
+          <i class="fa fa-file-text-o" style="
+          font-size: 40px; 
+          margin-top: 12px;
+      "></i>
+      </a> -->
+        <!-- <a class="actionbutton" (click)="OnSave()"
+      href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-floppy-o side-icons"  style="
+            font-size: 40px; 
+            margin-top: 12px;
+        "></i>
+        </a> -->
+        
+
+        <!-- <a class="actionbutton" (click)="OnDelete()"
+        href="javascript:void(0)" id="product_edit_submit">
+              <i class="fa fa-trash-o" style="
+              font-size: 40px;
+              margin-top: 12px;
+          "></i>
+          </a> -->
+
+    </div>
+    <form  [formGroup]="Settings">
+        <div class="container pl-0">
+    
+    
+            
+            <!-- begin::page header -->
+            <!-- <div class="page-header">
+                <h3>Settings</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">COMMON</li>
+                        <li class="breadcrumb-item">MASTERS</li>
+                      
+                        <li class="breadcrumb-item active" aria-current="page">SETTINGS</li>
+                    </ol>
+                </nav>
+            </div> -->
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>Settings</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">COMMON</li>
+                        <li class="breadcrumb-item">MASTERS</li>
+                        <li class="breadcrumb-item active" aria-current="page">SETTINGS</li>
+                    </ol>
+                </nav>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-9 text-right m-top-bot-auto" style="padding-right: 0px;">
+                                <button class="btn btn-warning" (click)="OnSave()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Save</button>
+                                <!-- <button class="btn btn-warning" style="margin-right: 10px;background: #d09d05 !important; border: 1px solid #d09d05 !important;color: white;"><i class="fa fa-eye" style="margin-top: -2px;margin-right: 9px;"></i> Preview</button> -->
+                            </div>
+                            <!-- <div class="col-md-4 m-top-bot-auto">
+                                
+                            </div> -->
+                            <div class="col-md-3">
+                                <div class="input-group" >
+                                    <input type="text" class="form-control" (click)="Search()" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-warning waves-effect waves-button waves-light" type="button" id="button-addon2"  data-dismiss="modal" (click)="SearchClick()">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end::page header -->
+    
+            <div class="row row-sm">
+                
+    
+           
+                <div class="col-md-6">
+                
+                    <!-- <select   class="js-example-basic-single"  
+                    id="drpAccountGroupMapping"   >
+
+                    </select>     -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">AccountGroupMapping</h6>
+                           
+                            <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                <thead >
+                                <tr>
+                                    <th style="width:10%;">#</th>
+                                    <th style="width:40%;" >Name</th>
+                                    <th style="width:40%;">Account Name</th>
+                                   <th style="width:10%;"></th>
+                                    
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let d of lstAccountGroupMapping; let i=index"> 
+                                        <td style="width:10%;" >{{i+1}}</td>
+                                    <td style="width:40%;">{{d.Name}}</td>
+                                    <td style="width:40%;">{{d.AccountGroupName}}</td>
+
+                                  
+                                    <td style="width:10%;"  data-target="#accid" (click)="EditAccount(d,(i+1))" data-backdrop="static">
+                                      
+
+                                        <i  class="ti-angle-right" (click)="EditAccount(d,(i+1))" data-backdrop="static" data-keyboard="false" data-target="#accid" data-toggle="modal" style="float: right;"></i>
+                                    </td>
+
+
+                                   
+                                    
+                                     
+    
+                                </tr>
+                                </tbody>
+                            </table>
+                           
+                        </div>
+                    </div> 
+            
+            
+            
+                    
+                </div>
+    
+                <div class="col-md-6">
+                
+    
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">DefaultAccountsSettings</h6>
+                           
+                            <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                <thead >
+                                    <tr>
+                                        <th style="width:10%;">#</th>
+                                        <th style="width:40%;" >Name</th>
+                                        <th style="width:40%;">Account Name</th>
+                                       <th style="width:10%;"></th>
+                                        
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let d of lstDefaultAccount; let i=index"> 
+                                            <td style="width:10%;" >{{i+1}}</td>
+                                        <td style="width:40%;">{{d.Name}}</td>
+                                        <td style="width:40%;">{{d.AccountName}}</td>
+    
+                                      
+                                        <td style="width:10%;"  data-target="#dccid" (click)="EditDefultAccount(d,(i+1))" data-backdrop="static">
+                                          
+    
+                                            <i  class="ti-angle-right" (click)="EditDefultAccount(d,(i+1))" data-backdrop="static" data-keyboard="false" data-target="#dccid" data-toggle="modal" style="float: right;"></i>
+                                        </td>
+    
+    
+                                       
+                                        
+                                         
+        
+                                    </tr>
+                                    </tbody>
+                            </table>
+                           
+                        </div>
+                    </div> 
+            
+            
+            
+                    
+                </div>
+               
+            </div>
+    
+        </div>
+
+        <div class="modal fade" aria-labelledby="ShippingId" id="accid"  role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="accid">Add / Modify Account Group</h5>
+                        <p *ngIf="showError" style="float: right" ><font color="red">{{errormsg}}</font></p>
+                        <button type="button"  id="btnCloseAccountItems" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <b><label style="float: right">SNO:{{SNO}}</label></b>
+                        <br>
+                        <label for="AccountGroupId">Account Group</label>
+                               
+                        <select   class="js-example-basic-single"  
+                        id="drpAccountGroupMapping"   >
+    
+                        </select>
+                      <br>
+                       
+                      
+                       
+                       <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary modal-btn waves-effect waves-button waves-light" data-dismiss="modal">
+                            <i class="ti-close m-r-5 modal-btn-icon"></i> Close</button>
+
+                       
+                        <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddAccount('Close')">
+                            <i class="ti-check m-r-5 modal-btn-icon"></i> Add</button>
+                        <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="EditAccount('','')">
+                            <i class="ti-check m-r-5 modal-btn-icon"></i> Add +</button>
+
+                    </div> 
+                   
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" aria-labelledby="AccountId" id="dccid"  role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="dccid">Add / Modify Account Group</h5>
+                        <p *ngIf="showError" style="float: right" ><font color="red">{{errormsg}}</font></p>
+                        <button type="button"  id="btnCloseBankDefaultAccountName" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <b><label style="float: right">SNO:{{SNO}}</label></b>
+                        <br>
+                        <label for="DefultAccount">Defult Account</label>
+                               
+                        <select   class="js-example-basic-single"  
+                        id="drpDefultAccount"   >
+    
+                        </select>
+                      <br>
+                       
+                      
+                       <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary modal-btn waves-effect waves-button waves-light" data-dismiss="modal">
+                            <i class="ti-close m-r-5 modal-btn-icon"></i> Close
+                        </button>
+                        <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddDefultAccount('Close')">
+                            <i class="ti-check m-r-5 modal-btn-icon"></i> Add </button>
+                        <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="EditDefultAccount('','')">
+                            <i class="ti-check m-r-5 modal-btn-icon"></i> Add +</button>
+
+                    </div> 
+                   
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+<!-- <div>aria-labelledby="ShippingId" class="modal fade show" id="ShippingId" role="dialog" tabindex="-1"</div> -->
+
+       
+        
+        <!-- <div class="modal fade" aria-labelledby="BankacId" id="bankid" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bankid">Add / Modify Account Group</h5>
+                        <p *ngIf="showError" style="float: right" ><font color="red">{{errormsg}}</font></p>
+                        <button type="button"  id="btnCloseBankDefaultAccountName" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <b><label style="float: right">SNO:{{SNO}}</label></b>
+                        <br>
+                        <label for="BankDefaultAccountName">Bank Default Account</label>
+                               
+                        <select id="drpBankDefaultAccountName"  class="js-example-basic-single"></select>    
+                      <br>
+                       
+                      
+                       
+                       <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                        </button>
+
+                       
+                        <button type="button" class="btn btn-primary" (click)="AddBankDefaultAccountName('Close')">Add & Close</button>
+                        <button type="button" class="btn btn-primary" (click)="EditBankDefaultAccountName('','')">Add & New</button>
+
+                    </div> 
+                   
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" aria-labelledby="CashonId" id="cash" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cash">Add / Modify Account Group</h5>
+                        <p *ngIf="showError" style="float: right" ><font color="red">{{errormsg}}</font></p>
+                        <button type="button"  id="btnCloseCashOnHandDefaultAccountName" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <b><label style="float: right">SNO:{{SNO}}</label></b>
+                        <br>
+                        <label for="CashOnHandDefaultAccountName">CashOnHand Default Account</label>
+                               
+                        <select id="drpCashOnHandDefaultAccountName"  class="js-example-basic-single"></select>     
+                      <br>
+                       
+                      
+                       
+                       <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                        </button>
+
+                       
+                        <button type="button" class="btn btn-primary" (click)="AddCashOnHandDefaultAccountName('Close')">Add & Close</button>
+                        <button type="button" class="btn btn-primary" (click)="EditCashOnHandDefaultAccountName('','')">Add & New</button>
+
+                    </div> 
+                   
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" aria-labelledby="Pettycash" id="petty" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="petty">Add / Modify Account Group</h5>
+                        <p *ngIf="showError" style="float: right" ><font color="red">{{errormsg}}</font></p>
+                        <button type="button"  id="btnClosePettyCashDefaultAccountName" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <b><label style="float: right">SNO:{{SNO}}</label></b>
+                        <br>
+                        <label for="PettyCashDefaultAccountName">PettyCash Default Account</label>
+                               
+                        <select id="drpPettyCashDefaultAccountName"  class="js-example-basic-single"></select> 
+                      <br>
+                       
+                      
+                       
+                       <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                        </button>
+
+                       
+                        <button type="button" class="btn btn-primary" (click)="AddPettyCashDefaultAccountName('Close')">Add & Close</button>
+                        <button type="button" class="btn btn-primary" (click)="EditPettyCashDefaultAccountName('','')">Add & New</button>
+
+                    </div> 
+                   
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" aria-labelledby="Pettycashbook" id="pettycashy" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pettycashy">Add / Modify Account Group</h5>
+                        <p *ngIf="showError" style="float: right" ><font color="red">{{errormsg}}</font></p>
+                        <button type="button"  id="btnCloseCashBookSequenceNumberId" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <b><label style="float: right">SNO:{{SNO}}</label></b>
+                        <br>
+                        <label for="CashBookSequenceNumberId">CashBook Sequence Number</label>
+                               
+                        <select id="drpPettyCashBookSequenceNumberId"  class="js-example-basic-single"></select> 
+                      <br>
+                       
+                      
+                       
+                       <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                        </button>
+
+                       
+                        <button type="button" class="btn btn-primary" (click)="AddCashBookSequenceNumberId('Close')">Add & Close</button>
+                        <button type="button" class="btn btn-primary" (click)="EditCashBookSequenceNumberId('','')">Add & New</button>
+
+                    </div> 
+                   
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" aria-labelledby="Payment" id="pay" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pay">Add / Modify Account Group</h5>
+                        <p *ngIf="showError" style="float: right" ><font color="red">{{errormsg}}</font></p>
+                        <button type="button"  id="btnClosePaymentsSequenceNumberId" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <b><label style="float: right">SNO:{{SNO}}</label></b>
+                        <br>
+                        <label for="PaymentsSequenceNumberId">Payments Sequence Number</label>
+                               
+                        <select id="drpPaymentsSequenceNumberId"  class="js-example-basic-single"></select>
+                      <br>
+                       
+                      
+                       
+                       <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                        </button>
+
+                       
+                        <button type="button" class="btn btn-primary" (click)="AddPaymentsSequenceNumberId('Close')">Add & Close</button>
+                        <button type="button" class="btn btn-primary" (click)="EditPaymentsSequenceNumberId('','')">Add & New</button>
+
+                    </div> 
+                   
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" aria-labelledby="Reciept" id="recp" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="recp">Add / Modify Account Group</h5>
+                        <p *ngIf="showError" style="float: right" ><font color="red">{{errormsg}}</font></p>
+                        <button type="button"  id="btnCloseRecieptItems" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <b><label style="float: right">SNO:{{SNO}}</label></b>
+                        <br>
+                        <label for="ReceiptsSequenceNumberId">Receipts Sequence Number</label>
+                               
+                        <select id="drpReceiptsSequenceNumberId"  class="js-example-basic-single"></select>  
+                      <br>
+                       
+                      
+                       
+                       <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                        </button>
+
+                       
+                        <button type="button" class="btn btn-primary" (click)="AddReceiptsSequenceNumberId('Close')">Add & Close</button>
+                        <button type="button" class="btn btn-primary" (click)="EditReceiptsSequenceNumberId('','')">Add & New</button>
+
+                    </div> 
+                   
+                    </div>
+                    
+                </div>
+            </div>
+        </div>  -->
+    </form>
+</main>

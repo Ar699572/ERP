@@ -1,0 +1,241 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton">
+
+        <!-- <a class="actionbutton" (click)="OnAdd()" href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-plus side-icons"></i>
+        </a>
+
+        <a class="actionbutton" id="btnSearch" data-toggle="modal" data-target="#SearchModel" data-backdrop="static"
+            data-keyboard="false" href="javascript:void(0)">
+            <i class="fa fa-search side-icons"></i>
+        </a> -->
+
+    </div>
+    <form [formGroup]="PurchaseReturns">
+        <div class="container pl-0">
+
+
+            <!-- begin::page header -->
+            <!-- <div class="page-header">
+                <h3>Purchase Returns</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Purchase</li>
+                        <li class="breadcrumb-item">Transactions</li>
+                        <li class="breadcrumb-item active" aria-current="page">PurchaseReturns</li>
+                    </ol>
+                </nav>
+            </div> -->
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>Purchase Returns</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Purchase</li>
+                        <li class="breadcrumb-item">Transactions</li>
+                        <li class="breadcrumb-item active" aria-current="page">PurchaseReturns</li>
+                    </ol>
+                </nav>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-9 text-right m-top-bot-auto" style="padding-right: 0px;">
+                                <button class="btn btn-warning" (click)="OnAdd()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-plus" style="margin-top: -2px;margin-right: 9px;"></i>New</button>
+                                <!-- <button class="btn btn-warning" style="margin-right: 10px;background: #d09d05 !important; border: 1px solid #d09d05 !important;color: white;"><i class="fa fa-eye" style="margin-top: -2px;margin-right: 9px;"></i> Preview</button> -->
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-warning waves-effect waves-button waves-light" type="button" id="button-addon2"  data-dismiss="modal" (click)="SearchClick()">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end::page header -->
+
+            <div class="row row-sm">
+
+
+
+                <div class="col-md-12">
+
+
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- <h6 class="card-title">Purchase Order</h6> -->
+
+                            <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 4%;">#</th>
+                                        <th style="width: 10%;">Date</th>
+                                        <th style="width:10%;">Voucher No</th>
+                                        <th style="width: 18%;">Vendor Name</th>
+                                      
+                                        <th style="width: 11%;">Gross</th>
+                                        <th style="width: 11%;">Tax</th>
+                                        <th style="width: 11%;">Total</th>
+                                        <th style="width: 10%;">Ref No</th>
+                                        <th style="width: 10%;">Created By</th>
+                                        <th style="width: 5%;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let d of lstPurchaseReturns;">
+                                        <td style="width: 4%;">{{d.SNO}}</td>
+                                        <td
+                                            style="width: 10%;padding: 0px 3px !important;vertical-align: baseline;">
+                                            {{d.TransactionDate| date:'mediumDate'}}</td>
+                                        <td
+                                            style="width: 10%;padding: 0px 3px !important;vertical-align: baseline;">
+                                            {{d.TransactionNo}}</td>
+                                        <td
+                                            style="width: 18%;padding: 0px 3px !important;vertical-align: baseline;">
+                                            {{d.VendorName}}</td>
+                                          
+                                        <td
+                                            style="width: 11%;padding: 0px 3px !important;vertical-align: baseline;">
+                                            {{(+d.TotalGross).toFixed(2)}}</td>
+                                        <td
+                                            style="width: 11%;padding: 0px 3px !important;vertical-align: baseline;">
+                                            {{(+d.TotalTax).toFixed(2)}}</td>
+                                        <td
+                                            style="width: 11%;padding: 0px 3px !important;vertical-align: baseline;">
+                                            {{(+d.Total)|currency:'INR' }}</td>
+                                        <td
+                                            style="width: 10%;padding: 0px 3px !important;vertical-align: baseline;">
+                                            {{d.ReturnSourceNo}}</td>
+                                        <td    style="width: 10%;padding: 0px 3px !important;vertical-align: baseline;">
+                                            {{d.createdby}}</td>
+                                        <td (click)="CreatePurchaseReturns(d)" style="width: 5%;"><i
+                                                style="float: right;" class="ti-angle-right"
+                                                data-keyboard="false" (click)="CreatePurchaseReturns(  d  )"></i>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="modal fade" id="SearchModel" tabindex="-1" role="dialog" aria-labelledby="SearchModelTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="SearchModelTitle">Search</h5>
+                            <p *ngIf="showError" style="float: right">
+                                <font color="red">{{errormsg}}</font>
+                            </p>
+                            <button type="button" id="btnCloseDetailsItems" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12">
+
+                                <div class="card">
+                                    <div class="card-header">Search</div>
+                                    <div class="card-body">
+
+
+                                        <div class="custom-control custom-switch" style="float:left">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitch"
+                                                checked="" (change)="FilterTypeChange($event)">
+                                            <label class="custom-control-label" for="customSwitch">All Data</label>
+                                        </div>
+
+
+
+                                        <div class="custom-control custom-switch custom-checkbox-success"
+                                            style="float: right">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitch2_"
+                                                checked="" (change)="SerchTypeChange($event.target.checked)">
+                                            <label class="custom-control-label" for="customSwitch2_">
+                                                Like</label>
+                                        </div>
+
+
+                                        <div class="row  col-md-12">
+
+                                            <div class="alert alert-info alert-with-border alert-dismissible"
+                                                role="alert">
+                                                <i class="ti-alert m-r-10"></i>If Like Off Search with '='
+                                            </div>
+                                        </div>
+
+
+                                        <div class="input-group" *ngIf="FilterType=='All' && SerchType=='Like'">
+                                            <input type="text" class="form-control" placeholder="Search ..."
+                                                formControlName="SearchString" aria-label="Recipient's username"
+                                                aria-describedby="button-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-light waves-effect waves-button waves-light"
+                                                    type="button" id="button-addon2" data-dismiss="modal"
+                                                    (click)="SearchClick()">
+                                                    <i class="fa fa-search side-icons"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row col-md-12" *ngIf="FilterType=='Field' ">
+
+
+
+                                            <label for="TransactionNo">Order No</label>
+                                            <input type="text" class="form-control" id="TransactionNo"
+                                                formControlName="TransactionNo" placeholder="Search PurchaseOrder No">
+                                            <label for="VendorName">Vendor Name</label>
+                                            <input type="text" class="form-control" id="VendorName"
+                                                formControlName="VendorName" placeholder="search Vendor Name">
+
+
+                                            <label for="Contactno">Contactno</label>
+                                            <input type="text" class="form-control" id="Contactno"
+                                                formControlName="Contactno" placeholder="search Contactno">
+
+
+
+                                            <div class="col-md-12 " style="float: right;padding-right:unset">
+                                                <button type="button"
+                                                    class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"
+                                                    style="float: right;margin-top:10px " data-dismiss="modal"
+                                                    (click)="SearchClick()">
+                                                    <i class="ti-search m-r-5"></i> Search
+                                                </button>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</main>

@@ -1,0 +1,12 @@
+
+
+<!-- <dropdown-number-sequence    formControlName='SequenceNumberId'  (NumberSequenceValueChange) ="CountryValueChange($event)"      [SequenceNumberId]="DisplaySequenceNumberId" [FormName]="DispalyFormName" ></dropdown-number-sequence> -->
+  
+<select id="drpNumberSequence" class="form-control" (change)="NumberSequenceChange($event.target)" >
+    
+    <option  *ngFor="let d of lstNumberSequence" 
+    
+    [attr.selected]="d.SequenceNumberId=='_SequenceNumberId' ? 'selected' : null"
+    [value]="d.SequenceNumberId">{{d.NumberType}}</option>
+   
+     </select>

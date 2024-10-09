@@ -1,0 +1,404 @@
+
+
+
+
+<div class="container-fluid dbbgcolor"
+>
+<form  [formGroup]="ViewDashboard">
+<div class="row">
+    <div class="col-md-3 mt-3">
+        <select id="CompanyName"  class="form-control"  name="CompanyId"
+        formControlName="CompanyId"> 
+      </select>
+      
+          
+    </div>
+    <div class="col-md-3 mt-3"> </div>
+    <div class="col-md-3 mt-3">
+        <select name="cars" id="" class="gb-select bgcolor">
+            <option value="Account">Account Switch</option>
+          
+          </select>
+          
+    </div>
+
+    <div class="col-md-3 mt-3">
+        <select name="cars" id="cars" class="gb-select bgcolor">
+            <option value="CompanyName">Switch branch</option>
+          
+          </select>
+          
+    </div>
+   
+</div>
+<!-- second row starts  -->
+<div class="row">
+    <div class="col-md-3 mt-3">
+        <div style="
+        color: white;
+        margin-left: 23px;
+        font-size: 26px;
+    ">
+        This Year
+    </div>
+          
+    </div>
+    <div class="col-md-3 mt-3"> </div>
+    <div class="col-md-2 mt-3">
+        <input type="date" class="gb-select bgcolor date" name="Financialstartyear" formControlName="Financialstartyear" >
+      
+    </div>
+    <div class="col-md-2 mt-3">
+        <!-- <select name="cars" id="cars" class="gb-select bgcolor">
+            <option value="CompanyName">TO</option>
+          
+          </select> -->
+          <input type="date" class="gb-select bgcolor date" name="FinancialEndyear"   id="FinancialEndyear" formControlName="FinancialEndyear">  
+          
+    </div>
+    <div class="col-md-2 mt-3">
+        <select id="Financialyear"  class="form-control"  name="FinancialyearDbId" formControlName="FinancialyearDbId"> 
+        
+      </select>
+      
+    </div>
+</div>
+<!-- Third row starts -->
+
+ <div class="row cards mt-3"  >
+   <div class="col-md-9">
+            <div class="row1">
+                <div class="col col2" >
+                <div class="card CardStyle" id="">
+                    <div class="card-body" >
+                <h4 class="Title text-center" > Total Revenue</h4>
+                <div class="col-md-12 text-success paddingstyle"  >
+
+                <img src="assets/icons/companyIcons/play.png">
+                {{lstDashBoardDetails.TotalRevenue}}
+               
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <div class="col col2">
+        <div class="card CardStyle" >
+            <div class="card-body text-center m-auto">
+                <h4 class="Title">Total Expenses</h4>
+                <div class="col-md-12 text-success paddingstyle"><img src="assets/icons/companyIcons/play.png">
+                    {{lstDashBoardDetails.TotalExpenses}}
+                    </div>
+        </div>
+        </div>
+    </div>
+    <div class="col col2">
+            <div class="card CardStyle" >
+                <div class="card-body text-center m-auto">
+                    <h4 class="Title">Enquiry</h4>
+                    <div class="col-md-12 text-success paddingstyle"><img src="assets/icons/companyIcons/play.png">
+                        {{lstDashBoardDetails.Enquiry}}
+                        </div>
+                  
+                </div>
+            
+        </div>
+    </div>
+    <div class="col col2">
+                <div class="card CardStyle" >
+                    <div class="card-body text-center m-auto">
+                        <h4 class="Title">Pending Orders</h4>
+                        <div class="col-md-12 text-success paddingstyle"><img src="assets/icons/companyIcons/play.png">
+                            {{lstDashBoardDetails.PendingOrder}}
+                            </div>
+                      
+                        
+        </div>   
+        </div>
+    </div>
+    <div class="col col2">
+         <div class="card CardStyle" >
+            <div class="card-body text-center m-auto">
+                <h4 class="Title">Received</h4>
+                <div class="col-md-12 text-success paddingstyle" ><img src="assets/icons/companyIcons/play.png">
+                    {{lstDashBoardDetails.Received}}
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="col col2">
+        <div class="card CardStyle" >
+            <div class="card-body text-center m-auto">
+                <h4 class="Title">Receivables</h4>
+                <div class="col-md-12 text-success paddingstyle"><img src="assets/icons/companyIcons/play.png">
+                    {{lstDashBoardDetails.Receivables}}
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="col col2">
+        <div class="card CardStyle " >
+            <div class="card-body  text-center m-auto">
+                <h4 class="Title">Payables</h4>
+                <div class="col-md-12 text-success paddingstyle"><img src="assets/icons/companyIcons/play.png">
+                    {{lstDashBoardDetails.Payables}} 
+                    </div>
+            </div>
+        </div>
+        </div>
+            </div>
+         <div class="card b">
+            <div class="card-body  ">
+            <p class="card-title" style="font-size: 19px;font-weight: 500; color: white">Key Performance Indicators</p></div>
+            <div class="Testrow">
+                <div class="card mb-auto details t1" >
+                  <p class="wordstyle mt-2">Sales Quotation</p>
+                  <div class="row">
+                    <div class="col-md-4">
+                        <p class="text-light"> {{lstDashBoardDetails.SalesQuotationTotalCount}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="text-success">{{lstDashBoardDetails.SalesQuotationTotalConsumedCount}} </p>  
+                    </div>
+                    <div class="col-md-4">
+                        <p  class="text-danger"> {{lstDashBoardDetails.SalesQutotationUnReferenceTotalCount}}  </p>
+                    </div>
+                  </div>
+                </div>
+<div class="card mb-auto details t1" >
+    <p class="wordstyle mt-2">Sales Order</p>
+    <div class="row">
+        <div class="col-md-4">
+            <p class="text-light"> {{lstDashBoardDetails.SalesOrderTotalCount}} </p>
+        </div>
+        <div class="col-md-4">
+            <p class="text-success"> {{lstDashBoardDetails.SalesOrderConsumedCount}} </p>  
+        </div>
+        <div class="col-md-4">
+            <p  class="text-danger">  {{lstDashBoardDetails.SalesOrderUnReferencedCount}}  </p>
+        </div>
+      </div>
+</div>
+<div class="card mb-auto details t1" >
+    <p class="wordstyle mt-2">Delivery Challan</p>
+    <div class="row">
+        <div class="col-md-4">
+            <p class="text-light">{{lstDashBoardDetails.DCTotalCount}}  </p>
+        </div>
+        <div class="col-md-4">
+            <p class="text-success">{{lstDashBoardDetails.DCConsumedinInvoiceCount}}  </p>  
+        </div>
+        <div class="col-md-4">
+            <p  class="text-danger"> {{lstDashBoardDetails.DCUnReferenceCount}}   </p>
+        </div>
+      </div>
+</div>
+<div class="card mb-auto details t1" >
+    <p class="wordstyle mt-2">Sales Invoice</p>
+    <div class="row">
+        <div class="col-md-4">
+            <p class="text-light">{{lstDashBoardDetails.SalesInvoiceTotalCount}} </p>
+        </div>
+        <div class="col-md-4">
+            <p class="text-success">{{lstDashBoardDetails.SalesOrderConsumedCount}}  </p>  
+        </div>
+        <div class="col-md-4">
+            <p  class="text-danger"> {{lstDashBoardDetails.DCUnReferenceCount}}</p>
+        </div>
+      </div>
+</div>
+<!-- <div class="card mb-auto details t1" >
+    <p class="wordstyle mt-2">Purchase Quotation</p>
+    <p class="wordspacing">150 140   10 </p>
+</div> -->
+<div class="card mb-auto details t1" style=" height: 90px;">
+    <div class="row">
+        <div class="col-md-12 mt-2" style="font-weight: 500;color: white;"> Purchase Quotation</div>
+        <div class="col-md-4 mt-3">
+            <p class="text-light">{{lstDashBoardDetails.PurchaseQuotationTotalCount}} </p>
+        </div>
+        <div class="col-md-4 mt-3">
+            <p class="text-success"> {{lstDashBoardDetails.PurchaseQuotationConsumedCount}}</p>  
+        </div>
+        <div class="col-md-4 mt-3">
+            <p  class="text-danger"> {{lstDashBoardDetails.PurchaseQuotationUnReferencedCount}}  </p>
+        </div>
+        <!-- <div class="col-md-4 mt-3" style="word-spacing: 30px; font-weight: 500;">
+            150  140  10 </div> -->
+        </div> </div>    
+<div class="card mb-auto details t1" >
+    <p class="wordstyle mt-2">Purchase Order</p>
+    <div class="row">
+        <div class="col-md-4">
+            <p class="text-light">{{lstDashBoardDetails.PurchaseOrderTotalCount}} </p>
+        </div>
+        <div class="col-md-4">
+            <p class="text-success">{{lstDashBoardDetails.PurchaseOrderUsedInInvoiceCount}}</p>  
+        </div>
+        <div class="col-md-4">
+            <p  class="text-danger"> {{lstDashBoardDetails.PurchaseOrderUnUsedInInvoiceCount}}  </p>
+        </div>
+      </div>
+</div>
+<div class="card details t1" >
+    <p class="wordstyle mt-2">Purchase Invoice</p>
+    <div class="row">
+        <div class="col-md-4">
+            <p class="text-light">{{lstDashBoardDetails.PurchaseInvoiceTotalCount}} </p>
+        </div>
+        <div class="col-md-4">
+            <p class="text-success">{{lstDashBoardDetails.SalesQuotationTotalConsumedCount}} </p>  
+        </div>
+        <div class="col-md-4">
+            <p  class="text-danger"> {{lstDashBoardDetails.SalesQutotationUnReferenceTotalCount}}   </p>
+        </div>
+      </div>
+</div>
+                
+            </div>
+           
+         </div>
+         <div class="row">
+            <div class="col-md-5">
+                <div class="card b">
+                    <div class="card-body  ">
+                        <p class="card-title" style="font-size: 19px;font-weight: 500;color: white;">Top Customers</p>
+                        <!-- <img src="https://media.istockphoto.com/id/470873118/photo/paper-pie-chart.webp?s=612x612&w=is&k=20&c=Q0pJe9HgufkWRt2yWqY40DEnYBGGqwdQZnLkxEQieNs=" style="width:100%;height: 218px"> -->
+         
+      
+                        <div id="main-head" style="text-align:center">
+                         
+     
+                            <highcharts-chart
+                            [Highcharts] = "highcharts" 
+                            [options] = "chartOptions" 
+                            style = "width: 100%; height: 400px; display: block;">
+                          </highcharts-chart>
+                          </div>
+                    </div>
+        
+                 </div>
+            </div>
+            <div class="col-md-7">
+
+                <div class="card b">
+                    <div class="card-body  ">
+                        <p class="card-title" style="font-size: 19px;font-weight: 500;color: white">Top 5 Products</p>
+                        <img src="https://t5y6k8a5.rocketcdn.me/wp-content/uploads/2021/01/wig-industry-growth-year-on-year.jpg" style="width:100%;height: 218px">
+                        
+                    </div>
+        
+                 </div>
+            </div>
+         </div>
+       
+                
+</div>
+<div  class="col-md-3">
+    <div class="card b">
+        <div class="card-body">
+    <h4 class="pl-3 mt-2 text">Reminders</h4>
+    <div id="nav">
+    <ul  class="nav nav-tabs" id="ProductTab" role="tablist">
+        <li  class="nav-item" style="width: 50%; text-align: center;font-size: 16px;"><a  aria-controls="Price" aria-selected="true" class="nav-link active" data-toggle="tab" href="#addFilter" id="Details-tab" role="tab">Checked <span class="badge badge-light">4</span></a></li> <hr>
+        <li  class="nav-item" style="width: 50%; text-align: center;font-size: 16px;"><a  aria-controls="Price" aria-selected="true" class="nav-link" data-toggle="tab" href="#FreeSearch" id="Details-tab" role="tab">Unchecked <span class="badge badge-light1">10</span></a></li>
+    </ul>
+</div>
+    
+    <div class="tab-content" id="ProductTabContent" style="border-top: 1px solid white;" >
+        <div  aria-labelledby="Details-tab" class="tab-pane fade active show" id="addFilter" role="tabpanel" >
+            <div class="row mt-2" style="padding-left: 30px">
+              <div class="col-md-4">
+                <input type="radio" class="form-check-input"  name="optradio" style='width: 12px;height: 12px;'checked><h6 class="text">Payments</h6>
+              </div>
+              <div class="col-md-4">
+                <input type="radio" class="form-check-input" name="optradio" style='width: 12px;height: 12px;'><h6 class="text">Personal</h6>
+              </div>
+              <div class="col-md-4">
+                <input type="radio" class="form-check-input" name="optradio" style='width: 12px;height: 12px;'><h6 class="text">Inventory</h6>
+              </div>
+
+    </div>
+    <div class="row mt-3" style="padding-left: 19px">
+        <div class="col-md-4">
+          <h6 class="text"> 15.06.2022 </h6>
+          </div>
+          <div class="col-md-8">
+            <h6 class="text">Received Payments from Xyz Company</h6>
+        
+          </div>
+    </div>
+   <hr class="linecolor">
+   <div class="row mt-3 submenu" style="padding-left: 19px">
+    <div class="col-md-4">
+     
+      <h6 class="text">25.06.2022</h6>
+      </div>
+      <div class="col-md-8">
+        <h6 class="text"> Send Quotation to Abc company</h6>
+     
+      </div>
+</div>
+<hr class="linecolor">
+<div class="row mt-3" style="padding-left: 19px">
+<div class="col-md-4">
+    <h6 class="text">22.07.2022</h6>
+  </div>
+  <div class="col-md-8">
+    <h6 class="text">Received Payments from Xyz Company</h6>
+  
+  </div>
+</div>
+<hr class="linecolor">
+<div class="row mt-3" style="padding-left: 19px">
+    <div class="col-md-4">
+        <h6 class="text">22.07.2022</h6>
+      </div>
+      <div class="col-md-8">
+        <h6 class="text">Received Payments from Xyz Company</h6>
+      
+      </div>
+    </div>
+    <hr class="linecolor">
+    <div class="row mt-3" style="padding-left: 19px">
+        <div class="col-md-4">
+            <h6 class="text">22.07.2022</h6>
+          </div>
+          <div class="col-md-8">
+            <h6  class="text">Received Payments from Xyz Company</h6>
+          </div>
+        </div>
+        <hr class="linecolor">
+</div>
+   
+</div>
+</div>
+
+</div> 
+</div>
+
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card b">
+            <div class="card-body">
+               
+                <div id="main-head" style="text-align:center">
+                         
+     
+                    <highcharts-chart
+                    [Highcharts] = "highchart" 
+                    [options] = "chartOption" 
+                    style = "width: 100%; height: 400px; display: block;">
+                  </highcharts-chart>
+                  </div>
+                  
+                <!-- <img src="https://t5y6k8a5.rocketcdn.me/wp-content/uploads/2021/01/wig-industry-growth-year-on-year.jpg" style="width: 83%;height: 280px;padding-left: 12em;margin-top: 9px;"> -->
+            </div>
+        </div>
+    </div>
+
+</div> 
+</form>
+</div>

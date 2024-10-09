@@ -1,0 +1,555 @@
+<main class="main-content p-0">
+  
+    <form  [formGroup]="PurchaseInvoice" >
+    <div class="container-fluid pl-0">
+        
+        <div class="page-header">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Purchase Invoice</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Purchase</li>
+                    <li class="breadcrumb-item">Transactions</li>
+                    <li class="breadcrumb-item active" aria-current="page">PurchaseInvoice</li>
+                </ol>
+            </nav>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-9 text-right m-top-bot-auto" style="padding-right: 0px;">
+                            <button class="btn btn-warning" (click)="OnAdd()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-plus" style="margin-top: -2px;margin-right: 9px;"></i> New</button>
+                            <!-- <button class="btn btn-warning" style="margin-right: 10px;background: #d09d05 !important; border: 1px solid #d09d05 !important;color: white;"><i class="fa fa-eye" style="margin-top: -2px;margin-right: 9px;"></i> Preview</button> -->
+                            <button class="btn btn-warning" style="margin-right: 10px;background: #e98102 !important; border: 1px solid #e78002 !important;color: white;"><i class="fa fa-print" style="margin-top: -2px;margin-right: 9px;"></i> Print</button>
+                            <div class="dropdown">
+                                <div class="btn btn-gray " data-toggle="dropdown" aria-expanded="false" style="margin-right: 10px;background: #0dbd6c !important; border: 1px solid #0dbd6c !important;color: white; ">
+                                    <i  class="fa fa-share-square-o" style="margin-top: -2px;margin-right: 9px;"></i> Export</div>
+                                <div  aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right" style="position: absolute; will-change: transform; width: 300px; margin: 9px -1px -1px; padding-top: 0px; border: none; top: 0px; left: -104px; transform: translate3d(-279px, 26px, 0px);">
+                                    <div class="row" style="background: #ececec;">
+                                        <div class="col-md-12">
+                                            <div class="card-header" style="background: #0dbd6c !important; color: white; font-size: 15px;padding: 5px 5px 5px 14px;">
+                                                Select Format
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 m-top-bot-auto">
+                                            <p class="p-0" style="margin-left: 20px !important; margin-bottom: 4px;font-weight: 400; font-size: 15px;">Format  </p>
+                                        </div>
+                                        <div class="col-md-8 mb-3">
+                                            <div class="form-check form-check-inline" style="margin-top: 10px;">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" style="width: 25px;"></label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="margin-top: 10px;">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1"><img src="https://cdn.iconscout.com/icon/free/png-512/microsoft-excel-4-722715.png" style="width: 25px;"></label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-12 text-right mb-3">
+                                            <button class="btn btn-success" style="margin-right: 15px;">Download</button>
+                                        </div>
+                                       
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <div class="btn btn-gray " data-toggle="dropdown" aria-expanded="false" style="margin-right: 10px;background: #93bd00; border-color: #93bd00;color: white; ">
+                                    <i  class="fa fa-whatsapp" style="margin-top: -2px;margin-right: 9px;"></i> Whatsapp</div>
+                                <div  aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right" style="position: absolute; will-change: transform; width: 300px; margin: 9px -1px -1px; padding-top: 0px; border: none; top: 0px; left: -104px; transform: translate3d(-279px, 26px, 0px);">
+                                    <div class="row" style="background: #ececec;">
+                                        <div class="col-md-12">
+                                            <div class="card-header" style="background: #93bd00 !important; color: white; font-size: 15px;padding: 5px 5px 5px 14px;">
+                                                Select Nubers To Whatsapp
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-check">
+                                                <p class="p-0" style="margin-left: 20px !important; margin-top: 10px;"><input class="form-check-input" type="checkbox" value="" id="defaultCheck1" > Asif - 9849150150 </p>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <p class="p-0" style="margin-left: 20px !important; margin-top: 10px;"> <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" > baba - 9849140140 </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-right mb-3">
+                                            <button class="btn btn-danger" style="margin-right: 8px;">Dscard</button>
+                                            <button class="btn btn-warning" style="margin-right: 15px;">Send</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <div class="btn btn-gray " data-toggle="dropdown" aria-expanded="false" style="margin-right: 10px;background: #525050; border-color: #525050;color: white; ">
+                                    <i  class="fa fa-envelope" style="margin-top: -2px;margin-right: 9px;"></i> Mail</div>
+                                <div  aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right" style="position: absolute; will-change: transform; width: 470px; margin: 9px -1px -1px; padding-top: 0px; border: none; top: 0px; left: -104px; transform: translate3d(-279px, 26px, 0px);">
+                                    <div class="row" style="background: #ececec;">
+                                        <div class="col-md-12">
+                                            <div class="card-header" style="background: #525050 !important; color: white; font-size: 15px;padding: 5px 5px 5px 14px;">
+                                                Select Document Format & Email
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 m-top-bot-auto">
+                                            <p class="p-0" style="margin-left: 20px !important; margin-top: 18px; margin-bottom: 4px;font-weight: 400; font-size: 15px;">Format  </p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-check form-check-inline" style="margin-top: 10px;">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" style="width: 25px;"></label>
+                                            </div>
+                                            <div class="form-check form-check-inline" style="margin-top: 10px;">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1"><img src="https://cdn.iconscout.com/icon/free/png-512/microsoft-excel-4-722715.png" style="width: 25px;"></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4" >
+                                            <p class="p-0" style="margin-left: 20px !important; margin-top: 10px;font-weight: 400; font-size: 15px;">Select Email  </p>
+                                        </div>
+                                        <div class="col-md-8" >
+                                            <select class="form-control" style="width: 95%;background:none">
+                                                <option>mechknow@gmail.com</option>
+                                                <option>mechknow@gmail.com</option>
+                                                <option>mechknow@gmail.com</option>
+                                            </select>
+
+                                          
+                                        </div>
+
+                                        <div class="col-md-4" >
+                                            <p class="p-0" style="margin-left: 20px !important; margin-top: 10px;">New Email  </p>
+                                        </div>
+                                        <div class="col-md-8" >
+                                            <input type="text" class="form-control" placeholder="Enter email" style="width: 95%;background:none">
+                                        </div>
+                                        <div class="col-md-12 text-right">
+                                            <button class="btn btn-danger" style="margin-right: 8px;">Dscard</button>
+                                            <button class="btn btn-warning" style="margin-right: 15px;">Send</button>
+                                        </div>
+                                        <div class="col-md-12 mb-3" >
+                                            <div class="form-check form-check-inline" style="margin-left: 20px !important; margin-top: 10px;">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" >
+                                                <label class="form-check-label" for="inlineCheckbox1" style="font-family: 'Poppins'; font-weight: 400; color: #0c0c0c">Enter New Email.</label>
+                                            </div>
+                                        
+                                            <div class="form-check form-check-inline" style="margin-left: 20px !important; margin-top: 10px;" >
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2" >
+                                                <label class="form-check-label" for="inlineCheckbox1" style="font-family: 'Poppins'; font-weight: 400; color: #0c0c0c">Existing Email.</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-warning" style="margin-right: 10px;background: #00dcc8 !important; border: 1px solid #00dcc8 !important;color: white;"><i class="fa fa-refresh" style="margin-top: -2px;margin-right: 9px;"></i> Refresh</button>
+                        </div>
+                        <!-- <div class="col-md-4 m-top-bot-auto">
+                            
+                        </div> -->
+                        <div class="col-md-3">
+                            <div class="input-group" >
+                                <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-warning waves-effect waves-button waves-light" type="button" id="button-addon2"  data-dismiss="modal">
+                                        <i class="fa fa-search" (click)="SearchClick()"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end::page header -->
+
+        <div class="row row-sm">
+            <div class="col-md-10"> 
+                        <div class="dataTables_scroll">
+                            <div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;">
+                                <div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width:100%; padding-right: 17px;">
+                                    <table class="table table-striped table-bordered dataTable" role="grid" style="margin-left: 0px;width: 100%;margin-bottom: 0px;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:4%;text-align: center !important;" >#</th>
+                                                <th style="width:8%;text-align: center !important" >Date</th>
+                                                <th style="width:10%;text-align: center !important" >Voucher No</th>
+                                                <th style="width:9%;text-align: center !important" >Ref No</th>
+                                                <th style="width:16%;text-align: center !important" >Vendor Name</th>
+                                                <th style="width:12%;text-align: center !important" >Gross</th>
+                                                <th style="width:8%;text-align: center !important" >Tax</th>
+                                                <th style="width:12%;text-align: center !important" >Total</th>
+                                                <th style="width:9%;text-align: center !important" >Created By</th>
+                                                <th style="width:7%;text-align: center !important" >Notes</th>
+                                                <th style="width:5%;text-align: center;" ></th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="dataTables_scrollBody" style="position: relative; overflow: auto; max-height: 79vh; width: 100%;">
+                                <table id="example2" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="example2_info" style="width: 100%;">
+                                    <thead>
+                                        <tr role="row" style="height: 0px;">
+                                            <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 219px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Name</div>
+                                            </th>
+                                            <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 319px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Position</div>
+                                            </th>
+                                            <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 167px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Office</div>
+                                            </th>
+                                            <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 62px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Age</div>
+                                            </th>
+                                            <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 146px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Start date</div>
+                                            </th>
+                                            <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 137px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Salary</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                   
+                        
+                                    <tbody>
+                                        <tr *ngFor="let d of lstPurchaseInvoice;"> 
+                                               <td style="width: 4%;text-align: center !important;">{{d.SNO}}</td>
+                                               <td style="width: 8%;text-align: center !important">{{d.TransactionDate| date:'mediumDate'}}</td>
+                                               <td style="width: 10%;text-align: center !important">{{d.TransactionNo}}</td>
+                                               <td style="width: 9%;text-align: center !important">{{d.Vendorreference}}</td>
+                                               <td style="width: 16%;">{{d.PartyName}}</td>
+                                               <td style="width: 12%;text-align: right !important">{{(+d.TotalGross).toFixed(2)}}</td>
+                                               <td style="width: 8%;text-align: right !important">{{(+d.TotalTax).toFixed(2)}}</td>
+                                               <td style="width: 12%;text-align: right !important">{{(+d.Total)|currency:'INR' }}</td>
+                                               <td style="width: 9%;text-align: center !important;">{{d.CreatedBy}}</td>
+                                               <td style="width: 7%;text-align: center !important">{{d.notes}}</td>
+                                              <td style="width: 5%;text-align: center !important">
+                                                   <div class="dropdown">
+                                                          <a  aria-expanded="false" class="btn btn-gray btn-floating btn-icon btn-sm waves-effect waves-button waves-light" data-toggle="dropdown" href="#">
+                                                              <i  aria-hidden="true" class="fa fa-ellipsis-v" style="color: white !important;"></i>
+                                                            </a>
+                                                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                                           <a class="dropdown-item" (click)="CreatePurchaseInvoice(d)" >Edit</a>
+                                                           <a class="dropdown-item" (click)="CreatePurchaseOrder(d)">Create Orders</a>
+                                                           <a class="dropdown-item" (click)="CreateGRN(d)">Create GRN</a>
+                                                           <a class="dropdown-item" (click)="CreatePurchaseInvoice(d)">Create Purchase Invoice</a>
+                                                       </div>
+                                                   </div>
+                                               </td>
+                                              
+                                               
+                                              
+                                           </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+            </div>
+
+            <div class="col-md-2">
+            
+                <!-- <div class="card">
+                   
+                    <div class="card-body">
+
+                        <div class="row">
+                           
+                            <div class="col-md-12">
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <label for="Customer" id="PartyId" style="width:90%"><strong>Vendor</strong></label>
+                                        <select id="drpCustomer" placeholder="select customer" class="js-example-basic-single mb-3"></select>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 m-top-bot-auto mb-3" >
+                                <div class="row">
+                                    <div class="col-md-3 m-top-auto">
+                                        <label for="SequenceNumberId"><strong>From</strong></label>
+
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control"  name="single-date-picker"  id="TransactionDate"
+                                        placeholder="Enter Date" (change)="QuotDateChange($event)"
+                                       
+                                       >
+                                </div>
+
+                                
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 m-top-bot-auto" >
+                                <div class="row">
+                                    <div class="col-md-3 m-top-auto">
+                                        <label for="SequenceNumberId"><strong>To</strong></label>
+
+                                    </div>
+                                    <div class="col-md-9 mb-3">
+                                        <input type="text" class="form-control"  name="single-date-picker"  id="TransactionDate"
+                                        placeholder="Enter Date" (change)="QuotDateChange($event)"
+                                       
+                                       >
+                                </div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-9">
+                                    <button class="btn btn-warning waves-effect waves-button waves-light" style="margin-right: 5px; background-color: 5d78ff;border-radius: 5px;font-weight: bold;width: 46.7%;display: initial;" type="button" (click)="Clear()" autocomplete="off">Clear</button>
+                            
+                                <button class="btn btn-warning waves-effect waves-button waves-light" style="border-radius: 5px;font-weight: bold;width: 46.7%;text-align: center;display: initial;" type="button" (click)="GetCustomerWiseSalesInvoice()" autocomplete="off">Go</button>
+                            
+                                </div>
+                                
+                                </div>
+                            </div>
+
+                        </div>
+                       
+                    </div>
+                </div> -->
+                <div class="row"  style="width: 100%;">
+                    <div class="col-md-12 pr-0" style="margin-bottom: 8px;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <select  class="form-control pr-0" formcontrolname="InvoiceType" id="InvoiceType" style="height: 36px;">
+                                    <option  value="Invoice">Financial Year</option>
+                                    <option  value="Warranty Replace">This Month</option>
+                                    <option  value="Exclude Tax" >This Quarter</option>
+                                    <option  value="Exclude Tax">Custom</option>
+                                    <option  value="Exclude Tax">Month Wise</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 m-top-bot-auto">
+                                <i class="fa fa-bar-chart" style="font-size: 21px; margin-right: 15px !important;"></i>
+                                <i class="fa fa-pie-chart" style="font-size: 21px; margin-right: 15px !important;"></i>
+                                <i class="fa fa-area-chart" style="font-size: 21px;"></i>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                                <div id="wrapper" style="display: contents;">
+                                
+                                    <div id="q2_2010">
+                                    <div id="q1_2010">
+                                    <div id="q4_2009">
+                                    <div id="q3_2009">
+                                    <div id="q2_2009">
+                                    <div id="q1_2005">
+                                        <div id="labels" style="width: 100%;">
+                                            <ul style="height: 285px; overflow: auto;">
+                                                <li><span></span>Cleared<strong style="float: right !important;">₹ 9,00,00</strong></li>
+                                                <li><span></span>Uncleared<strong style="float: right !important;">₹ 9,00,00</strong></li>
+                                                <li><span></span>Bank Charges<strong style="float: right !important;">₹ 9,00,00</strong></li>
+                                                <li><span></span>EMI<strong style="float: right !important;">₹ 9,00,00</strong></li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div id="percentage_wrapper">
+                                            <div id="percentage">
+                                                <ul>
+                                                    <li><p>60.14%</p><p>61.79%</p><p>63.90%</p><p>67.02%</p><p>68.28%</p><p>89.68%</p></li>
+                                                    <li><p>24.98%</p><p>24.56%</p><p>24.39%</p><p>23.28%</p><p>23.22%</p><p>6.83%</p></li>
+                                                    <li><p>7.14%</p><p>6.03%</p><p>4.27%</p><p>3.08%</p><p>2.35%</p><p>0%</p></li>
+                                                    <li><p>5.10%</p><p>4.91%</p><p>4.64%</p><p>4.35%</p><p>3.89%</p><p>2.36%</p></li>
+                                                    <li><p>2.66%</p><p>2.73%</p><p>2.52%</p><p>2.29%</p><p>2.27%</p><p>1.15%</p></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div id="slider">
+                                            <div id="chart_holder">
+                                                <div id="pie_chart">
+                                                    <ul>
+                                                        <li id="c1_r"><p><span class="pie_left"></span></p></li> 	
+                                                        <li id="c1_l"><p><span class="pie_right"></span></p></li>
+                                                        <li id="c2_r"><p><span class="pie_left"></span></p></li> 	
+                                                        <li id="c2_l"><p><span class="pie_right"></span></p></li>
+                                                        <li id="c3_r"><p><span class="pie_left"></span></p></li> 	
+                                                        <li id="c3_l"><p><span class="pie_right"></span></p></li>
+                                                        <li id="c4_r"><p><span class="pie_left"></span></p></li> 	
+                                                        <li id="c4_l"><p><span class="pie_right"></span></p></li>
+                                                        <li id="c5_r"><p><span class="pie_left"></span></p></li> 	
+                                                        <li id="c5_l"><p><span class="pie_right"></span></p></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="card" style="bottom:4px;display:table-caption;position:fixed;margin-right:19px;">
+                          
+                                    <div class="card-header"  style="font-size: large;">Payables : 0.00</div>
+                
+                                    <div class="card-body pb-4">
+                                        <div class="row">
+                                            <div class ="col-md-12">
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="Gross"><strong class="f-15">Gross  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <span><strong class="f-15">{{TotalGross.toFixed(2)}}</strong></span>
+                                                    </div>
+                
+                                                    <div class="col-md-6">
+                                                        <label for="Gross"><strong class="f-15">Discount  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <span><strong class="f-15">{{TotalDiscount.toFixed(2)}}</strong></span>
+                                                    </div>
+                
+                                                    <div class="col-md-6">
+                                                        <label for="Gross"><strong class="f-15">Charges  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <span><strong class="f-15">{{TotalCharges.toFixed(2)}}</strong></span>
+                                                    </div>
+                
+                                                    <div class="col-md-6">
+                                                        <label for="Gross" style="margin-bottom: 4px;"><strong class="f-15">GST  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <span><strong class="f-15">{{TotalTax.toFixed(2)}}</strong></span>
+                                                    </div>
+                
+                                                </div>  
+                                            </div>
+                
+                                            <div class ="col-md-12 text-center" >
+                                                <label for="Total" class="f-33 f-w-900 m-0" style="font-family: revert;">{{TotalAmount.toFixed(2)}}</label>  
+                                            </div>
+                
+                                        </div>
+                                    </div>
+                
+                
+                                </div>
+                    </div>
+                    
+                </div>
+
+              
+            </div>
+
+
+           
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="modal fade" id="SearchModel"  role="dialog" aria-labelledby="SearchModelTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="SearchModelTitle">Search</h5>
+                            <p *ngIf="showError" style="float: right" ><font color="red">{{errormsg}}</font></p>
+                            <button type="button"  id="btnCloseDetailsItems" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="col-md-12">
+                    
+                                       <div class="card">
+                    <div class="card-header">Search</div>
+                    <div class="card-body">
+
+                       
+                                <div class="custom-control custom-switch" style="float:left">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="FilterTypeChange($event)">
+                                        <label class="custom-control-label" for="customSwitch">All Data</label>
+                                    </div>
+
+                                   
+
+                                    <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="SerchTypeChange($event.target.checked)">
+                                            <label class="custom-control-label" for="customSwitch2_"> 
+                                                Like</label>
+                                        </div>
+                            
+
+                                     <div class="row  col-md-12">
+
+                                            <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                                    <i class="ti-alert m-r-10"></i>If Like Off Search with  '='
+                                                </div>
+                                     </div>
+                        
+
+                        <div class="input-group" *ngIf="FilterType=='All' && SerchType=='Like'">
+                            <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2"  data-dismiss="modal" (click)="SearchClick()">
+                                    <i class="fa fa-search side-icons"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
+<div class="row col-md-12" *ngIf="FilterType=='Field' ">
+
+
+
+<label for="TransactionNo">Invoice No</label>
+<input type="text" class="form-control" id="TransactionNo" formControlName="TransactionNo"  placeholder="Search PurchaseInvoice No">
+<label for="VendorName">Vendor Name</label>
+<input type="text" class="form-control" id="VendorName" formControlName="VendorName"  placeholder="search Vendor Name">
+
+
+<label for="Contactno">Contactno</label>
+<input type="text" class="form-control" id="Contactno" formControlName="Contactno"  placeholder="search Contactno">
+
+
+
+<div class="col-md-12 " style="float: right;padding-right:unset">
+<button type="button" class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"  style="float: right;margin-top:10px "  data-dismiss="modal" (click)="SearchClick()">
+<i class="ti-search m-r-5"></i> Search
+</button>
+
+</div>
+</div>
+
+
+ </div>
+ </div>
+
+
+ </div>
+                        </div>
+                        <div class="modal-footer">
+                          
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</form>
+
+<!-- <footer style="position: fixed; bottom: 0; width: 98%; z-index: 9; margin-bottom: 56px;">
+    <form action="" novalidate="" class="ng-untouched ng-pristine ng-valid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10"></div>
+                
+            </div>
+        </div>
+    </form>
+</footer> -->
+
+</main>
+

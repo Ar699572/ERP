@@ -1,0 +1,612 @@
+<style>
+  table {
+    page-break-inside: avoid;
+    page-break-before: always;
+
+  }
+
+  tfoot {
+    display: table-footer-group
+  }
+
+  td {
+    height: auto;
+  }
+
+  thead {
+    display: table-header-group;
+   
+  }
+
+  
+</style>
+
+<script>
+
+  function loadImage() {
+    alert("Image is loaded");
+  }
+  loadImage();
+</script>
+
+
+<!-- <body onload="makeTableScroll();"> -->
+
+<body style="background: #ffffff !important;padding-top: 0px !important;">
+
+  <!-- <input type="text" class="form-control" id="txtminrows" value=30>
+  <input type="text" class="form-control" id="txtmaxrows" value=60>
+  <input type="text" class="form-control" id="txtmiddlerows" value=45>
+  <input type="checkbox" id="chkpagebreak" >
+<a (click)="Go()" class="btn btn-success m-l-5 waves-effect waves-button waves-light">
+  <i class="fa fa-print m-r-5"></i> Go
+</a> -->
+
+<!-- <input type="checkbox"  (change)="Checked($event.target.value)"> -->
+
+  <div id="PrintArea">
+    <main style="margin-left: 0px; margin-bottom: 50px;">
+      <div id="container">
+        <table style="width: 100%;  ">
+
+          <table cellpadding="5" id="myTable" cellspacing="0" width="100%" >
+
+            <thead id="header" name="header" class="header"   width="100%" style="display: table-header-group !important;
+            ">
+
+             <tr>
+              <th width="100%" colspan="12" style="border-bottom: 1px solid black;border-top: 1px solid black;border-left: 1px solid black;
+              border-right: 1px solid black;">
+              
+                <table  width="100%">
+                  <tr >
+                    <th  width="50%" style="text-align: left; vertical-align: top; padding: 0px; border:1px solid black; padding-left: 5px!important;">
+                      <img src='./assets/media/image/LatestLogoMechknow.png' style="width: 270px; height: 50px;">
+              
+                      <!-- <p style="font-family: auto;font-size: 16px; padding-top:0px; margin:0px !important"> {{CompanyName}}
+                      </p> -->
+                      <p style="margin: 0px !important;font-family:Arial, Helvetica, sans-serif;font-size: 11px; font-weight: 100; 
+                        padding-top:0px; ">
+                        <!-- 6-2-103/119, SHIRIDI SAI BABA COLONY, OPP, SHOBANA COLONY, BALANAGAR , HYDERABAD, MEDCHAL - MALKAJGIRI, TELANGANA-500042 -->
+                        {{CompanyAddress}}<br>{{CompanyAddress1}},{{CompanyAddress2}}
+                      State : {{CompanyState}}-{{CompanyZipcode}}
+                      
+                      </p>
+              
+                      <p
+                        style="margin: 0px !important;font-family:Arial, Helvetica, sans-serif;font-size: 11px !important; font-weight: 200;height:15px;">
+                        <strong>GST NO : {{CompanyGSTNo}}</strong>
+                      </p>
+              
+                    </th>
+              
+                    <th  width="50%"style="text-align: left; border:1px solid black; vertical-align: top; : 0px;
+                     border-right: 1px solid black;">
+                      <p style=" margin: 0px !important;   font-family: -webkit-pictograph italic;font-size: 40px;text-align: center  ; 
+                    font-style: italic;font-weight: 800; margin-top: 0px !important;margin-bottom: 0px !important;    ">
+                        Sales Quotation</p>
+              
+              
+                      <table width="100%" style=" margin: 0px !important;font-family:Arial, Helvetica, sans-serif;font-size: 11px !important;
+                         font-weight: 200; ">
+                        <tr>
+                          <td width="50%" style="padding-left: 5px!important;"> SQ No : {{TransactionNo}}</td>
+                          <td width="50%" > SQ Date : {{TransactionDate|date:'mediumDate'}}</td>
+                        </tr>
+                        <tr>
+                          <td width="50%" style="padding-left: 5px!important;"> Order No : {{OrderNo}}</td>
+                          <td width="50%" > Order Date : {{TransactionDate|date:'mediumDate'}} </td>
+                        </tr>
+                        <tr >
+                          <td width="50%" style="padding-left: 5px!important;"> Product reference : {{ProductRefNo}}</td>
+                          
+                        </tr>
+                        <!-- <tr>
+                          <td width="50%" *ngIf="TransportMode=='Courier'" > Mode of Transport : {{TransportMode}} </td>
+                          <td width="50%" *ngIf="TransportMode=='Vehicle'" > Mode of Transport : {{TransportMode}} </td>
+                          <td width="50%" *ngIf="TransportMode=='Transport'" > Mode of Transport : {{TransportMode}} </td>
+                          <td width="50%" *ngIf="TransportMode=='Person'" > Mode of Transport : {{TransportMode}} </td>
+                          <td width="50%" style="padding-left: 5px!important;"> Date of Supply : {{SupplyDate|date:'mediumDate'}}</td>
+                        </tr>
+                        <tr>
+                          <td width="50%">
+                            <div *ngIf="VehicleNo!=''  &&   TransportMode=='Courier'"> Name : {{VehicleNo}}</div>
+                            <div *ngIf="VehicleNo!=''  &&   TransportMode=='Vehicle'"> VehicleNo : {{VehicleNo}}</div>
+                            <div *ngIf="VehicleNo!=''  &&   TransportMode=='Transport'"> Transport: {{VehicleNo}}</div>
+                            <div *ngIf="VehicleNo!=''  &&   TransportMode=='Person'"> Name: {{PersonName}}</div>
+                          </td>
+                          <td width="50%">
+                            <div *ngIf="TransportMode=='Vehicle'">Driver Name : {{ DriverName}}</div>
+                            <div *ngIf="TransportMode=='Courier'">Tracking No : {{ TrackingNo}}</div>
+                            <div *ngIf="TransportMode=='Transport'">Tracking No : {{ TrackingNo}}</div>
+                            <div *ngIf="TransportMode=='Person'">Phone No : {{ PersonPhoneNo}}</div>
+                           
+                          </td>
+                        </tr> -->
+                      </table>
+              
+              
+                    </th>
+              
+                  </tr>
+              
+                  <tr style=" height:100px !important;">
+                    <th  width="50%" style="width: 50%;text-align: left; font-family:Arial, Helvetica, sans-serif;font-size: 11px !important;
+                                   padding: 0px;   border: 1px solid black;;vertical-align: top;padding-left: 5px!important;">
+                      <p style="margin: 0px !important; padding-bottom:  5px  ; "> Buyer Details:</p>
+                      <p style="margin: 0px !important;font-weight: 150;"> <b>{{PartyName}} </b></p>
+                      <p style="margin: 0px !important;font-weight: 100;"> {{BuyerAddress}} </p>
+                     
+              
+                      <p style="margin: 0px !important; font-weight: 100;   "> State : {{BillToStateName}} <span
+                          style="word-break: break-all;">State Code : {{BillToStateCode}}</span></p>
+                      <p style="margin: 0px !important;font-weight: 150; padding-top:2px;  "> <b>GSTNo : {{PartyGSTNo}} </b>
+                      </p>
+                    </th>
+                    <th  width="50%" style=" font-family:Arial, Helvetica, sans-serif;font-size: 11px !important; 
+                           text-align: left; vertical-align: text-top; border: 1px solid black; padding-left: 5px!important;">
+              
+                      <p style="margin: 0px !important;padding-bottom:  5px  ; "> Ship Details: </p>
+                      <p style="margin: 0px !important;font-weight: 100;" *ngIf="ShiptoAddress!=''"> <b>{{PartyName}} </b></p>
+                      <p style="margin: 0px !important;font-weight: 100;"> {{ShiptoAddress}} </p>
+                   
+                     
+                      <p style="margin: 0px !important;height: 10px; font-weight: 150; padding-bottom:0px;"  *ngIf="ShiptoAddress!=''"> State :
+                        {{BillToStateName}}
+                        <span style="word-break: break-all;">State Code : {{BillToStateCode}}</span>
+                      </p>
+              
+                    </th>
+                  </tr>
+                </table>
+              </th>
+
+             </tr>
+
+              <tr style="font-family:Arial, Helvetica, sans-serif;font-size: 12px !important;">
+
+
+                <th style="border-right: 1px solid black; border-left: 1px solid black; border-top: 1px solid black;border-bottom: 1px solid black;
+                   text-align: center !important ; width:3% !important;">
+                  S.No</th>
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;
+                  text-align: center !important;width:10% !important;">
+                  Part No</th>
+
+                  <!-- <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center !important;width:6% !important;">
+                  Make</th> -->
+
+                <th
+                  style="border-top: 1px solid black;border-bottom: 1px solid black;text-align: center !important ;width:26% !important;
+                  border-right: 1px solid black;">
+                  Description</th>
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center !important;width:7% !important;">
+                  HSN</th>
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center  !important;width:4% !important;">
+                  Qty</th>
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black; text-align: center !important; width:6% !important; ">
+                  Price/Unit</th>
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center !important ;width:7% !important;">
+                  Disc %</th>
+                <th *ngIf="CompanyStateCode==BillToStateCode"
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center  !important;width:7% !important;">
+                  CSGT %</th>
+                <!-- <th *ngIf="CompanyStateCode==BillToStateCode"
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center  ;">
+                  CSGT</th> -->
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center !important ;width:7% !important;">
+                  <div *ngIf="CompanyStateCode==BillToStateCode">SGST %</div>
+
+                  <div *ngIf="CompanyStateCode!=BillToStateCode">IGST %</div>
+
+
+                </th>
+                <!-- <th *ngIf="CompanyStateCode==BillToStateCode"
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center  ;">
+                  SGST</th> -->
+                <!-- <th *ngIf="CompanyStateCode!=BillToStateCode"
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center  ;width:10%;">
+                  IGST %</th> -->
+                <!-- <th *ngIf="CompanyStateCode!=BillToStateCode" style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;
+                  text-align: center  ;">
+                  IGST</th> -->
+
+                <th style="border-top: 1px solid black;border-bottom: 1px solid black;width:7% !important;
+                  text-align: center  !important; border-right: 1px solid black;">
+                  Total</th>
+
+
+              </tr>
+
+
+            </thead>
+
+            <tbody id="body" name="body" style="font-family:Arial, Helvetica, sans-serif;font-size: 12px !important;
+             border-bottom: 1px solid black; min-height: 500px ;height: auto;">
+
+              <tr  *ngFor="let d of lstSalesQuotationPrint ;let ind=index " style="border-bottom:1px !important; ">
+
+                <!-- <td *ngIf="ind===30" colspan="10">
+                  
+                </td> -->
+
+                <!-- <td *ngIf="ind===30" colspan="10">
+  <div  *ngIf="ind=29"  style="height: 100px;"></div>
+</td> -->
+
+
+                <td style=" border-right: 1px solid black;border-left: 1px solid black;text-align: center;width:3% !important;
+                 text-align: center;padding-bottom: 0px;">
+
+                  <!-- <div [ngStyle]="{'page-break-before':ind===30 ?'always' : 'none'} " ></div> -->
+                  <!-- <div  [style.color]="ind===30 ? 'red' : null">wwww</div> -->
+                  <!-- <div  *ngIf="ind===30" [ngStyle]="{'page-break-before':ind===30 ?'always' : null} " style="height: 20px;"></div> -->
+
+
+                  <!-- [ngStyle]="{'background-color':person.country === 'UK' ? 'green' : 'red' }" -->
+                  <!-- <div *ngIf="ind==30?pagebreak:true " style="height:200px; page-break-before: always;"></div> -->
+                  <div *ngIf="d.Partno==' '" style="color:#ffffff;visibility: hidden;"> {{d.SNO}}</div>
+                  <div *ngIf="d.Partno!=' '"> {{d.SNO}}</div>
+                  <!-- <div  > {{d.SNO}}</div> -->
+                  <!-- <div *ngIf="d.Partno==' '" style="color: white;"><br> </div> -->
+                </td>
+                <!-- <td *ngIf="d.Partno=='x'"
+                  style="border-right: 1px solid black;border-left: 1px solid black;text-align: center  ;  color:white ;">
+                  
+                </td> -->
+                <td style="border-right: 1px solid black;padding-bottom: 0px; width:10% !important;">
+                  <div *ngIf="d.Partno==' '" style="color: white;"> {{d.Partno}} </div>
+                  <div *ngIf="d.Partno!=' '"> {{d.Partno}} </div>
+                </td>
+
+                <!-- <td style="border-right: 1px solid black;padding-bottom: 0px;width:6% !important; ">
+                  <div *ngIf="d.Make==' '" style="color: white;"> {{d.Make}} </div>
+                  <div *ngIf="d.Make!=' '"> {{d.Make}} </div>
+                </td> -->
+
+                <td style="padding-bottom: 0px; width:26% !important;border-right: 1px solid black;">{{d.Description}}
+                  <p  *ngIf="d.Note!=''" style="margin: 0px;padding: 0px;" innerHTML="{{d.Note}}"> </p>
+                </td>
+
+                <td style="border-right: 1px solid black;padding-bottom: 0px;width:7% !important;">{{d.HSN}}</td>
+                <td style="border-right: 1px solid black;padding-bottom: 0px;text-align: center;width:4% !important;">
+                  <div *ngIf="d.Qty==''">
+                    {{d.Qty}}
+                  </div>
+
+                  <div *ngIf="d.Qty!=''">
+                    {{(+d.Qty).toFixed(1)}}
+                  </div>
+                </td>
+                <td style="border-right: 1px solid black;text-align: right;padding-bottom: 0px;width:6% !important;">
+                  <div *ngIf="d.Rate!=''">
+                    {{(+d.Rate).toFixed(2)}}
+                  </div>
+
+                  <div *ngIf="d.Rate==''">
+                    {{d.Rate}}
+                  </div>
+                </td>
+                <td style="border-right: 1px solid black;text-align: right;padding-bottom: 0px;width:7% !important;">
+                  <div *ngIf="d.Discount!=''">
+                    {{(+d.Discount).toFixed(2)}}
+                  </div>
+
+                  <div *ngIf="d.Discount==''">
+                    {{d.Discount}}
+                  </div>
+
+                </td>
+                <td *ngIf="CompanyStateCode==BillToStateCode" style="border-right: 1px solid black;text-align: right;padding-bottom: 0px;width:7% !important;">
+                  <div *ngIf="d.CGST!=''">
+                    {{(+d.CGST).toFixed(2)}}
+                  </div>
+
+                  <div *ngIf="d.CGST==''">
+                    {{d.CGST}}
+                  </div>
+
+                </td>
+                <td style="border-right: 1px solid black;text-align: right;padding-bottom: 0px;width:7% !important;">
+
+                  <div *ngIf="CompanyStateCode==BillToStateCode">
+                    <div *ngIf="d.SGST!=''">
+                      {{(+d.SGST).toFixed(2)}}
+                    </div>
+
+                    <div *ngIf="d.SGST==''">
+                      {{d.SGST}}
+                    </div>
+                  </div>
+
+
+                  <div *ngIf="CompanyStateCode!=BillToStateCode ">
+                    <div *ngIf="d.IGST!=''">
+                      {{(+d.IGST).toFixed(2)}}
+                    </div>
+
+                    <div *ngIf="d.IGST==''">
+                      {{d.IGST}}
+                    </div>
+                  </div>
+
+                </td>
+                <td style="text-align: right;padding-bottom: 0px; border-right: 1px solid black; width:7% !important;">
+                  <div *ngIf="d.NetTotal!=''">
+                    {{(+d.NetTotal).toFixed(2)}}
+                  </div>
+
+                  <div *ngIf="d.NetTotal=='' ">
+                    {{d.NetTotal}}
+                  </div>
+
+                </td>
+
+              </tr>
+
+            
+            </tbody>
+
+            <tfoot width="100%" height="auto">
+              <tr>
+                <td colspan="12" width="100%"  style="padding:0px; ">
+
+                  <table cellpadding="0" cellspacing="0"
+                    style=" border-left: 1px solid black; border-top: 1px solid black;border-bottom: 1px solid black;  width: 100%; ">
+
+                    <tr>
+
+                      <td width="59%" style="display: contents;">
+                        <table cellpadding="5" cellspacing=""
+                          style=" width: 100%;  border-color: black  !important; font-family:Arial, Helvetica, sans-serif;font-size: 12px !important;  ">
+                          <tbody>
+
+                            <tr>
+                              <td colspan="3">
+                                   <b>Amount In Words </b> : {{Amountinwords}}
+                              </td>
+                            </tr>
+                            <tr style="text-align: center;border-bottom: 1px solid black !important;border-top: 1px solid black !important;">
+                              <td style="font-weight: 500; border-top: 1px solid black" colspan="3" >
+                                <b> # Bank Details #</b>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="width: 50%;padding-top: 0px ;padding-bottom: 0px ;padding: 5px ; border-bottom: 1px solid black; border-right: 1px solid black;border-top: 1px solid black;">
+                                 <strong style="width:80px;display:inline-grid;font-weight:700;">Bank </strong> : ICICI
+                              </td>
+
+                              <td style="width: 50%;padding-top: 0px ;padding-bottom: 0px ;padding: 5px ; border-bottom: 1px solid black;border-top: 1px solid black">
+                                 <strong style="width:80px;display:inline-grid;font-weight:700;">Account No </strong> : 111505000470
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="width: 50%;padding-top: 0px ;padding-bottom: 0px ;padding: 5px ; border-right: 1px solid black;">
+                                 <strong style="width:80px;display:inline-grid;font-weight:700;">Bank Branch </strong> : BALANAGAR
+                              </td>
+
+                              <td style="width: 50%;padding-top: 0px ;padding-bottom: 0px ;padding: 5px ;">
+                                <strong style="width:80px;display:inline-grid;font-weight:700;">IFSC Code </strong> : ICIC0001115
+                              </td>
+                            </tr>
+
+
+                            <tr>
+            <td  style="text-align: center; border-top: 1px solid black;border-bottom: 1px solid black;"  colspan="3">
+              <strong style="font-weight:700;font-family:Arial, Helvetica, sans-serif;  ">Terms &amp; Conditions</strong>
+             
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" style="border-bottom: 1px; font-size: 12px !important;  font-family: auto; font-weight: 900;height: 61px;">
+              <span innerHTML="{{TermsandConditions}}"></span>
+            </td>
+          </tr>
+          <tr>
+            <td  colspan="3"
+              style="border-bottom: 1px;text-align: center; border-top: 1px solid black;font-size: 12px !important;  font-family: auto; font-weight: 900;border-bottom: 1px solid black;">
+              Payment Terms
+            </td>
+          </tr>
+          <tr>
+            <td 
+              style="font-size: 12px !important;  font-family: auto; font-weight: 900;  ">
+              <span *ngFor="let d of lstTermsChild">{{d.TermDescription}}<br></span>
+            </td>
+          </tr>
+
+
+                          </tbody>
+                        </table>
+                      </td>
+
+                      <td width="41%" height="100%">
+
+
+
+                        <table cellpadding="0" cellspacing="0" style="border-right: 1px solid black; border-left: 1px solid black;width: 100%; font-family:Arial, Helvetica, sans-serif;font-size: 12px !important; font-weight: 200;">
+                          <tbody>
+                            <tr>
+                              <td style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 300;">Total Amount :</td>
+                              <td style="padding: 5px; font-family: auto; font-size: 12px !important; font-weight: 600;  text-align: right;">{{TotalGross}}</td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 300; ">
+                                Discount Amount :</td>
+                              <td
+                                style="padding: 5px; font-family: auto; font-size: 12px !important; font-weight: 600;  text-align: right;">
+                                {{TotalDiscount}}</td>
+                            </tr>
+                           
+
+                            <tr *ngIf="InvoiceType=='Import'">
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px!important; font-weight: 300;">
+                                Basic Custom Duty 7.5% :</td>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px!important; font-weight: 600;  text-align: right;">
+                                {{TotalBCD}} </td>
+                            </tr>
+
+                            <tr *ngIf="InvoiceType=='Import'">
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px!important; font-weight: 300;">
+                                Social Welfare Sur 10% on BCD :</td>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px!important; font-weight: 600;  text-align: right;">
+                                {{TotalSWS}}</td>
+                            </tr>
+                            
+                            <tr >
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px!important; font-weight: 300;">
+                                Total Amount Before Tax :</td>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px!important; font-weight: 600;  text-align: right;">
+                                {{TotalBeforeTax}}</td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 300;">
+                                CGST</td>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 600;  text-align: right;">
+                                {{TotalCGST}}</td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 300;">
+                                SGST</td>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 600;  text-align: right;">
+                                {{TotalSGST}}</td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 300;">
+                                IGST</td>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 600;  text-align: right;">
+                                {{TotalIGST}}</td>
+                            </tr>
+
+                            <tr>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 300;">
+                                Total Tax</td>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 600;  text-align: right;">
+                                {{TotalTax}}</td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 300;">
+                                Charges Amount :</td>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 600;  text-align: right;">
+                                {{TotalCharges}}</td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 300;  border-top: 1px solid black;border-bottom: 1px solid black;">
+                                Net Amount :</td>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 600;  text-align: right; border-top: 1px solid black;border-bottom: 1px solid black;">
+                                {{Total|currency:'INR' }}</td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 600;">
+                              </td>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 600;">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                style="padding: 5px;   font-family: auto; font-size: 12px !important; font-weight: 400; width: 230px;">
+                               <br></td>
+                              <td
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 600; ">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="4"
+                                style=" font-family: auto; font-size: 12px !important; font-weight: 400; text-align: center;">
+                               <br>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="4"
+                                style="  font-family: auto; font-size: 12px !important; font-weight: 600; text-align: center;">
+                                For Mechknow India Pvt Ltd.</td>
+                            </tr>
+                            <tr>
+                              <td colspan="4"
+                                style="padding: 5px; height: 60px;  font-family: auto; font-size: 12px !important; font-weight: 600; text-align: center;">
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="4"
+                                style="padding: 5px;  font-family: auto; font-size: 12px !important; font-weight: 600; text-align: center;">
+                                Authorized Signatory</td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+
+            </tfoot>
+
+          </table>
+<!-- 
+          <div *ngIf="pagebreak" style="position: static;bottom: auto; page-break-before: always;"></div>
+
+          <div id="sticky-footer">
+
+
+
+
+
+          </div> -->
+
+
+        </table>
+
+
+        <br>
+
+      </div>
+    </main>
+  </div>
+  <div style="text-align: right;">
+    <hr>
+    <a hidden href="#" class="btn btn-primary waves-effect waves-button waves-light">
+      <i class="fa fa-send m-r-5"></i> Send Quotation
+    </a>
+
+
+    <a (click)="print()" class="btn btn-success m-l-5 waves-effect waves-button waves-light">
+      <i class="fa fa-print m-r-5"></i> Print
+    </a>
+    <!-- <button (click)="print()">Print</button> -->
+
+    <a (click)="btnClose()" class="btn btn-primary m-l-5 waves-effect waves-button waves-light">
+      <i class="fa fa-print m-r-5"></i> Close
+    </a>
+  </div>
+
+</body>

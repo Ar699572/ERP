@@ -1,0 +1,157 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton"
+       
+    >
+
+
+ <!-- <a class="actionbutton" (click)="OnAdd()" 
+ href="javascript:void(0)" id="product_edit_submit">
+       <i class="fa fa-plus side-icons"></i>
+   </a>
+
+ <a class="actionbutton"
+ id="btnSearch"
+ data-toggle="modal"   data-target="#SearchModel"  data-backdrop="static" data-keyboard="false" 
+ href="javascript:void(0)" >
+       <i class="fa fa-search side-icons"></i>
+   </a> -->
+
+
+
+      
+
+
+       
+    </div>
+    <form [formGroup]="GSTPurchase1">
+    <div class="container pl-0">
+
+
+
+        
+        <!-- begin::page header -->
+        <div class="page-header">
+            <h3>GST PURCHASE </h3>
+            <!-- <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Reports</li>
+                    <li class="breadcrumb-item">Transactions</li>
+                    <li class="breadcrumb-item active" aria-current="page">Proforma Invoice</li>
+                </ol>
+            </nav> -->
+        </div>
+        <!-- end::page header -->
+
+        <div class="row row-sm">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-1 mt-4">
+                                <label for="">From Date</label></div>
+                                <div class="col-md-4 mt-4">
+                                <input type="date" class="mb-3 form-control"  formControlName="FromDate"   id="FromDate"
+                                placeholder="Enter Date"
+           
+                              
+                               >
+                            </div>
+                            <div class="col-md-1 mt-4">
+                                <label for="Date">To Date</label></div>
+                                <div class="col-md-4 mt-4">
+                                <input type="date" class="form-control"  formControlName="ToDate"    id="ToDate"
+                                placeholder="Enter Date"
+           
+                               >
+                            </div>
+                            <div class="col-md-2">
+                                <label for="Date" style="visibility: hidden;">hide</label>
+                                <br>
+                                <button class="btn btn-warning" (click)="Go()">Go</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <!-- <h6 class="card-title">GST SALES</h6> -->
+                        <div class="row">
+                                
+                            <div class="col-md-12" #TABLE #table>
+                                <div class="col-sm-12 mb-3">
+                                    <button (click)="ExportTOExcel()" class="btn btn-success">Export To Excel</button></div>
+                                <table  aria-describedby="example1_info" class="table table-striped table-bordered dataTable dtr-inline" id="example1" role="grid">
+                                    <thead  class="table-head">
+                                        <tr  role="row">
+                                            <th style="width: 3%;">#</th>
+                                            <th style="width: 5%;">Date</th>
+                                            <th style="width: 9%;">Particulars</th>
+                                            <th style="width: 9%;">GST no</th> 
+                                            <th style="width: 7%;">VCH No</th>
+                                            <th style="width: 10%;">HSN</th>
+                                            <th style="width: 4%;">description</th>
+                                            <th style="width: 7%;">qty </th>
+                                            <th style="width: 5%;">Taxable Value</th>
+                                            <th style="width: 6%;">Tax Rate</th>
+                                            <th style="width: 6%;">IGST</th>
+                                            <th style="width: 6%;">CGST</th>
+                                            <th style="width: 5%;">SGST</th>
+                                            <th style="width: 7%;">Cess</th>
+                                            <th style="width: 8%;">Total tax</th>
+                                            <th style="width: 3%;">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        <tr  class="odd" role="row" *ngFor="let d of lstPurchase;let ind=index;">
+                                            <td style="width: 3%;vertical-align: baseline;">{{ind+1}}</td>
+                                            <td style="width: 5%;vertical-align: baseline;">{{d.dt| date: 'dd/MM/yyyy'}}</td>
+                                            <td style="width: 9%;vertical-align: baseline;">{{d.Particulars}}</td>
+                                            <td style="width: 9%;vertical-align: baseline;">{{d.CompanyGSTNo}}</td>
+                                            <td style="width: 7%;vertical-align: baseline;">{{d.No}}</td>
+                                            <td style="width: 10%;vertical-align: baseline;">{{d.HSNCode}}</td>
+                                            <td style="width: 4%;vertical-align: baseline;">{{d.Description}}</td>
+                                            <td style="width: 7%;vertical-align: baseline;text-align: right !important;">{{d.TotalQty}}</td>
+                                            <td style="width: 5%;vertical-align: baseline;">{{d.TaxableValue}}</td>
+                                            <td style="width: 6%;vertical-align: baseline;text-align: right !important;">{{d.Rate}}</td>
+                                            <td style="width: 6%;vertical-align: baseline;text-align: right !important;">{{d.IGST}}</td>
+                                            <td style="width: 6%;vertical-align: baseline;text-align: right !important;">{{d.CGST}}</td>
+                                            <td style="width: 5%;vertical-align: baseline;text-align: right !important;">{{d.SGST}}</td>
+                                            <td style="width: 7%;vertical-align: baseline;text-align: right !important;">{{d.Cess}}</td>
+                                            <td style="width: 8%;vertical-align: baseline;text-align: right !important;">{{d.TotalTaxAmount}}</td>
+                                            <td style="width: 3%;vertical-align: baseline;text-align: right !important;">{{d.Total}}</td>
+                                        </tr>
+        
+                                       
+                                      
+                                    </tbody>
+                                    <tfoot style="background: #dcdcdce0;">
+                                            <th style="width: 3%;"></th>
+                                            <th style="width: 5%;"></th>
+                                            <th style="width: 9%;"></th>
+                                            <th style="width: 9%;"></th> 
+                                            <th style="width: 7%;"></th>
+                                            <th style="width: 10%;"></th>
+                                            <th style="width: 4%;"> </th>
+                                            <th style="width: 7%;"></th>
+                                            <th style="width: 5%;">₹ {{Taxablevalue.toFixed(2)}}</th>
+                                            <th style="width: 6%;"></th>
+                                            <th style="width: 6%;">₹ {{IGST.toFixed(2)}}</th>
+                                            <th style="width: 6%;">₹ {{CGST.toFixed(2)}}</th>
+                                            <th style="width: 5%;">₹ {{SGST.toFixed(2)}}</th>
+                                            <th style="width: 7%;">₹ {{Cess}}</th>
+                                            <th style="width: 8%;">₹ {{TotalTaxAmount.toFixed(2)}}</th>
+                                            <th style="width: 3%;">₹ {{Total.toFixed(2)}}</th>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                       
+
+
+                    </div>
+                </div> 
+            </div>
+            </div>
+        </div>
+</form>

@@ -1,0 +1,384 @@
+            
+                                <main class="main-content p-0">
+                                    <div class="layoutactionbutton"
+                                       
+                                    >
+
+                                    <!-- <a class="actionbutton"  (click)="Search()"
+                                    href="javascript:void(0)" id="product_edit_submit">
+                                          <i class="fa fa-search side-icons" style="
+                                          font-size: 40px;
+                                          margin-top: 12px;
+                                      "></i>
+                                      </a>
+
+
+                                    <a class="actionbutton" (click)="ClearViewData()"
+                                    href="javascript:void(0)" id="product_edit_submit">
+                                          <i class="fa fa-file-text-o side-icons" style="
+                                          font-size: 40px; 
+                                          margin-top: 12px;
+                                      "></i>
+                                      </a>
+                                        <a class="actionbutton" (click)="OnSave()"
+                                      href="javascript:void(0)" id="product_edit_submit">
+                                            <i class="fa fa-floppy-o side-icons"  style="
+                                            font-size: 40px; 
+                                            margin-top: 12px;
+                                        "></i>
+                                        </a> -->
+
+                                        <!-- <a class="actionbutton" (click)="OnDelete()"
+                                        href="javascript:void(0)" id="product_edit_submit">
+                                              <i class="fa fa-trash-o" style="
+                                              font-size: 40px;
+                                              margin-top: 12px;
+                                          "></i>
+                                          </a> -->
+                                       
+                                    </div>
+                                    <form  [formGroup]="CreatePageNumberSequenceMapping">
+                                           
+                              
+                                         <div class="container pl-0">
+                                           
+                                        <!-- begin::page header -->
+                                        <!-- <div class="page-header">
+                                            <h3>Create/CreatePageNumberSequenceMapping</h3>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="#">COMMON</a></li>
+                                                    
+                                                    <li class="breadcrumb-item active" aria-current="page">CREATE PAGE NUMBER SEQUENCE MAPPING </li>
+                                                </ol>
+                                            </nav>
+                                        </div> -->
+                                        <div class="page-header">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <h3>Create/CreatePageNumberSequenceMapping</h3>
+                                                    <nav aria-label="breadcrumb">
+                                                        <ol class="breadcrumb">
+                                                            <li class="breadcrumb-item"><a href="#">COMMON</a></li>
+                                                            <li class="breadcrumb-item active" aria-current="page">CREATE PAGE NUMBER SEQUENCE MAPPING </li>
+                                                </ol>
+                                            </nav>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <div class="row">
+                                                        <div class="col-md-12 text-right m-top-bot-auto" style="padding-right: 0px;">
+                                                            <button class="btn btn-danger" (click)="Search()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-bars" style="margin-top: -2px;margin-right: 9px;"></i>Overview</button>
+                                                            <button class="btn btn-warning" (click)="ClearViewData()" style="margin-right: 10px;background: #fbc400  !important; border: 1px solid #fbc400  !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Clear</button>
+                                                            <button class="btn btn-warning" (click)="OnSave()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end::page header -->
+                                
+                                        <div class="row row-sm">
+                                            
+                                            <div class="col-md-6">
+                                                <div class="card">
+                                                    <div class="card-header">Overview</div>
+                                                    <div class="card-body">
+                                                        <div class="form-group">
+
+                                                            <div class="col-md-12">
+                                                                <div class="row">
+                                                                    <div class="col-md-2 m-top-bot-auto">
+                                                                        <label class="m-0 p-0" for="FormName">Name</label>
+                                                                    </div>
+                                                                    <div class="col-md-10">
+                                                                        <input type="text" class="form-control mb-3" id="FormName" formControlName="Cityname" placeholder="Enter Form Name"
+                                                            
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.FormName.errors }"
+                                                                            >         
+                                                                            <div *ngIf="submitted && f.FormName.errors" class="invalid-feedback">
+                                                                                <div *ngIf="f.FormName.errors.required" style="color:red " >Form Name Required</div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <!-- <label for="FormName">Name</label>
+                                                            <input type="text" class="form-control" id="FormName" formControlName="FormName" placeholder="Enter Form Name"
+                                                            
+                                                            [ngClass]="{ 'is-invalid': submitted && f.FormName.errors }"
+                                                            >         
+                                                            <div *ngIf="submitted && f.FormName.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.FormName.errors.required" style="color:red " >Form Name Required</div>
+                                                            </div> -->
+                                             
+                                                         
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                       
+                                        </div>
+
+                                        <div class="row row-sm">
+                                            
+                                         <div class="col-md-8">
+                                             
+                                
+                                
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title"  style=" float: left">Details</h6>
+                                                        <a class="actionbutton" style="width:40px;height:40px; float:right" 
+                                                        
+                                                        data-toggle="modal"   data-target="#exampleModalCenter"  data-backdrop="static" data-keyboard="false" 
+                                                        
+                                                        (click)="OnAdd()"
+                                                        href="javascript:void(0)" id="product_add_submit">
+                                                        
+                                                              <i class="fa fa-plus" style="
+                                                              font-size: 20px;
+                                                              margin-top: 10px;
+                                                          "></i>
+                                                          </a>
+                                                          
+                                                        <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                                            <thead >
+                                                            <tr>
+                                                                <th style="width: 5%;">#</th>
+                                                                <th style="width: 95%;text-align: center !important;">Sequency Number Name</th>      
+                                                                 
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr  *ngFor="let d of lstnumSequence;let i = index"> 
+                                                                    <td style="width: 5%;" *ngIf="d.Show=='true'"  >{{i+1}}</td>
+                                                              
+                                                                    <td style="width: 95%;text-align: center;" *ngIf="d.Show=='true'"  >{{d.name}}</td>
+
+                                                                
+                                                                <!-- <td *ngIf="d.Show=='true'"  data-toggle="modal"   data-target="#exampleModalCenter"  data-backdrop="static" data-keyboard="false"  (click)="EditPageSequence(d,(i+1))"><i style="float: right" class="ti-angle-right"
+                                                                    data-toggle="modal"   data-target="#exampleModalCenter"  data-backdrop="static" data-keyboard="false" 
+                                                                    
+                                                                    (click)="EditPageSequence(
+                                                                    
+                                                                    d,(i+1)
+                                                                    )"></i>
+                                                                  </td> -->
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                       
+                                                    </div>
+                                                </div> 
+                                
+                                            </div>
+                                
+                                 <!--Search Box Design -->
+                                           
+                                 <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-header">Search</div>
+                                        <div class="card-body">
+
+                                            <div class="custom-control custom-switch" style="float:left">
+                                                    <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="PrepareSerchStringByField()">
+                                                    <label class="custom-control-label" for="customSwitch">All Data</label>
+                                                </div>
+            
+                                               
+            
+                                                <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                                        <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="GetSearchDetails()">
+                                                        <label class="custom-control-label" for="customSwitch2_"> 
+                                                            Like</label>
+                                                    </div>
+                                        
+            
+                                                 <div class="row  col-md-12">
+            
+                                                        <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                                                <i class="ti-alert m-r-10"></i>If Like Off Search with  '='
+                                                            </div>
+                                                 </div>
+                                    
+            
+                                                 <!-- <div _ngcontent-pir-c2="" class="input-group"><input _ngcontent-pir-c2="" aria-describedby="button-addon2" aria-label="Recipient's username" class="form-control ng-pristine ng-valid ng-touched" formcontrolname="SearchString" placeholder="Search ..." type="text" ng-reflect-name="SearchString"><div _ngcontent-pir-c2="" class="input-group-append"><button _ngcontent-pir-c2="" class="btn btn-light waves-effect waves-button waves-light" data-dismiss="modal" id="button-addon2" type="button"><i _ngcontent-pir-c2="" class="fa fa-search"></i></button></div></div> -->
+            
+            
+                                                 <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="SearchClick()">
+                                                            <i class="fa fa-search"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="row col-md-12" *ngIf="FilterType=='Field' ">
+            
+            
+                                                    <label for="searchModel"> Model</label>
+                                                    <input type="text" class="form-control" id="searchModel" formControlName="Model"  placeholder="Search Model">
+                                                    
+                                                    
+                                                    <div class="col-md-12 " style="float: right;padding-right:unset">
+                                                    <button type="button" class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"  style="float: right;margin-top:10px " (click)="SearchClick()">
+                                                    <i class="ti-search m-r-5"></i> Search
+                                                    </button>
+                                                    
+                                                    </div>
+                                                </div>
+                                </div>
+                                    </div>
+
+                                </div>
+                                 <div class="col-md-4">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document" style="
+                max-width: 700px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Add / Modify Page Number Sequence</h5>
+               
+                            <button type="button"  id="btnCloseAddItem" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group" *ngIf="FilterType=='All'" >
+                                <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="GetRefSearchDetails()">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mb-3"></div>
+                            <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                <thead>
+                                <tr>
+                                    <th style="width: 10%;">#</th>   
+                                    <th style="width: 20%;">Prefix</th>
+                                    <th style="width: 20%;">Suffix</th>
+                                    <th style="width: 20%;">Startfrom</th>
+                                    <th style="width: 15%;">Separator</th>
+                                    <th style="width: 15%;">Increment</th>
+                                    
+                                     
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr  *ngFor="let d of  lstPageSequence; let i=index"> 
+                                         <!-- sequencenamedetails -->
+                                        <td style="width: 10%;" *ngIf="d.Show=='true'" >
+                                            <input type="checkbox" style="width:20px;height: 20px;"
+                                            
+                                            [attr.checked]="d.ChkStatus=='true'?'checked':null" (change)="ReturnChecked($event.target,i)"
+                                            >
+                                        
+                                        
+                                        </td>
+                                     
+                                        <td *ngIf="d.Show=='true'" style="width: 20%;"><label>{{d.prefix}}</label></td>
+                                        <td *ngIf="d.Show=='true'" style="width: 20%;"><label>{{d.suffix}}</label></td>
+                                  
+                                        <td *ngIf="d.Show=='true'" style="width: 20%;"><label>{{d.startfrom}}</label></td>
+                                        <td *ngIf="d.Show=='true'" style="width: 15%;"><label>{{d.separator}}</label></td>
+                                        <td *ngIf="d.Show=='true'" style="width: 15%;"><label>{{d.increment}}</label></td>
+                                      
+                                        <!-- <td *ngIf="d.Show=='true'"  data-toggle="modal"   data-target="#BankId"  data-backdrop="static" data-keyboard="false"  (click)="EditSequenceNumber(d,(i+1))">
+                                            <i style="float: right" class="ti-angle-right"
+                                            data-toggle="modal"   data-target="#exampleModalCenter"  data-backdrop="static" data-keyboard="false" 
+                                            
+                                            (click)="EditSequenceNumber(
+                                            
+                                            d,(i+1)
+                                            )"></i>
+                                        
+                                        
+                                        
+                                        
+                                        </td> -->
+                                        
+                                </tr>
+                                </tbody>
+                            </table>
+                           
+                             
+                        </div>
+                        <div class="modal-footer">
+                        
+                            <button type="button" class="btn btn-warning" (click)="AddSequenceNumber($event)">Add & Close</button>
+
+                          
+                           
+
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row" style ="padding: 15px;">
+                <div class="col-md-12">
+
+                    <div class="row col-md-12">
+                                      
+                        <div class="input-group" *ngIf="FilterType=='All'" >
+                            <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="GetRefSearchDetails()">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                            <thead >
+                            <tr>
+                                <th style="flex-basis: 5%;">#</th>
+                                
+                                <th>Prefix</th>
+                                <th>Suffix</th>
+                                <th>Startfrom</th>
+                                <th>Separator</th>
+                                <th>Increment</th>
+                                 <th></th> 
+                                
+                              
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr  *ngFor="let d of lstTransactionDetails;let indx=index"> 
+                                    <td style="flex-basis: 5%;" *ngIf="d.Show=='true'" >
+                                        <input type="checkbox" style="width:20px;height: 20px;"
+                                        
+                                        [attr.checked]="d.ChkStatus?'checked':null" (change)="ReturnChecked($event.target,indx)"
+                                        >
+                                    
+                                    
+                                    </td>
+                                    <td *ngIf="d.Show=='true'"><label>{{d.prefix}}</label></td>
+                                        <td *ngIf="d.Show=='true'"><label>{{d.suffix}}</label></td>
+                                  
+                                        <td *ngIf="d.Show=='true'"><label>{{d.startfrom}}</label></td>
+                                        <td *ngIf="d.Show=='true'"><label>{{d.separator}}</label></td>
+                                        <td *ngIf="d.Show=='true'"><label>{{d.increment}}</label></td>
+                                  
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="row col-md-12"  style="float: right !important;">
+                            <button type="button" class="btn btn-primary" (click)="AddSequenceNumber($event)" style="margin-right:5px;float: right !important;">Add & Close</button>
+                      
+                        </div>
+                    </div>
+
+
+
+            </div>
+            </div> -->
+    </div>
+                                        </div>
+                                
+                                    </div>
+                                </form>
+                                </main>

@@ -1,0 +1,270 @@
+<main class="main-content p-0">
+  <div class="layoutactionbutton">
+
+      <!-- <a class="actionbutton" (click)="Search()" href="javascript:void(0)" id="product_edit_submit">
+          <i class="fa fa-search side-icons" style="
+        font-size: 40px;
+        margin-top: 12px;
+    "></i>
+      </a>
+
+      <a class="actionbutton" (click)="ClearViewData()" href="javascript:void(0)" id="product_edit_submit">
+          <i class="fa fa-file-text-o side-icons" style="
+          font-size: 40px; 
+          margin-top: 12px;
+      "></i>
+      </a>
+
+
+      <a class="actionbutton" (click)="OnSave()" href="javascript:void(0)" id="product_edit_submit">
+          <i class="fa fa-floppy-o side-icons" style="
+            font-size: 40px; 
+            margin-top: 12px;
+        "></i>
+      </a>
+
+
+      <a class="actionbutton" (click)="OnDelete()" href="javascript:void(0)" id="product_edit_submit">
+          <i class="fa fa-trash-o side-icons" style="
+            font-size: 40px;
+            margin-top: 12px;
+        "></i>
+      </a> -->
+
+
+  
+  </div>
+  <form [formGroup]="CreateShippingService">
+<div class="container pl-0">
+  <!-- <div class="page-header">
+      <h3>Create/ Modify Shipping Services</h3>
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">COMMON</a></li>
+
+              <li class="breadcrumb-item active" aria-current="page">Create Shipping Services</li>
+          </ol>
+      </nav>
+  </div> -->
+  <div class="page-header">
+    <div class="row">
+        <div class="col-md-3">
+          <h3>Create/ Modify Shipping Services</h3>
+          <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">COMMON</a></li>
+    
+                  <li class="breadcrumb-item active" aria-current="page">Create Shipping Services</li>
+              </ol>
+    </nav>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-12 text-right m-top-bot-auto" style="padding-right: 0px;">
+                    <button class="btn btn-danger" (click)="Search()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-bars" style="margin-top: -2px;margin-right: 9px;"></i>Overview</button>
+                    <button class="btn btn-warning" (click)="ClearViewData()" style="margin-right: 10px;background: #fbc400  !important; border: 1px solid #fbc400  !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Clear</button>
+                    <button class="btn btn-warning" (click)="OnSave()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Save</button>
+                    <button class="btn btn-danger" (click)="OnDelete()" style="margin-right: 10px;background: #dc3545 !important; border: 1px solid #dc3545 !important;color: white;"><i class="fa fa-trash" style="margin-top: -2px;margin-right: 9px;"></i>Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  <!-- page header ends -->
+
+  <div class="container-fluid">
+          <div class="row row-sm">
+      <div class="col-md-12">
+       
+          <div class="card">
+              <div class="card-header">Overview</div>
+              <div class="card-body">
+
+                
+                  <div class=" row">
+                      <div class="col-md-1">
+                          
+                      <label for="ServiceName">ServiceName:</label>
+                    
+                  </div>
+                      <div class="col-sm-3">
+                        <input type="ServiceName" class="form-control" id="ServiceName" placeholder="Enter ServiceName" 
+                        formControlName="ServiceName" autocomplete="off">
+                        <span style="color:red" *ngIf=" f.ServiceName.invalid && submitted ">
+                          <small class="text-danger"><b>ServiceName Required</b></small></span>
+
+                      </div>
+                      <div class="col-md-8"></div>
+                      
+                    </div><br>
+
+
+
+                    <div class="row">
+                        <div class="col-md-1">
+                          <label for="Address1">Address1:</label>
+                        </div>
+                        <div class="col-md-3">
+                          <input type="text" class="form-control" id="Address1"
+                          placeholder="Enter Address1 " formControlName="Address1" autocomplete="off">
+                          <span style="color:red" *ngIf=" f.Address1.invalid && submitted ">
+                            <small class="text-danger"><b>ADDRESS REQUIRED</b></small></span>
+  
+                        </div>
+                        <div class="col-md-1">
+                          <label for="Address2">Address2:</label>
+                        </div>
+                        <div class="col-md-3">
+                          <input type="Address2" class="form-control" id="Address2" 
+                          placeholder="Enter Address2" formControlName="Address2" autocomplete="off">
+                        </div>
+                        <div class="col-md-1">
+                          <label for="Address3">Address3:</label>
+                        </div>
+                        <div class="col-md-3">
+                          <input type="Address3" class="form-control" id="Address3"
+                           placeholder="Enter Address3" formControlName="Address3" autocomplete="off">
+                        </div>
+                        
+                    </div><br>
+
+                    <div class="row">
+                      <div class="col-md-1">
+                        <label for="CountryId">Country:</label>
+                      </div>
+                      <div class="col-md-3">
+                          <select id="drpshippingsCountry"class="form-control" name="CountryId"
+                          formControlName="CountryId" > 
+
+                        </select>
+          
+                        <span style="color:red"
+                            *ngIf="( f.CountryId.invalid  || f.CountryId.value=='0'  ) && submitted  ">
+
+                            <small class="text-danger"><b>COUNTRY REQUIRED</b></small></span>
+
+                      </div>
+
+                      <div class="col-md-1">
+                        <label for="StateId">State :</label>
+                      </div>
+                      <div class="col-md-3">
+                          <select id="drpshippingState" class="form-control" name="StateId"
+                          formControlName="StateId" >
+                          
+                      </select>
+                      
+                      <span style="color:red"
+                            *ngIf="( f.StateId.invalid  || f.StateId.value==0  )   && submitted  ">
+
+                            <small class="text-danger"><b>STATE REQUIRED</b></small></span>
+
+                      </div>
+                      <div class="col-md-1">
+                        <label for="CityId">City :</label>
+                      </div>
+                      <div class="col-md-3">
+
+                          <select id="drpshippingCity" class="form-control" 
+                          name="CityId" formControlName="CityId" >
+                          
+                      </select>
+                      <span style="color:red"
+                      *ngIf="( f.CityId.invalid  || f.CityId.value=='0'  )&& submitted  ">
+
+                      <small class="text-danger"><b>CITY REQUIRED</b></small></span>
+
+                      </div>
+                      
+                  </div><br>
+                  <div class="row">
+                      <div class="col-md-1">
+                        <label for="number">Pincode:</label>
+                      </div>
+                      <div class="col-md-3">
+                        <input type="PinCode" class="form-control" id="PinCode" 
+                        placeholder="Enter PinCode "pattern="^[1-9][0-9]*$" required
+                        oninput="if(!this.value.match('^[1-9][0-9]*$'))this.value='';" 
+                        formControlName="PinCode" maxlength="07"  autocomplete="off">
+                        
+                    <span style="color:red" *ngIf=" f.PinCode.invalid && submitted ">
+                        <small class="text-danger"><b>PINCODE REQUIRED</b></small></span>
+
+                      </div>
+                      <div class="col-md-1">
+                        <label for="number">ContactNo1:</label>
+                      </div>
+                      <div class="col-md-3">
+                        <input type="ContactNo1" class="form-control" id="ContactNo1" 
+                        placeholder="Enter ContactNo" maxlength="10"  autocomplete="off" minlength="10"
+                        formControlName="ContactNo1" pattern="[1-9]{1}[0-9]{9}">
+                        
+                        <span style="color:red" *ngIf=" f.ContactNo1.invalid  && submitted ">
+                          <small class="text-danger"><b>Please, Enter 10 digit Mobile Number.</b></small></span>
+                          <!-- <div style="color:red" *ngIf="f.ContactNo1.errors.pattern">
+                            </div>  -->
+                      </div>
+                      <div class="col-md-1">
+                        <label for="number">ContactNo2:</label>
+                      </div>
+                      <div class="col-md-3">
+                        <input type="ContactNo2" class="form-control" id="ContactNo2" 
+                        placeholder="Enter ContactNo2" maxlength="10" formControlName="ContactNo2" autocomplete="off"
+                        pattern="[1-9]{1}[0-9]{9}">
+
+                        <span style="color:red" *ngIf=" f.ContactNo2.invalid  && submitted ">
+                          <small class="text-danger"><b>Please, Enter 10 digit Mobile Number.</b></small></span>
+                      </div>
+                      
+                  </div><br>
+
+
+                  <div class="row">
+                      <div class="col-md-1">
+                        <label for="Email">Email:</label>
+                      </div>
+                      <div class="col-md-3">
+                        <input type="Email" class="form-control" id="Email" 
+                        placeholder="Enter Email" formControlName="Email" 
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" autocomplete="off">
+                        
+                        <span style="color:red" *ngIf=" f.Email.invalid && f.Email.touched  ">
+                          <small class="text-danger"><b>Please Enter Valid Email Id</b></small></span>
+                        
+
+
+                      </div>
+                      <div class="col-md-1">
+                          <label for="Website">Website</label>
+                        </div>
+                        <div class="col-md-3">
+                          <input type="Website" class="form-control" id="Website" 
+                          placeholder="Enter Website" formControlName="Website" autocomplete="off">
+                        </div>
+                        <div class="col-md-4"></div>
+                  </div><br>
+
+
+                  <div class="row">
+                      <div class="col-md-1">
+                          <label for="Description">Description</label>
+                      </div>
+                      <div class="col-md-5">
+                          <textarea class="form-control" id="Description" maxlength="225" rows="5"
+                          placeholder="Please Enter Description"  formControlName="Description" autocomplete="off"></textarea>
+                      </div>
+                                <div class="col-md-6">
+
+                                </div>
+                  </div>
+
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+</div>
+</form>
+</main>

@@ -1,0 +1,240 @@
+
+    <div class="form-group m-0">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-2 m-top-bot-auto"><label for="drpvendorsdata" class="m-0">Vendor</label></div>
+                    <div class="col-md-10">
+                        <select id="drpvendorsdata" class="js-example-basic-single mb-3"  name="drpvendorsdata"> </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md-4 m-top-bot-auto"><label for="" class="m-0">Ref No</label></div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" [(ngModel)]="vendorRefNo" placeholder="Enter ref no">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <div class="col-md-2 m-top-bot-auto"><label for="" class="m-0">Date</label></div>
+                    <div class="col-md-10">
+                        <input type="date" class="form-control" [(ngModel)]="chargeDate">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 ">
+                <div  class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-warning" data-toggle="modal"   data-target="#ChargeDetailsId" 
+                        (click)="AddItems()" >Add Item</button>
+                    </div>
+                    <!-- <div class="col-md-6">
+                        <button class="btn btn-warning" 
+                        (click)="ClearItem(f)" >Clear</button>
+                    </div> -->
+                </div>
+                 
+                        
+               
+            </div>
+           
+            <div class="col-md-12 mb-3"></div>
+            
+    
+            <div  class="col-md-12" data-select2-id="1848">
+           
+    
+                <div class="dataTables_scroll" >
+                    <div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;">
+                        <div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width:100%; padding-right: 17px;">
+                            <table class="table table-striped table-bordered dataTable m-0" role="grid" style="margin-left: 0px;width: 100%;margin-bottom: 0px;">
+                                <thead>
+                                    <tr  role="row">
+                                        <th  style="width: 5%;">#</th>
+                                        <th  style="width: 15%;">Particulars</th>
+                                        <th  style="width: 15%;">Description</th>
+                                        <th  style="width: 10%;">HSN</th>
+                                        
+                                        <th  style="width: 10%;">Gross</th>
+                                        <th  style="width: 10%;" *ngIf="TaxType=='Inter State'">IGST</th>
+                                        <th  style="width: 7%;" *ngIf="TaxType!='Inter State'">CGST</th>
+                                        <th  style="width: 8%;" *ngIf="TaxType!='Inter State'">SGST</th>
+                                        <th  style="width: 15%;">Tax Amount</th>
+                                        <th  style="width: 15%;">Total</th>
+                                        <th  style="width: 5%;"></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="dataTables_scrollBody" style="position: relative; overflow: auto; max-height: 400px; width: 100%;display: inline !important;">
+                        <table id="example2" class="table table-striped table-bordered dataTable m-0" role="grid" aria-describedby="example2_info" style="width: 100%;">
+                            <thead>
+                                <tr role="row" style="height: 0px;">
+                                    <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 219px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                        <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Name</div>
+                                    </th>
+                                    <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 319px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                        <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Position</div>
+                                    </th>
+                                    <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 167px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                        <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Office</div>
+                                    </th>
+                                    <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 62px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                        <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Age</div>
+                                    </th>
+                                    <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 146px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                        <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Start date</div>
+                                    </th>
+                                    <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 137px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                        <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Salary</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let d of lstchargeitems; let ind=index">
+                                    <td style="width: 5%;">{{ind+1}}</td>
+                                    <td style="width: 15%;" data-select2-id="1844">{{d.Partno}}</td>
+                                    <td style="width: 15%;" >{{d.description1}}</td>
+                                    <td style="width: 10%;">{{d.HSN1}}</td>
+                                    <td style="width: 10%;">{{d.TaxAmount1}}</td>
+                                    <td style="width: 10%;" *ngIf="TaxType=='Inter State'">{{d.IGSTAmount1}}</td>
+                                    <td style="width: 7%;" *ngIf="TaxType!='Inter State'">{{d.CGSTAmount1}}</td>
+                                    <td style="width: 8%;" *ngIf="TaxType!='Inter State'">{{d.SGSTAmount1}}</td>
+                                    <td style="width: 15%;">{{d.GSTAmount1}}</td>
+                                    <td style="width: 15%;"> {{d.TotalAmount1}}</td>
+                                    <td style="width: 5%;text-align: center;" data-toggle="modal"   data-target="#DetailsId"  data-backdrop="static" data-keyboard="false" >
+                                            <div  class="dropdown">
+                                                <a  href="#" data-toggle="dropdown" aria-expanded="false" class="btn btn-gray btn-floating btn-icon btn-sm waves-effect waves-button waves-light">
+                                                    <i  aria-hidden="true" class="fa fa-ellipsis-v" style="color: white !important;"></i>
+                                                </a>
+                                                <div  x-placement="bottom-end" class="dropdown-menu dropdown-menu-right" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 24px, 0px);">
+                                                    <button  type="button" data-target="#newRefill" data-toggle="modal" class="dropdown-item font-size-15">Insert Line <i  class="fa fa-plus" style="float: right;" aria-hidden="true"></i></button>
+                                                    <button  type="button" data-target="#ChargeDetailsId" data-toggle="modal" class="dropdown-item font-size-15" (click)="Editcharges(d)" >Edit<i  class="fa fa-pencil" style="float: right;" aria-hidden="true"></i></button>
+                                                    <button  type="button" data-target="#adjust" data-toggle="modal" class="dropdown-item font-size-15">Item Central<i  class="fa fa-file" style="float: right;" aria-hidden="true"></i></button>
+                                                    <button  type="button" class="dropdown-item font-size-15">Delete<i  class="fa fa-trash" style="float: right;" aria-hidden="true"></i></button>
+                                                </div>
+                                            </div>
+                                    </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+    
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <br>
+                    </div>
+                    <div class="col-md-12 p-0">
+                        <button class="btn btn-warning float-right" style="margin-left: 10px;" (click)="Addtomain()">Add</button>
+                        <button class="btn btn-light float-right" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="modal fade" id="ChargeDetailsId" *ngIf="Close!='validate'"
+     role="dialog" aria-labelledby="ChargeDetailsId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px;">
+            <div class="modal-content" style="width: 900px;">
+                <div class="modal-header">
+                    <h5 class="modal-title"  id="ChargeDetailsId">Add / Modify Details</h5>
+                   
+                    <button type="button"   style="display: none;"  id="btnCloseAddItem2"  >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- [TransactionDate2]="TransactionDate2" -->
+        <div class="row" style ="padding: 15px;">
+            <div class="col-md-12">
+                <app-addchargeitems
+                [TaxType2]="TaxType2"
+                [PartyId1]="PartyId1"
+                [SelectedRow3]="SelectedProductData4"
+                
+                (AddchargesItemDetailsAndCloseClick)="AddchargesItemDetailsAndCloseClick($event)"
+                (CloseClick)="CloseClick($event)">
+   
+               
+                </app-addchargeitems>
+                </div>
+                </div>
+      <!-- <div class="card-body">
+            <div class="row" style="padding: 5px;">
+              <div class="col-md-6  mb-3">
+                  <label for="drpPartno0Id1">Part No</label>
+                  <select id="drpPartno0Id1"  class="js-example-basic-single mb-3"  name="drpPartno0Id1"> </select>
+                  <label for="drpMaks">Make</label>
+                  <select id="drpMaks"  class="js-example-basic-single mb-3"  name="drpMaks"> </select>
+                  <label for="Quantity">Quantity</label>
+                  <input type="number" [(ngModel)]="Quantity" class="form-control mb-3">
+                  <label for="Taxable">Taxable value</label>
+                  <input type="number" [(ngModel)]="TaxableValue" (change)="amountchange($event.target)" class="form-control mb-3">
+                  <label for="Total">Total </label>
+                  <input type="number" readonly [(ngModel)]="TotalAmount" class="form-control">
+    
+                </div>
+                <div class="col-md-6  mb-3">
+                  <label for="Description">Description</label>
+                  <input type="text" class="form-control mb-3" id="Description"  [(ngModel)]="description1"  placeholder="Enter description">
+                  <div class="col-md-4" *ngIf="_TaxType=='Intra State'"><label for="drpParts">CGST</label></div>
+                  <div class="row" *ngIf="_TaxType=='Intra State'"> 
+                          <div class="col-md-6"><input type="number" [(ngModel)]="CGST" class="form-control"></div>
+                          <div class="col-md-6"><input type="number" [(ngModel)]="CGSTAmount"  class="form-control mb-3"></div>
+                  </div>
+    
+                  <div class="col-md-4" *ngIf="_TaxType=='Intra State'"><label for="drpParts">SGST</label></div>
+                  <div class="row" *ngIf="_TaxType=='Intra State'"> 
+                          <div class="col-md-6"><input type="number" [(ngModel)]="SGST"  class="form-control"></div>
+                          <div class="col-md-6"><input type="number" [(ngModel)]="SGSTAmount" class="form-control mb-3"></div>
+                  </div>
+    
+                  <div class="col-md-4" *ngIf="_TaxType=='Inter State'"><label for="drpParts">IGST</label></div>
+                  <div class="row" *ngIf="_TaxType=='Inter State'"> 
+                          <div class="col-md-6"><input type="number" [(ngModel)]="IGST"  class="form-control"></div>
+                          <div class="col-md-6"><input type="number" [(ngModel)]="IGSTAmount" class="form-control"></div>
+                  </div>
+                 
+                </div>
+            </div>
+      </div> -->
+     
+    
+    <!-- <div class="modal-footer">
+      <div class="row">
+    <div class="card-body">
+        <div class="col-md-12" >
+            <button type="button" class="btn btn-secondary modal-btn" (click)="CloseProduct1()" >
+                <i class="ti-close m-r-5 modal-btn-icon" ></i> Close
+            </button>
+                                                    
+            <button type="button" class="btn btn-danger modal-btn" (click)="RemoveItem1()">
+                <i class="ti-trash m-r-5 modal-btn-icon" ></i> Remove
+            </button>
+        
+            <button type="button" class="btn btn-primary modal-btn" (click)="AddItem1()">
+                <i class="ti-check m-r-5 modal-btn-icon" ></i> Add
+            </button>
+        
+          </div>
+    </div>
+         
+      </div>
+    </div> -->
+    
+    </div>
+        </div>
+    </div> 
+
+

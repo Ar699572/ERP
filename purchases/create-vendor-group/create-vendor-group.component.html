@@ -1,0 +1,135 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton">
+
+        <!-- <a class="actionbutton" (click)="Search()" href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-search side-icons" style="
+          font-size: 40px;
+          margin-top: 12px;
+      "></i>
+        </a>
+
+        <a class="actionbutton" (click)="ClearViewData()" href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-file-text-o side-icons" style="
+            font-size: 40px; 
+            margin-top: 12px;
+        "></i>
+        </a>
+
+
+        <a class="actionbutton" (click)="OnSave()" href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-floppy-o side-icons" style="
+              font-size: 40px; 
+              margin-top: 12px;
+          "></i>
+        </a>
+
+
+        <a class="actionbutton" (click)="OnDelete()" href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-trash-o side-icons" style="
+              font-size: 40px;
+              margin-top: 12px;
+          "></i>
+        </a> -->
+
+
+    </div>
+
+    <!-- buttons code ends  -->
+
+    
+    
+    <div class="container pl-0">
+        <!-- begin::page header -->
+        <!-- <div class="page-header">
+            <h3>Create/ Modify VendorGroup</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">COMMON</a></li>
+
+                    <li class="breadcrumb-item active" aria-current="page">CREATE Vendor Group </li>
+                </ol>
+            </nav>
+        </div> -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Create/ Modify VendorGroup</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">COMMON</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">CREATE Vendor Group </li>
+                </ol>
+            </nav>
+                </div>
+                <div class="col-md-9" style="padding-right: 0px;">
+                    <div class="row">
+                        <div class="col-md-12 text-right m-top-bot-auto" style="padding-right: 0px;">
+                            <button class="btn btn-warning" (click)="Search()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-bars" style="margin-top: -2px;margin-right: 9px;"></i> Overview</button>
+                            <button class="btn btn-warning" (click)="ClearViewData()"  style="margin-right: 10px;background: #fcb400; border: 1px solid #fcb400 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i> Clear</button>
+                            <button class="btn btn-warning" (click)="OnSave()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i> Save</button>
+                            <button  class="btn btn-danger " (click)="OnDelete()" style="margin-right: 34px;"><i  class="fa fa-trash" style="margin-top: -2px;margin-right: 9px;"></i> Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page header ends -->
+
+
+
+        <div class="row row-sm">
+            <div class="col-md-8">
+
+                <div class="card">
+                    <div class="card-header">Overview</div>
+                    <div class="card-body">
+
+                        <form [formGroup]="CreateVendorGroup">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <!-- <div class="mb-2"> -->
+                                        <label for="GroupCode">GroupCode</label></div>
+                                        <div class="col-md-6">
+                                        <input type="text" class="form-control" formControlName="GroupCode"
+                                            id="GroupCode" placeholder="Enter Group Code" autocomplete="off">
+                                        <span style="color:red" *ngIf=" f.GroupCode.invalid && submitted ">
+                                            <small class="text-danger"><b>Enter field Required </b></small></span>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2" style="margin-top:15px;">
+                                    <!-- <div class="mb-3"> -->
+                                        <label for="GroupName">GroupName</label></div>
+                                        <div class="col-md-6" style="margin-top:15px;">
+                                        <input type="text" class="form-control" formControlName="GroupName"
+                                            id="GroupName" placeholder="Enter Group Name" autocomplete="off">
+                                        <span style="color:red" *ngIf=" f.GroupName.invalid && submitted ">
+                                            <small class="text-danger"><b>Enter field Required </b></small></span>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2" style="margin-top:15px;">
+                                    <!-- <div class="mb-3"> -->
+                                        <label for="Description">Description</label></div>
+                                        <div class="col-md-6" style="margin-top:15px;">
+                                        <textarea class="form-control" id="notes" maxlength="225" rows="5"
+                                            placeholder="Comments" formControlName="Description"></textarea>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>

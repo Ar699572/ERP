@@ -1,0 +1,242 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton">
+
+
+
+        <!-- <a class="actionbutton" id="btnSearch" data-toggle="modal" data-target="#SearchModel" data-backdrop="static"
+            data-keyboard="false" href="javascript:void(0)">
+            <i class="fa fa-search side-icons" style="
+        font-size: 40px; 
+        margin-top: 12px;
+    "></i>
+        </a>
+
+        <a class="actionbutton" (click)="OnAdd()" href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-file-text-o side-icons" style="
+        font-size: 40px;
+        margin-top: 12px;
+    "></i>
+        </a> -->
+
+
+    </div>
+
+    <form  [formGroup]="ShippingService">
+    <div class="container pl-0">
+
+
+
+
+          <!-- begin::page header -->
+        <!-- <div class="page-header">
+            <h3>ShippingServices</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">COMMON</li>
+                    <li class="breadcrumb-item">MASTERS</li>
+                    <li class="breadcrumb-item active" aria-current="page">ShippingServices</li>
+                </ol>
+            </nav>
+        </div> -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>ShippingServices</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">COMMON</li>
+                    <li class="breadcrumb-item">MASTERS</li>
+                    <li class="breadcrumb-item active" aria-current="page">ShippingServices</li>
+                </ol>
+            </nav>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-9 text-right m-top-bot-auto" style="padding-right: 0px;">
+                            <button class="btn btn-warning" (click)="OnAdd()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-plus" style="margin-top: -2px;margin-right: 9px;"></i>New</button>
+                            <!-- <button class="btn btn-warning" style="margin-right: 10px;background: #d09d05 !important; border: 1px solid #d09d05 !important;color: white;"><i class="fa fa-eye" style="margin-top: -2px;margin-right: 9px;"></i> Preview</button> -->
+                        </div>
+                        <!-- <div class="col-md-4 m-top-bot-auto">
+                            
+                        </div> -->
+                        <div class="col-md-3">
+                            <div class="input-group" >
+                                <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-warning waves-effect waves-button waves-light" type="button" id="button-addon2"  data-dismiss="modal" (click)="SearchClick()">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <!-- End::page header -->
+
+
+        <div class="row row-sm">
+
+
+
+            <div class="col-md-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">ShippingServices</h6>
+
+                        <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                            <thead>
+                                <tr>
+                                    <th style="width:10%;">S.NO</th>
+                                    <th style="width:18%;">ServiceName</th>
+                                    <th style="width:18%;">Address</th>
+                                    <th style="width:18%;">ContactNo1</th>
+                                    <th style="width:18%;">Email</th>
+
+                                    <th style="width:18%;">Actions</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let e of lstShipping;">
+                                    <td style="width:10%;">{{e.SNO}}</td>
+                                    <td style="width:18%;">{{e.ServiceName}}</td>
+                                    <td style="width:18%;">{{e.Address1}}</td>
+                                    <td style="width:18%;">{{e.ContactNo1}}</td>
+                                    <td style="width:18%;">{{e.Email}}</td>
+
+                                    <td style="width:18%;">
+                                        <div class="dropdown">
+                                            <button class="dropdown-toggle waves-effect waves-button waves-light dots"
+                                                type="button" data-toggle="dropdown">
+                                                <i class="ti-more-alt"></i>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" (click)="EditShippingService(e)">Edit</a>
+                                                <a class="dropdown-item" (click)="CreateShippingService()">Create
+                                                    ShippingService </a>
+                                            </div>
+                                        </div>
+                                    </td>
+
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <div class="modal fade" id="SearchModel" tabindex="-1" role="dialog" aria-labelledby="SearchModelTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="SearchModelTitle">Search</h5>
+
+                        <button type="button" id="btnCloseDetailsItems" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-md-12">
+
+                            <div class="card">
+                                <div class="card-header">Search</div>
+                                <div class="card-body">
+
+
+                                    <div class="custom-control custom-switch" style="float:left">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch" checked=""
+                                            (change)="FilterTypeChange($event)">
+                                        <label class="custom-control-label" for="customSwitch">All Data</label>
+                                    </div>
+
+
+
+                                    <div class="custom-control custom-switch custom-checkbox-success"
+                                        style="float: right">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch2_"
+                                            checked="" (change)="SerchTypeChange($event.target.checked)">
+                                        <label class="custom-control-label" for="customSwitch2_">
+                                            Like</label>
+                                    </div>
+
+
+                                    <div class="row  col-md-12">
+
+                                        <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                            <i class="ti-alert m-r-10"></i>If Like Off Search with '='
+                                        </div>
+                                    </div>
+
+
+                                    <div class="input-group" *ngIf="FilterType=='All' && SerchType=='Like'">
+                                        <input type="text" class="form-control" placeholder="Search ..."
+                                            formControlName="SearchString" aria-label="Recipient's username"
+                                            aria-describedby="button-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-light waves-effect waves-button waves-light"
+                                                type="button" id="button-addon2" data-dismiss="modal"
+                                                (click)="SearchClick()">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row col-md-12"  *ngIf="FilterType=='Field' ">
+
+
+
+                                        <label for="ServiceName">Service Name</label>
+                                        <input type="text" class="form-control" id="ServiceName"
+                                        formControlName="ServiceName1" placeholder="Search Service Name">
+                                        
+
+
+                                        <div class="col-md-12 " style="float: right;padding-right:unset">
+                                            <button type="button"
+                                                class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"
+                                                style="float: right;margin-top:10px " data-dismiss="modal"
+                                                (click)="SearchClick()">
+                                                <i class="ti-search m-r-5"></i> Search
+                                            </button>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</main>

@@ -1,0 +1,1601 @@
+<main class="main-content p-0">
+  
+    <form [formGroup]="CreateVendor"  onkeydown="return event.key != 'Enter';">
+        <div class="container-fluid p-0">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-2">
+                        <h3>Vendor</h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">PURCHASE</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">CREATE VENDOR</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <div class="col-md-10" style="padding-right: 0px;">
+                        <div class="row">
+                            <div class="col-md-12 text-right m-top-bot-auto" style="padding-right: 0px;">
+                                <button class="btn btn-warning" (click)="Search()" style="margin-right: 10px; background: #00aad7 !important; border: 1px solid #00aad7 !important; color: white;">
+                                    <i class="fa fa-bars" style="margin-top: -2px; margin-right: 9px;"></i> Overview
+                                </button>
+                                <button class="btn btn-success" (click)="OnSave()" style="margin-right: 10px; border: 1px solid #00aad7 !important; color: white;">
+                                    <i class="fa fa-check" style="margin-top: -2px; margin-right: 9px;"></i> Save
+                                </button>
+                                <button class="btn btn-warning" (click)="ClearViewData()" style="margin-right: 10px; background: #00dcc8 !important; border: 1px solid #00dcc8 !important; color: white;">
+                                    <i class="fa fa-refresh" style="margin-top: -2px; margin-right: 9px;"></i> Refresh
+                                </button>
+
+                                <button class="btn btn-danger" (click)="OnDelete()" style="margin-right: 34px;"><i class="fa fa-trash" style="margin-top: -2px; margin-right: 9px;"></i> Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- end::page header -->
+
+            <div class="row row-sm">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio"  id="Company" value="Company"   formControlName="VendorType" (click)="Companychecked()" />
+                                        <!-- <label class="form-check-label" for="inlineRadio">Company</label> -->
+                                        <label>Company</label>
+                                    </div>
+
+                                   <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio"   id="Individual"    value="Individual" formControlName="VendorType"   (click)="Individual()" />
+                                        <!-- <label class="form-check-label" for="inlineRadio">Individual</label> -->
+                                        <label>Individual</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5 mb-3">
+                                    <div class="form-check form-check-inline"> 
+                                        <input class="form-check-input" type="radio"   value="Purchase" id="inlineRadio2"  formControlName="BusinessType"
+                                        (change)="PurchaseChecked($event.target.checked)"/> 
+                                        <!-- <label class="form-check-label" for="inlineRadio2">Purchase</label> -->
+                                        <label>Purchase</label>
+                                    </div>
+                                <div class="form-check form-check-inline"> 
+                                        <input class="form-check-input" type="radio"  id="inlineRadio1" value="SalesAndPurchase"   formControlName="BusinessType" (change)="SalesChecked($event.target)"/>
+                                        <!-- <label class="form-check-label" for="inlineRadio1">Sales & Purchase</label> --> 
+                                        <!-- <label>code</label> -->
+                                        <label>Sales & Purchase</label>
+                                    </div>
+                                    
+                                       
+                                    
+                                  
+                                    
+                                </div>
+
+                               
+                              
+                                <div class="col-md-2">
+                                  
+                                    <label>{{Vendorcode}}</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="row">
+                                        <div class="col-md-12" *ngIf="FilterBy == 'Company'">
+                                           
+
+                                            <input 
+                                                type="text"
+                                                class="form-control mb-3"
+                                                id="vendorname"
+                                                formControlName="vendorname"
+                                                placeholder="Enter Vendor Name"
+                                                style="font-size: 21px !important; padding-left: 0px; border-bottom: 2px solid #525252;"
+                                              [ngClass]="{ 'is-invalid': submitted && f.vendorname.errors }" 
+                                            />
+                                            <div *ngIf="submitted && f.vendorname.errors" class="invalid-feedback">
+                                                <div *ngIf="f.vendorname.errors.required" style="color: red;">Name Required</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12" *ngIf="FilterBy == 'Individual'">
+                                            <input type="text" class="form-control mb-3" id="Name" formControlName="vendorname" autocomplete="off" placeholder="Name" style="font-size: 21px !important; padding-left: 0px; border-bottom: 2px solid #525252;" />
+                                        </div>
+                                        <div class="col-md-12" *ngIf="FilterBy == 'Company'">
+                                           
+                                            <input
+                                                type="text"
+                                                class="form-control mb-3"
+                                                id="CompanyName"
+                                                formControlName="companyname"
+                                                placeholder="Company Name"
+                                                style="padding-left: 0px;"
+                                                [ngClass]="{ 'is-invalid': submitted && f.companyname.errors }"
+                                            />
+                                            <div *ngIf="submitted && f.companyname.errors" class="invalid-feedback">
+                                                <div *ngIf="f.companyname.errors.required" style="color: red;">Name Required</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3"><label class="m-0 p-0" style="margin-top: 5px !important;">Company Address</label></div>
+                                        <div class="col-md-9">
+                                            <div class="row">
+                                                <div class="col-md-12 mb-3">
+                                                     <input class="form-control" placeholder="Street 1" style="border: none; border-bottom: 1px solid #ced4da; height: 25px;" type="text" formControlName="CompanyAddress1" /> 
+                                                   
+                                                    <label style="color:red;padding-top: 12px;font-size: 12px;"  *ngIf=" f.CompanyAddress1.invalid && submitted ">
+                                                       Company Address Required</label>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <input class="form-control" placeholder="Street 2" style="border: none; border-bottom: 1px solid #ced4da; height: 25px;" type="text" formControlName="CompanyAddress2" />
+                                                </div>
+
+                                                <div class="col-md-6 mb-3">
+                                                    <select id="Vcountry" formControlName="VendorCountryId" class="js-example-basic-single"   
+                                                     style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;"  >
+                                                    
+                                                </select>
+                                                    <label style="color:red;padding-top: 12px;font-size: 12px;"  *ngIf=" f.VendorCountryId.value==0 && submitted ">
+                                                       Country Required  </label>
+                                                     
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                   
+                                                    <select id="VState" formControlName="VendorStateId" class="js-example-basic-single" 
+                                                    style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;"> 
+                                                </select>
+                                                    <label style="color:red;padding-top: 12px;font-size: 12px;"  *ngIf=" f.VendorStateId.value==0 && submitted ">
+                                                        State Required</label>
+                                                </div>
+
+                                                <div class="col-md-6 mb-3"style="
+                                                margin-top: -11px;">
+                                                    <!-- <input  class="form-control" placeholder="City" style="border: none; border-bottom: 1px solid #ced4da;height:25px" type="text" /> -->
+                                                    <select id="Vcity" formControlName="VendorCityId" class="js-example-basic-single" style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;">
+                                                        <!-- <option selected="selected">Select city</option> -->
+                                                    </select>
+
+                                                    <label style="color:red;padding-top: 12px;font-size: 12px;"  *ngIf=" f.VendorCityId.value==0 && submitted ">
+                                                       City Required</label>
+                                                </div>
+
+                                                <div class="col-md-6 mb-3">
+                                                    <input class="form-control" formControlName="Vpin" placeholder="ZIP" style="border: none; border-bottom: 1px solid #ced4da; height: 25px;" type="text" />
+                                                </div>
+                                            </div>
+                                        </div>                           
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-4 m-top-bot-auto"><label class="p-0 m-0" for="GSTNo">Purchase Type</label></div>
+                                        <div class="col-md-8">
+                                            <select class="form-control mb-3" style="padding-left: 8px;" formControlName="PurchaseType"   (change)="InvoiceTypeChange($event.target.value)">
+                                                <option value="Invoice"  selected>Registered</option>
+                                                <option value="ExcludeTax">Unregistered Business</option>
+                                                <option value="Import">Overseas</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 m-top-bot-auto mb-3"><label class="p-0 m-0" for="GSTNo">GST No</label></div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control mb-3" id="gstno" formControlName="gstno" placeholder="Enter GSTNo" [ngClass]="{ 'is-invalid': submitted && f.gstno.errors }" />
+                                            <div *ngIf="submitted && f.gstno.errors" class="invalid-feedback">
+                                                <div *ngIf="f.gstno.errors.required" style="color: red;">GSTNo Required</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 m-top-bot-auto mb-3"><label class="p-0 m-0" for="GSTNo">Currency</label></div>
+                                        <div class="col-md-8">
+                                            <select class="form-control mb-3" style="padding-left: 8px;" #currencyvalue (change)="GetCurrency(currencyvalue.value)">
+                                                <option value="INR">INR</option>
+                                                <option value="USD">USD</option>
+                                                <option value="EURO">EURO</option>
+                                                <option value="AUD">AUD</option>
+                                                <option value="POUND">POUND </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4 m-top-bot-auto mb-3"><label class="p-0 m-0" for="GSTNo">Payment Terms</label></div>
+                                        <div class="col-md-8">
+                                            <select class="form-control mb-3" style="padding-left: 8px;">
+                                                <option>15 Days</option>
+                                                <option>30 Days</option>
+                                                <option>45 Days</option>
+                                                <option>COD </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="row">
+                                       
+                                        <div class="col-md-4 m-top-bot-auto"><label class="p-0 m-0" for="Date">Date</label></div>
+                                        <div class="col-md-8">
+                                           <input type="date"  class="form-control mb-3" id="Date"  formControlName="VendorDate"/> 
+                                        </div>
+
+                                        <div class="col-md-4 m-top-bot-auto"><label class="p-0 m-0" for="number">Phone</label></div>
+                                        <div class="col-md-8">
+                                            <input type="Contactno" class="form-control mb-3" id="Contactno" formControlName="Contactno" placeholder="Enter Contact No" 
+                                            maxlength="10" autocomplete="off"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" 
+                                            />
+                                            <label style="color:red;font-size: 12px;margin-top: -13px"  *ngIf=" f.Contactno.invalid && submitted ">
+                                                Please, Enter 10 digit Mobile Number.</label>
+                                        </div>
+
+                                        <div class="col-md-4 m-top-bot-auto"><label class="p-0 m-0" for="Email">Email</label></div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" id="email" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" autocomplete="off"
+                                            placeholder="Enter email"  />
+                                            
+                                            <label style="color:red;font-size: 12px;margin-top: -13px"  *ngIf=" f.email.invalid && f.email.touched  ">
+                                                Please Enter Valid Email Id.</label>
+                                            
+                                        </div>
+
+                                        <div class="col-md-4 m-top-bot-auto"><label class="p-0 m-0" for="WebSite">Website</label></div>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control mb-3" id="WebSite" formControlName="website" placeholder="Enter WebSite" [ngClass]="{ 'is-invalid': submitted && f.website.errors }" />
+                                            <div *ngIf="submitted && f.website.errors" class="invalid-feedback">
+                                                <div *ngIf="f.website.errors.required" style="color: red;">WebSite Required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <!-- <div class="card-header">Settings</div> -->
+                        <div class="card-body">
+                            <div class="form-group">
+                                <ul class="nav nav-tabs" id="VendorTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="Financial-tab" data-toggle="tab" href="#Financial" role="tab" aria-controls="Financial" aria-selected="true">Contacts & Addresses</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="Bank-tab" data-toggle="tab" href="#Bank" role="tab" aria-controls="Bank" aria-selected="false">Bank</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="Item-tab" data-toggle="tab" href="#Item" role="tab" aria-controls="Item" aria-selected="false">Items</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content" id="VendorTabContent">
+                                    <div class="tab-pane fade active show" id="Financial" role="tabpanel" aria-labelledby="Financial-tab">
+                                        <div class="row row-sm" style="margin-top: 12px;">
+                                            <div class="col-md-12 text-right" >
+                                                <label style="color:red;padding-top: 12px;font-size: 12px;padding-right: 64rem;"  *ngIf=" errromsge!='' && submitted ">
+                                                    {{errromsge}}  </label>
+                                                <button class="btn btn-warning" data-toggle="modal" id="btnCloseAddItem" data-target="#ContactAdds"    (click)="ClearAllTabs()">
+                                                    <!-- (click)="ClearAllTabs()" -->
+                                                    <i class="fa fa-plus" style="margin-right: 8px; margin-bottom: -2px;"></i>Add</button>
+                                            </div>
+                                            <div class="col-md-3 mb-3" *ngFor="let d of lstBillingAddresses; let i=index">
+                                                <div class="card-body custom-card brd-14" style="padding-top: 3px; border: 1px solid #e1e1e1; padding-bottom: 0px;">
+                                                    <div class="row">
+                                                        <div class="col-md-10 m-top-bot-auto">
+                                                            <label for="" class="d-none">{{i+1}}</label>
+                                                            <label for="" class="m-0 p-0" style="color: #d8a309; font-family: auto; font-weight: bold; font-size: 18px; text-transform: uppercase;">Billing Address</label>
+                                                        </div>
+                                                        <div class="col-md-2 m-top-bot-auto pr-0">
+                                                            <div class="dropdown">
+                                                                <button
+                                                                    class="dropdown-toggle waves-effect waves-button waves-light dots"
+                                                                    type="button"
+                                                                    data-toggle="dropdown"
+                                                                    style="border: none; float: right; background: #e9e9e9; border-radius: 50%;"
+                                                                >
+                                                                    <i class="ti-more-alt"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                    <button class="dropdown-item" data-toggle="modal" id="btneditBilling"  data-target="#ContactAdds" (click)="editBilling(d,'billing',i)" >Edit</button>
+                                                                    <!-- data-target="#ContactAdds"  -->
+                                                           
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <strong>
+                                                                Address
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">
+                                                                {{d.Address1}} <br />
+                                                                {{d.Address2}}
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                Country
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.Country}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                State
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.State}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                City
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.City}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 mb-3 m-top-bot-auto">
+                                                            <strong>
+                                                                Zip
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 mb-3 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.Pin}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 mb-3" *ngFor="let d of lstShippingdetails; let i=index">
+                                                <div class="card-body custom-card brd-14" style="padding-top: 3px; border: 1px solid #e1e1e1; padding-bottom: 0px;">
+                                                    <div class="row">
+                                                        <div class="col-md-10 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0" style="color: #d8a309; font-family: auto; font-weight: bold; font-size: 18px; text-transform: uppercase;">Deliver Address</label>
+                                                        </div>
+                                                        <div class="col-md-2 m-top-bot-auto pr-0">
+                                                            <div class="dropdown">
+                                                                <button
+                                                                    class="dropdown-toggle waves-effect waves-button waves-light dots"
+                                                                    type="button"
+                                                                    data-toggle="dropdown"
+                                                                    style="border: none; float: right; background: #e9e9e9; border-radius: 50%;"
+                                                                >
+                                                                    <i class="ti-more-alt"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                    <button class="dropdown-item" data-toggle="modal" data-target="#ContactAdds" (click)="EditShipping(d,(i),'shipping')">Edit</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                Name
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.SiteName}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                Contact
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.ContactName}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                Address1
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.Address1}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                Address2
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.Address2}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                Country
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.Country}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                State
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8  m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.State}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4  m-top-bot-auto">
+                                                            <strong>
+                                                                City
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8  m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.City}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 mb-3 m-top-bot-auto">
+                                                            <strong>
+                                                                Pin
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 mb-3 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.Pincode}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                         
+
+                                            <div class="col-md-3 mb-3" *ngFor="let d of lstContact; let i=index">
+                                                <div class="card-body custom-card brd-14" style="padding-top: 3px; border: 1px solid #e1e1e1; padding-bottom: 0px;">
+                                                    <div class="row">
+                                                        <div class="col-md-10 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0" style="color: #d8a309; font-family: auto; font-weight: bold; font-size: 18px; text-transform: uppercase;">Contact</label>
+                                                        </div>
+                                                        <div class="col-md-2 m-top-bot-auto pr-0">
+                                                            <div class="dropdown">
+                                                                <button
+                                                                    class="dropdown-toggle waves-effect waves-button waves-light dots"
+                                                                    type="button"
+                                                                    data-toggle="dropdown"
+                                                                    style="border: none; float: right; background: #e9e9e9; border-radius: 50%;"
+                                                                >
+                                                                    <i class="ti-more-alt"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                    <button class="dropdown-item" data-toggle="modal" 
+                                                                    data-target="#ContactAdds" (click)="EditContacts(d,(i),'contacts')">Edit</button> 
+                                                                    
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                Contact Name
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.ContactName}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                Designation
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.Designation}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                Mobile No
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.MobileNo}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                Whatsapp No
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.WhatsappNo}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 m-top-bot-auto">
+                                                            <strong>
+                                                                Email
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.Email}}</label>
+                                                        </div>
+
+                                                        <div class="col-md-4 mb-3 m-top-bot-auto">
+                                                            <strong>
+                                                                Notes
+                                                                <p style="float: right;" class="p-0 m-0">:</p>
+                                                            </strong>
+                                                        </div>
+                                                        <div class="col-md-8 mb-3 m-top-bot-auto">
+                                                            <label for="" class="m-0 p-0">{{d.Note}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="Bank" role="tabpanel" aria-labelledby="Bank-tab">
+                                        <div class="row row-sm" style="margin-top: 12px;">
+
+                                            <div class="col-md-12">
+                                                <div class="row row-sm" style="margin-top: 12px;">
+                                                    <div class="col-md-12 text-right">
+                                                        <button class="btn btn-warning" data-toggle="modal" data-target="#BankId" (click)="BankAdd()">
+                                   
+                                                            <i class="fa fa-plus" style="margin-right: 8px; margin-bottom: -2px;"></i>Add Bank
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-3 mb-3" *ngFor="let d of lstbankdetails; let i=index">
+                                                        <div class="card-body custom-card brd-14" style="padding-top: 3px; border: 1px solid #e1e1e1; padding-bottom: 0px;">
+                                                            <div class="row">
+                                                                <div class="col-md-10 m-top-bot-auto">
+                                                                    <label for="" class="m-0 p-0" style="color: #525050; font-family: auto; font-weight: bold; font-size: 18px;">{{d.AccountNo}}</label>
+                                                                </div>
+                                                                <div class="col-md-2 m-top-bot-auto pr-0">
+                                                                    <div class="dropdown">
+                                                                        <button
+                                                                            class="dropdown-toggle waves-effect waves-button waves-light dots"
+                                                                            type="button"
+                                                                            data-toggle="dropdown"
+                                                                            style="border: none; float: right; background: #e9e9e9; border-radius: 50%;"
+                                                                        >
+                                                                            <i class="ti-more-alt"></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                            <button class="dropdown-item" data-toggle="modal" data-target="#BankId" data-backdrop="static" data-keyboard="false" (click)="EditBankDetailsClick(d,(i))">
+                                                                                Edit
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-4 m-top-bot-auto">
+                                                                    <strong>
+                                                                        Bank Name
+                                                                        <p style="float: right;" class="p-0 m-0">:</p>
+                                                                    </strong>
+                                                                </div>
+                                                                <div class="col-md-8 m-top-bot-auto">
+                                                                    <label for="" class="m-0 p-0">{{d.Name}}</label>
+                                                                </div>
+
+                                                                <div class="col-md-4 m-top-bot-auto" *ngIf="d.IFSCcode !=''">
+                                                                    <strong>
+                                                                        IFSC Code
+                                                                        <p style="float: right;" class="p-0 m-0">:</p>
+                                                                    </strong>
+                                                                </div>
+                                                                <div class="col-md-8 m-top-bot-auto" *ngIf="d.IFSCcode !=''">
+                                                                    <label for="" class="m-0 p-0">{{d.IFSCcode}}</label>
+                                                                </div>
+
+                                                                <div class="col-md-4 m-top-bot-auto" *ngIf="d.BeneficiaryName !=''">
+                                                                    <strong>
+                                                                        Beneficiary Name
+                                                                        <p style="float: right;" class="p-0 m-0">:</p>
+                                                                    </strong>
+                                                                </div>
+                                                                <div class="col-md-8 m-top-bot-auto" *ngIf="d.BeneficiaryName !=''">
+                                                                    <label for="" class="m-0 p-0">{{d.BeneficiaryName}}</label>
+                                                                </div>
+                                                                <div class="col-md-4 m-top-bot-auto" *ngIf="d.SwiftCode !=''">
+                                                                    <strong>
+                                                                        Swift Code
+                                                                        <p style="float: right;" class="p-0 m-0">:</p>
+                                                                    </strong>
+                                                                </div>
+                                                                <div class="col-md-8 m-top-bot-auto" *ngIf="d.SwiftCode !=''">
+                                                                    <label for="" class="m-0 p-0">{{d.SwiftCode}}</label>
+                                                                </div>
+
+                                                                <div class="col-md-4 m-top-bot-auto" *ngIf="d.ABAno !=''">
+                                                                    <strong>
+                                                                        ABA No
+                                                                        <p style="float: right;" class="p-0 m-0">:</p>
+                                                                    </strong>
+                                                                </div>
+                                                                <div class="col-md-8 m-top-bot-auto" *ngIf="d.ABAno !=''">
+                                                                    <label for="" class="m-0 p-0">{{d.ABAno}}</label>
+                                                                </div>
+
+                                                                <div class="col-md-4 m-top-bot-auto" *ngIf="d.RoutingNo !=''">
+                                                                    <strong>
+                                                                        Routing No
+                                                                        <p style="float: right;" class="p-0 m-0">:</p>
+                                                                    </strong>
+                                                                </div>
+                                                                <div class="col-md-8 m-top-bot-auto" *ngIf="d.RoutingNo !=''">
+                                                                    <label for="" class="m-0 p-0">{{d.RoutingNo}}</label>
+                                                                </div>
+
+                                                                <div class="col-md-4 m-top-bot-auto" *ngIf="d.SortCode !=''">
+                                                                    <strong>Sort Code<p style="float: right;" class="p-0 m-0">:</p></strong>
+                                                                </div>
+                                                                <div class="col-md-8 m-top-bot-auto" *ngIf="d.SortCode !=''">
+                                                                    <label for="" class="m-0 p-0">{{d.SortCode}}</label>
+                                                                </div>
+
+                                                                <div class="col-md-4 m-top-bot-auto" >
+                                                                    <strong>Country<p style="float: right;" class="p-0 m-0">:</p></strong>
+                                                                </div>
+                                                                <div class="col-md-8 m-top-bot-auto">
+                                                                    <label for="" class="m-0 p-0">{{d.CountryName}}</label>
+                                                                </div>
+
+                                                                <div class="col-md-4 m-top-bot-auto">
+                                                                    <strong>State<p style="float: right;" class="p-0 m-0">:</p></strong>
+                                                                </div>
+                                                                <div class="col-md-8 m-top-bot-auto">
+                                                                    <label for="" class="m-0 p-0">{{d.StateName}}</label>
+                                                                </div>
+
+                                                                <div class="col-md-4 m-top-bot-auto">
+                                                                    <strong>City<p style="float: right;" class="p-0 m-0">:</p></strong>
+                                                                </div>
+                                                                <div class="col-md-8 m-top-bot-auto">
+                                                                    <label for="" class="m-0 p-0">{{d.Cityname}}</label>
+                                                                </div>
+
+                                                                <div class="col-md-4 mb-3 m-top-bot-auto">
+                                                                    <strong>Pin<p style="float: right;" class="p-0 m-0">:</p></strong>
+                                                                </div>
+                                                                <div class="col-md-8 mb-3 m-top-bot-auto">
+                                                                    <label for="" class="m-0 p-0">{{d.Pin}}</label>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="Item" role="tabpanel" aria-labelledby="Item-tab">
+                                        <div class="row row-sm" style="margin-top: 12px;">
+
+                                            <div class="col-md-12">
+                                                <div class="row row-sm" style="margin-top: 12px;">
+                                                    <div class="col-md-12 text-right">
+                                                       
+
+                                                        <button type="button" class="btn btn-warning btnadd" style="float: right;margin-bottom: 15px;"
+                                                        data-toggle="modal" data-target="#ItemModal"
+                                                        ><span style="margin-right: 5px;"><i
+                                                          (click)="ClearItems()"   class="fa fa-plus"></i></span>Add Item</button>
+                                                    </div>
+                                                    
+                                                
+                                                    <table
+                                                    class="table table-bordered table-striped table-responsive-stack "
+                                                    id="tableOne">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width:5%;">SNo</th>
+                                                            <th style="width:10%;">Part No</th>
+                                                            <th style="width:20%;">Description</th>
+                                                            <th style="width:15%;">Make</th>
+                                                            <th style="width:15%;">Price</th>
+                                                            <th style="width:10%;">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let d of lstItems; let i=index">
+                                                            <td style="width:5%;" >
+                                                                {{i+1}}</td>
+                                                            <td style="width:10%;" >
+                                                                {{d.partNo}}</td>
+                                                            <td style="width:20%;" >
+                                                                {{d.Description}}</td>
+                                                            <td style="width:15%;" >
+                                                                {{d.Make}}</td>
+                                                                <td style="width:15%;" >
+                                                                    {{d.Price}}</td>
+                                                        <td style="width:10%;"   data-toggle="modal" >
+                                                                 
+                                                                     
+
+                                                                       <div class="dropdown">
+                                                                           <a href="#" data-toggle="dropdown"
+                                                                               aria-expanded="false"
+                                                                               class="btn btn-gray btn-floating btn-icon btn-sm waves-effect waves-button waves-light">
+                                                                               <i aria-hidden="true"
+                                                                                   class="fa fa-ellipsis-v"
+                                                                                   style="color: white !important;"></i>
+                                                                           </a>
+                                                                           <div x-placement="bottom-end"
+                                                                               class="dropdown-menu dropdown-menu-right"
+                                                                               style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 24px, 0px);">
+                                                                                             
+                                                                               <button type="button" data-target="#ItemModal"  data-toggle="modal"  (click)="EditItemDetails(d,i+1)"
+                                                                               class="dropdown-item font-size-15">Edit<i
+                                                                               class="fas fa-edit"
+                                                                                   style="float: right;"
+                                                                                   aria-hidden="true"></i></button>
+
+                                                                                   <!-- this.lstItems.push(obj); -->
+                                                                               <button type="button" (click)="DeleteItemDetails(d,i)"
+                                                                                   class="dropdown-item font-size-15">Delete<i
+                                                                                       class="fa fa-trash"
+                                                                                       style="float: right;"
+                                                                                       aria-hidden="true"></i></button>
+                                                                           </div>
+                                                                       </div>
+                                                                   
+                                                                   </td>
+                                                                    
+                                                                   
+                                                                    
+                                                                   
+                                                                
+                                                                
+                                                                
+                                                                
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                
+                                                
+                                                
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tab-pane fade" id="Billing" role="tabpanel" aria-labelledby="Billing-tab">
+                                        <div class="row row-sm" style="margin-top: 12px;">
+                                            <div class="col-md-6"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="Shipping" role="tabpanel" aria-labelledby="Shipping-tab">
+                                        <div class="row row-sm" style="margin-top: 12px;">
+                                            <div class="col-md-8">
+                                                <div class="card"></div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="card">
+                                                    <div class="card-header">Search</div>
+                                                    <div class="card-body">
+                                                        <div class="custom-control custom-switch" style="float: left;">
+                                                            <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="PrepareSerchStringByField1()" />
+                                                            <label class="p-0 m-0" class="custom-control-label" for="customSwitch">All Data</label>
+                                                        </div>
+
+                                                        <div class="custom-control custom-switch custom-checkbox-success" style="float: right;">
+                                                            <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="GetShippingDetails1()" />
+                                                            <label class="p-0 m-0" class="custom-control-label" for="customSwitch2_"> Like</label>
+                                                        </div>
+
+                                                        <div class="row col-md-12">
+                                                            <div class="alert alert-info alert-with-border alert-dismissible" role="alert"><i class="ti-alert m-r-10"></i>If Like Off Search with '='</div>
+                                                        </div>
+
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="SearchClick()">
+                                                                    <i class="fa fa-search"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row col-md-12" *ngIf="FilterType=='Field' ">
+                                                            <label class="p-0 m-0" for="searchName"> UserName</label>
+                                                            <input type="text" class="form-control" id="searchUserName" formControlName="UserName" placeholder="Search User Name" />
+
+                                                            <div class="col-md-12" style="float: right; padding-right: unset;">
+                                                                <button type="button" class="btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light" style="float: right; margin-top: 10px;" (click)="SearchClick()">
+                                                                    <i class="ti-search m-r-5"></i> Search
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="Contact" role="tabpanel" aria-labelledby="Contact-tab">
+                                        <div class="row row-sm" style="margin-top: 12px;">
+                                            <div class="col-md-8"></div>
+
+                                            <div class="col-md-4">
+                                                <div class="card">
+                                                    <div class="card-header">Search</div>
+                                                    <div class="card-body">
+                                                        <div class="custom-control custom-switch" style="float: left;">
+                                                            <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="PrepareSerchStringByField2()" />
+                                                            <label class="p-0 m-0" class="custom-control-label" for="customSwitch">All Data</label>
+                                                        </div>
+
+                                                        <div class="custom-control custom-switch custom-checkbox-success" style="float: right;">
+                                                            <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="GetContactDetails1()" />
+                                                            <label class="p-0 m-0" class="custom-control-label" for="customSwitch2_"> Like</label>
+                                                        </div>
+
+                                                        <div class="row col-md-12">
+                                                            <div class="alert alert-info alert-with-border alert-dismissible" role="alert"><i class="ti-alert m-r-10"></i>If Like Off Search with '='</div>
+                                                        </div>
+
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="SearchClick()">
+                                                                    <i class="fa fa-search"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row col-md-12" *ngIf="FilterType=='Field' ">
+                                                            <label class="p-0 m-0" for="searchName"> UserName</label>
+                                                            <input type="text" class="form-control" id="searchUserName" formControlName="UserName" placeholder="Search User Name" />
+
+                                                            <div class="col-md-12" style="float: right; padding-right: unset;">
+                                                                <button type="button" class="btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light" style="float: right; margin-top: 10px;" (click)="SearchClick()">
+                                                                    <i class="ti-search m-r-5"></i> Search
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 pl-0">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-7">Activity Tracker</div>
+                                <div class="col-md-5"><button class="btn btn-warning waves-effect waves-button waves-light" autocomplete="off">Follow Up</button></div>
+                            </div>
+                        </div>
+                        <div class="card-body" style="padding: 5px;">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card" style="margin-right: 0px !important;">
+                                    <div class="card-header" id="headingOne" style="background: #f6c63d;">
+                                        <button
+                                            aria-controls="collapseOne"
+                                            aria-expanded="true"
+                                            class="btn btn-link waves-effect waves-button waves-light acrd-text"
+                                            data-target="#collapseTwo"
+                                            data-toggle="collapse"
+                                            style="color: #212529;"
+                                            type="button"
+                                            autocomplete="off"
+                                        >
+                                            Admin <sub>(10 hrs Ago)</sub>
+                                        </button>
+                                    </div>
+                                    <div aria-labelledby="headingTwo" class="collapse show" data-parent="#accordionExample" id="collapseTwo">
+                                        <div class="card-body" style="padding: 10px;"><p class="p-0 m-0">RFQ Created</p></div>
+                                    </div>
+                                </div>
+                                <div class="card" style="margin-right: 0px !important;">
+                                    <div class="card-header" id="headingOne" style="background: #f6c63d;">
+                                        <button
+                                            aria-controls="collapseOne"
+                                            aria-expanded="true"
+                                            class="btn btn-link waves-effect waves-button waves-light acrd-text"
+                                            data-target="#collapseThree"
+                                            data-toggle="collapse"
+                                            style="color: #212529;"
+                                            type="button"
+                                            autocomplete="off">
+                                            Baba <sub>(30 min Ago)</sub>
+                                        </button>
+                                    </div>
+                                    <div aria-labelledby="headingThree" class="collapse show" data-parent="#accordionExample" id="collapseThree">
+                                        <div class="card-body" style="padding: 10px;">
+                                            <p class="p-0 m-0"><strong>Created PQ</strong></p>
+                                            <ul style="margin-left: 14px;">
+                                                <li style="list-style-type: disc;">Added Brake liners</li>
+                                                <li style="list-style-type: disc;">Added brake Oil</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        
+
+        <div class="modal fade" id="ContactAdds"  role="dialog" aria-labelledby="ContactAdds" aria-hidden="true"   data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 800px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" >Create Contacts</h5>
+                        <p *ngIf="showError" class="invalid-data"><font color="red">{{errormsg}}</font></p>
+                        <button type="button" id="btnCloseBankItems" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" hidden>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <ul class="nav nav-tabs" id="addresses" role="tablist">
+                                    <li class="nav-item ">
+                                        <!-- class="nav-link active "  -->
+                                        <!-- class='{{Billingtab ?"nav-link active ":"nav-link "}}' -->
+                                        <a *ngIf="BillingEnableTAB===1"
+                                         class='{{Billingtab?"nav-link active ":"nav-link" }}' 
+                                        id="BillingLatest-tab" data-toggle="tab" href="#BillingLatest" 
+                                        role="tab" aria-controls="BillingLatest" >Billing</a>
+                                    </li>
+                                    
+                                    <li class="nav-item" >
+                                        <a   *ngIf="ShipingTabEnable===1" id="ShippingLatest-tab"
+                                         class='{{shippingtab?"nav-link active":"nav-link " }}'
+                                      
+                                           data-toggle="tab" href="#ShippingLatest" 
+                                        role="tab" aria-controls="ShippingLatest" 
+                                
+                                       >Shipping</a>
+                                    </li>
+                                    
+                                      
+                                    <li class="nav-item">
+                                        <a *ngIf="ContactTabEnable===1" id="ContactsLatest-tab"
+                                        class='{{contacttab ?"nav-link active":"nav-link "}}'
+                                       
+                                     
+                                          data-toggle="tab"
+                                         href="#ContactsLatest" role="tab" aria-controls="ContactsLatest"
+                                          >Contacts</a>
+                                    </li>
+                                </ul>
+
+
+                               
+                               
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="card m-0">
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="tab-content" id="addresses">
+                                                    <!-- active show -->
+                                                    <div   id="BillingLatest"
+                                                     class='{{Billingtab? "tab-pane fade  show active": "tab-pane fade"}}'
+                                                    role="tabpanel" aria-labelledby="BillingLatest-tab" >
+                                                        <div class="card-body row" id="tabshow">
+                                                            <div class="col-md-12 mb-3">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"  (change)="CompanyAddressChecked($event.target.checked)"  />
+                                                                    <label class="form-check-label" for="inlineCheckbox1" >Same As Company Address</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label class="m-0 p-0" style="margin-top: 5px !important;">Address</label>
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <div class="row">
+                                                                    <div class="col-md-12" style="margin-bottom: 10px;">
+                                                                        <input class="form-control" placeholder="Street 1" style="border: none; border-bottom: 1px solid #ced4da; height: 25px;" type="text" formControlName="address1" />
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input class="form-control" placeholder="Street 2" style="border: none; border-bottom: 1px solid #ced4da; height: 25px;" type="text" formControlName="address2" />
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <select  id="Bcountry" formControlName="BillCountryId" style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;">
+                                                                            <!-- <option selected="selected">Select </option> -->
+                                                                         
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <select  id="Bstate" formControlName="BillStateId" style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;"></select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <select id="Bcity" formControlName="BillCityId" class="js-example-basic-single" style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;"></select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input type="text" class="form-control" placeholder="Enter pincode" formControlName="Bpin" />
+                                                                        <!-- [(ngModel)]="BillPin" -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                               
+                                                    <div  id="ShippingLatest" role="tabpanel"  
+                                                    class='{{shippingtab ? "tab-pane fade active show": "tab-pane fade"}}'
+
+                                                    aria-labelledby="ShippingLatest-tab" >
+                                                        <div class="card-body row">
+                                                            <div class="col-md-12 mb-3">
+                                                                <div class="row">
+                                                                    <div class="col-md-3 m-top-auto"><label class="m-0" style="margin-top: 5px !important;">Site Name</label></div>
+                                                                    <div class="col-md-9">
+                                                                        <input
+                                                                            type="text"
+                                                                            class="form-control"
+                                                                            id="ShippingName"
+                                                                            formControlName="SiteName"
+                                                                            placeholder="Enter Shipping Name "
+                                                                            [ngClass]="{ 'is-invalid': submitted && f.SiteName.errors }"
+                                                                        />
+                                                                        <div *ngIf="submitted && f.SiteName.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.SiteName.errors.required" style="color: red;">Shipping Name Required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                  
+                                                                    <div class="col-md-3 m-top-auto"><label class="m-0" style="margin-top: 5px !important;">Contact Name</label></div>
+                                                                    <div class="col-md-9">
+                                                                        <input type="text" class="form-control" formControlName="SHPContactName"  id="SHPContactName" placeholder="Enter Contact Name " [ngClass]="{ 'is-invalid': submitted && f.SHPContactName.errors }" />
+                                                                        <div *ngIf="submitted && f.SHPContactName.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.SHPContactName.errors.required" style="color: red;">Contact Name Required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3"><label class="m-0" style="margin-top: 15px !important;">Address</label></div>
+                                                                    <div class="col-md-9">
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <input type="text" class="form-control" formControlName="SHPAddress1" placeholder="Street 1" [ngClass]="{ 'is-invalid': submitted && f.SHPAddress1.errors }" />
+                                                                                <div *ngIf="submitted && f.SHPAddress1.errors" class="invalid-feedback">
+                                                                                    <div *ngIf="f.SHPAddress1.errors.required" style="color: red;">Address Required</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <input type="text" class="form-control" formControlName="SHPAddress2" placeholder="Street 2" />
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <!-- C:{{lstCountries.length}} -->
+                                                                                <select id="Scountry" formControlName="ShipCountryId" class="js-example-basic-single" style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;">
+                                                                                   <!-- <option value='country 'selected>Select Country </option> -->
+                                                                                </select> 
+                                                                                <div *ngIf="submitted && f.Scountry.errors" class="invalid-feedback">
+                                                                                    <div *ngIf="f.Scountry.errors.required" style="color: red;">Country Required</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6" >
+                                                                                <select id="Sstate" formControlName="ShipStateId"  style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;">
+                                                                                 <option selected  *ngIf="ShipStateId==0 ">Select state </option> 
+                                                                            </select>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <select id="Scity" formControlName="ShipCityId" class="js-example-basic-single" style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;"></select>
+                                                                                <!-- <div *ngIf="submitted && f.Scity.errors" class="invalid-feedback">
+                                                                                    <div *ngIf="f.Scity.errors.required" style="color: red;">City Required</div>
+                                                                                </div> -->
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <!-- <select   class="js-example-basic-single" id="drpshippingCity"  style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;"></select>      -->
+                                                                                <input type="number" class="form-control" formControlName="SHPPin" />
+                                                                                <!-- <div *ngIf="submitted && f.SHPPin.errors" class="invalid-feedback">
+                                                                                    <div *ngIf="f.SHPPin.errors.required" style="color: red;">Pin Required</div>
+                                                                                </div> -->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- class='{{ contacttab? "tab-pane fade active show": "tab-pane fade"}}' -->
+                                                    <!-- ,'tab-pane fade':Billingtab==true -->
+                                                    <div id="ContactsLatest"  role="tabpanel"
+                                                 
+                                                    class='{{ contacttab?  "tab-pane fade active show": "tab-pane fade"}}'
+                                                       aria-labelledby="ContactsLatest-tab" aria-hidden="true">
+                                                        <!-- role="tabpanel"  -->
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-md-3 m-top-auto"><label class="p-0 m-0" for="ContactName0">Contact Name</label></div>
+                                                                <div class="col-md-9">
+                                                                    <input
+                                                                        type="text"
+                                                                        class="form-control"
+                                                                        id="ContactName0"
+                                                                        formControlName="ContactName0"
+                                                                        placeholder="Enter Contact Name "
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.ContactName0.errors }"
+                                                                    />
+                                                                    <div *ngIf="submitted && f.ContactName0.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.ContactName0.errors.required" style="color: red;">Contact Name Required</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3 m-top-auto">
+                                                                    <label class="p-0 m-0" >Designation</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" formControlName="Designation1" class="form-control" placeholder="Designation" />
+                                                                </div>
+                                                                <div class="col-md-3 m-top-auto"><label for="number" class="p-0 m-0">Mobile No</label></div>
+                                                                <div class="col-md-9">
+                                                                    <input
+                                                                        type="ContactNo1"
+                                                                        class="form-control"
+                                                                        maxlength="10"
+                                                                        autocomplete="off"
+                                                                        id="Contactno"
+                                                                        formControlName="ContactNo1" 
+                                                                        placeholder="Enter Contat No "
+                                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                                     
+                                                                       
+                                                                    />
+                                                                     <!-- [ngClass]="{ 'is-invalid': submitted && f.ContactNo1.errors }" -->
+                                                                    <div *ngIf="submitted && f.ContactNo1.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.ContactNo1.errors.required" style="color: red;">Contactno Required</div>
+                                                                    </div>
+                                                                </div>
+        
+                                                                <div class="col-md-3 m-top-auto">
+                                                                    <label class="p-0 m-0" for="number">Whatsapp No</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <input type="WhatsappNo" class="form-control" formControlName="WhatsappNo" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" 
+                                                                    placeholder="Whatsapp number"  maxlength="10"/>
+                                                                </div>
+                                                                <div class="col-md-3 m-top-auto"><label for="Email2" class="p-0 m-0">Email</label></div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" id="Email2" formControlName="Email2" placeholder="Enter Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" autocomplete="off" />
+                                                                    <label style="color:red;font-size: 12px;margin-top: -13px"  *ngIf=" f.Email2.invalid && f.Email2.touched  ">
+                                                                        Please Enter Valid Email Id.</label>
+                                                                </div>
+                                                                <div class="col-md-3 m-top-auto"><label for="Notes3">Note</label></div>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" placeholder="Notes" formControlName="Notes3" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary modal-btn waves-effect waves-button waves-light"    data-dismiss="modal"><i class="ti-close m-r-5 modal-btn-icon"></i> Close</button>
+                        <button type="button" class="btn btn-danger modal-btn waves-effect waves-button waves-light" (click)="RemoveBank()" data-dismiss="modal"><i class="ti-trash m-r-5 modal-btn-icon"></i> Remove</button>
+                        <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddVendorDetails('Close')"><i class="ti-check m-r-5 modal-btn-icon"></i> Add</button>
+                        <button type="button"  *ngIf="AddPlusbtnenable ==true" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddDetails()"><i class="ti-check m-r-5 modal-btn-icon"></i> Add +</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="BankId"  role="dialog" aria-labelledby="BankId" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 800px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="BankId">Create Bank</h5>
+                        <p *ngIf="showError" class="invalid-data"><font color="red">{{errormsg}}</font></p>
+                        <button type="button" id="btnCloseBanks" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-2 m-top-bot-auto mb-3" *ngIf="bankIndx == -1"><label class="p-0 m-0" for="GSTNo">Currency</label></div>
+                            <div class="col-md-4">
+                                <select class="form-control mb-3"  *ngIf="bankIndx == -1" style="padding-left: 8px;" #currencyvalue (change)="GetCurrency(currencyvalue.value)">
+                                    <option value="INR">INR</option>
+                                    <option value="USD">USD</option>
+                                    <option value="EURO">EURO</option>
+                                    <option value="AUD">AUD</option>
+                                    <option value="POUND">POUND </option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <!-- <div class="col-md-4 m-top-auto"><label  class="p-0 m-0" for="TextBoxColumn_BankName_1">Bank Name</label></div> -->
+                                            <div class="col-md-12 mb-3" *ngIf="FilterByCurrency == 'INR' || FilterByCurrency =='USD' || FilterByCurrency =='EURO' || FilterByCurrency =='AUD' || FilterByCurrency =='POUND'">
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="bankdetails"
+                                                    formControlName="TextBoxColumn_BankName_1"
+                                                    placeholder="Enter Bank Name "
+                                                    [ngClass]="{ 'is-invalid': submitted && f.TextBoxColumn_BankName_1.errors }"
+                                                    style="font-size: 21px !important; padding-left: 0px; border-bottom: 2px solid #525252;"
+                                                />
+                                                <div *ngIf="submitted && f.TextBoxColumn_BankName_1.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.TextBoxColumn_BankName_1.errors.required" style="color: red;">Bank Name Required</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12" *ngIf="FilterByCurrency == 'INR' || FilterByCurrency =='USD' || FilterByCurrency =='EURO' || FilterByCurrency =='AUD' || FilterByCurrency =='POUND'">
+                                                <div class="row">
+                                                    <div class="col-md-2"><label class="m-0 p-0" style="margin-top: 10px !important;">Address</label></div>
+                                                    <div class="col-md-10">
+                                                        <div class="row">
+                                                            <div class="col-md-12 mb-3">
+                                                                <input class="form-control" formControlName="BankStreet1" placeholder="Street 1" style="border: none; border-bottom: 1px solid #ced4da; height: 25px;" type="text" />
+                                                            </div>
+                                                            <div class="col-md-12 mb-3">
+                                                                <input class="form-control" formControlName="BankStreet2" placeholder="Street 2" style="border: none; border-bottom: 1px solid #ced4da; height: 25px;" type="text" />
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <!-- <input class="form-control" placeholder="City" style="border: none; border-bottom: 1px solid #ced4da; height: 25px;" type="text" /> -->
+                                                                <select id="banksCountry" formControlName="BanksCountryId"  style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;"></select>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <select  id="Bankstate" formControlName="BankstateId"  style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;"></select>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <select  id="Bankcity" formControlName="BankcityId"  style="border: none; border-bottom: 1px solid #ced4da; border-radius: 0px;"></select>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <input class="form-control" placeholder="ZIP" formControlName="Bankpincode"  style="border: none; border-bottom: 1px solid #ced4da; height: 25px;" type="text" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row mb-3" *ngIf="FilterByCurrency == 'INR' || FilterByCurrency =='USD' || FilterByCurrency =='AUD'|| FilterByCurrency == 'EURO' || FilterByCurrency =='POUND'" style="margin-top: 10px;">
+                                            <div class="col-md-4 m-top-auto"><label class="p-0 m-0" for="AccountNo1">Account No</label></div>
+                                            <div class="col-md-8">
+                                                <input type="text" class="form-control" id="accountdetail" formControlName="AccountNo1" placeholder="Enter Account No" [ngClass]="{ 'is-invalid': submitted && f.AccountNo1.errors }" />
+                                                <div *ngIf="submitted && f.AccountNo1.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.AccountNo1.errors.required" style="color: red;">Account No Required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        
+
+                                        <div class="row mb-3" *ngIf="FilterByCurrency == 'USD' || FilterByCurrency =='EURO' || FilterByCurrency =='AUD' || FilterByCurrency =='POUND'">
+                                            <div class="col-md-4 m-top-auto"><label class="p-0 m-0" for="BeneficiaryName">Beneficiary Name</label></div>
+                                            <div class="col-md-8">
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="bankdetails"
+                                                    formControlName="BeneficiaryName"
+                                                    placeholder="Enter Beneficiary Name "
+                                                    [ngClass]="{ 'is-invalid': submitted && f.BeneficiaryName.errors }"
+                                                />
+                                                <div *ngIf="submitted && f.BeneficiaryName.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.BeneficiaryName.errors.required" style="color: red;">Bank Name Required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3" *ngIf="FilterByCurrency == 'INR'">
+                                            <div class="col-md-4 m-top-auto"><label class="p-0 m-0" for="IFSCCode3">IFSC Code</label></div>
+                                            <div class="col-md-8">
+                                                <input type="text" class="form-control" id="IFSCCode3" formControlName="IFSCCode3" placeholder="Enter IFSC Code" [ngClass]="{ 'is-invalid': submitted && f.IFSCCode3.errors }" />
+                                                <div *ngIf="submitted && f.IFSCCode3.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.IFSCCode3.errors.required" style="color: red;">IFSC Code Required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="row mb-3" *ngIf="FilterByCurrency == 'INR'">
+                                                                        <div class="col-md-4 m-top-auto"><label  class="p-0 m-0" for="BranchName2">Branch</label></div>
+                                                                        <div class="col-md-8">
+                                                                            <input type="text" class="form-control " id="Branch" formControlName="BranchName2" placeholder="Enter Branch"
+                                                                            [ngClass]="{ 'is-invalid': submitted && f.BranchName2.errors }">
+                                                                            <div *ngIf="submitted && f.BranchName2.errors" class="invalid-feedback">
+                                                                                <div *ngIf="f.BranchName2.errors.required" style="color:red " >Branch Required</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> -->
+
+                                        <div class="row mb-3" *ngIf="FilterByCurrency == 'EURO' || FilterByCurrency =='AUD' || FilterByCurrency =='POUND' || FilterByCurrency == 'USD'">
+                                            <div class="col-md-4 m-top-auto"><label class="p-0 m-0" for="swiftCode">Swift Code / BIC Code</label></div>
+                                            <div class="col-md-8">
+                                                <input type="number" class="form-control" placeholder="Enter Swift Code" formControlName="SwiftCode"/>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="row mb-3" *ngIf="FilterByCurrency == 'USD' ">
+                                            <div class="col-md-4 m-top-auto"><label class="p-0 m-0" for="swiftCode">Swift Code / BIC Code</label></div>
+                                            <div class="col-md-8">
+                                                <input type="number" class="form-control" placeholder="Enter Swift Code" />
+                                            </div>
+                                        </div> -->
+
+                                        <div class="row mb-3" *ngIf="FilterByCurrency == 'USD' ">
+                                            <div class="col-md-4 m-top-auto"><label class="p-0 m-0" for="AbaNo">ABA No</label></div>
+                                            <div class="col-md-8">
+                                                <input type="number" class="form-control" formControlName="AbaNo" placeholder="Enter ABA no" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3" *ngIf="FilterByCurrency == 'USD' ">
+                                            <div class="col-md-4 m-top-auto"><label class="p-0 m-0" for="swiftCode">Routing No</label></div>
+                                            <div class="col-md-8">
+                                                <input type="number" class="form-control" placeholder="Enter Routing no" formControlName="RoutingNo" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3" *ngIf="FilterByCurrency == 'POUND'">
+                                            <div class="col-md-4 m-top-auto"><label class="p-0 m-0" for="swiftCode">Sort Code</label></div>
+                                            <div class="col-md-8">
+                                                <input type="number" class="form-control" placeholder="Enter sort code" formControlName="SortCode"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4 m-top-auto"><label class="p-0 m-0">Currency</label></div>
+                                            <div class="col-md-8 text-center">
+                                                <!-- <b><label  class="p-0 m-0" >Currency : {{FilterByCurrency}}</label></b>  formControlName="FilterByCurrency" -->
+                                                <input type="number" class="form-control" form placeholder="{{FilterByCurrency}}" readonly />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="col-md-6"></div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary modal-btn waves-effect waves-button waves-light" data-dismiss="modal" ><i class="ti-close m-r-5 modal-btn-icon"></i> Close</button>
+                        <button type="button" class="btn btn-danger modal-btn waves-effect waves-button waves-light" (click)="RemoveBank()" data-dismiss="modal"><i class="ti-trash m-r-5 modal-btn-icon"></i> Remove</button>
+                        <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddBank1('Close')"><i class="ti-check m-r-5 modal-btn-icon"></i> Add</button>
+                        <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddBank1('')"><i class="ti-check m-r-5 modal-btn-icon"></i> Add +</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="ShippingId"  role="dialog" aria-labelledby="ShippingId" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ShippingId">Add / Modify Shipping</h5>
+                        <p *ngIf="showError" class="invalid-data"><font color="red">{{errormsg}}</font></p>
+                        <button type="button" id="btnCloseShippingItems" class="close" >
+                            <!-- data-dismiss="modal" aria-label="Close" -->
+                            <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <b><label class="p-0 m-0" style="float: right;">SNO:{{SNO}}</label></b>
+                        <br />
+
+                        <label class="p-0 m-0" for="ShippingName0">Shipping Name</label>
+
+                        <input type="text" class="form-control mb-3" id="ShippingName" formControlName="ShippingName0" placeholder="Enter Shipping Name " [ngClass]="{ 'is-invalid': submitted && f.ShippingName0.errors }" />
+                        <div *ngIf="submitted && f.ShippingName0.errors" class="invalid-feedback">
+                            <div *ngIf="f.ShippingName0.errors.required" style="color: red;">Shipping Name Required</div>
+                        </div>
+                        <label class="p-0 m-0" for="Address11">Address 1</label>
+
+                        <input type="text" class="form-control mb-3" id="Address11" formControlName="Address11" placeholder="Enter Address 1" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" />
+                        <div *ngIf="submitted && f.Address11.errors" class="invalid-feedback">
+                            <div *ngIf="f.Address11.errors.required" style="color: red;">Address1 Required</div>
+                        </div>
+                        <label class="p-0 m-0" for="Address22">Address 2</label>
+
+                        <input type="text" class="form-control mb-3" id="Address22" formControlName="Address22" placeholder="Enter Address 2" [ngClass]="{ 'is-invalid': submitted && f.Address22.errors }" />
+                        <div *ngIf="submitted && f.Address22.errors" class="invalid-feedback">
+                            <div *ngIf="f.Address22.errors.required" style="color: red;">Address 2 Required</div>
+                        </div>
+                        <label class="p-0 m-0" for="Address33">Address 3</label>
+
+                        <input type="text" class="form-control mb-3" id="Address33" formControlName="Address33" placeholder="Enter Address 3" [ngClass]="{ 'is-invalid': submitted && f.Address33.errors }" />
+                        <div *ngIf="submitted && f.Address33.errors" class="invalid-feedback">
+                            <div *ngIf="f.Address33.errors.required" style="color: red;">Address 3 Required</div>
+                        </div>
+                        <label class="p-0 m-0" for="Country4Id">Country</label>
+
+                        <select id="drpshippingsCountry" class="js-example-basic-single"> </select>
+
+                        <div class="mb-3"></div>
+
+                        <label class="p-0 m-0" for="State5Id">State</label>
+                        <select class="js-example-basic-single" id="drpshippingState"> </select>
+
+                        <div class="mb-3"></div>
+                        <label class="p-0 m-0" for="City6Id">City</label>
+                        <select class="js-example-basic-single" id="drpshippingCity"> </select>
+
+                        <div class="mb-3"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary modal-btn waves-effect waves-button waves-light" data-dismiss="modal"><i class="ti-close m-r-5 modal-btn-icon"></i> Close</button>
+
+                            <button type="button" class="btn btn-danger modal-btn waves-effect waves-button waves-light" (click)="RemoveShipping()" data-dismiss="modal"><i class="ti-trash m-r-5 modal-btn-icon"></i> Remove</button>
+                            <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddShipping('Close')"><i class="ti-check m-r-5 modal-btn-icon"></i> Add</button>
+                            <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddShipping('')"><i class="ti-check m-r-5 modal-btn-icon"></i> Add +</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+
+    </div>
+
+
+        <div class="modal fade" id="ContactId"  role="dialog" aria-labelledby="ContactId" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ContactId">Add / Modify Contact</h5>
+                        <p *ngIf="showError" class="invalid-data"><font color="red">{{errormsg}}</font></p>
+                        <button type="button" id="btnCloseContactItems" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <b><label class="p-0 m-0" style="float: right;">SNO:{{SNO}}</label></b>
+                        <br />
+
+                        <label class="p-0 m-0" for="ContactName0">Contact Name</label>
+
+                        <input type="text" class="form-control mb-3" id="ContactName0" formControlName="ContactName0" placeholder="Enter Contact Name " [ngClass]="{ 'is-invalid': submitted && f.ContactName0.errors }" />
+                        <div *ngIf="submitted && f.ContactName0.errors" class="invalid-feedback">
+                            <div *ngIf="f.ContactName0.errors.required" style="color: red;">Contact Name Required</div>
+                        </div>
+                        <label class="p-0 m-0" for="ContactNo1">Contact No</label>
+
+                        <input type="number" class="form-control mb-3" id="Contactno" formControlName="ContactNo1" placeholder="Enter Contat No " [ngClass]="{ 'is-invalid': submitted && f.ContactNo1.errors }" />
+                        <div *ngIf="submitted && f.ContactNo1.errors" class="invalid-feedback">
+                            <div *ngIf="f.ContactNo1.errors.required" style="color: red;">Contactno Required</div>
+                        </div>
+
+                        <label class="p-0 m-0" for="Email2">Email</label>
+
+                        <input type="text" class="form-control mb-3" id="email" formControlName="Email2" placeholder="Enter Email" [ngClass]="{ 'is-invalid': submitted && f.Email2.errors }" />
+                        <div *ngIf="submitted && f.Email2.errors" class="invalid-feedback">
+                            <div *ngIf="f.Email2.errors.required" style="color: red;">Email Required</div>
+                        </div>
+                        <label class="p-0 m-0" for="Notes3">Note</label>
+                        <textarea class="form-control mb-3" rows="5" cols="5" formControlName="Notes3"> </textarea>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary modal-btn waves-effect waves-button waves-light" data-dismiss="modal"><i class="ti-close m-r-5 modal-btn-icon"></i> Close</button>
+
+                            <button type="button" class="btn btn-danger modal-btn waves-effect waves-button waves-light" (click)="RemoveContact()" data-dismiss="modal"><i class="ti-trash m-r-5 modal-btn-icon"></i> Remove</button>
+                            <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddContact('Close')"><i class="ti-check m-r-5 modal-btn-icon"></i> Add</button>
+                            <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddContact('')"><i class="ti-check m-r-5 modal-btn-icon"></i> Add +</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="ItemModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog" role="document" style="max-width: 800px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="background: #face30;">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Items</h5>
+                      
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
+                        id="btnClose" (click)="ClosePopup()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                       
+
+                    </div>
+                    <div class="modal-body">
+        
+        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="" class="m-0">Part No</label>
+                                <select id="drpParts" class="js-example-basic-single mb-3" name="drpParts"
+                                    formControlName="partNo">
+                                </select>
+        
+                                <!-- <span style="color:red" *ngIf=" f.ItemId.value==0 && submit1 ">
+                                    <small class="text-danger"><b> Select Part**</b></small></span> -->
+                                   
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="Description1" class="m-0">Description</label>
+                                <input type="text" class="form-control"
+                                    formControlName="Description" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="Make" class="m-0">Make</label>
+                                <select id="drpMake" class="js-example-basic-single mb-3" name="drpMake"
+                                    formControlName="Make">
+                                 
+        
+                                </select>
+                                <!-- <span style="color:red" *ngIf=" f.MakeId.value==0 && submit1 ">
+                                    <small class="text-danger"><b> Select Make**</b></small></span> -->
+                                  
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="UOM" class="m-0">UOM</label>
+                                <input type="text" class="form-control"  formControlName="UOM"
+                                    id="Uom" readonly >
+        
+                            </div>
+        
+                            
+                            <div class="col-md-6 mb-3">
+                               <label for="" class="m-0">UnitPrice</label>
+                                <input type="number" class="form-control" placeholder="Enter UnitPrice"
+                                    formControlName="UnitPrice" id="UnitPrice">
+                                    
+                            </div> 
+        
+                            <!-- (change)="QtyChange($event.target)" -->
+        
+                        </div>
+        
+        
+        
+                    </div>
+                    <div class="modal-footer">
+        
+                        <button type="button" class="btn btn-warning"    style="margin-top: 5px !important;"
+                        (click)="ClosePopup()">Close</button>
+
+                        <button type="button" class="btn btn-warning"    style="margin-top: 5px !important;"
+                            (click)="MoveItems()">Add</button>
+                          
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</main>

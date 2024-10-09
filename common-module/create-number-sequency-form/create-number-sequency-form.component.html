@@ -1,0 +1,275 @@
+
+                                
+                              
+                        
+                                <main class="main-content p-0">
+                                    <div class="layoutactionbutton"
+                                       
+                                    >
+
+                                    <!-- <a class="actionbutton"  (click)="Search()"
+                                    href="javascript:void(0)" id="product_edit_submit">
+                                          <i class="fa fa-search side-icons" style="
+                                          font-size: 40px;
+                                          margin-top: 12px;
+                                      "></i>
+                                      </a>
+
+
+                                    <a class="actionbutton" (click)="ClearViewData()"
+                                    href="javascript:void(0)" id="product_edit_submit">
+                                          <i class="fa fa-file-text-o side-icons" style="
+                                          font-size: 40px; 
+                                          margin-top: 12px;
+                                      "></i>
+                                      </a>
+                                        <a class="actionbutton" (click)="OnSave()"
+                                      href="javascript:void(0)" id="product_edit_submit">
+                                            <i class="fa fa-floppy-o side-icons"  style="
+                                            font-size: 40px; 
+                                            margin-top: 12px;
+                                        "></i>
+                                        </a>
+
+                                        <a class="actionbutton" (click)="OnDelete()"
+                                        href="javascript:void(0)" id="product_edit_submit">
+                                              <i class="fa fa-trash-o side-icons" style="
+                                              font-size: 40px;
+                                              margin-top: 12px;
+                                          "></i>
+                                          </a> -->
+
+
+                                      
+
+
+                                       
+                                    </div>
+                                    <form  [formGroup]="CreateSequency">
+                                           
+                              
+                                         <div class="container pl-0">
+                                           
+                                        <!-- begin::page header -->
+                                        <!-- <div class="page-header">
+                                            <h3>Create/Number Sequence</h3>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="#">COMMON</a></li>
+                                                    
+                                                    <li class="breadcrumb-item active" aria-current="page">CREATE NUMBER SEQUENCE </li>
+                                                </ol>
+                                            </nav>
+                                        </div> -->
+                                        <div class="page-header">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <h3>Create/Number Sequence</h3>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item">COMMON</li>
+                                                    <li class="breadcrumb-item active" aria-current="page">CREATE NUMBER SEQUENCE</li>
+                                                </ol>
+                                            </nav>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <div class="row">
+                                                        <div class="col-md-12 text-right m-top-bot-auto" style="padding-right: 0px;">
+                                                            <button class="btn btn-danger" (click)="Search()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-bars" style="margin-top: -2px;margin-right: 9px;"></i>Overview</button>
+                                                            <button class="btn btn-warning" (click)="ClearViewData()" style="margin-right: 10px;background: #fbc400  !important; border: 1px solid #fbc400  !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Clear</button>
+                                                            <button class="btn btn-warning" (click)="OnSave()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Save</button>
+                                                            <button class="btn btn-danger" (click)="OnDelete()" style="margin-right: 10px;background: #dc3545 !important; border: 1px solid #dc3545 !important;color: white;"><i class="fa fa-trash" style="margin-top: -2px;margin-right: 9px;"></i>Delete</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end::page header -->
+                                
+                                        <div class="row row-sm">
+                                            
+                                              
+
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header">Overview</div>
+                                                    <div class="card-body">
+                                                        <!-- <div class="row"> -->
+                                                            <!-- <div class="col-md-6"> -->
+                                                                <div class="form-group">
+                                                                    <div class="col-md-12">
+                                                                        <div class="row">
+                                                                    <div class="col-md-2 m-top-bot-auto"><label for="name" class="m-0">Name</label></div>
+                                                                    <div class="col-md-4" style="padding-right: 0px;">
+                                                                        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter Name"
+                                                                         
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                                                                        >
+                                                                        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.name.errors.required" style="color:red " >Name Required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2 m-top-bot-auto"> <label for="prefix">Prefix</label></div>
+                                                                    <div class="col-md-4" style="padding-right: 0px;">
+                                                                        <input type="text" class="form-control" id="bankdetails" formControlName="prefix" placeholder="Enter Prefix "
+                                                                         
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.prefix.errors }"
+                                                                        >
+                                                                        <div *ngIf="submitted && f.prefix.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.prefix.errors.required" style="color:red " >Prefix Required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- </div> -->
+                                                                    <!-- <div class="form-group"> -->
+                                                                        <div class="col-md-2 m-top-bot-auto" style="margin-top: 25px;"><label for="suffix">Suffix</label></div>
+                                                                        <div class="col-md-4" style="padding-right: 0px; margin-top: 16px;">
+                                                                            <input type="text" class="form-control" id="suffix" formControlName="suffix" placeholder="Enter Suffix"
+                                                                 
+                                                                            [ngClass]="{ 'is-invalid': submitted && f.suffix.errors }"
+                                                                            >
+                                                                            <div *ngIf="submitted && f.suffix.errors" class="invalid-feedback">
+                                                                                <div *ngIf="f.suffix.errors.required" style="color:red " >Suffix Required</div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-2 m-top-bot-auto" style="margin-top:25px;">
+                                                                        <label for="startfrom">Startfrom</label></div>
+                                                                        <div class="col-md-4" style="padding-right: 0px; margin-top: 16px;">
+                                                                        <input type="text" class="form-control" id="startfrom" formControlName="startfrom" placeholder="Enter Startfrom"
+                                                                             
+                                                                        [ngClass]="{ 'is-invalid': submitted && f.startfrom.errors }"
+                                                                        >
+                                                                        <div *ngIf="submitted && f.startfrom.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.startfrom.errors.required" style="color:red " >Startfrom Required</div>
+                                                                        </div>
+                                                                        </div>
+                                                                        <!-- </div>
+                                                                        <div class="form-group"> -->
+                                                                            <div class="col-md-2 m-top-bot-auto" style="margin-top:25px;"> <label for="separator">Separator</label></div>
+                                                                            <div class="col-md-4" style="padding-right: 0px; margin-top: 16px;">
+                                                                                <input type="text" class="form-control" id="Separator" formControlName="separator" placeholder="Enter Separator"
+                                                                 
+                                                                                        [ngClass]="{ 'is-invalid': submitted && f.separator.errors }"
+                                                                                        >
+                                                                                        <div *ngIf="submitted && f.separator.errors" class="invalid-feedback">
+                                                                                            <div *ngIf="f.separator.errors.required" style="color:red " >Separator  Required</div>
+                                                                                        </div>
+                                                                            </div>
+                                                                            <div class="col-md-2 m-top-bot-auto" style="margin-top:25px;">
+                                                                            <label for="increment">Increment</label></div>
+                                                                            <div class="col-md-4" style="padding-right: 0px; margin-top: 16px;">
+                                                                            <input type="text" class="form-control" id="increment" formControlName="increment" placeholder="Enter Increment "
+                                                                                 
+                                                                            [ngClass]="{ 'is-invalid': submitted && f.increment.errors }"
+                                                                            >
+                                                                            <div *ngIf="submitted && f.increment.errors" class="invalid-feedback">
+                                                                                <div *ngIf="f.increment.errors.required" style="color:red " >Increment Required</div>
+                                                                            </div>
+                                                                            </div>
+                                                                            <!-- </div>
+                                                                            <div class="form-group"> -->
+                                                                                <div class="col-md-2 m-top-bot-auto"><label for="notes">notes</label></div>
+                                                                                <div class="col-md-4" style="padding-right: 0px;">
+                                                                                    <textarea  class="form-control" rows="5" cols="5" formControlName="notes">
+                                                                                    </textarea>
+                                                                                </div>
+                                                                                </div>
+                                                                                </div>
+                                                                                <!-- </div> -->
+                                                                                 <!-- <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="name">Name</label>
+                                                          
+                                                                    <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter Name"
+                                                                         
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                                                                    >
+                                                                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.name.errors.required" style="color:red " >Name Required</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="suffix">Suffix</label>
+                                                           
+                                                            <input type="text" class="form-control" id="suffix" formControlName="suffix" placeholder="Enter Suffix"
+                                                                 
+                                                            [ngClass]="{ 'is-invalid': submitted && f.suffix.errors }"
+                                                            >
+                                                            <div *ngIf="submitted && f.suffix.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.suffix.errors.required" style="color:red " >Suffix Required</div>
+                                                            </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="separator">Separator</label>
+                                                          
+                                                            <input type="text" class="form-control" id="Separator" formControlName="separator" placeholder="Enter Separator"
+                                                                 
+                                                            [ngClass]="{ 'is-invalid': submitted && f.separator.errors }"
+                                                            >
+                                                            <div *ngIf="submitted && f.separator.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.separator.errors.required" style="color:red " >Separator  Required</div>
+                                                            </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="notes">notes</label>
+                                                            <textarea  class="form-control" rows="5" cols="5" formControlName="notes">
+                                                            </textarea>
+                                                                </div> --
+                                                             </div> 
+                                                         <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="prefix">Prefix</label>
+                                                           
+                                                                    <input type="text" class="form-control" id="bankdetails" formControlName="prefix" placeholder="Enter Prefix "
+                                                                         
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.prefix.errors }"
+                                                                    >
+                                                                    <div *ngIf="submitted && f.prefix.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.prefix.errors.required" style="color:red " >Prefix Required</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="startfrom">Startfrom</label>
+                                                           
+                                                            <input type="text" class="form-control" id="startfrom" formControlName="startfrom" placeholder="Enter Startfrom"
+                                                                 
+                                                            [ngClass]="{ 'is-invalid': submitted && f.startfrom.errors }"
+                                                            >
+                                                            <div *ngIf="submitted && f.startfrom.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.startfrom.errors.required" style="color:red " >Startfrom Required</div>
+                                                            </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="increment">Increment</label>
+                                                           
+                                                                    <input type="text" class="form-control" id="increment" formControlName="increment" placeholder="Enter Increment "
+                                                                         
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.increment.errors }"
+                                                                    >
+                                                                    <div *ngIf="submitted && f.increment.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.increment.errors.required" style="color:red " >Increment Required</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div> -->
+
+
+                                                        </div>
+
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+
+                                           
+
+                                              
+                                               
+                                              
+                                        </div>
+                                
+                                    </div>
+                                </form>
+                                </main>
+
+                               
+                               

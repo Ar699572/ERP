@@ -1,0 +1,277 @@
+
+                            
+                              
+                        
+                                <main class="main-content">
+                                    <div class="layoutactionbutton"
+                                       
+                                    >
+
+
+                                    <a class="actionbutton"
+                                    href="javascript:void(0)" id="product_edit_submit">
+                                          <i class="fa fa-file-text-o" style="
+                                          font-size: 40px;
+                                          margin-top: 12px;
+                                      "></i>
+                                      </a>
+                                       
+
+
+                                          <!-- <a class="actionbutton"
+                                          href="javascript:window.print()" id="product_edit_submit">
+                                                <i class="fa fa-print" style="
+                                                font-size: 40px;
+                                                margin-top: 12px;
+                                            "></i>
+                                            </a> -->
+
+
+                                      
+
+
+                                       
+                                    </div>
+                                    <form  [formGroup]="Companies">
+                                    <div class="container">
+                                
+
+
+                                        
+                                        <!-- begin::page header -->
+                                        <div class="page-header">
+                                            <h3>Companies</h3>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item">Common</li>
+                                                    <li class="breadcrumb-item">Masters</li>
+                                                    <li class="breadcrumb-item active" aria-current="page">Companies</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                        <!-- end::page header -->
+                                
+                                        <div class="row row-sm">
+                                            
+
+                                            <div class="col-md-4" *ngIf="DeviceType=='Mobile'">
+                                                    
+                                                    <div class="card">
+                                                            <div class="card-header">Search</div>
+                                                            <div class="card-body">
+        
+                                                               
+                                                                        <div class="custom-control custom-switch" style="float:left">
+                                                                                <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="FilterTypeChange($event)">
+                                                                                <label class="custom-control-label" for="customSwitch">All Data</label>
+                                                                            </div>
+            
+                                                                           
+        
+                                                                            <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                                                                    <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="SerchTypeChange($event.target.checked)">
+                                                                                    <label class="custom-control-label" for="customSwitch2_"> 
+                                                                                        Like</label>
+                                                                                </div>
+                                                                    
+        
+                                                                             <div class="row  col-md-12">
+        
+                                                                                    <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                                                                            <i class="ti-alert m-r-10"></i>If Like Off Search with  '='
+                                                                                        </div>
+                                                                             </div>
+                                                                
+        
+                                                                <div class="input-group" *ngIf="FilterType=='All' && SerchType=='Like'">
+                                                                    <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="SearchClick()">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+        
+        
+        <div class="row col-md-12" *ngIf="FilterType=='Field' ">
+        
+               
+                        <label for="searchCode"> Code</label>
+                        <input type="text" class="form-control" id="searchCode" formControlName="Code" placeholder="Search Code">
+                       
+                        <label for="searchName"> Name</label>
+                        <input type="text" class="form-control" id="searchName" formControlName="Name"  placeholder="Search Name">
+                       
+                        <label for="searchTelephone"> Telephone</label>
+                        <input type="number" class="form-control" id="searchTelephoneo" formControlName="Telephone"   placeholder="Search Telephone">
+                        <label for="searchEmail"> Email</label>
+                        <input type="text" class="form-control" id="searchEmail"  formControlName="Email"   placeholder="Search Email">
+                       
+                        <div class="col-md-12 " style="float: right;padding-right:unset">
+                                <button type="button" class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"  style="float: right;margin-top:10px " (click)="SearchClick()">
+                                        <i class="ti-search m-r-5"></i> Search
+                                    </button>
+                
+                                </div>
+        </div>
+        
+        
+                                                            </div>
+                                                        </div>
+
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                <!-- <div class="card">
+                                                        <div class="card-header">Copmanies</div>
+                                                    <div class="card-body">
+                                                        <table id="example1" class="table table-striped table-bordered ">
+                                                            <thead>
+                                                            <tr>
+
+                                                                    <th>#</th>
+                                                                <th>Code</th>
+                                                                <th>Name</th>
+                                                                <th>Telephone</th>
+                                                                <th>ID</th>
+                                                                 <th></th> 
+                                                                
+                                                               
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr  *ngFor="let d of lstCompanies;"> 
+                                                                    <td>{{d.SNO}}</td>
+                                                                <td>{{d.Code}}</td>
+                                                                <td>{{d.Name}}</td>
+                                                                <td>{{d.Telephone}}</td>
+                                                                
+                                                                <td>{{d.ID}}</td>
+                                                                <td><i style="float: right" class="ti-angle-right"></i></td>
+                                                            </tr>
+                                                            
+                                                            </tbody>
+                                                           <tfoot>
+                                                            <tr>
+                                                                    <th>#</th>
+                                                                    <th>Code</th>
+                                                                    <th>Name</th>
+                                                                    <th>Telephone</th>
+                                                                    <th>ID</th>
+                                                                    <th></th>
+                                                                    
+                                                                    
+                                                            </tr>
+                                                            </tfoot>
+                                                        </table>
+                                                    </div>
+                                                </div> -->
+                                        
+
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h6 class="card-title">Companies</h6>
+                                                       
+                                                        <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                                            <thead >
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>Code</th>
+                                                                <th>Name</th>
+                                                                <th>Telephone</th>
+                                                                <th style="display: none">ID</th>
+                                                                 <th></th> 
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr  *ngFor="let d of lstCompanies;"> 
+                                                                    <td>{{d.SNO}}</td>
+                                                                <td>{{d.Code}}</td>
+                                                                <td>{{d.Name}}</td>
+                                                                <td>{{d.Telephone}}</td>
+                                                                
+                                                                <td style="display: none">{{d.ID}}</td>
+                                                                <td (click)="EditCompany(d.ID)"><i style="float: right" class="ti-angle-right" (click)="EditCompany(d.ID)"></i></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div> 
+                                        
+                                        
+                                        
+                                                
+                                            </div>
+
+
+                                            <div class="col-md-4" *ngIf="DeviceType!='Mobile'">
+                                                <div class="card">
+                                                    <div class="card-header">Search</div>
+                                                    <div class="card-body">
+
+                                                       
+                                                                <div class="custom-control custom-switch" style="float:left">
+                                                                        <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="FilterTypeChange($event)">
+                                                                        <label class="custom-control-label" for="customSwitch">All Data</label>
+                                                                    </div>
+    
+                                                                   
+
+                                                                    <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                                                            <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="SerchTypeChange($event.target.checked)">
+                                                                            <label class="custom-control-label" for="customSwitch2_"> 
+                                                                                Like</label>
+                                                                        </div>
+                                                            
+
+                                                                     <div class="row  col-md-12">
+
+                                                                            <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                                                                    <i class="ti-alert m-r-10"></i>If Like Off Search with  '='
+                                                                                </div>
+                                                                     </div>
+                                                        
+
+                                                        <div class="input-group" *ngIf="FilterType=='All' && SerchType=='Like'">
+                                                            <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="SearchClick()">
+                                                                    <i class="fa fa-search"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+
+<div class="row col-md-12" *ngIf="FilterType=='Field' ">
+
+       
+                <label for="searchCode"> Code</label>
+                <input type="text" class="form-control" id="searchCode" formControlName="Code" placeholder="Search Code">
+               
+                <label for="searchName"> Name</label>
+                <input type="text" class="form-control" id="searchName" formControlName="Name"  placeholder="Search Name">
+               
+                <label for="searchTelephone"> Telephone</label>
+                <input type="number" class="form-control" id="searchTelephoneo" formControlName="Telephone"   placeholder="Search Telephone">
+                <label for="searchEmail"> Email</label>
+                <input type="text" class="form-control" id="searchEmail"  formControlName="Email"   placeholder="Search Email">
+               
+                <div class="col-md-12 " style="float: right;padding-right:unset">
+                        <button type="button" class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"  style="float: right;margin-top:10px " (click)="SearchClick()">
+                                <i class="ti-search m-r-5"></i> Search
+                            </button>
+        
+                        </div>
+</div>
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                
+                                    </div>
+                                </form>
+                                </main>
+                               

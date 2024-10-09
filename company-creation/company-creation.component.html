@@ -1,0 +1,352 @@
+<div class="container" style="max-width: 1200px;">
+    <p style="font-size: 18px;" (click)="Login()"><i class="fas fa-arrow-left" ></i> Back To Login</p>
+     <div class="stepwizard">
+        <div class="stepwizard-row setup-panel">
+            <div class="stepwizard-step col-xs-3" > 
+                <a type="button" id="step1" class="btn btn-success btn-circle">1</a>
+                <p class="mr-5"><small>Company Creation Info22</small></p>
+            </div>
+            <div class="stepwizard-step col-xs-3"> 
+                <a 
+                class="btn btn-default  btn-circle" id="step2" >2</a>
+                <p><small>Company Address Info</small></p>
+            </div>
+            <div class="stepwizard-step col-xs-3"> 
+                <a type="button"  id="step3" class="btn btn-default btn-circle" >3</a>
+                <p><small>Company Contact Info</small></p>
+            </div>
+            <div class="stepwizard-step col-xs-3"> 
+                <a  type="button"  id="step4" class="btn btn-default btn-circle" >4</a>
+                <p><small>Branch Address Info</small></p>
+                
+            </div>
+             <div class="stepwizard-step col-xs-3"> 
+                <a type="button"  id="step5" class="btn btn-default btn-circle" >5</a>
+                <p><small>Branch Contact Info</small></p>
+            </div>
+            <div class="stepwizard-step col-xs-3"> 
+                <a  type="button"  id="step6" class="btn btn-default btn-circle" >6</a>
+                <p><small>Bank Info</small></p>
+            </div>
+        </div>
+    </div> 
+    <!-- <progress id="progress" max="100" value="30" ></progress> -->
+    <!-- role="form" class="form" -->
+    <form  [formGroup]="CreateCompany">
+        <div class="panel panel-primary setup-content" id="step-1" >
+            <div class="panel-heading">
+                 <h3 class="panel-title">Company Creation Info</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label">ReferenceDatabase</label>
+                    <select id="drpRefDatabase"  class="form-control"  name="ReferenceDbId"
+                    formControlName="ReferenceDbId"> 
+                  </select><br><br>
+
+                  <label style="color:red;font-size: 12px;margin-top: -13px"  *ngIf=" (f.ReferenceDbId.invalid || f.ReferenceDbId.value=='0') && submitted">
+                    Reference Db Required </label>
+                  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Company Name</label>
+                    
+                    <input   maxlength="200" type="text" class="form-control" 
+                    (input)="CompanyName($event)"  
+                     formControlName="CompanyName" placeholder="Enter Company Name" autocomplete="off"/>
+                     <label style="color:red;font-size: 12px;margin-top: -13px"  *ngIf=" f.CompanyName.invalid && submitted">
+                        CompanyName is Required</label>
+                  
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Company Code</label>
+                    <input class="CompanyCode"   maxlength="400" type="text" class="form-control"  formControlName="CompanyCode" placeholder=" Company Code"  autocomplete="off" readonly/>
+                    <label style="color:red;font-size: 12px;margin-top: -13px"  *ngIf=" f.CompanyCode.invalid && submitted">
+                        CompanyCode is Required</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Currency</label>
+                    <select id="selectbasic" name="selectbasic" class="form-control" formControlName="Currency">
+                        <option value="1">INR</option>
+                        <option value="2">$</option>
+                      </select>
+
+                      <label style="color:red;font-size: 12px;margin-top: -13px"  *ngIf=" (f.Currency.invalid || f.Currency.value=='0' ) && submitted">
+                        Currency REQUIRED</label>
+                      
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Financial Start Date</label>
+                    <input type="date" class="form-control"  placeholder="StartDate" id="dtFrom"  formControlName="financialstartdate">
+                    <label style="color:red;font-size: 12px;margin-top: -13px"  *ngIf=" (f.financialstartdate.invalid || f.financialstartdate.value=='01-01-2010' ) && submitted">
+                        SELECT REQUIRED FIELD*</label>
+                   
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Financial End Date</label>
+                    <input type="date" class="form-control"  placeholder="EndDate" id="dtFrom"  formControlName="Financialenddate">
+
+                    <label style="color:red;font-size: 12px;margin-top: -13px"  *ngIf=" (f.Financialenddate.invalid || f.Financialenddate.value=='01-01-2011' ) && submitted">
+                        SELECT REQUIRED FIELD*</label>
+
+                        <label style="color:red;font-size: 12px;margin-top: -13px"   *ngIf="CreateCompany.hasError('notValid')">
+                            End date Should Be greter than StartDate**</label>
+                            <!-- <label *ngIf="f.Financialenddate.value == f.financialstartdate.value">End date not be equal to start Date</label> -->
+                </div>
+                <button class="btn btn-primary validbtn pull-right" type="button"  (click)="next(2)">Next</button>
+            
+            </div>
+        </div>
+        
+        <div class="panel panel-primary setup-content"  id="step-2"  hidden>
+            <div class="panel-heading">
+                 <h3 class="panel-title">Company Address Info</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label">Address 1</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address 1"  formControlName="address1" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Address 2</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address 2" formControlName="address2"  />
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label">Country </label>
+                    <select id="drpshippingsCountry"  class="form-control"  name="CountryId"
+                          formControlName="CountryId" > 
+
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">State</label>
+                    <select id="drpshippingState" class="form-control" name="StateId"
+                    formControlName="StateId" >
+                </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">City</label>
+                    <select id="drpshippingCity" class="form-control" 
+                    name="CityId" formControlName="CityId" >
+                </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Zip Code</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Zip Code"  formControlName="zipcode" />
+                </div>
+                <button class="btn btn-primary  nextBtn pull-right" (click)="next(3)" type="button">Next</button>
+                <button class="btn btn-primary PrvBtn" type="button" (click)="prev(1)">Previous</button>
+            </div>
+        </div>
+        
+        <div class="panel panel-primary setup-content" id="step-3" hidden>
+            <div class="panel-heading">
+                 <h3 class="panel-title">Company Contact Info</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label">Contact No </label>
+                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Contact No "  formControlName="contactno" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Contact Name</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Contact Name"  formControlName="contactname"/>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <input maxlength="200" type="email" required="required" class="form-control" placeholder="Enter Email" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" autocomplete="off"/>
+                    <label style="color:red;font-size: 12px;margin-top: -13px"  *ngIf=" f.email.invalid && f.email.touched  ">
+                        Please Enter Valid Email Id.</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Website</label>
+                    <input  type="url" required="required" class="form-control" placeholder="Enter Website" formControlName="website"/>
+                    <label *ngIf="f.website.touched && f.website.invalid" >
+                        <label style="color:red;font-size: 12px;margin-top: -13px" *ngIf="f.website.errors?.required">Please provide url</label>
+                        <label style="color:red;font-size: 12px;margin-top: -13px"  *ngIf="f.website.errors?.pattern">Please provide valid url</label>
+                      </label>
+                </div>
+           
+                <button class="btn btn-primary nextBtn pull-right" (click)="next(4)" type="button">Next</button>
+                <button class="btn btn-primary PrvBtn" (click)="prev(2)" type="button">Previous</button>
+            </div>
+        </div>
+        
+        <div class="panel panel-primary setup-content" id="step-4" hidden>
+            <div class="panel-heading">
+                 <h3 class="panel-title">Branch Address Info</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label">Branch Name</label>
+                    <input maxlength="200" type="text" required="required" class="form-control"  formControlName="branchaname" placeholder="Enter Branch Name" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Address 1</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" formControlName="branchaddress" placeholder="Enter Branch Address 1" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Address 2</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" formControlName="branchaddress2"  placeholder="Enter Branch Address 2" />
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label">Country </label>
+                    <select id="BranchCountry"  class="form-control"  name="Country2Id"
+                    formControlName="Country2Id" > 
+
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">State</label>
+                    <select id="BranchState" class="form-control" name="State2Id"
+                    formControlName="State2Id" >
+                </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">City</label>
+                    <select id="BranchCity" class="form-control" 
+                    name="City2Id" formControlName="City2Id" >
+                    
+                </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Zip Code</label>
+                    <input maxlength="200" type="text" required="required" class="form-control"  formControlName="zipcode2" placeholder="Enter Zip Code" />
+                </div>
+                <button class="btn btn-primary nextBtn pull-right" (click)="next(5)" type="button">Next</button>
+                <button class="btn btn-primary PrvBtn"  (click)="prev(3)" type="button">Previous</button>
+            </div>
+        </div>
+        <div class="panel panel-primary setup-content" id="step-5" hidden>
+            <div class="panel-heading">
+                 <h3 class="panel-title">Branch Contact Info</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label">Contact No </label>
+                    <input maxlength="200" type="text" required="required" class="form-control" formControlName="BranchContactNo" placeholder="Enter Branch Contact No " />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Contact Name</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" formControlName="BranchContactName" placeholder="Enter Branch Contact Name" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" formControlName="branchemail" placeholder="Enter Email" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Website</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" formControlName="BranchWebsite" placeholder="Enter Website" />
+                </div>
+           
+               
+                <button class="btn btn-primary PrvBtn" type="button" (click)="prev(4)" >Previous</button>
+                <button class="btn btn-primary " type="button" (click)="next(6)" style="
+                margin-left: 68em;" >Next</button>
+            </div>
+        </div>
+        <div class="panel panel-primary setup-content" id="step-6" hidden>
+            <div class="panel-heading">
+                 <h3 class="panel-title">Bank Info</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label">Bank Name </label>
+                    <input maxlength="200" type="text" required="required" class="form-control" formControlName="bankaname" placeholder="Enter Bank Name " />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Account Number</label>
+                    <input maxlength="200" type="number" required="required" class="form-control" formControlName="AccountNo" placeholder="Enter Account Number" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">IFSC Code</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" formControlName="ifsccode" placeholder="Enter IFSC Code" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Branch</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" formControlName="branch" placeholder="Enter Branch" />
+                </div>
+                <button class="btn btn-primary PrvBtn" type="button" (click)="prev(5)">Previous</button>
+            <button class="btn btn-success pull-right" type="button"  id="start"  value="start" #closebutton (click)="SaveCompany()" data-toggle="modal" data-target="#wizard">Finish!</button>
+            </div>
+            
+            <!-- [disabled]="CreateCompany.invalid" -->
+        </div>
+        <div class="modal fade" id="wizard" tabindex="-1" role="dialog"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog " style="width: 800px;">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel" style="padding-left: 148px;font-size: 26px;font-family: sans-serif;font-weight: 600;" >Company Setup</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  
+                </div>
+                <div class="modal-body">
+               
+                    <div class="clock">
+               
+                <div class="timer" style="width: 79%;margin-left: 25%; height: inherit;">
+                   <div class="timer1" style="font-size: 110px;margin-top: -4%;font-family: math;">
+                    <span input id="time">
+                        10:00
+                        </span>
+                   </div>
+                   <div class="minutes" >
+                       <p style="font-size: 20px;font-weight: 750;margin-top: -33px;">minutes</p>
+                       <p style="margin-left: 117px;margin-top: -48px;font-size: 20px;font-weight: 750;">seconds</p>
+                   </div>
+             
+                  </div><br><br>
+              
+                </div><br><br>
+
+               
+                    <div class="row">
+                      <!-- <div class="col-4">Creating Company</div> -->
+                      <div class="col-2"></div>
+                      <div class="col-6" style="margin-left: auto;font-family: sans-serif;font-size: 15px;font-weight: 600;margin-top: 19px">Creating Company</div>
+                      <div class="col-4" style="margin-top: 19px;">
+                         <img src="{{creatingCompany}}" style="width: 29px;" >
+                      </div>
+                      <div class="col-2"></div>
+                     
+                    </div><br>
+                 <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-6" style="margin-left: auto;font-family: sans-serif;font-size: 15px;font-weight: 600"> Creating Database </div>
+                    <div class="col-4">
+                        <img src="{{CreatingDatabase}}" style="width: 29px;" >
+                     </div>
+                     <div class="col-2"></div>
+                      </div>  <br>
+                      <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-6" style="margin-left: auto;font-family: sans-serif;font-size: 15px;font-weight: 600"> Creating Services  </div>
+                        <div class="col-4">
+                            <img src="{{CreatingServices}}" style="width: 29px;" >
+                         </div>
+                         <div class="col-2"></div>
+                          </div> <br>
+                          <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-6" style="margin-left: auto;font-family: sans-serif;font-size: 15px;font-weight: 600"> Restarting Services  </div>
+                            <div class="col-4">
+                                <img src="{{CreatingServices}}" style="width: 29px;" >
+                             </div>
+                             <div class="col-2"></div>
+                              </div>  
+                  
+             
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" id="stop" value="stop"   (click)="StopTimer()" >Close</button>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+    </form>
+</div>

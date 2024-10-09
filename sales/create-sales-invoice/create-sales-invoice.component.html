@@ -1,0 +1,2434 @@
+<main class="main-content p-0">
+
+
+
+
+    <div aria-labelledby="makeTitle" aria-modal="true" id="fullHeightModalRight" role="dialog" class="modal fade">
+      <div role="document" class="modal-dialog" style="max-width: 1070px;">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 id="makeTitle" class="modal-title">Created / Modified By</h5><button aria-label="Close" data-dismiss="modal" type="button" class="close"><span aria-hidden="true">×</span></button></div>
+                  <div class="modal-body">
+                      <form novalidate="" class="ng-untouched ng-pristine ng-valid">
+                          <div class="row">
+                              <div class="col-md-12">
+                                 
+
+                                  <table  class="table table-striped table-bordered dataTable dtr-inline">
+                                      <thead  class="thead">
+                                          <tr >
+                                              <th  scope="col" class="table-head"></th>
+                                              <th  scope="col" class="table-head">Created / Modified By</th>
+                                              <th  scope="col" class="table-head">Date</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody >
+                                          <tr  aria-expanded="false" class="accordion-toggle collapsed" *ngFor="let d of lstTempBindEditDetails;">
+                                              <th  data-parent="#accordion1" data-toggle="collapse" (click)="ShowEditDetails(d)" href="#collapseOne" id="accordion1" class="expand-button collapsed" aria-expanded="false"></th>
+                                              <td class="success">{{d.ModifiedBy}}</td>
+                                              <td >{{d.ModifiedDate}}</td>
+                                          </tr>
+                                          <tr  class="hide-table-padding">
+                                              <td ></td>
+                                              <td  colspan="12">
+                                                  <div id="collapseOne" class="in p-3 collapse">
+                                                  <div class="dataTables_scroll">
+                                                      <div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;">
+                                                          <div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width:100%; padding-right: 17px;">
+                                                              <table class="table table-striped table-bordered dataTable" role="grid" 
+                                                              style="margin-left: 0px;width: 100%;margin-bottom: 0px; table-layout: fixed;">
+                                                                  <thead>
+                                                                      <tr role="row">
+                                                                          <th style="width:10%;">#</th>
+                                                                          <th style="width:25%;">Item</th>
+                                                                          <th style="width:25%;">Make</th>
+                                                                          <th style="width:10%;">UOM</th>
+                                                                          <th style="width:10%;">Qty</th>
+                                                                          <th style="width:10%;">Discount</th>
+                                                                          <th style="width:10%;">Price</th>
+                                                                      </tr>
+                                                                  </thead>
+                                                              </table>
+                                                          </div>
+                                                      </div>
+                                                      <div class="dataTables_scrollBody" style="position: relative; overflow: auto; max-height: 200px; width: 100%;">
+                                                          <table id="example2" class="table table-striped table-bordered dataTable" role="grid"
+                                                           aria-describedby="example2_info" style="width: 100%; table-layout: fixed;">
+                                                              <thead>
+                                                                  <tr role="row" style="height: 0px;">
+                                                                      <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 219px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                          <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Name</div>
+                                                                      </th>
+                                                                      <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 319px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                          <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Position</div>
+                                                                      </th>
+                                                                      <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 167px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                          <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Office</div>
+                                                                      </th>
+                                                                      <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 62px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                          <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Age</div>
+                                                                      </th>
+                                                                      <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 146px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                          <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Start date</div>
+                                                                      </th>
+                                                                      <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 137px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                          <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Salary</div>
+                                                                      </th>
+                                                                  </tr>
+                                                              </thead>
+                                                  
+                                                              <tbody>
+                                                                  <tr *ngFor="let e of lstShowDetails; let i=index">
+                                                                      <td style="width:10%;padding: 8px;">{{i+1}}</td>
+                                                                      <td style="width:25%;padding: 8px;">{{e.partno}}</td>
+                                                                      <td style="width:25%;padding: 8px;">{{e.make}}</td>
+                                                                      <td style="width:10%;padding: 8px;">{{e.unitname}}</td>
+                                                                      <td style="width:10%;padding: 8px;">{{e.Qty}}</td>
+                                                                      <td style="width:10%;padding: 8px;">{{e.Discount}}</td>
+                                                                      <td style="width:10%;padding: 8px;">{{e.Price}}</td>
+                                                              </tr>
+                                                            
+                                                              </tbody>
+                                                          </table>
+                                                      </div>
+                                                      
+                                                  </div> 
+                                              </div> 
+
+
+                                              </td>
+                                          </tr>
+                                          
+                                      </tbody>
+                                  </table>
+                              </div>
+                          
+                          </div>
+                      </form>
+                  </div>
+          </div>
+      </div>
+  </div>
+
+<div class="layoutactionbutton d-print-none">
+
+
+
+
+</div>
+ <form  [formGroup]="CreateSalesInvoice" style="overflow-y: hidden;">
+    
+
+<div class="container-fluid d-print-none pl-0">
+
+
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 id="headerId" style="margin-left:1px;">Sales Invoice</h3>
+           
+            <span innerHTML="{{f.Notes.value}}"></span>
+            </div>
+            
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12 text-right m-top-bot-auto" style="padding-right: 0px;">
+                    <button class="btn btn-danger" (click)="Search()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-bars" style="margin-top: -2px;margin-right: 9px;"></i>Overview</button>
+                    <button class="btn btn-warning" (click)="ClearViewData()" style="margin-right: 10px;background: #fbc400  !important; border: 1px solid #fbc400  !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Clear</button>
+                    <button class="btn btn-warning" (click)="OnSave()"  style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Save</button>
+                   
+                   
+                    <button class="btn btn-warning" (click)="OnPrint()"  id="Print"
+                     data-toggle="modal"   data-target="#SalesInvoicePrintId"  data-backdrop="static" data-keyboard="false" 
+                     style="margin-right: 10px;background: #e98102 !important; border: 1px solid #e78002 !important;color: white;">
+                     <i class="fa fa-print" style="margin-top: -2px;margin-right: 9px;"></i> Print</button>
+
+                    
+
+
+                    <div class="dropdown">
+                        <div class="btn btn-gray " data-toggle="dropdown" (click)="Search()" aria-expanded="false" style="margin-right: 10px;background: #525050; border-color: #525050;color: white; ">
+                            <i  class="fa fa-envelope" style="margin-top: -2px;margin-right: 9px;"></i> Mail</div>
+                        <div  aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right" style="position: absolute; will-change: transform; width: 470px; margin: 9px -1px -1px; padding-top: 0px; border: none; top: 0px; left: -104px; transform: translate3d(-279px, 26px, 0px);">
+                            <div class="row" style="background: #ececec;">
+                                <div class="col-md-12">
+                                    <div class="card-header" style="background: #525050 !important; color: white; font-size: 15px;padding: 5px 5px 5px 14px;">
+                                        Select Document Format & Email
+                                    </div>
+                                </div>
+                                <div class="col-md-4 m-top-bot-auto">
+                                    <p class="p-0" style="margin-left: 20px !important; margin-top: 18px; margin-bottom: 4px;font-weight: 400; font-size: 15px;">Format  </p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-check form-check-inline" style="margin-top: 10px;">
+                                        <input class="form-check-input" data-target="#DetailsId11" data-toggle="modal"  type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" style="width: 25px;"></label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="margin-top: 10px;">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1"><img src="https://cdn.iconscout.com/icon/free/png-512/microsoft-excel-4-722715.png" style="width: 25px;"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" >
+                                    <p class="p-0" style="margin-left: 20px !important; margin-top: 10px;font-weight: 400; font-size: 15px;" >Select Email  </p>
+                                </div>
+                                <div class="col-md-8" >
+                                    <select class="form-control" style="width: 95%;background:none">
+                                        <option>mechknow@gmail.com</option>
+                                        <option>mechknow@gmail.com</option>
+                                        <option>mechknow@gmail.com</option>
+                                    </select>
+                                </div>
+              
+                                <div class="col-md-4" >
+                                    <p class="p-0" style="margin-left: 20px !important; margin-top: 10px;">New Email  </p>
+                                </div>
+                                <div class="col-md-8" >
+                                    <input type="text" class="form-control" placeholder="Enter email" style="width: 95%;background:none">
+                                </div>
+                                <div class="col-md-12 text-right">
+                                    <button class="btn btn-danger" style="margin-right: 8px;">Dscard</button>
+                                    <button class="btn btn-warning" style="margin-right: 15px;" (click)="sendemail()">Send</button>
+                                </div>
+                                <div class="col-md-12 mb-3" >
+                                    <div class="form-check form-check-inline" style="margin-left: 20px !important; margin-top: 10px;">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" >
+                                        <label class="form-check-label" for="inlineCheckbox1" style="font-family: 'Poppins'; font-weight: 400; color: #0c0c0c">Enter New Email.</label>
+                                    </div>
+                                
+                                    <div class="form-check form-check-inline" style="margin-left: 20px !important; margin-top: 10px;" >
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2" >
+                                        <label class="form-check-label" for="inlineCheckbox1" style="font-family: 'Poppins'; font-weight: 400; color: #0c0c0c">Existing Email.</label>
+                                    </div>
+                                </div>
+              
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-warning" (click)="Search()" style="margin-right: 10px;background: #93bd00 !important; border: 1px solid #93bd00 !important;color: white;"><i class="fa fa-whatsapp" style="margin-top: -2px;margin-right: 9px;"></i>Whatsapp</button>
+                    <button class="btn btn-danger" (click)="OnDelete()"  style="margin-right: 10px;background: #dc3545 !important; border: 1px solid #dc3545 !important;color: white;"><i class="fa fa-trash" style="margin-top: -2px;margin-right: 9px;"></i>Delete</button>
+                    <button class="btn btn-warning"  data-toggle="modal" data-target="#fullHeightModalRight" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-plus" style="margin-top: -2px;margin-right: 9px;"></i>Add</button>
+                    <div class="dropdown">
+                        <div class="btn btn-gray " data-toggle="dropdown" aria-expanded="false" style="margin-right: 10px;background: #0dbd6c !important; border: 1px solid #0dbd6c !important;color: white; ">
+                            <i  class="fa fa-share-square-o" style="margin-top: -2px;margin-right: 9px;"></i> Export</div>
+                        <div  aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-right" style="position: absolute; will-change: transform; width: 300px; margin: 9px -1px -1px; padding-top: 0px; border: none; top: 0px; left: -104px; transform: translate3d(-279px, 26px, 0px);">
+                            <div class="row" style="background: #ececec;">
+                                <div class="col-md-12">
+                                    <div class="card-header" style="background: #0dbd6c !important; color: white; font-size: 15px;padding: 5px 5px 5px 14px;">
+                                        Select Format
+                                    </div>
+                                </div>
+                                <div class="col-md-4 m-top-bot-auto">
+                                    <p class="p-0" style="margin-left: 20px !important; margin-bottom: 4px;font-weight: 400; font-size: 15px;">Format  </p>
+                                </div>
+                                <div class="col-md-8 mb-3">
+                                    <div class="form-check form-check-inline" style="margin-top: 10px;">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" (change)="downloadAsPDF1($event.target.checked)">
+                                        <label class="form-check-label" for="inlineRadio1"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png" style="width: 25px;"></label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="margin-top: 10px;">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" (change)="ExportTOExcel1($event.target.checked) ">
+                                     
+                                        <label class="form-check-label" for="inlineRadio1"><img src="https://cdn.iconscout.com/icon/free/png-512/microsoft-excel-4-722715.png" style="width: 25px;"></label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-12 text-right mb-3">
+                                    <button class="btn btn-success" style="margin-right: 15px;" (click)="download()">Download</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+<div class="row row-sm">
+<div class="col-md-10">
+  <div class="card">
+      <div class="card-body pb-4">
+          <div class="form-group">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-md-9">
+                      <ul class="nav nav-tabs" id="SalesInvoiceTab" role="tablist">
+                          <li class="nav-item">
+                              <a class="nav-link nav-text active" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="true"  (click)="tabClick('')">Overview</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link nav-text" id="shipping-tab" data-toggle="tab" href="#billing" role="tab" aria-controls="billing" aria-selected="false" >Billing</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link nav-text" id="shipping-tab" data-toggle="tab" href="#shipping" role="tab" aria-controls="shipping" aria-selected="false" >Shipping</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link nav-text" id="Payment-tab" data-toggle="tab" href="#Payment" role="tab" aria-controls="Payment" aria-selected="false"  (click)="tabClick('')">Payment Terms</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link nav-text" id="Charges-tab" data-toggle="tab" href="#Charges" role="tab" aria-controls="Charges" aria-selected="false"  (click)="tabClick('')">Charges</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link nav-text" id="Payments-tab" data-toggle="tab" href="#Payments" role="tab" aria-controls="Payments" aria-selected="false"  (click)="tabClick('')" >Payments/Commission</a>
+                          </li>
+                          <li class="nav-item ">
+                              <a class="nav-link nav-text" id="Accounts-tab" data-toggle="tab" href="#Accounts" role="tab" aria-controls="Accounts" aria-selected="false" (click)="tabClick('')">Accounts</a>
+                          </li>
+                          <li class="nav-item ">
+                              <a class="nav-link nav-text" id="Accounts-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="notes" aria-selected="false" >Notes</a>
+                          </li>
+                      </ul>
+                     </div>
+
+                     <div class="col-md-3" style="background: #1f1a17;color: white;">
+                      <h3 id="headerId" style="margin: 0;margin-top: 6px;">VCH No : {{f.TransactionNo.value}}</h3>
+                     </div>
+                 </div>
+             </div>
+
+              
+              <div class="tab-content" id="CustomerTabContent">
+                  <div class="tab-pane fade active show" id="Overview" role="tabpanel" aria-labelledby="Overview-tab">
+                      <div class="row row-sm" style="margin-top: 12px;">
+                          <div class="col-md-12">     
+                  <div class="row">
+                          
+                    <div class="col-md-1" style="margin-top:14px;">
+                  <label for="Customer" id="PartyId" style="width:90%">Customer</label></div>
+                  <div class="col-md-4" style="margin-top:15px; margin-right:-79px;">
+                  <div  class="input-group clockpicker-minutes-demo">
+                      <DropdownCustomer   (CustomerValueChange) ="CustomerValueChange($event)"   style="width: 87%;"
+                  [CustomerId]="DisplayCustomerId" [Customername]="DispalyCustomerName"  >
+                  </DropdownCustomer>
+                  </div>
+                  </div>
+                  <div  class="dropdown" style="margin-top:16px;">
+                      <a  aria-expanded="false" class="btn btn-gray btn-floating btn-icon btn-sm waves-effect waves-button waves-light" data-toggle="dropdown" href="#" style="border-radius: 0px;padding: 11px;height: 38px; width: 38px;">
+                          <i  aria-hidden="true" class="fa fa-ellipsis-v" style="color: white !important;font-size: 19px;"></i></a>
+                      <div class="dropdown-menu dropdown-menu-right" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 24px, 0px);" x-placement="bottom-end">
+                      <button  class="dropdown-item font-size-15" data-target="#newRefill" data-toggle="modal" type="button" autocomplete="off">Customer Central<i  aria-hidden="true" class="fa fa-plus" style="float: right;"></i></button>
+                      <button class="dropdown-item font-size-15" (click)="OpenAccountLedger()" data-toggle="modal" type="button" autocomplete="off">Account Ledger<i  aria-hidden="true" class="fa fa-pencil" style="float: right;"></i></button>
+                      <button  class="dropdown-item font-size-15" (click)="CustomerMaster()" data-toggle="modal" type="button" autocomplete="off">Customer Master<i  aria-hidden="true" class="fa fa-file" style="float: right;"></i></button>
+                      <!-- <button class="dropdown-item font-size-15" type="button" autocomplete="off">Delete<i  aria-hidden="true" class="fa fa-trash" style="float: right;"></i></button> -->
+                  </div>
+                  <div  class="dropdown">
+                      <a  aria-expanded="false" class="btn btn-warning btn-floating btn-icon btn-sm waves-effect waves-button waves-light" data-toggle="modal" (click)="OpenCustomer()"  *ngIf="f.PartyId.value<=0" data-target="#ModelPartyId" href="#" style="border-radius: 0px;padding: 11px;height: 36px; width: 36px;">
+                          <i  aria-hidden="true" class="fa fa-plus" style="color: #000 !important; font-size: 19px; vertical-align: baseline; margin-top: -3px;"></i></a>
+                  </div>
+                  </div>
+                  
+
+                  
+          
+                  <div *ngIf="submitted && f.PartyId.errors" style="font-size: 80%;">
+                      <div *ngIf="f.PartyId.errors.required " style="color:red " >Customer Required</div>
+                      <div *ngIf="f.PartyId.errors.min" style="color:red " >Customer Required</div>
+                  </div>
+             
+              <!-- </div>
+              
+
+              
+
+          </div>
+              </div> -->
+              <div class="col-md-1" style="margin-top:14px;">
+                  <label for="SaleType">Sale Type</label></div>
+                  <div class="col-md-2" style="margin-top:15px;">
+                  <select id="SaleType"  formControlName="SaleType" class="mb-3 form-control" (change)="SalesTypeChange($event.target)">
+                  <option value="Credit" selected>Credit</option>
+                  <option value="Cash">Cash</option>
+                  </select>
+              </div>
+
+              <div class="col-md-1" style="margin-top:14px;">
+                      <label for="SequenceNumberId">Invoice Type</label></div>
+                  <div class="col-md-2" style="margin-top:15px;">
+                      <select id="InvoiceType"  formControlName="InvoiceType" class="mb-3 form-control" 
+                      (change)="InvoiceTypeChange($event.target)">
+                          <option value="Invoice" selected>Invoice</option>
+                          <option value="Warranty Replace">Warranty Replace</option>
+                          <!-- <option value="Exclude Tax">Exclude Tax</option> -->
+                          <option value="Import">Import</option>
+                          <option value="Exclude Tax">High Sea Sale</option>
+                          <option value="Exclude Tax">Rental Invoice</option>
+
+                      </select>
+              </div>
+                </div>
+                          
+                     
+               
+
+            <div class="row">
+              <div class="col-md-1">
+                  <label for="Order" id="OrderNo">Sales Order Ref</label></div>
+                  <div class="col-md-3" style="margin-top:10px;">
+                  <select id="drpOrder"  class="js-example-basic-single"  name="drpOrder" (change)="OrderChangeEvent($event)" >
+                </select>
+              </div>
+             <div class="col-md-1">
+              <label for="BillRefNo">Customer Reference</label></div>
+              <div class="col-md-3" style="margin-top:10px;">
+                      <input type="text" class="form-control" id="BillRefNo" formControlName="CustomerRefNo" placeholder="Customer reference"
+                      [ngClass]="{ 'is-invalid': submitted && f.CustomerRefNo.errors }" >
+                      <div *ngIf="submitted && f.CustomerRefNo.errors" class="invalid-feedback">
+                          <div *ngIf="f.CustomerRefNo.errors.required" style="color:red " >CustomerRefNo Required</div>
+                      </div>
+              </div>
+
+                      <div class="col-md-1">
+                      <label for="BillRefNo"> Product Reference</label></div>
+                      <div class="col-md-3" style="margin-top:10px;">
+                      <input type="text" class="form-control" id="ProductReference"
+                      formControlName="ProductReference" placeholder="Product reference"    >
+                  </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-1" style="margin-top: 20px;">
+                  <label for="BillRefNo">Select Template </label></div>
+                  <div class="col-md-3" style="margin-top: 28px;">
+                  <select id="TemplateType"  formControlName="TemplateType" class="mb-3 form-control" 
+                  (change)="TemplateTypeChange($event.target)">
+                      <option  >Select</option>
+                      <option  value="DC">DC</option>
+                      <option  value="PurchaseInvoice">PurchaseInvoice</option>
+                      <option value="SalesInvoice" >SalesInvoice</option>
+                      <option  value="SalesQuotation">SalesQuotation</option>
+                      <option  value="SalesOrder">SalesOrder</option>   
+                      <option  value="Template">Template</option>
+                      <option  value="ProformaInvoice">ProformaInvoice</option>
+                      <option  value="PurchaseQuotation">PurchaseQuotation</option>
+                    
+                  </select>
+              </div>
+              <div class="col-md-1" style="margin-top: 25px;">
+                  <label for="BillRefNo"> Reference</label></div>
+                  <div class="col-md-3" style="margin-top:28px;">
+                  <select id="drpReference" class="js-example-basic-single mb-3" name="drpReference"> </select>
+              </div>
+              <div class="col-md-4">
+                  <label for="ShippingAddress" style="width: 100%;">Ship To<span style="float: right;"><input type="checkbox" (change)="fieldsChange($event)"> Is shippimg Empty</span> </label>
+             
+                  <select id="Shipping"  class="form-control" (change)="ShippingAddressChange($event.target)">
+                      <option *ngFor="let d of lstShippings"
+                      [attr.selected]="(d.ShippingInfogrv_grv4_3Id==f.Shipto.value) ? 'selected' : null"
+                     
+                      [value]="d.ShippingInfogrv_grv4_3Id" >{{d.ShippingName0}}</option>
+                       </select>
+           
+          </div>
+        </div>  
+              
+           
+          </div>
+      </div>
+  </div>
+  
+                  <div class="tab-pane fade" id="billing" role="tabpanel" aria-labelledby="Payment-tab">
+                    <div class="row row-sm" style="margin-top: 12px;">
+                        <div class="col-md-1">
+                        <label for="Notes">Billing Address</label></div>
+                          <div class="col-md-4">
+                                <textarea  class="mb-3 form-control" rows="4" cols="5" formControlName="Billto">
+                                </textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+                  <div class="tab-pane fade" id="shipping" role="tabpanel" aria-labelledby="Payment-tab">
+                      <div class="row row-sm" style="margin-top: 12px;">
+                         
+                          <div class="col-md-4">
+                          <div  class="card" style="background: #fafafa;">
+                              <div  class="card-header" style="font-size: large;
+                              padding: 5px 20px;"><input type="checkbox"> Address </div>
+                              <div  class="card-body">
+                                  <div  class="row">
+                                      <div  class="col-md-12">
+                                        
+
+                                              <textarea  class="form-control" rows="4" cols="5" formControlName="ShiptoAddress" style="    background: no-repeat;
+border: none;">
+                                              </textarea>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                          
+                      </div>
+                  </div>
+                 
+
+                  <div class="tab-pane fade" id="Payment" role="tabpanel" aria-labelledby="Payment-tab">
+                      <div class="row row-sm" style="margin-top: 12px;">
+                          <div class="col-md-12">
+                                  <div class="row">
+                                    <div class="col-md-2" style="margin-top:30px;">
+                                <label for="Payment">Payment Terms</label></div>
+                                <div class="col-md-6" style="padding-left: 0px;margin-top: 30px;">
+                              <select id="Payment" class="form-control"
+                              (change)="PaymentTermsChange($event.target)" >
+                              <option value="">Select </option>
+                              <option  *ngFor="let d of lstPaymentTerms"
+                              [attr.selected]="(d.TermsId==f.PaymentTerms.value) ? 'selected' : null"
+                              [value]="d.TermsId">{{d.termsName}}</option>
+                               </select>
+                              </div>
+                              </div>
+                                    <br>
+                                    <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                      <thead >
+                                      <tr>
+                                          <th style="width:4%;">#</th>
+                                          <th style="width:25%;">Term Name</th>
+                                          <th style="width:15%;">Pay %</th>
+                                          <th style="width:15%;">Amount</th>
+                                         
+                                          <th style="width:15%;">Date</th>
+                                          <th style="width:24%;"></th>
+                                           <!-- <th></th>  -->
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr  *ngFor="let d of lstTermsChild;let indx=index">
+                                              <td style="width:4%;">{{indx+1}}</td>
+                                              <td style="width:25%;">{{d.PayName}}</td>
+                                              <td style="width:15%;">{{d.PayPercentage}}</td>
+                                              <td style="width:15%;">{{d.Amount|currency:'INR' }}</td>
+                                         
+                                          <td style="width:15%;"><input type="date"  id="termdate" class="form-control" value={{d.DisplayDate}}  (change)="termdateChange($event.target,indx)"></td>
+                                        
+                                              <td style="width:24%;"></td>
+                                      </tr>
+                                      </tbody>
+                                  </table>
+                                 
+                                
+                                        <div class="row">
+                                            <div class="col-md-2" style="margin-top:30px;">
+                                        <label for="Conditions">Terms & Conditions</label></div>
+                                        <div class="col-md-6"  style="padding-left: 0px;margin-top: 30px;">
+                                            <select id="Conditions" class="form-control"  (change)="TermsAndConditionsChange($event.target)">
+                                            <option value="">Select</option>
+                                            <option  *ngFor="let d of lstTermsAndConditions"
+                                            [attr.selected]="(d.TermsAndConditionsId==f.Terms.value) ? 'selected' : null"
+                                            [value]="d.TermsAndConditionsId">{{d.termtype}}</option>
+                                             </select>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-6">
+                                   <textarea  class="form-control" rows="5" cols="5" formControlName="TermsandConditions">
+                                   </textarea></div></div>
+                                     
+                             
+                                 
+                             
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="tab-pane fade" id="Charges" role="tabpanel" aria-labelledby="Charges-tab">
+                   
+                   
+                      <div class="row row-sm" style="margin-top: 12px;">
+                          <div class="col-md-12">
+                           
+                                 
+                              <a class="actionbutton" style="width:40px;height: 40px; float: right;margin-left: 5px;"
+                                             
+                              data-toggle="modal"   data-target="#SalesInvoiceChargesId"  data-backdrop="static" data-keyboard="false"
+                             
+                              (click)="OnChargesAdd()"
+      href="javascript:void(0)" id="Details">
+     
+            <i class="fa fa-plus"  style="
+            font-size: 20px;
+            margin-top: 10px;
+        "></i>
+        </a>
+
+                                    <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                      <thead >
+                                      <tr>
+                                          <th style="width:4%;">#</th>
+                                          <th style="width:25%;">Charges</th>
+                                       
+                                          <th style="width:12%;">Amount</th>
+                                          <th style="width:12%;">Tax Amount</th>
+                                          <th style="width:12%;">Total</th>
+                                         
+                                           
+
+                                           <th style="width:30%;"></th>
+                                           <th style="width:5%;"></th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr  *ngFor="let d of lstCharges;let indx=index">
+                                              <td style="width:4%;">{{indx+1}}</td>
+                                          <td  style="width:25%;">{{d.ChargesCOAName}}</td>
+                                           
+                                          <td  style="width:12%;">{{d.ChargesAmount|currency:'INR' }}</td>
+                                          <td  style="width:12%;">{{d.ChargesTax|currency:'INR' }}</td>
+                                          <td  style="width:12%;">{{d.TotalCharges|currency:'INR' }}</td>
+                                          <td style="width:30%;"></td>
+                                          <td  style="width:5%;" (click)="EditCharges(d,(indx+1))"><i style="float: right" class="ti-angle-right"
+                                              data-toggle="modal"   data-target="#SalesInvoiceChargesId"
+                                             
+                                              (click)="EditCharges(
+                                             
+                                              d,(indx+1)
+                                              )"></i></td>
+                                           
+                                         
+                                       
+                                      </tr>
+                                      </tbody>
+                                  </table>
+                                 
+                               
+                                 
+                             
+                          </div>
+                      </div>
+                  </div>
+
+
+
+
+                  <div class="tab-pane fade" id="Payments" role="tabpanel" aria-labelledby="Payments-tab">
+                      <div class="row row-sm">
+                          <div class="col-md-12">
+                              <div class="card">
+
+                                  <div class="card-body">
+                                      <h6 class="card-title" style="margin-bottom: 0px !important;">Payments</h6>
+                                 
+                              <a class="actionbutton" style="width:40px;height: 40px; float: right;margin-left: 5px;"
+                                             
+                              data-toggle="modal"   data-target="#SalesInvoicePaymentsId"  data-backdrop="static" data-keyboard="false"
+                             
+                              (click)="OnPayemntsAdd()"
+      href="javascript:void(0)" id="Details">
+     
+            <i class="fa fa-plus"  style="
+            font-size: 20px;
+            margin-top: 10px;
+        "></i>
+        </a>
+
+                                    <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                                      <thead >
+                                      <tr>
+                                          <th style="width:4%;">#</th>
+                                         
+                                       
+                                          <th  style="width:20%;">Account</th>
+                                          <th style="width:16%;">Instrument No</th>
+                                         
+                                          <th style="width:15%;">Amount</th>
+                                       
+                                         
+                                           <th style="width:40%;"></th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr  *ngFor="let d of lstPayemnts;let indx=index">
+                                              <td style="width:4%;">{{indx+1}}</td>
+                                       
+                                          <td  style="width:20%;">{{d.PaymentAccountName}}</td>
+                                          <td style="width:16%;">{{d.InstrumentNo}}</td>
+                                          <td  style="width:15%;">{{d.PaymentAmount|currency:'INR' }}</td>
+                                         
+                                          <td style="width:40%;"></td>
+                                          <td style="width:5%;" (click)="EditPayments(d,(indx+1))"><i style="float: right" class="ti-angle-right"
+                                              data-toggle="modal"   data-target="#SalesInvoicePaymentsId"
+                                             
+                                              (click)="EditPayments(
+                                             
+                                              d,(indx+1)
+                                              )"></i></td>
+                                      </tr>
+                                      </tbody>
+                                  </table>
+                                 
+                               
+                              </div>
+                          </div>
+
+                          <div class="card">
+                          <div class="card-body">
+                              <h6 class="card-title" style="margin-bottom: 0px !important;">Commission</h6>
+                              <br>
+                              <div class="rows">
+                                  <div class="row">
+                                  <div class="col-md-1">
+                                      <label for="drpCommitionPartyAccount">Party</label></div>
+                                      <div class="col-md-6 mb-3">
+                                      <select class="js-example-basic-single"  id="drpCommitionPartyAccount">
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-1 m-top-auto">
+                                      <label for="CommitionPer">Commission %</label></div>
+                                      <div class="col-md-6 m-top-auto">
+                                      <input type="number" class="form-control" id="CommitionPer" formControlName="CommitionPer" (change) ="CommitionPerChange($event.target)" >
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-1 m-top-auto">
+                                      <label for="CommitionAmount">Commission Amount</label></div>
+                                      <div class="col-md-6" style="margin-top:30px;">
+                                      <input type="number" class="form-control" id="CommitionAmount" formControlName="CommitionAmount" (change) ="CommitionAmountChange($event.target)"  >
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-1 m-top-auto">
+                                  <label for="CommissionNotes">Notes</label></div>
+                                  <div class="col-md-6">
+                                  <textarea  class="form-control" rows="4" cols="5" id="CommissionNotes" formControlName="CommissionNotes">
+                                  </textarea>
+                              </div>
+                            </div>
+                              </div>
+                          </div>
+                      </div>
+                             
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="tab-pane fade" id="Accounts" role="tabpanel" aria-labelledby="Accounts-tab">
+                      <div class="row row-sm">
+                          <div class="col-md-12">
+
+
+                              <br>
+                                     <div class="">
+                                         <div class="">
+                                         
+                                         
+                               
+                                  <div class="row">
+                                   <div class="col-md-2">
+                                    <label for="drpSalesAccount">Sales Account</label></div>
+                                    <div class="col-md-4">
+                                    <select id="drpSalesAccount" class="mb-3 form-control" formControlName="Salesaccount">
+                                   
+                                    <option  *ngFor="let d of lstSalesAccounts"
+                                    [attr.selected]="(d.COAId==f.Salesaccount.value) ? 'selected' : null"
+                                   
+                                    [value]="d.COAId">{{d.Name}}</option>
+                                   
+                                     </select>
+                                   </div>
+                                   <div class="col-md-2">
+                                    <label for="drpDiscountAccount">Discount Account</label></div>
+                                      <div class="col-md-4">                              
+                                    <select id="drpDiscountAccount" class="mb-3 form-control"
+                                    formControlName="Discountaccount">
+                                    <option  *ngFor="let d of lstDiscountAccount"
+                                    [attr.selected]="(d.COAId==f.Discountaccount.value) ? 'selected' : null"
+                                    [value]="d.COAId">{{d.Name}}</option>
+                                     </select>
+                                   </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-2">
+                                    <label for="drpCommitionPayableAccount">Commission Payable</label></div>
+                                    <div class="col-md-4">
+                                    <select id="drpCommitionPayableAccount" class="mb-3 form-control"
+                                    formControlName="CommissionPayableAccount">
+                                    <option  *ngFor="let d of lstCommissionPayable"
+                                    [attr.selected]="(d.COAId==f.CommissionPayableAccount.value) ? 'selected' : null"
+                                    [value]="d.COAId">{{d.Name}}</option>
+                                     </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="drpCommitionExpense">Commission Expense</label></div>
+                                    <div class="col-md-4">
+                                    <select id="drpCommitionExpense" class="mb-3 form-control"
+                                    formControlName="Commissionaccount">
+                                    <option  *ngFor="let d of lstCommissionExp"
+                                    [attr.selected]="(d.COAId==f.Commissionaccount.value) ? 'selected' : null"
+                                    [value]="d.COAId">{{d.Name}}</option>
+                                  </select>
+                              </div>
+                          </div>
+                           
+                          </div>
+                                     
+
+
+                                                                                                   
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+
+
+                  <div class="tab-pane fade" id="notes" role="notes" aria-labelledby="Payment-tab">
+                      <div class="row row-sm" style="margin-top: 12px;">
+                          
+                          <div class="col-md-1">
+                            <label for="Notes">Notes</label></div>
+                            <div class="col-md-6">
+                            <textarea  class="form-control" rows="5" cols="5"  formControlName="Notes">
+                            </textarea>
+                        </div>
+                      </div>
+                  </div>
+
+
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="card" *ngIf="SelectedTab==''">
+      <!-- <div class="card-header">Settings</div> -->
+      <div class="card-body" style="padding-bottom: 0px;">
+          <div class="form-group">
+
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-5">
+                          <ul class="nav nav-tabs" id="ProductTab" role="tablist">
+                              <li class="nav-item">
+                                  <a class="nav-link nav-text active" id="Details-tab" data-toggle="tab" href="#ProductDetails" role="tab" aria-controls="Price" (click)="Detailstab()" aria-selected="true">Details</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link nav-text" id="Discount-tab" data-toggle="tab" href="#Discount" role="tab" aria-controls="Discount" (click)="Discounttabs()" aria-selected="false"> Discount</a>
+                              </li>
+                              <li class="nav-item"  *ngIf="InvoiceType!='Import'">
+                                  <a class="nav-link nav-text" id="Tax-tab" data-toggle="tab" href="#Tax" role="tab"
+                                   aria-controls="Tax" (click)="Taxtab()" aria-selected="false">Tax</a>
+                              </li>
+
+
+                              <li class="nav-item" >
+                                  <a class="nav-link nav-text" id="Stock-tab" data-toggle="tab" href="#Stock" role="tab" 
+                                  aria-controls="Stock" (click)="Stocktab()" aria-selected="false">Stock</a>
+                              </li>
+
+                              <li class="nav-item" *ngIf="InvoiceType=='Import'">
+                                  <a class="nav-link nav-text" id="Tax-tab" data-toggle="tab" href="#Tax" role="tab"
+                                  aria-controls="Tax" (click)="Taxtab()" aria-selected="false">Custom Duty</a>
+                              </li>
+                             
+                          </ul>
+                      </div>
+
+                      <div class="col-md-7">
+                          <div class="row">
+                              <div class="col-md-5">
+                                  <div class="row">
+                                      <div class="col-md-12">
+                                          <div class="row">
+                                              <div class="col-md-4 m-top-bot-auto">
+                                                  <label for="Time" *ngIf="Discounttab=='open'">Discount %</label>
+                                              </div>
+                                              <div class="col-md-8 mb-3 m-top-bot-auto">
+                                                  <!-- <input class="form-control" *ngIf="Discounttab=='open'" type="number" autocomplete="off"> -->
+                                                  <div  class="input-group" *ngIf="Discounttab=='open'" type="number" autocomplete="off">
+                                                      <input  aria-describedby="btnSearch" aria-label="Recipient's username" formControlName="AddDiscount" 
+                                                      class="form-control" id="txtSearchMenu" placeholder="Enter %"  type="text" autocomplete="off">
+                                                      <div  class="input-group-append">
+                                                          <button  class="btn btn-light waves-effect waves-button waves-light" 
+                                                          id="btnSearch" type="button"  (click)="DiscountAdd()" autocomplete="off">
+                                                          Add</button></div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                         </div>
+                                  </div>
+
+                              </div>
+
+                              <div class="col-md-6">
+                                      <div  class="input-group"><input  aria-describedby="btnSearch" aria-label="Recipient's username" class="form-control" id="txtSearchMenu" placeholder="Search item" style="background: #f0f0f0;" type="text" autocomplete="off">
+                                          <div  class="input-group-append"><button  class="btn btn-light waves-effect waves-button waves-light" id="btnSearch" type="button" autocomplete="off"><i  class="fa fa-search" style="font-size: 14px;
+                                                   color: #323639;"></i></button></div>
+                                      </div>
+                              </div>
+                              <div class="col-md-1">
+                                  <a class="actionbutton " style="width:40px;height: 40px; float: right;margin-left: 5px;"
+                                             
+                                  data-toggle="modal"   data-target="#DetailsId"  data-backdrop="static" data-keyboard="false"
+                                 
+                                  (click)="OnAdd()"
+                                  href="javascript:void(0)" id="Details">
+                  
+                          <i class="fa fa-plus "  style=" font-size: 20px; margin-top: 10px;  "></i>
+                      </a>
+                              </div>
+                          </div>
+
+                          
+                      </div>
+                  </div>
+              </div>
+
+              <div class="tab-content" id="ProductTabContent">
+                  <div class="tab-pane fade active show" id="ProductDetails" role="tabpanel" aria-labelledby="Details-tab">
+                          <div class="row row-sm" style="margin-top: 12px;">
+                                  <div class="col-md-12">
+                         
+
+                              <div class ="col-md-12" *ngIf="submitted && lstSalesInvoiceItems.length==0" style="float: left;font-size: 80%">
+                                  <div  style="color:red ;" >Add atleast one product to save</div>
+                                 
+                              </div>
+                            
+                     
+
+                              <div class="dataTables_scroll">
+                                  <div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;">
+                                      <div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width:100%; padding-right: 17px;">
+                                          <table class="table table-striped table-bordered dataTable" role="grid"
+                                           style="margin-left: 0px;width: 100%;margin-bottom: 0px;table-layout: fixed;">
+                                              <thead >
+                                                <tr role="row">
+                                                    <th style="width:4%;">#</th>
+                                                    <th style="width:10%;">Part no</th>
+                                                    <th style="width:18%;">Description</th>
+                                                    <th style="width:7%;">Make</th>
+                                                    <th style="width:6%;">UOM</th>
+                                                    <th style="width:6%;">Qty</th>
+                                                    <th style="width:8%;">Rate</th>
+                                                    <th style="width:8%;">Gross</th>
+                                                    <th style="width:7%;">Discount</th>
+                                                    <th style="width:7%;">GST</th>
+                                                    <th style="width:7%;">Net</th>
+                                                    <th style="width:6%;">Ref No</th> 
+                                                    <th style="width:6%;">Action</th>
+                                                </tr>
+                                              </thead>
+                                          </table>
+                                      </div>
+                                  </div>
+                                  <div class="dataTables_scrollBody" style="position: relative; overflow: auto; max-height: 400px; width: 100%;display: inline !important;">
+                                      <table id="example2" class="table table-striped table-bordered dataTable" role="grid" 
+                                      aria-describedby="example2_info" style="width: 100%; table-layout: fixed;">
+                                          <tbody>
+                                            <tr  *ngFor="let d of lstSalesInvoiceItems;">
+                                                <td style="width:4%;" *ngIf="d.Show=='true'" >{{d.SNO}}</td>
+                                                <td  style="width:10%;" *ngIf="d.Show=='true'" >{{d.Partno}}</td>
+                                                <td  style="width:18%;" *ngIf="d.Show=='true'" >{{d.Description}}<br>
+                                                    
+                                                    <span innerHTML="{{d.Note}}"></span>
+                                                </td>
+                                                <td  style="width:7%;" *ngIf="d.Show=='true'" >{{d.Make}}</td>
+                                                <td  style="width:6%;" *ngIf="d.Show=='true'" >{{d.UOM}}</td>
+                                                <td style="width:6%;" *ngIf="d.Show=='true'" >{{d.Qty}}</td>
+                                                <td style="width:8%;" *ngIf="d.Show=='true'" >{{d.Rate}}</td>
+                                                <td style="width:8%;" *ngIf="d.Show=='true'" >{{d.Gross}}</td>
+                                                <td style="width:7%;" *ngIf="d.Show=='true'" >{{d.DiscountAmount}}</td>
+                                                <td style="width:7%;" *ngIf="d.Show=='true'" >{{d.TotalTax}}</td>
+                                               
+                                                <td  style="width:7%;" *ngIf="d.Show=='true'" >{{d.NetTotal}}</td>
+                                                <td  style="width:6%;" *ngIf="d.Show=='true'" >{{d.RefNo2}}</td>
+                                                <td  style="width:6%;padding: 4px;text-align: center;" *ngIf="d.Show=='true'" data-backdrop="static" data-keyboard="false" >
+                                                        <div  class="dropdown">
+                                                            <a  href="#" data-toggle="dropdown" aria-expanded="false" class="btn btn-gray btn-floating btn-icon btn-sm waves-effect waves-button waves-light">
+                                                                <i  aria-hidden="true" class="fa fa-ellipsis-v" style="color: white !important;"></i>
+                                                            </a>
+                                                            <div  x-placement="bottom-end" class="dropdown-menu dropdown-menu-right" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 24px, 0px);">
+                                                                <button  type="button" data-toggle="modal"   data-target="#DetailsId"  (click)="Insertaline(d,1)" class="dropdown-item font-size-15">Insert Line <i  class="fa fa-plus" style="float: right;"  aria-hidden="true"></i></button>
+                                                                <button  type="button" data-toggle="modal"   data-target="#addNote"   (click)="AddNote(d)"  class="dropdown-item font-size-15">Add Note<i  class="fa fa-pencil" style="float: right;"  aria-hidden="true"></i></button>
+                                                                <button  type="button" data-target="#DetailsId" data-toggle="modal" class="dropdown-item font-size-15" (click)="EditItemClick(d)">Edit<i  class="fa fa-pencil" style="float: right;" aria-hidden="true"></i></button>
+                                                                <button  type="button" (click)="itemCentral()" class="dropdown-item font-size-15">Item Central<i  class="fa fa-file" style="float: right;" aria-hidden="true"></i></button>
+                                                             
+                                                            </div>
+                                                        </div>
+                                                </td>
+                                        </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                                  
+                              </div>
+
+
+                   
+                     
+                  </div>
+
+
+                  
+                     
+                  </div>
+                  </div>
+                  <div class="tab-pane fade" id="Discount" role="tabpanel" aria-labelledby="Discount-tab">
+
+
+                      <div class="row row-sm" style="margin-top: 12px;">
+                          <div class="container">
+
+                                 <div class="row">
+                                        <div class="col-md-12">
+                                              <div class="dataTables_scroll">
+                                                  <div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;">
+                                                      <div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width:100%; padding-right: 17px;">
+                                                          <table class="table table-striped table-bordered dataTable" role="grid" style="margin-left: 0px;width: 100%;margin-bottom: 0px;">
+                                                              <thead>
+                                                                  <tr>
+                                                                      <th  style="width:4%;">#</th>
+                                                                      <th  style="width:15%;">Part No</th>
+                                                                      <th  style="width:25%;">Description</th>
+                                                                      <th  style="width:10%;">Qty</th>
+                                                                      <th  style="width:16%;">Gross</th>
+                                                                      <th  style="width:10%;text-align: center !important">Discount %</th>
+                                                                      <th  style="width:20%;text-align: center !important">Discount Amount</th>
+                                                                       
+                                                                  </tr>
+                                                              </thead>
+                                                          </table>
+                                                      </div>
+                                                  </div>
+                                                  <div class="dataTables_scrollBody" style="position: relative; overflow: auto; max-height: 400px; width: 100%;display: inline !important;">
+                                                      <table id="example2" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="example2_info" style="width: 100%;">
+                                                          <thead>
+                                                              <tr role="row" style="height: 0px;">
+                                                                  <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 219px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                      <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Name</div>
+                                                                  </th>
+                                                                  <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 319px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                      <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Position</div>
+                                                                  </th>
+                                                                  <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 167px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                      <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Office</div>
+                                                                  </th>
+                                                                  <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 62px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                      <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Age</div>
+                                                                  </th>
+                                                                  <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 146px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                      <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Start date</div>
+                                                                  </th>
+                                                                  <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 137px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                      <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Salary</div>
+                                                                  </th>
+                                                              </tr>
+                                                          </thead>
+                                                         
+                                              
+                                                          <tbody>
+                                                              <tr  *ngFor="let d of lstSalesInvoiceItems;let i=index">
+                                                                   <td  style="width:4%;" *ngIf="d.Show=='true'" >{{d.SNO}}</td> 
+                                                                  <!-- <td  style="width:4%;" *ngIf="d.Show=='true'" >{{i+1}}</td> -->
+                                                                  <td  style="width:15%;" *ngIf="d.Show=='true'" >{{d.Partno}}</td>
+                                                                  <td  style="width:25%;" *ngIf="d.Show=='true'" >{{d.Description}}</td>
+                                                                  <td style="width:10%;"  *ngIf="d.Show=='true'" >{{d.Qty}}</td>
+                                                                  <td  style="width:16%;" *ngIf="d.Show=='true'" >{{d.Gross}}</td>
+                                                                  <td   style="width:10%;text-align: center !important;" *ngIf="d.Show=='true'" >{{d.DiscountPercentage}}</td>  
+                                                                  <td  style="width:20%;text-align: center !important" *ngIf="d.Show=='true'" >{{d.DiscountAmount}}</td>
+                                                                 
+                                                          </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </div>
+                                                  
+                                              </div>
+                                        </div>
+                                      </div>
+                                 
+                              </div>
+                             
+                          </div>
+
+                         
+
+              </div>
+                  <div class="tab-pane fade" id="Tax" role="tabpanel" aria-labelledby="Tax-tab">
+
+
+                          <div class="row row-sm" style="margin-top: 12px;">
+                              <div class="container">
+                                  <div class="row">
+                                   
+                                             
+                                            <div class="col-md-12 ">
+                                                  <div class="dataTables_scroll">
+                                                      <div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;">
+                                                          <div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width:100%; padding-right: 17px;">
+                                                              <table class="table table-striped table-bordered dataTable" role="grid" style="margin-left: 0px;width: 100%;margin-bottom: 0px;">
+                                                                  <thead>
+                                                                      <tr>
+                                                                          <th style="width:4%;">#</th>
+                                                                          <th style="width:13%;">Part No</th>
+                                                                          <th style="width:13%;">HSN Code</th>
+                                                                       
+                                                                          <th style="width:10%;">Taxable Amount</th>
+                                                                          <th style="width:8%;" *ngIf="TaxType=='Intra State' && InvoiceType!='Import' ">CGST%</th>
+                                                                          <th style="width:8%;" *ngIf="TaxType=='Intra State' && InvoiceType!='Import' ">CGST Amount</th>
+                                                                          <th style="width:8%;" *ngIf="TaxType=='Intra State' && InvoiceType!='Import' ">SGST%</th>
+                                                                          <th  style="width:8%;" *ngIf="TaxType=='Intra State' && InvoiceType!='Import' ">SGST Amount</th>
+                                                                          
+                                                                          <th  style="width:8%;" *ngIf="InvoiceType=='Import'">BCD%</th>
+                                                                          <th  style="width:8%;" *ngIf="InvoiceType=='Import'">BCD Amount</th>
+                                                                          <th  style="width:8%;" *ngIf="InvoiceType=='Import'">SWS%</th>
+                                                                          <th  style="width:8%;" *ngIf="InvoiceType=='Import'">SWS Amount</th>
+                                                                          <th  style="width:8%;" *ngIf="TaxType=='Inter State'  || InvoiceType=='Import'">IGST%</th>
+                                                                          <th  style="width:8%;" *ngIf="TaxType=='Inter State' ||  InvoiceType=='Import'">IGST Amount</th>
+                                                                          <th style="width:12%;">Total Tax</th>
+                                                                         
+                                                                      </tr>
+                                                                  </thead>
+                                                              </table>
+                                                          </div>
+                                                      </div>
+                                                      <div class="dataTables_scrollBody" style="position: relative; overflow: auto; max-height: 400px; width: 100%;display: inline !important;">
+                                                          <table id="example2" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="example2_info" 
+                                                          style="width: 100%; table-layout: fixed;">
+                                                              <thead>
+                                                                  <tr role="row" style="height: 0px;">
+                                                                      <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 219px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                          <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Name</div>
+                                                                      </th>
+                                                                      <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 319px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                          <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Position</div>
+                                                                      </th>
+                                                                      <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 167px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                          <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Office</div>
+                                                                      </th>
+                                                                      <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 62px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                          <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Age</div>
+                                                                      </th>
+                                                                      <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 146px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                          <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Start date</div>
+                                                                      </th>
+                                                                      <th class="sorting" aria-controls="example2" rowspan="1" colspan="1" style="width: 137px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
+                                                                          <div class="dataTables_sizing" style="height: 0px; overflow: hidden;">Salary</div>
+                                                                      </th>
+                                                                  </tr>
+                                                              </thead>
+                                                             
+                                                  
+                                                              <tbody>
+                                                                  <tr  *ngFor="let d of lstSalesInvoiceItems;">
+                                                                      <td  style="width:4%;" *ngIf="d.Show=='true'" >{{d.SNO}}</td>
+                                                                      <td style="width:13%;" *ngIf="d.Show=='true'" >{{d.Partno}}</td>
+                                                                      <td  style="width:13%;" *ngIf="d.Show=='true'" >{{d.HSN}}</td>
+                                                                     
+                                                                      <td style="width:10%;"  *ngIf="d.Show=='true'" >{{(+d.Gross)-(+d.DiscountAmount)}}</td>
+                                                                      <td style="width:8%;" *ngIf="TaxType=='Intra State' && InvoiceType!='Import' && d.Show=='true'">{{d.CGST}}</td>
+                                                                      <td style="width:8%;" *ngIf="TaxType=='Intra State' && InvoiceType!='Import' && d.Show=='true'">{{d.CGSTAmount}}</td>
+                                                                      <td  style="width:8%;" *ngIf="TaxType=='Intra State' && InvoiceType!='Import' && d.Show=='true'">{{d.SGST}}</td>
+                                                                      <td style="width:8%;"  *ngIf="TaxType=='Intra State' && InvoiceType!='Import' &&  d.Show=='true'"> {{d.SGSTAmount}}</td>
+                                                                      
+
+                                                                      <td  style="width:8%;" *ngIf="InvoiceType=='Import' && d.Show=='true'">{{d.BCDPer}}</td>
+                                                                      <td  style="width:8%;" *ngIf="InvoiceType=='Import'  && d.Show=='true'">{{d.BCDAmount}}</td>
+                                                                      <td  style="width:8%;" *ngIf="InvoiceType=='Import' && d.Show=='true'">{{d.SWSPer}}</td>
+                                                                      <td  style="width:8%;" *ngIf="InvoiceType=='Import'  && d.Show=='true'">{{d.SWSAmount}}</td>
+                                                                      <td  style="width:8%;" *ngIf="TaxType=='Inter State' && d.Show=='true'">{{d.IGST}}</td>
+                                                                      <td  style="width:8%;" *ngIf="TaxType=='Inter State'  && d.Show=='true'">{{d.IGSTAmount}}</td>
+                                                                      <td   style="width:12%;" *ngIf="d.Show=='true'">{{d.TotalTax}}</td>
+                                                              </tr>
+                                                              </tbody>
+                                                          </table>
+                                                      </div>
+                                                      
+                                                  </div>
+
+
+                                            </div>
+                                          </div>
+                                       
+                                  </div>
+                                 
+                              </div>
+
+                             
+
+                  </div>
+                 
+                  <div class="tab-pane fade" id="Stock" role="tabpanel" aria-labelledby="Stock-tab">
+
+
+                      <div class="row row-sm" style="margin-top: 12px;">
+                          <div class="container">
+
+                                          <div class="row">
+                                         
+                                        <div class="col-md-12">
+                                         
+                                             
+
+
+                                              <div class="dataTables_scroll">
+                                                  <div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%;">
+                                                      <div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width:100%; padding-right: 17px;">
+                                                          <table class="table table-striped table-bordered dataTable" role="grid"
+                                                           style="margin-left: 0px;width: 100%;margin-bottom: 0px; table-layout: fixed;">
+                                                              <thead>
+                                                                  <tr>
+                                                                      <th  style="width:4%;">#</th>
+                                                                      <th  style="width:15%;">Part No</th>
+                                                                      <th  style="width:15%;">Make</th>
+                                                                   
+                                                                      <th  style="width:6%;">UOM</th>
+                                                                     
+                                                                     
+                                                                      <th  style="width:15%;">Location</th>
+                                                                      <th  style="width:15%;">Bin</th>
+                                                                      <th  style="width:15%;">Alloted</th>
+                                                                      <th  style="width:20%;"></th>
+                                                                  </tr>
+                                                              </thead>
+                                                          </table>
+                                                      </div>
+                                                  </div>
+                                                  <div class="dataTables_scrollBody" style="position: relative; overflow: auto; max-height: 400px; width: 100%;display: inline !important;">
+                                                      <table id="example2" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="example2_info" 
+                                                      style="width: 100%; table-layout: fixed;">
+                                                        
+                                              
+                                                          <tbody>
+                                                              <tr  *ngFor="let d of lstSalesInvoiceItemsStock ;let ind=index">
+                                                                  <td style="width:4%;"  *ngIf="d.Show=='true'" >{{ind+1}}</td>
+                                                                  <td  style="width:15%;" *ngIf="d.Show=='true'" >{{d.Partno}}</td>
+                                                                  <td   style="width:15%;" *ngIf="d.Show=='true'" >{{d.Make}}</td>
+                                                                 
+                                                                  <td  style="width:6%;" *ngIf="d.Show=='true'" >{{d.UOM}}</td>
+                                                               
+                                                                  <td   style="width:15%;"*ngIf="d.Show=='true'" >{{d.Locationname}}</td>
+                                                                  <td   style="width:15%;" *ngIf="d.Show=='true'">{{d.BinName}}</td>
+                                                                  <td  style="width:15%;" *ngIf="d.Show=='true'" >{{d.Qty}}</td>
+                                                                  <td  style="width:20%;" ></td>
+                                                          </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </div>
+                                                  
+                                              </div>
+
+
+                                        </div>
+                                      </div>
+
+                                   
+                              </div>
+                             
+                          </div>
+
+                         
+
+              </div>
+             
+
+             
+              </div>
+
+            
+
+          </div>
+
+      </div>
+  </div>
+</div>
+
+
+<div class="col-md-2">
+  <div class="card">
+      
+     
+      <div class="card-body">
+
+          <div class="row">
+            
+              <dropdown-number-sequence formControlName='SequenceNumberId' hidden 
+               (NumberSequenceValueChange) ="NumberSequenceValueChange($event)"   
+                [SequenceNumberId]="DisplaySequenceNumberId" [FormName]="DispalyFormName">
+              </dropdown-number-sequence>
+
+              
+              <div class="col-md-12 m-top-bot-auto mb-3" >
+                  <div class="row">
+                      <div class="col-md-3 m-top-auto">
+                          <label for="SequenceNumberId"><strong>Date</strong></label>
+
+                      </div>
+                      <div class="col-md-9">
+                          <input type="text" class="form-control"  name="single-date-picker"  id="TransactionDate"
+                          placeholder="Enter Date" (change)="QuotDateChange($event)"
+                         [ngClass]="{ 'is-invalid': submitted && f.TransactionDate.errors }"
+                         >
+                         <div *ngIf="submitted && f.TransactionDate.errors" class="invalid-feedback">
+                         <div *ngIf="f.TransactionDate.errors.required" style="color:red " >Date Required</div>
+                      </div>
+                  </div>
+
+                  
+                  </div>
+              </div>
+
+              <div class="col-md-12 m-top-bot-auto mb-3">
+                  <div class="row">
+                      <div class="col-md-3 m-top-auto">
+                      <label for="SequenceNumberId"><strong>Time</strong></label>
+                      </div>
+
+                      <div class="col-md-9">
+                      <div class="input-group clockpicker-autoclose-demo">
+                          <div class="input-group-prepend">
+                      <span class="input-group-text">
+                          <i class="fa fa-clock-o"></i>
+                      </span>
+                          </div>
+                          <input type="text" class="form-control"  name="single-date-picker"  id="TransactionDate"
+                                  placeholder="Enter Date" (change)="QuotDateChange($event)"
+                                 [ngClass]="{ 'is-invalid': submitted && f.TransactionDate.errors }"
+                                 >
+                                 <div *ngIf="submitted && f.TransactionTime.errors" class="invalid-feedback">
+                                  <div *ngIf="f.TransactionTime.errors.required" style="color:red " >Date Required</div> 
+                      </div>
+                      </div>
+
+                      
+
+                  
+                  </div>
+                  
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="card">
+      <div class="card-header"  style="font-size: large;">Mode Of Transport</div>
+      <div class="card-body">
+          <div class="row">
+              <div class="col-md-12">
+                  <label for="SequenceNumberId"><strong>Transport</strong></label>
+                  <!-- <input type="text" class="form-control" id="TransportName" formControlName="TransportName" placeholder="Select /Enter Transport Name"> -->
+              
+                  <select id="mySelect"  id="TransportMode" formControlName="TransportMode" #mySelect [ngClass]="{ 'is-invalid': submitted && f.TransportMode.errors }" (change)="ChangeModeofTransport(mySelect.value)" class="mb-3 form-control" >
+                      <option value="Courier" selected >Courier</option>
+                      <option value="Transport" >Transport</option>
+                      <option value="Vehicle" >Vehicle </option>
+                      <option value="Person" >Person</option>
+                  </select>
+                  <div *ngIf="submitted && f.TransportMode.errors" class="invalid-feedback">
+                      <div *ngIf="f.TransportMode.errors.required" style="color:red " >TransportMode Required</div>
+                  </div>
+
+                  <div class="row" *ngIf="FilterBy == 'Courier'">
+                  
+                      <div class="col-md-3 m-top-auto">
+                          <label for="Time" >Name</label>
+                      </div>
+                      <div class="col-md-9 mb-3">
+                          <input type="text" id="TransportName" formControlName="TransportName" class="form-control">
+                      </div>
+
+                      <div class="col-md-3 m-top-auto">
+                          <label for="Time">Tracking No</label>
+                      </div>
+                      <div class="col-md-9 mb-3">
+                          <input type="text" formControlName="TrackingNo" class="form-control">
+                      </div>
+
+                      <div class="col-md-3 m-top-auto">
+                          <label for="Time">Date</label>
+                      </div>
+                      <div class="col-md-9">
+                          <input type="date" id="TransportDate" formControlName="TransportDate" class="form-control">
+                      </div>
+                  </div>
+
+                  <div class="row" *ngIf="FilterBy == 'Transport'">
+
+                      <div class="col-md-3 m-top-auto">
+                          <label for="Time">Name</label>
+                      </div>
+                      <div class="col-md-9 mb-3">
+                          <input type="text" formControlName="TransportName1"  class="form-control">
+                      </div>
+
+                      <div class="col-md-3 m-top-auto">
+                          <label for="Time">Tracking No</label>
+
+                      </div>
+                      <div class="col-md-9 mb-3">
+                          <input type="text" formControlName="TrackingNo" class="form-control">
+                      </div>
+
+                      <div class="col-md-3 m-top-auto">
+                          <label for="Time">Date</label>
+                      </div>
+                      <div class="col-md-9">
+                          <input type="date" formControlName="TransportDate" class="form-control">
+                      </div>
+                  </div>
+                  <div class="row" *ngIf="FilterBy == 'Vehicle'">
+
+                      <div class="col-md-3 m-top-auto">
+                          <label for="Time">Vehicle No</label>
+                      </div>
+                      <div class="col-md-9 mb-3">
+                          <input type="text" formControlName="VehicleNo" class="form-control">
+                      </div>
+
+                      <div class="col-md-3 m-top-auto">
+                          <label for="Time">Driver Name</label>
+                      </div>
+                      <div class="col-md-9 mb-3">                                        
+                          <input type="text" formControlName="DriverName" class="form-control">
+                      </div>
+
+                      <div class="col-md-3 m-top-auto">
+                          <label for="Time">Date</label>
+                      </div>
+                      <div class="col-md-9">                                        
+                          <input type="date" formControlName="TransportDate" class="form-control">
+                      </div>
+                  </div>
+
+                  <div class="row" *ngIf="FilterBy == 'Person'">
+
+                      <div class="col-md-3 m-top-auto">
+                          <label for="Time">Name</label>
+                      </div>
+                      <div class="col-md-9 mb-3">
+                          <input type="text" formControlName="PersonName" class="form-control">
+                      </div>
+
+                      <div class="col-md-3 m-top-auto">
+                          <label for="Time">Phone No</label>
+                      </div>
+                      <div class="col-md-9 mb-3">
+                          <input type="number" formControlName="PhoneNo" class="form-control">
+                      </div>
+
+                      <div class="col-md-3 m-top-auto">
+                          <label for="Time">Date</label>
+                      </div>
+                      <div class="col-md-9">                                        
+                          <input type="date" formControlName="TransportDate" class="form-control">
+                      </div>
+                  </div>
+
+              
+              </div>
+
+              
+          </div>
+      </div>
+  </div>
+
+  <div class="card">
+      <div class="card-header"  style="font-size: large;">Summary</div>
+      <div class="card-header"  style="font-size: large;">Outstanding : 0.00</div>
+
+      <div class="card-body pb-4">
+          <div class="row">
+              <div class ="col-md-12">
+                  
+                  <div class="row">
+                      <div class="col-md-6">
+                          <label for="Gross"><strong class="f-15">Gross  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                      </div>
+                      <div class="col-md-6">
+                          <span><strong class="f-15">{{(+TotalGross).toFixed(2)}}</strong></span>
+                      </div>
+
+                      <div class="col-md-6">
+                          <label for="Gross"><strong class="f-15">Discount  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                      </div>
+                      <div class="col-md-6">
+                          <span><strong class="f-15">{{(+TotalDiscount).toFixed(2)}}</strong></span>
+                      </div>
+
+
+                      <div class="col-md-6">
+                          <label for="Gross"><strong class="f-15">Charges  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                      </div>
+                      <div class="col-md-6">
+                          <span><strong class="f-15">{{(+TotalCharges).toFixed(2)}}</strong></span>
+                      </div>
+
+                      <div class="col-md-6" *ngIf="InvoiceType=='Import'">
+                          <label for="Gross"><strong class="f-15">Total BCD  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                      </div>
+                      <div class="col-md-6" *ngIf="InvoiceType=='Import'">
+                          <span><strong class="f-15">{{(+TotalBCD).toFixed(2)}}</strong></span>
+                      </div>
+
+                      <div class="col-md-6" *ngIf="InvoiceType=='Import'">
+                          <label for="Gross"><strong class="f-15">Total SWS  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                      </div>
+                      <div class="col-md-6" *ngIf="InvoiceType=='Import'">
+                          <span><strong class="f-15">{{(+TotalSWS).toFixed(2)}}</strong></span>
+                      </div>
+
+                      <div class="col-md-6">
+                          <label for="Gross"><strong class="f-15">GST  </strong></label> <p class="m-0  p-0 f-15" style="float: right;">:</p>
+                      </div>
+                      <div class="col-md-6">
+                          <span><strong class="f-15">{{(+TotalTax).toFixed(2)}}  </strong></span>
+                      </div>
+
+                  </div> 
+              </div>
+
+              <div class ="col-md-12 text-center" >
+                  <label for="Total" class="f-33 f-w-900 m-0" style="font-family: revert;margin-top: 19px !important;margin-bottom: 20px !important;">{{Total|currency:'INR' }}</label>  
+              </div>
+
+             
+              <div class ="col-md-12" *ngIf="submitted && Total<1" style="font-size: 80%;">
+                  <div  style="color:red ;font-size: 80%;" >Invalid  Amount to Save</div>
+                 
+              </div>
+
+           
+          </div>
+      </div>
+
+
+  </div>
+</div>
+
+
+
+                               
+ 
+
+
+</div>
+
+</div>
+
+
+
+<div class="modal fade" id="DetailsId"  role="dialog" aria-labelledby="DetailsId" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 700px;">
+  <div class="modal-content" style="width: 700px;">
+      <div class="modal-header">
+          <h5 class="modal-title" id="DetailsId">Add / Modify Details</h5>
+          <p *ngIf="showError" class="invalid-data"><font color="red">{{errormsg}}</font></p>
+          <button type="button"  style="display: none;" id="btnCloseAddItem" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+         
+         
+      </div>
+     
+
+       
+       
+
+<div class="row" style ="padding: 15px;">
+  <div class="col-md-12">
+
+  <app-add-product
+  [TransactionDate]="TransactionDate"
+  [TransactionType]="TransactionType"
+  [PartyId]="PartyId"
+  [TaxType]="TaxType"
+  [lstSelectedItemsStock]="lstSalesInvoiceItemsStock"
+  [ShowStockSelection]="ShowStockSelection"
+  [SelectedRow]="SelectedProductData"
+  (RemoveItemClick)="RemoveItemClick($event)"
+              (AddItemAndCloseClick)="AddItemAndCloseClick($event)"
+              (AddItemAndNewClick)="AddItemAndNewClick($event)"
+  ></app-add-product>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="ItemDetailsSearch"  role="dialog" aria-labelledby="ItemDetailsSearch" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px;">
+  <div class="modal-content" style="width: 500px;">
+      <div class="modal-header">
+          <h5 class="modal-title" id="ItemDetailsSearch">Search</h5>
+         
+          <button type="button"  id="btnItemDetailsSearch" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+         
+         
+      </div>
+     
+<div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <!-- <div class="card-header">Search</div> -->
+              <div class="card-body">
+
+
+                  <div class="custom-control custom-switch" style="float:left">
+                          <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="FilterTypeChange($event)">
+                          <label class="custom-control-label" for="customSwitch">All Data</label>
+                      </div>
+
+                     
+
+                      <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                              <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="SerchTypeChange($event.target.checked)">
+                              <label class="custom-control-label" for="customSwitch2_">
+                                  Like</label>
+                          </div>
+             
+
+                       <div class="row  col-md-12">
+
+                              <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                      <i class="ti-alert m-r-10"></i>If Like Off Search with  '='
+                                  </div>
+                       </div>
+         
+
+                 
+
+
+                       <div class="input-group" *ngIf="FilterType=='All'" >
+                          <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                          <div class="input-group-append">
+                              <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="GetSearchDetails()">
+                                  <i class="fa fa-search"></i>
+                              </button>
+                          </div>
+                      </div>
+
+<div class="row col-md-12" *ngIf="FilterType=='Field' ">
+
+
+<label for="searchPartNo"> Part No</label>
+<input type="text" class="form-control" id="searchPartNo" formControlName="searchPartNo"  placeholder="Search Part No">
+<label for="searchDescription"> Description</label>
+<input type="text" class="form-control" id="searchDescription" formControlName="searchDescription"  placeholder="Search Description">
+
+
+<label for="searchMake"> Make</label>
+<input type="text" class="form-control" id="searchMake" formControlName="searchMake"  placeholder="Search Make">
+<label for="searchHSN"> HSN</label>
+<input type="text" class="form-control" id="searchHSN" formControlName="searchHSN"  placeholder="Search HSN">
+
+<div class="col-md-12 " style="float: right;padding-right:unset">
+<button type="button" class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"  style="float: right;margin-top:10px " (click)="GetSearchDetails()">
+<i class="ti-search m-r-5"></i> Search
+</button>
+
+</div>
+</div>
+
+
+      </div>
+          </div>
+
+      </div>
+           
+  </div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="SalesInvoicePrintId"  role="dialog" aria-labelledby="SalesInvoicePrintId" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 1000px;">
+  <div class="modal-content" style="width: 1000px;">
+      <div class="modal-header d-print-none">
+          <h5 class="modal-title " id="SalesInvoicePrintId">Print</h5>
+       
+          <button type="button"  id="btnCloseSalesInvoicePrint" class="close" (click)="close()" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+         
+         
+      </div>
+     
+
+       
+       
+
+<div class="row" style ="padding: 15px;">
+  <div class="col-md-12">
+
+  <SalesInvoicePrint
+  [SalesInvoiceData]="SalesInvoiceData"
+ (PrintCloseClick)="PrintCloseClick()"
+  ></SalesInvoicePrint>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="SalesInvoiceChargesId"  role="dialog" aria-labelledby="SalesInvoiceChargesId" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 600px;">
+  <div class="modal-content" style="width: 600px;">
+     
+      <div class="modal-header">
+          <h5 class="modal-title" id="DetailsId">Add / Modify Charges</h5>
+          <p *ngIf="showchargesError" class="invalid-data"><font color="red">{{chargeserrormsg}}</font></p>
+          <button type="button"  id="btnCloseSalesInvoiceCharges" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+         
+         
+      </div>
+
+      <div class="modal-body">
+      <b> <label  style="float: right;" >SNO:{{SNOCh}}</label></b>
+       
+       
+
+<div class="row" >
+  <div class="col-md-12">
+      <div class="row">
+
+  <div class="col-md-6">
+      <label > Charges</label>
+      <DropdownAccounts (AccountValueChange) ="AccountValueChange($event)"  [AccountGroup] ="ChargesAccountGroup"    [COAId]="DisplayCgargesCOAId" [AccountName]="DispalyChargesAccountName"></DropdownAccounts>
+  </div> 
+  <div class="mb-3"></div>
+  <div class="col-md-6">
+      <label for="ChargesAmount">Amount</label>
+      <input type="number" class="mb-3 form-control" id="ChargesAmount" formControlName="ChargesAmount" (change)="SelectedChargesCalc()" placeholder="Charges Amount">
+  </div> 
+  <div class="col-md-6" *ngIf="TaxType!='Inter State'">
+      <label for="ChargesAmount">CGST%</label>
+      <input type="number" class="mb-3 form-control" id="ChargesCGSTPer" formControlName="ChargesCGSTPer"  readonly>
+  </div> 
+  <div class="col-md-6" *ngIf="TaxType!='Inter State'">
+      <label for="ChargesAmount">CGST Amount</label>
+      <input type="number" class="mb-3 form-control" id="ChargesCGSTAmount" formControlName="ChargesCGSTAmount"  readonly>
+  </div> 
+  <div class="col-md-6" *ngIf="TaxType!='Inter State'">
+      <label for="ChargesAmount">SGST%</label>
+      <input type="number" class="mb-3 form-control" id="ChargesSGSTPer" formControlName="ChargesSGSTPer" readonly>
+  </div> 
+  <div class="col-md-6" *ngIf="TaxType!='Inter State'">
+      <label for="ChargesAmount">SGST Amount</label>
+      <input type="number" class="mb-3 form-control" id="ChargesSGSTAmount" formControlName="ChargesSGSTAmount"  readonly>
+  </div> 
+  <div class="col-md-6" *ngIf="TaxType=='Inter State'">
+      <label for="ChargesAmount">IGST%</label>
+      <input type="number" class="mb-3 form-control" id="ChargesIGSTPer" formControlName="ChargesIGSTPer"  readonly>
+  </div> 
+  <div class="col-md-6"  *ngIf="TaxType=='Inter State'">
+      <label for="ChargesAmount">IGST Amount</label>
+      <input type="number" class="mb-3 form-control" id="ChargesIGSTAmount" formControlName="ChargesIGSTAmount"  readonly>
+  </div> 
+  <div class="col-md-6">
+  </div> 
+  <div class="col-md-6">
+      <label for="ChargesAmount">Total Amount</label>
+      <input type="number" class="mb-3 form-control" id="TotalCharges" formControlName="TotalCharges"  readonly>
+ 
+  </div> 
+  <div class="col-md-12">
+ 
+      <label for="ChargesNarration">Notes</label>
+      <textarea  class="form-control" rows="5" cols="5" id="ChargesNarration" formControlName="ChargesNarration">
+      </textarea>
+  </div>
+      <div class="col-md-12">
+          <br>
+          <div class="col-md-12 text-right card-body"  >
+ 
+                                                       
+           
+         
+              <button type="button" class="btn btn-danger modal-btn waves-effect waves-button waves-light" (click)="RemoveCharges()"  style="margin-right:5px" data-dismiss="modal">
+                  <i class="ti-trash m-r-5 modal-btn-icon"></i> Remove
+              </button>
+              <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddCharges('Close')" style="margin-right:5px">
+                  <i class="ti-check m-r-5 modal-btn-icon"></i> Add
+              </button>
+              <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddCharges('')" style="margin-right:5px">
+                  <i class="ti-check m-r-5 modal-btn-icon"></i> Add +
+              </button>
+         
+         
+          </div>
+ 
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="addNote" tabindex="-1" role="dialog" aria-labelledby="addNoteLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="addNoteLabel">Add Note</h5>
+<button type="button" class="close" id="addnoteclose" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Part No : <strong>{{tempNotepartno}}</strong></h3>
+        </div>
+        <div class="col-md-12">
+            <label for="">Note</label>
+            <textarea name="" id="noteid" cols="30" rows="2" class="form-control" formControlName="itemNote"></textarea>
+       <label *ngIf="addnotevalid" style="color: red;">Note is required</label>
+          </div>
+    </div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<button type="button" class="btn btn-warning" (click)="saveNote()">Save</button>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="SalesInvoicePaymentsId"  role="dialog" aria-labelledby="SalesInvoicePaymentsId" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 600px;">
+<div class="modal-content" style="width: 600px;">
+ 
+  <div class="modal-header">
+      <h5 class="modal-title" id="DetailsId">Add / Modify Payment</h5>
+      <p *ngIf="showPaymentError" class="invalid-data"><font color="red">{{Paymenterrormsg}}</font></p>
+      <button type="button"  id="btnCloseSalesInvoicePayments" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+     
+     
+  </div>
+
+  <div class="modal-body">
+  <b> <label  style="float: right;" >SNO:{{SNOPy}}</label></b>
+   
+   
+
+<div class="row" >
+<div class="col-md-12">
+  <div class="row" >
+  <div class="col-md-6">
+  <label> Mode of Payment</label>
+  <select class="mb-3 form-control form-control-lg" formControlName="ModeOfPayment"  style="height: 38px;" (change)="ModeOfPaymentChange($event.target)">
+      <option value="0">select</option>
+      <option value="Bank Accounts">Bank</option>
+      <option value="Cash In Hand">Cash</option>
+  </select>
+</div>
+<div class="col-md-6">
+
+  <label for="drpPaymentAccount">Account</label>
+  <select   class="mb-3 js-example-basic-single"  id="drpPaymentAccount"
+  >
+
+</select>
+</div>
+
+<div class="col-md-6">
+  <label for="PaymentAmount">Amount</label>
+  <input type="number" class="mb-3 form-control" id="PaymentAmount" formControlName="PaymentAmount"  >
+</div> <div class="col-md-6" >
+        </div>
+       
+       
+        <div class="col-md-6" *ngIf="f.ModeOfPayment.value=='Bank Accounts'">
+  <label for="InstrumentNo">Instrument No</label>
+  <input type="text" class="mb-3 form-control" id="InstrumentNo" formControlName="InstrumentNo" >
+</div>
+<div class="col-md-6"  [ngStyle]="{'display': (f.ModeOfPayment.value=='Bank Accounts')  ? 'block' :'none' }" >
+  <label for="InstrumentDate">Instrument Date</label>
+  <input type="text"  name="single-date-picker"  class="mb-3 form-control"   id="InstrumentDate" formControlName="InstrumentDate" >
+</div>
+
+<div class="col-md-12">
+
+  <label for="PaymentNarration">Notes</label>
+  <textarea  class="form-control" rows="5" cols="5" id="PaymentNarration" formControlName="PaymentNarration">
+  </textarea>
+</div>
+  <div class="col-md-12">
+      <br>
+      <div class="col-md-12 text-right card-body"  >
+
+                                                   
+       
+     
+          <button type="button" class="btn btn-danger modal-btn waves-effect waves-button waves-light" (click)="RemovePayemnts()"  style="margin-right:5px" data-dismiss="modal">
+              <i class="ti-trash m-r-5 modal-btn-icon"></i> Remove
+          </button>
+          <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddPayemnts('Close')" style="margin-right:5px">
+              <i class="ti-check m-r-5 modal-btn-icon"></i> Add</button>
+          <button type="button" class="btn btn-primary modal-btn waves-effect waves-button waves-light" (click)="AddPayemnts('')" style="margin-right:5px">
+              <i class="ti-check m-r-5 modal-btn-icon"></i> Add +
+          </button>
+     
+     
+      </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+      
+
+<div class="modal fade" id="ModelPartyId"  role="dialog" aria-labelledby="ModelPartyId" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 700px;">
+<div class="modal-content" style="width: 700px;">
+<div class="modal-header">
+  <h5 class="modal-title" id="ModelPartyId">Add Party</h5>
+  <p *ngIf="showError" class="invalid-data"><font color="red">{{errormsg}}</font></p>
+  <button type="button"  id="btnCloseAddItem" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+  </button>
+  
+  
+</div>
+
+
+
+
+
+<div class="row" >
+<div class="col-md-12">
+
+<SaveParty
+
+[PartyType]="PartyType"
+(PartySaved)="PartySaved($event)"
+></SaveParty>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+<div class="modal fade" id="DetailsId11" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog"  role="document" style="max-width: 950px;">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Sales Invoice Preview</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+
+<DIV class="row">
+    <div class="col-md-4">
+        <div class="modal fade" id="SearchModel" tabindex="-1" role="dialog" aria-labelledby="SearchModelTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="SearchModelTitle">Search</h5>
+                        
+                            <button type="button"  id="btnCloseDetailsItems" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="col-md-12">
+                    
+                                       <div class="card">
+                    <div class="card-header">Search</div>
+                    <div class="card-body">
+
+                       
+                                <div class="custom-control custom-switch" style="float:left">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="FilterTypeChange($event)">
+                                        <label class="custom-control-label" for="customSwitch">All Data</label>
+                                    </div>
+
+                                   
+
+                                    <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="SerchTypeChange($event.target.checked)">
+                                            <label class="custom-control-label" for="customSwitch2_"> 
+                                                Like</label>
+                                        </div>
+                            
+
+                                     <div class="row  col-md-12">
+
+                                            <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                                    <i class="ti-alert m-r-10"></i>If Like Off Search with  '='
+                                                </div>
+                                     </div>
+                        
+
+                        <div class="input-group" *ngIf="FilterType=='All' && SerchType=='Like'">
+                            <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2"  data-dismiss="modal" >
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
+<div class="row col-md-12" *ngIf="FilterType=='Field' ">
+
+
+
+<label for="searchName">Type</label>
+<input type="text" class="form-control" id="searchName" formControlName="gsttype"  placeholder="Search GstType">
+
+
+
+<div class="col-md-12 " style="float: right;padding-right:unset">
+<button type="button" class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"  style="float: right;margin-top:10px "  data-dismiss="modal" >
+<i class="ti-search m-r-5"></i> Search
+</button>
+
+</div>
+</div>
+
+
+                    </div>
+                </div>
+
+
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                                
+
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</DIV>
+<div class="modal-body">
+<style>
+  table {
+    page-break-inside: avoid;
+    page-break-before: always;
+
+  }
+
+  tfoot {
+    display: table-footer-group
+  }
+
+  td {
+    height: auto;
+  }
+
+  thead {
+    display: table-header-group;
+   
+  }
+
+  
+</style>
+
+<script>
+
+  function loadImage() {
+    alert("Image is loaded");
+  }
+  loadImage();
+</script>
+
+
+
+
+<body >
+
+  
+  
+
+  <div id="PrintArea">
+    <main style="margin-left: 0px; margin-bottom: 0px;">
+      <div id="container">
+        <table style="width: 100%;  ">
+
+          <table cellpadding="5" id="myTable" cellspacing="0" width="100%" >
+
+            <thead id="header" name="header" class="header"   width="100%" style="display: table-header-group !important;
+            ">
+
+             <tr>
+<th width="100%" colspan="10" style="border-bottom: 1px solid black;border-top: 1px solid black;border-left: 1px solid black;
+border-right: 1px solid black;">
+
+  <table  width="100%">
+    <tr >
+      <th  width="50%" style="text-align: left; vertical-align: top; padding: 0px; border:1px solid black; ">
+        <!-- <img src='./assets/media/image/LatestLogoMechknow.png' style="width: 270px; height: 50px;"> -->
+<label style="width: 270px; height: 50px;">Mechknow</label>
+        <p style="font-family: auto;font-size: 16px; padding-top:0px; margin:0px !important"> {{CompanyName}}
+        </p>
+        <p style="margin: 0px !important;font-family:Arial, Helvetica, sans-serif;font-size: 11px; font-weight: 100; 
+          padding-top:0px; ">
+          6-2-103/119, SHIRIDI SAI BABA COLONY, OPP, SHOBANA COLONY, BALANAGAR , HYDERABAD, MEDCHAL - MALKAJGIRI, TELANGANA-500042
+          
+        
+        </p>
+
+        <p
+          style="margin: 0px !important;font-family:Arial, Helvetica, sans-serif;font-size: 11px !important; font-weight: 200;height:15px;">
+          <strong>GST NO : {{CompanyGSTNo}}</strong>
+        </p>
+
+      </th>
+
+      <th  width="50%"style="text-align: left; border:1px solid black; vertical-align: top; : 0px;
+       border-right: 1px solid black;">
+        <p style=" margin: 0px !important;   font-family: -webkit-pictograph italic;font-size: 40px;text-align: center  ; 
+      font-style: italic;font-weight: 800; margin-top: 0px !important;margin-bottom: 0px !important;    ">
+          Sales Invoice</p>
+
+
+        <table width="100%" style=" margin: 0px !important;font-family:Arial, Helvetica, sans-serif;font-size: 11px !important;
+           font-weight: 200; table-layout: fixed; ">
+          <tr>
+            <td width="50%"> Invoice No : {{f.TransactionNo.value}}</td>
+            <td width="50%"> Invoice Date : {{TransactionDate}}</td>
+            <!-- <td width="50%"> Invoice Date : {{TransactionDate|date:'mediumDate'}}</td> -->
+          </tr>
+          <tr>
+            <td width="50%"> Order No : {{f.CustomerRefNo.value}}</td>
+            <!-- <td width="50%"> Order Date : {{TransactionDate|date:'mediumDate'}} </td> -->
+            <td width="50%"> Order Date : {{TransactionDate}} </td>
+          </tr>
+          <tr>
+            <td width="50%"> Product reference : {{f.ProductReference.value}}</td>
+            
+          </tr>
+          <tr>
+            <td width="50%" *ngIf="f.TransportMode.value=='Courier'"> Mode of Transport : {{f.TransportMode.value}} </td>
+            <td width="50%" *ngIf="f.TransportMode.value=='Vehicle'"> Mode of Transport : {{f.TransportMode.value}} </td>
+            <td width="50%" *ngIf="f.TransportMode.value=='Transport'"> Mode of Transport : {{f.TransportMode.value}} </td>
+            <td width="50%" *ngIf="f.TransportMode.value=='Person'"> Mode of Transport : {{f.TransportMode.value}} </td>
+            <td width="50%"> Date of Supply : {{f.TransportDate.value|date:'mediumDate'}}</td>
+          </tr>
+          <tr>
+            <td width="50%">
+              <div *ngIf="f.VehicleNo.value!=''  &&   f.TransportMode.value=='Courier'"> Name : {{f.VehicleNo.value}}</div>
+              <div *ngIf="f.VehicleNo.value!=''  &&   f.TransportMode.value=='Vehicle'"> VehicleNo : {{f.VehicleNo.value}}</div>
+              <div *ngIf="f.VehicleNo.value!=''  &&   f.TransportMode.value=='Transport'"> Transport: {{f.VehicleNo.value}}</div>
+              <div *ngIf="f.VehicleNo.value!=''  &&   f.TransportMode.value=='Person'"> Name: {{f.PersonName.value}}</div>
+            </td>
+            <td width="50%">
+              <div *ngIf="f.TransportMode.value=='Vehicle'">Driver Name : {{f.DriverName.value}}</div>
+              <div *ngIf="f.TransportMode.value=='Courier'">Tracking No : {{f.TrackingNo.value}}</div>
+              <div *ngIf="f.TransportMode.value=='Transport'">Tracking No : {{f.TrackingNo.value}}</div>
+              <div *ngIf="f.TransportMode.value=='Person'">Phone No : {{f.PhoneNo.value}}</div>
+             
+            </td>
+          </tr>
+        </table>
+
+
+      </th>
+
+    </tr>
+
+    <tr style=" height:110px !important;">
+      <th  width="50%" style="width: 50%;text-align: left; font-family:Arial, Helvetica, sans-serif;font-size: 11px !important;
+                     padding: 0px;   border: 1px solid black;;vertical-align: top;">
+        <p style="margin: 0px !important; padding-bottom:  5px  ; "> Buyer Details:</p>
+        <p style="margin: 0px !important;font-weight: 150;"> <b>{{f.PartyName.value}} </b></p>
+        <p style="margin: 0px !important;font-weight: 100;"> {{f.Billto.value}} </p>
+       
+
+        <p style="margin: 0px !important; font-weight: 100;   "> State : {{BillToStateName}} <span
+            style="word-break: break-all;">State Code : {{BillToStateCode}}</span></p>
+        <p style="margin: 0px !important;font-weight: 150; padding-top:2px;  "> <b>GSTNo : {{PartyGSTNo}} </b>
+        </p>
+      </th>
+      <th  width="50%" style=" font-family:Arial, Helvetica, sans-serif;font-size: 11px !important; 
+             text-align: left; vertical-align: text-top; border: 1px solid black; padding-left: 5px!important;">
+
+        <p style="margin: 0px !important;padding-bottom:  5px  ; "> Ship Details: </p>
+        <p style="margin: 0px !important;font-weight: 100;"> <b>{{f.PartyName.value}} </b></p>
+        <p style="margin: 0px !important;font-weight: 100;"> {{f.ShiptoAddress.value}} </p>
+     
+       
+        <p style="margin: 0px !important;height: 10px; font-weight: 150; padding-bottom:0px;  "> State :
+          {{BillToStateName}}
+          <span style="word-break: break-all;">State Code : {{BillToStateCode}}</span>
+        </p>
+
+      </th>
+    </tr>
+  </table>
+</th>
+
+             </tr>
+
+              <tr style="font-family:Arial, Helvetica, sans-serif;font-size: 11px !important;">
+
+
+                <th style="border-right: 1px solid black; border-left: 1px solid black; border-top: 1px solid black;border-bottom: 1px solid black;
+                   text-align: center !important ; width:5%;">
+                  S.No</th>
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center !important;width:9%;">
+                  Part No</th>
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center !important ;width:32%;">
+                  Description</th>
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center !important;width:7%;">
+                  HSN</th>
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center  !important;width:4%;">
+                  Qty</th>
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black; text-align: center !important; width:6%; ">
+                  Price/Unit</th>
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center !important ;width:7%;">
+                  Disc %</th>
+                <th *ngIf="CompanyStateCode==BillToStateCode"
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center  !important;width:8%;">
+                  CSGT %</th>
+               
+                <th
+                  style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;text-align: center !important ;width:8%;">
+                  <div *ngIf="CompanyStateCode==BillToStateCode">SGST %</div>
+
+                  <div *ngIf="CompanyStateCode!=BillToStateCode">IGST %</div>
+
+
+                </th>
+               
+
+                <th style="border-top: 1px solid black;border-bottom: 1px solid black;width:7%;
+                  text-align: center  !important; border-right: 1px solid black;">
+                  Total</th>
+
+
+              </tr>
+
+
+            </thead>
+
+            <tbody id="body" name="body" style="font-family:Arial, Helvetica, sans-serif;font-size: 11px !important;
+             border-bottom: 1px solid black; min-height: 500px ;height: auto; ">
+
+              <tr  *ngFor="let d of lstSalesInvoiceItems ;let ind=index " style="border-bottom:1px !important; ">
+
+
+
+                <td style=" border-right: 1px solid black;border-left: 1px solid black;text-align: center; text-align: center;padding-bottom: 0px;">
+
+                 
+                  <div *ngIf="d.Partno==' '" style="color:#f1f3fa"> {{d.SNO}}</div>
+                  <div *ngIf="d.Partno!=' '"> {{d.SNO}}</div>
+             
+                </td>
+              
+                <td style="border-right: 1px solid black;padding-bottom: 0px;">
+                  <div *ngIf="d.Partno==' '" style="color: white;"> {{d.Partno}} </div>
+                  <div *ngIf="d.Partno!=' '"> {{d.Partno}} </div>
+                </td>
+                <td style="border-right: 1px solid black;padding-bottom: 0px;">{{d.Description}}<br>{{d.Note}} </td>
+                <td style="border-right: 1px solid black;padding-bottom: 0px;">{{d.HSN}}</td>
+                <td style="border-right: 1px solid black;padding-bottom: 0px;text-align: center;">
+                  <div *ngIf="d.Qty==''">
+                    {{d.Qty}}
+                  </div>
+
+                  <div *ngIf="d.Qty!=''">
+                    {{(+d.Qty).toFixed(1)}}
+                  </div>
+                </td>
+                <td style="border-right: 1px solid black;text-align: right;padding-bottom: 0px;">
+                  <div *ngIf="d.Rate!=''">
+                    {{(+d.Rate).toFixed(2)}}
+                  </div>
+
+                  <div *ngIf="d.Rate==''">
+                    {{d.Rate}}
+                  </div>
+                </td>
+                <td style="border-right: 1px solid black;text-align: right;padding-bottom: 0px;">
+                  <div *ngIf="d.Discount!=''">
+                    {{(+d.Discount).toFixed(2)}}
+                  </div>
+
+                  <div *ngIf="d.Discount==''">
+                    {{d.Discount}}
+                  </div>
+
+                </td>
+                <td *ngIf="CompanyStateCode==BillToStateCode"
+                  style="border-right: 1px solid black;text-align: right;padding-bottom: 0px;">
+                  <div *ngIf="d.CGST!=''">
+                    {{(+d.CGST).toFixed(2)}}
+                  </div>
+
+                  <div *ngIf="d.CGST==''">
+                    {{(+d.CGST).toFixed(2)}}
+                  </div>
+
+                </td>
+                
+                <td style="border-right: 1px solid black;text-align: right;padding-bottom: 0px;">
+
+                  <div *ngIf="CompanyStateCode==BillToStateCode">
+                    <div *ngIf="d.SGST!=''">
+                      {{(+d.SGST).toFixed(2)}}
+                    </div>
+
+                    <div *ngIf="d.SGST==''">
+                      {{(+d.CGST).toFixed(2)}}
+                    </div>
+                  </div>
+
+
+                  <div *ngIf="CompanyStateCode!=BillToStateCode">
+                    <div *ngIf="d.IGST!=''">
+                      {{(+d.IGST).toFixed(2)}}
+                    </div>
+
+                    <div *ngIf="d.IGST==''">
+                      {{(+d.CGST).toFixed(2)}}
+                    </div>
+                  </div>
+
+                </td>
+               
+                <td style="text-align: right;padding-bottom: 0px; border-right: 1px solid black;">
+                  <div *ngIf="d.NetTotal!=''">
+                    {{(+d.NetTotal).toFixed(2)}}
+                  </div>
+
+                  <div *ngIf="d.NetTotal=='' ">
+                    {{d.NetTotal}}
+                  </div>
+
+                </td>
+
+              </tr>
+
+            
+            </tbody>
+          </table>
+
+
+
+        </table>
+
+
+        <br>
+
+      </div>
+    </main>
+  </div>
+ 
+
+</body>
+</div>
+
+</div>
+</div>
+</div>
+
+</form>
+
+ <div class="modal-footer" >
+
+    <table #TABLE #table 
+    hidden>
+       <thead >
+           <tr role="row">
+               <th>#</th>
+               <th>Part no</th>
+               <th>Description</th>
+               <th>Make</th>
+               <th>UOM</th>
+               <th>Qty</th>
+               <th>Rate</th>
+               <th>Gross</th>
+               <th>Discount</th>
+               <th>GST</th>
+               <th>Net</th>
+              
+           </tr>
+       </thead>
+      <tbody>
+         <tr *ngFor="let  g of lstSalesInvoiceItems" >
+             <td >{{g.SNO}}</td>
+             <td >{{g.Partno}}</td>
+             <td >{{g.Description}} </td>
+             <td >{{g.Make}}</td>
+             <td >{{g.UOM}}</td>
+             <td >{{g.Qty}}</td>
+             <td >{{g.Rate}}</td>
+             <td >{{g.Gross}}</td>
+             <td >{{g.DiscountAmount}}</td>
+             <td >{{g.TotalTax}}</td>
+             <td >{{g.NetTotal}}</td>    
+     </tr>
+     </tbody>
+    </table> 
+    </div>   
+
+ <div  class="container" #PDFTable >
+ 
+    <table class="table" hidden>
+ 
+        <tr role="row">
+          <th style="width:5% ;font-size: 13px;">#</th>
+         <th   style="width:5% ;font-size: 13px;" > Part no</th>
+         <th  style="width:5% ;font-size: 13px;" > Description</th>
+         <th  style="width:5% ;font-size: 13px;">Make</th>
+         <th  style="width:5% ;font-size: 13px;" >UOM</th>
+         <th   style="width:5% ;font-size: 13px;">Qty</th>
+         <th  style="width:5% ;font-size: 13px;" >Rate</th>
+         <th  style="width:5% ;font-size: 13px;" >Gross</th>
+         <th   style="width:5% ;font-size: 13px;">Discount</th>
+         <th  style="width:5% ;font-size: 13px;" >GST</th>
+         <th   style="width:5% ;font-size: 13px;" > Net</th>
+     
+        </tr>
+  
+          <tr *ngFor="let  f of lstPdfDocument">
+              <td  style="width:5% ;font-size: 13px;">{{f.SNO}}</td>
+              <td  style="width:5% ;font-size: 13px;">{{f.Partno}}</td>
+              <td style="width:5% ;font-size: 13px;" >{{f.Description}} </td>
+              <td  style="width:5% ;font-size: 13px;">{{f.Make}}</td>
+              <td  style="width:5% ;font-size: 13px;">{{f.UOM}}</td>
+              <td  style="width:5% ;font-size: 13px;">{{f.Qty}}</td>
+              <td  style="width:5% ;font-size: 13px;">{{f.Rate}}</td>
+              <td style="width:5% ;font-size: 13px;" >{{f.Gross}}</td>
+              <td  style="width:5% ;font-size: 13px;">{{f.DiscountAmount}}</td>
+              <td  style="width:5% ;font-size: 13px;">{{f.TotalTax}}</td>
+              <td  style="width:5% ;font-size: 13px;">{{f.NetTotal}}</td> 
+        </tr>
+    
+    </table>
+
+  </div>  
+</main>

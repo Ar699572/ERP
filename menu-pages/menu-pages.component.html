@@ -1,0 +1,274 @@
+<main class="main-content" style="min-height: 3000px;" id="divMain" >
+<form>
+    <div class="row row-sm">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    Sales Channels 
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#" class="js-card-refresh link-1">
+                                <i class="fa fa-refresh"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <div class="dropdown">
+                                <a href="#" class="link-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="#" class="dropdown-item">Action</a>
+                                    <a href="#" class="dropdown-item">Another action</a>
+                                    <a href="#" class="dropdown-item">Something else here</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="m-b-30 text-center">
+                        <div class="position-relative">
+                            <div id="circle-1" class="circle"><canvas width="110" height="110"></canvas></div>
+                            <div class="position-absolute a-0 d-flex flex-column align-items-center justify-content-center">
+                                <h3 class="m-b-0">65%</h3>
+                                <span class="font-size-11 text-uppercase">Average</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h6>Google</h6>
+                        <div class="d-flex align-items-center">
+                            <div class="progress flex-grow-1" style="height: 5px">
+                                <div class="progress-bar bg-google" role="progressbar" style="width: 42%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="small m-l-10">42%</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h6>Instagram</h6>
+                        <div class="d-flex align-items-center">
+                            <div class="progress flex-grow-1" style="height: 5px">
+                                <div class="progress-bar bg-instagram" role="progressbar" style="width: 34%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="small m-l-10">34%</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h6>Whatsapp</h6>
+                        <div class="d-flex align-items-center">
+                            <div class="progress flex-grow-1" style="height: 5px">
+                                <div class="progress-bar bg-whatsapp" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="small m-l-10">60%</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h6>Facebook</h6>
+                        <div class="d-flex align-items-center">
+                            <div class="progress flex-grow-1" style="height: 5px">
+                                <div class="progress-bar bg-facebook" role="progressbar" style="width: 20%;" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="small m-l-10">20%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">Purchase Status</div>
+                <div class="card-body"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+                    <div class="m-b-20 d-flex justify-content-between align-items-center">
+                        <ul class="list-inline m-l-5">
+                            <li class="list-inline-item text-uppercase font-size-11">
+                                <i class="fa fa-circle text-success m-r-5"></i> Success
+                            </li>
+                            <li class="list-inline-item text-uppercase font-size-11">
+                                <i class="fa fa-circle text-danger m-r-5"></i> Return
+                            </li>
+                        </ul>
+                        <div class="reportrange btn btn-outline-light waves-effect waves-button waves-light">
+                            <i class="ti-calendar m-r-10"></i>
+                            <span>January 23, 2020 - February 21, 2020</span>
+                            <i class="ti-angle-down m-l-10"></i>
+                        </div>
+                    </div>
+                    <canvas id="chart_demo_3" height="330" width="786" style="display: block; width: 786px; height: 330px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row row-sm" id="divSearchMenu"  >
+        <div class="col-lg-12">
+            <div  class="col-md-9" style="padding-left: 0px;">
+            <h4 style="float: left;">{{MenuName}}</h4>
+            
+        </div>
+     
+        <div  class="col-md-3" style="float: right;padding-right: 0px;" >
+        <div class="input-group">
+        <input aria-describedby="btnSearch" aria-label="Recipient's username" class="form-control" id="txtSearchMenu"
+         placeholder="Search ..." type="text" style="background: #f0f0f0;">
+         <div  class="input-group-append">
+             <button  class="btn btn-light waves-effect waves-button waves-light" id="btnSearch" type="button">
+                 <i  class="fa fa-search" style="font-size: 14px;
+                 color: #323639;"></i>
+                 </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    
+    <div class="row row-sm"  *ngFor="let item1 of GetSubMenu(MenuName)" >
+
+        <!-- *ngIf="item1.MenuName==MenuName" -->
+        <div class="col-md-12 col-lg-12 col-lg-6 col-sm-12" >
+            <h5>{{item1.SubMenuName}}</h5>      
+            
+        </div>
+       
+        <div class="col-xl-2 col-lg-6 col-lg-6 col-sm-12"  *ngFor = "let item2 of GetFormList(item1.SubMenuName,item1.MenuName)"   >
+            <!-- *ngIf="item1.SubMenuName==item2.SubMenuName && item1.MenuName==MenuName && item2.MenuName==MenuName   "  -->
+        
+            <div class="card" >
+                <div class="card-body" (click)="MenuClick(item2)" >
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-uppercase font-size-11 m-b-15">{{item2.Title}}</h6>
+                            <h4 class="m-b-0">
+                                0.32%
+                                <small data-toggle="tooltip" title="" class="text-success font-size-11" data-original-title="Than last week">
+                                    1.2%
+                                    <i class="ti-arrow-up"></i>
+                                </small>
+                            </h4>
+                        </div>
+                        <div>
+                            <div class="sparkline-demo1">
+                                <i class={{item1.SubMenuImageURL}} style="background: #f6b801;
+                                font-size: 31px;
+                                color: white;
+                                padding: 12px 11px;
+                                border-radius: 50%;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <!-- <div class="col-xl-2 col-lg-6 col-lg-6 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-uppercase font-size-11 m-b-15">Unique Purchases</h6>
+                            <h4 class="m-b-0">
+                                3,137
+                                <small data-toggle="tooltip" title="" class="text-danger font-size-11" data-original-title="Than last week">
+                                    0.2%
+                                    <i class="ti-arrow-down"></i>
+                                </small>
+                            </h4>
+                        </div>
+                        <div>
+                            <div class="sparkline-demo2"><canvas width="93" height="40" style="display: inline-block; width: 93px; height: 40px; vertical-align: top;"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-2 col-lg-6 col-lg-6 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-uppercase font-size-11 m-b-15">Avg. Order Value</h6>
+                            <h4 class="m-b-0">
+                                $306.20
+                                <small data-toggle="tooltip" title="" class="text-danger font-size-11" data-original-title="Than last week">
+                                    2.1%
+                                    <i class="ti-arrow-down"></i>
+                                </small>
+                            </h4>
+                        </div>
+                        <div>
+                            <div class="sparkline-demo3"><canvas width="93" height="40" style="display: inline-block; width: 93px; height: 40px; vertical-align: top;"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-2 col-lg-6 col-lg-6 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-uppercase font-size-11 m-b-15">Order Quantity</h6>
+                            <h4 class="m-b-0">
+                                1,650
+                                <small data-toggle="tooltip" title="" class="text-success font-size-11" data-original-title="Than last week">
+                                    1.2%
+                                    <i class="ti-arrow-up"></i>
+                                </small>
+                            </h4>
+                        </div>
+                        <div>
+                            <div class="sparkline-demo4"><canvas width="93" height="40" style="display: inline-block; width: 93px; height: 40px; vertical-align: top;"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-2 col-lg-6 col-lg-6 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-uppercase font-size-11 m-b-15">Order Quantity</h6>
+                            <h4 class="m-b-0">
+                                1,650
+                                <small data-toggle="tooltip" title="" class="text-success font-size-11" data-original-title="Than last week">
+                                    1.2%
+                                    <i class="ti-arrow-up"></i>
+                                </small>
+                            </h4>
+                        </div>
+                        <div>
+                            <div class="sparkline-demo4"><canvas width="93" height="40" style="display: inline-block; width: 93px; height: 40px; vertical-align: top;"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-2 col-lg-6 col-lg-6 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-uppercase font-size-11 m-b-15">Order Quantity</h6>
+                            <h4 class="m-b-0">
+                                1,650
+                                <small data-toggle="tooltip" title="" class="text-success font-size-11" data-original-title="Than last week">
+                                    1.2%
+                                    <i class="ti-arrow-up"></i>
+                                </small>
+                            </h4>
+                        </div>
+                        <div>
+                            <div class="sparkline-demo4"><canvas width="93" height="40" style="display: inline-block; width: 93px; height: 40px; vertical-align: top;"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+</form>
+
+</main>

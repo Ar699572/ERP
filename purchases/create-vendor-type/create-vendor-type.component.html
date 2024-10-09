@@ -1,0 +1,133 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton">
+
+        <!-- <a class="actionbutton" (click)="Search()" href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-search side-icons" style="
+          font-size: 40px;
+          margin-top: 12px;
+      "></i>
+        </a>
+
+        <a class="actionbutton" (click)="ClearViewData()" href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-file-text-o side-icons" style="
+            font-size: 40px; 
+            margin-top: 12px;
+        "></i>
+        </a>
+
+
+        <a class="actionbutton" (click)="OnSave()" href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-floppy-o side-icons" style="
+              font-size: 40px; 
+              margin-top: 12px;
+          "></i>
+        </a>
+
+
+        <a class="actionbutton" (click)="OnDelete()" href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-trash-o side-icons" style="
+              font-size: 40px;
+              margin-top: 12px;
+          "></i>
+        </a> -->
+
+
+    </div>
+
+    <!-- buttons code ends  -->
+
+    <form [formGroup]="CreateVendor">
+        <div class="container pl-0">
+        
+            <!-- begin::page header -->
+            <!-- <div class="page-header">
+                <h3>Create/ Modify VendorType</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">COMMON</a></li>
+
+                        <li class="breadcrumb-item active" aria-current="page">CREATE VendorType </li>
+                    </ol>
+                </nav>
+            </div> -->
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>Create/ Modify VendorType</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">COMMON</a></li>
+
+                        <li class="breadcrumb-item active" aria-current="page">CREATE VendorType </li>
+                    </ol>
+                </nav>
+                    </div>
+                    <div class="col-md-9" style="padding-right: 0px;">
+                        <div class="row">
+                            <div class="col-md-12 text-right m-top-bot-auto" style="padding-right: 0px;">
+                                <button class="btn btn-warning" (click)="Search()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-bars" style="margin-top: -2px;margin-right: 9px;"></i> Overview</button>
+                                <button class="btn btn-warning" (click)="ClearViewData()"  style="margin-right: 10px;background: #fcb400; border: 1px solid #fcb400 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i> Clear</button>
+                                <button class="btn btn-warning" (click)="OnSave()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i> Save</button>
+                                <button  class="btn btn-danger " (click)="OnDelete()" style="margin-right: 34px;"><i  class="fa fa-trash" style="margin-top: -2px;margin-right: 9px;"></i> Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page header ends -->
+
+
+
+            <div class="row row-sm">
+                <div class="col-md-8">
+
+                    <div class="card">
+                        <div class="card-header">Overview</div>
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <!-- <div class="mb-2"> -->
+                                    <label for="typename">Vendor Type </label></div>
+                                    <div class="col-md-6">
+                                    <input type="text" class="form-control" formControlName="typename"
+                                       id="typename" placeholder="Enter Vendor Type"   autocomplete="off" >
+
+                                        
+                                    <span style="color:red" *ngIf=" f.typename.invalid && submitted ">
+                                        <small class="text-danger"><b>Enter field Required  </b></small></span>
+
+                                    </div>
+                                <!-- </div> -->
+                            </div><br>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <!-- <div class="mb-3"> -->
+                                    <label for="notes">Description</label></div>
+                                    <div class="col-md-6">
+                                    <textarea class="form-control" id="notes" maxlength="225" rows="5"
+                                        placeholder="Comments" formControlName="notes"></textarea>
+                                    </div>
+                                <!-- </div> -->
+
+
+                                <!-- </div> -->
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+     </form>
+</main>

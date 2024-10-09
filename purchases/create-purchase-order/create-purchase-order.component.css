@@ -1,0 +1,36 @@
+.arrow-pointer2 {
+    width: auto;
+    height: 36px;
+    background: #525252;
+    position: relative;
+    display: inline-block;
+    margin-left: 3px;
+    text-align: center;
+    color: white;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.arrow-pointer2:before {
+    content: '';
+    position: absolute;
+    right: -19px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 19px solid #525252;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+}
+
+.arrow-pointer2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 19px solid #ffffff;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+}

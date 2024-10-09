@@ -1,0 +1,134 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton" >
+
+
+
+    <!-- <a class="actionbutton"
+    id="btnSearch"
+    data-toggle="modal"   data-target="#SearchModel"  data-backdrop="static" data-keyboard="false" 
+    href="javascript:void(0)" >
+          <i class="fa fa-search side-icons
+      "></i>
+      </a> -->
+
+  
+  
+    </div>
+    <form  >
+    <div class="container pl-0">
+
+
+
+        
+        <!-- begin::page header -->
+        <!-- <div class="page-header">
+            <h3>SALES REPORT</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Sales</li>
+                    <li class="breadcrumb-item">Reports</li>
+                    <li class="breadcrumb-item active" aria-current="page">Sales Reports</li>
+                </ol>
+            </nav>
+        </div> -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col-md-9">
+                    <h3>SALES REPORT</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Sales</li>
+                    <li class="breadcrumb-item">Reports</li>
+                    <li class="breadcrumb-item active" aria-current="page">Sales Reports</li>
+                </ol>
+            </nav>
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <!-- <div class="col-md-8 text-right m-top-bot-auto" style="padding-right: 0px;"> -->
+                        <!-- <div class="col-md-3" style="float:right;"> -->
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-warning waves-effect waves-button waves-light" type="button" id="button-addon2"  data-dismiss="modal" (click)="SearchClick()">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- end::page header -->
+
+        <div class="row row-sm">
+
+            <div class="col-md-12">
+               
+                
+                <div class="card">
+                    <div class="card-body">
+                        
+                        <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                            <thead >
+                            <tr>
+                                <th style="width: 4%;" >#</th>
+                                <th style="width: 12%;" >Date</th>
+                                <th style="width: 12%;">Voucher No</th>
+                               
+                                <th style="width: 22%;">Account Name</th>
+                               
+                               
+                                 
+                                
+                                 <th style="width: 13%;">Credit</th> 
+                                 <th style="width: 13%;">Balance</th> 
+                                 <th style="width: 16%;">Narration</th> 
+                                 
+                                 <th style="width: 8%;"></th> 
+                                
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let d of lstAccountLedger;"> 
+                             <td style="width: 4%;">{{d.SNO}}</td>
+                             <td style="width: 12%;"> {{d.Date1| date: 'dd/MM/yyyy'}}</td>
+                             <td style="width: 12%;">{{d.VoucherNo}}</td>
+                                
+                             <td style="width: 22%;">{{d.LedgerAccount}}</td>
+                           
+                             <td style="width: 13%;">{{d.CRAmount}}</td>
+                             <td style="width: 13%;">{{d.Total}}</td>
+                             <td style="width: 16%;">{{d.Narration}}</td>
+                             
+                               <td  style="width: 8%;">
+
+                               
+                                    <i style="float: right" class="ti-angle-right" (click)="GotoTransaction(d)"></i>  
+                                </td>
+                                   
+                            </tr>
+                            </tbody>
+                        </table>
+                       
+                    </div>
+                </div> 
+                
+        
+        
+        
+                
+            </div>
+
+        </div>
+
+    </div>
+
+
+   
+</form>
+
+</main>
+

@@ -1,0 +1,162 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton"
+                                       
+    >
+
+    <!-- <a class="actionbutton"  (click)="Search()"
+    href="javascript:void(0)" id="product_edit_submit">
+          <i class="fa fa-search side-icons" style="
+          font-size: 40px;
+          margin-top: 12px;
+      "></i>
+      </a>
+
+
+    <a class="actionbutton" (click)="ClearViewData()"
+    href="javascript:void(0)" id="product_edit_submit">
+          <i class="fa fa-file-text-o side-icons" style="
+          font-size: 40px; 
+          margin-top: 12px;
+      "></i>
+      </a>
+        <a class="actionbutton" (click)="OnSave()"
+      href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-floppy-o side-icons"  style="
+            font-size: 40px; 
+            margin-top: 12px;
+        "></i>
+        </a>
+
+        <a class="actionbutton" (click)="OnDelete()"
+        href="javascript:void(0)" id="product_edit_submit">
+              <i class="fa fa-trash-o side-icons" style="
+              font-size: 40px;
+              margin-top: 12px;
+          "></i>
+          </a> -->
+
+
+      
+
+
+       
+    </div>
+    <form  [formGroup]="overviewloginpage">
+      <div class="container pl-0">
+          <!-- begin::page header -->
+          <div class="page-header">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12 text-right m-top-bot-auto" style="padding-right: 0px;">
+                            <button class="btn btn-danger" (click)="Search()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-bars" style="margin-top: -2px;margin-right: 9px;"></i>Overview</button>
+                            <button class="btn btn-warning" (click)="ClearViewData()" style="margin-right: 10px;background: #fbc400  !important; border: 1px solid #fbc400  !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Clear</button>
+                            <button class="btn btn-warning" (click)="OnSave()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i>Save</button>
+                            <button class="btn btn-danger" (click)="OnDelete()" style="margin-right: 10px;background: #dc3545 !important; border: 1px solid #dc3545 !important;color: white;"><i class="fa fa-trash" style="margin-top: -2px;margin-right: 9px;"></i>Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end::page header -->
+        <div class="row row-sm">
+     <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Overview</div>
+            <div class="card-body">
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <div class="row">
+                  <div class="col-md-2 m-top-bot-auto">
+                    <label for="username">User Name</label></div>
+                    <div class="col-md-10" style="padding-right: 0px;">
+                    <input type="text" class="form-control mb-3" id="Username" formControlName="username" placeholder="Enter User Name"
+                    
+                    [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                    >
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required" style="color:red " >User Name Required</div>
+                    </div>
+                    </div>
+                    <div class="col-md-2 m-top-bot-auto">
+                    <label for="password">Password</label></div>
+                    <div class="col-md-10" style="padding-right: 0px;">
+                    <input type="text" class="form-control mb-3" id="password" formControlName="password" placeholder="Enter Password"
+                    
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                    >
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required" style="color:red " >Name Required</div>
+                    </div>
+                    </div>
+                    <div class="col-md-2 m-top-bot-auto">
+                    <label for="branchname">Branch</label></div>
+
+                    <div class="col-md-10" style="padding-right: 0px;">
+                    <select id="drpBranchTypes"  class="form-control js-example-basic-single" 
+                    >
+                  
+                  </select>
+                  <div *ngIf="submitted && f.branchname.errors" >
+                    <div *ngIf="f.branchname.errors.required " style="color:red " >Branch Required</div>
+                    <div *ngIf="f.branchname.errors.min" style="color:red " >Branch Required</div>
+                </div>
+                </div>
+                <div class="col-md-2 m-top-bot-auto">
+                    <label for="employee" style="margin-top:12px;">Employee</label></div>
+                    <div class="col-md-10" style="margin-top: 17px;">
+                    <select   class="form-control js-example-basic-single"  id="drpEmployeedetails"
+                    >
+                  
+                  </select>
+                  </div>
+                  <div class="col-md-2 m-top-bot-auto">
+                  <label for="userprofile" style="margin-top:12px;">User Profile</label></div>
+                  <div class="col-md-10" style="margin-top: 17px;">
+                  <select   class="form-control js-example-basic-single"  id="drpemployee"
+                  >
+                
+                </select>
+                </div>
+                <div class="col-md-2 m-top-bot-auto">
+                <label for="Block1" style="margin-top:12px;">Block</label></div>
+                <div class="col-md-10" style="margin-top: 17px;">
+                <select id="Block1" class="form-control" formControlName="Block1">
+                    <option value="Active">Active</option>
+                    <option value="Block">Block</option>
+                
+                  
+                  </select>
+                  </div>
+                  <div class="col-md-2 m-top-bot-auto">
+                  <label for="CashAccountId" style="margin-top:12px;">Cash Account</label></div>
+                  <div class="col-md-10" style="margin-top: 17px;">
+                    <select   class="js-example-basic-single"  id="drpDefultAccount"
+                    >
+                  
+                  </select>
+                </div>
+                <div class="col-md-2 m-top-bot-auto">
+                  <label for="UserType" style="margin-top:12px;">User Type</label></div>
+                  <div class="col-md-10" style="margin-top: 17px;">
+                  <select id="UserType" class="form-control" formControlName="UserType">
+                      <option value="Admin">Admin</option>
+                      <option value="User">User</option>
+ 
+                    </select>
+                    </div>
+                    </div>
+                    </div>
+                  <br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+                                                
+
+
+</div>
+</form>
+</main>

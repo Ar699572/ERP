@@ -1,0 +1,135 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton">       
+
+    </div>
+
+<div class="container-fluid">
+
+  
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-4">
+            <h3> GRN-Report</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">GRN</li>
+                    <li class="breadcrumb-item">Reports</li>
+                    <li class="breadcrumb-item active" aria-current="page">GRN-Report</li>
+                </ol>
+            </nav> 
+        </div>
+        <div class="col-md-8"></div>
+       
+    </div>
+</div>
+</div>
+    <!-- end::page header -->
+
+    <form [formGroup]="GRNReport">
+    <div class="col-md-12">
+       
+
+        <div class="card">
+            <div class="card-body">
+            
+                <h6 class="card-title">GRN-Report</h6>
+                <div class="row" [hidden]='IsRequestFromDashboard'>
+                    <div class="col-md-1" >
+                        FinancialYear
+                    </div>
+
+                    <div class="col-md-3" >
+                        <select class="js-select2" multiple="multiple"  >
+                            <option  value="{{e}}" *ngFor="let e of lstFinancialYear " >{{e}}</option>
+                        </select>
+                       
+                    </div>
+                    <div class="col-md-8"></div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-1">
+                        <label for="Vendor">Vendor </label>
+                    </div>
+                    <div class="col-md-3">
+                        <select    id="drpVendor" class="js-example-basic-single"    formControlName="VendorId"  >
+                       
+                       </select><br><br>
+                       <label style="color:red"
+                       *ngIf="f.VendorId.invalid || f.VendorId.value==0   && submitted" >
+                       <small >Select Vendor **</small></label >
+                    </div>
+                    <div class="col-md-1">
+                        <label for="FromDate">FromDate</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="date" class="mb-3 form-control"  name="single-date-picker" [min]="minDate"  [max]="maxdate"  formControlName="FromDate" id="FromDate" placeholder="Enter Date">
+                        <label style="color:red"
+                        *ngIf="f.FromDate.invalid   && submitted" >
+                        <small >Select FromDate **</small></label >
+                    </div>
+                    <div class="col-md-1">
+                        <label for="ToDate">ToDate</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="date" class="mb-3 form-control"  name="single-date-picker"  id="ToDate" [min]="minDate"  [max]="maxdate"  formControlName="ToDate"  placeholder="Enter Date">
+                        <label style="color:red"
+                        *ngIf="f.ToDate.invalid  && submitted" >
+                        <small >Select ToDate **</small></label>
+                        <label style="color:red"
+                        *ngIf="GRNReport.hasError('notValid')  && submitted"> 
+                        <small>End date Should Be greter than StartDate**</small></label>
+                    </div>
+                    <div class="col-md-2">
+                    <button  class="btn btn-warning float-right" style="margin-right:5px;" type="button" (click)="GetGrnReports()" >Go</button>
+                    </div>
+                </div>
+                <br>
+                <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                    <thead >
+                    <tr>
+                        <th style="width:6%;">S.NO</th>
+                        <th style="width:12%;">Date</th>
+                        <th style="width:15%;">VoucherNo</th>                 
+                       <th style="width:18%;">VendorName</th> 
+                       <!-- <th style="width:13%;">Ref No</th> -->
+                        <th style="width:13%;">Gross</th>
+                        <th style="width:13%;">Tax</th>
+                        <th style="width:13%;">Total</th>
+                       
+                       
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let d of lstGRN; let i=index"> 
+                     <td style="width:6%;" >{{i+1}}</td>
+                     <td style="width:12%;" >{{d.TransactionDate}}</td>
+                     <td style="width:15%;" >{{d.TransactionNo}}</td>
+                   
+                     <td style="width:18%;" >{{d.vendorname}}</td>
+                     <!-- <td style="width:13%;" >{{d.ReferNo}} </td> -->
+                     <td style="width:13%;" >{{d.TotalGross}}</td>
+                     <td style="width:13%;" >{{(+d.TotalTax).toFixed(2)}}</td>
+                     <td style="width:13%;" >{{d.Total}}</td>
+                      
+
+                    
+                    </tr>
+                    </tbody>
+                </table>
+               
+            </div>
+        </div> 
+
+
+
+        
+    </div>
+
+</form>
+</main>
+   
+
+
+   
+

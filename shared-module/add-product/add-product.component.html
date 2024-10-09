@@ -1,0 +1,122 @@
+<!-- <add-part
+[TransactionType]="TransactionType"
+[ItemDet]="DisplayItemDet"
+
+[Description]="Description"
+[MakeDet]="DispalayMakeDet"
+
+[UOMName]="UOMName"
+
+[Price]="Price"
+[TaxType]="TaxType"
+[ShowStockSelection]="ShowStockSelection"
+(ItemValueChange)="ItemValueChange($event)"
+(MakeValueChange)="MakeValueChange($event)"
+(PriceValueChange)="PriceValueChange($event)"
+></add-part> -->
+
+
+
+<div class="form-group">
+
+
+    <div class="card ">
+        <div class="card-body">
+    <div class="row" >
+
+        <div class="col-md-12">
+            <label for="drpParts">Part No</label>
+
+            <select id="drpParts"  class="js-example-basic-single"  name="drpParts"
+            > </select>
+            <label for="Description">Description</label>
+
+            <textarea  class="form-control" rows="2" cols="2" id="Description">
+            </textarea>
+
+
+            <label for="drpMake">Make</label>
+
+            <select id="drpMake"  class="js-example-basic-single"  name="drpMake"
+            > </select>
+         
+
+            <label for="UOM">UOM</label>
+
+            <input type="text" class="form-control" id="UOM"  placeholder="Enter UOM"
+                                                                                        
+          
+            >
+            <div class="row" >
+<div class="col-md-6">
+            <label for="Price">Price</label>
+
+            <input type="number" class="form-control" min="1" id="Price" (change)="PriceChange($event.target)" placeholder="Enter Price"
+                                                                                        
+          
+            >
+        </div>
+
+        <div class="col-md-6">
+            <label for="Price">Price(inclusive Tax)</label>
+
+            <input type="number" class="form-control" min="1" id="PriceInclusiveTax" (change)="InclusiveTaxPriceChange($event.target)" placeholder="Enter Price"
+                                                                                        
+          
+            >
+        </div>
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+<div class="card ">
+    <div class="card-body">
+
+
+
+    <div class="row" >
+
+        <div class="col-md-12">
+            <label >Stock Availability</label>  
+
+            
+
+            <div class="custom-control custom-switch" style="float:right"  *ngIf="_ShowStockSelection">
+                <input type="checkbox" class="custom-control-input" id="customSwitch5_" checked="" (change)="StockSelection($event.target)" >
+                <label class="custom-control-label" for="customSwitch5_">Auto select</label>
+            </div>
+
+            <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                <thead >
+                <tr>
+                    
+                    <th *ngIf="!chkStockSelection" style="text-align: center;width:15%">ck</th>
+                    <th style="text-align: center;width:30%">Location</th>
+                    <th style="text-align: center;width:30%">Bin</th>
+                    <th style="text-align: center;width:25%">Available</th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let d of lstStockInfo" > 
+                        <td   *ngIf="!chkStockSelection" style="text-align: center;width:15%"> <input type="checkbox"   ></td>
+                    <td style="text-align: center;width:30%">{{d.locationname}}</td>
+                    <td style="text-align: center;width:30%">{{d.binname}}</td>
+                    <td style="text-align: right;width:25%">{{d.AvailablePhysical}}</td>
+                   
+                    
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+</div>
+    
+</div>

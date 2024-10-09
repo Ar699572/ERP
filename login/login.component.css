@@ -1,0 +1,12 @@
+.custom-select:focus, .form-control:focus, .swal-modal input.swal-content__input:focus {
+    box-shadow: none !important;
+    border-color: #101920 !important;
+    border-radius: 0px !important;
+    background: none !important;
+}
+
+.form-control, .swal-modal input.swal-content__input {
+    height: calc(1.5em + 0.75rem + 3px) !important;
+    border-bottom: 1px solid #101920 !important;
+    border-radius: 0px !important;
+}

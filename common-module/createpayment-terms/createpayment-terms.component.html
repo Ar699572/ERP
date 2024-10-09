@@ -1,0 +1,282 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton">
+
+        </div>
+
+        <form [formGroup]="CreatePayments" style="overflow-y: hidden;"  onkeydown="return event.key != 'Enter';"> 
+            <div class="container-fluid d-print-none pl-0" style=" margin-left: 22px;">
+        
+              
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h3>Create/ Modify PAYMENTTerms</h3>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">COMMON</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">CREATE PAYMENTTerms </li>
+                        </ol>
+                    </nav>
+                        </div>
+                        <div class="col-md-9" style="padding-right: 0px;">
+                            <div class="row">
+                                <div class="col-md-12 text-right m-top-bot-auto" style="padding-right: 0px;">
+                                    <button class="btn btn-warning" (click)="Search()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-bars" style="margin-top: -2px;margin-right: 9px;"></i> Overview</button>
+                                    <button class="btn btn-warning" (click)="ClearViewData()"  style="margin-right: 10px;background: #fcb400; border: 1px solid #fcb400 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i> Clear</button>
+                                    <button class="btn btn-warning" (click)="OnSave()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-check" style="margin-top: -2px;margin-right: 9px;"></i> Save</button>
+                                    <button  class="btn btn-danger " (click)="OnDelete()" style="margin-right: 34px;"><i  class="fa fa-trash" style="margin-top: -2px;margin-right: 9px;"></i> Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              <!-- end::page header -->
+        
+              <div class="row row-sm">
+                  <div class="col-md-11">
+                      <div class="card">
+                          <div class="card-body">
+                              
+                            <div class="row">
+                                <div class="col-md-2">
+                              <div class=" form-inline"> 
+                                                           
+                                <label for="TemplatesName" style="margin-left: 15px;">Term Name  :</label>
+                              </div>
+                            </div>
+                              <div class="col-md-4">
+                                <input type="text" class="form-control" id="TermName" 
+                                formControlName='TermName' autocomplete="off" placeholder=" Enter Term Name" >
+                                    <label style="color:red;font-size: 12px;margin-top: -13px" *ngIf=" f.TermName.invalid && submit " >
+                                        Enter TermName**</label>
+                              </div>
+                                
+                             <div class="col-md-6"></div>
+                            </div><br><br>
+        
+                            
+                            <div class="row">
+                                <div class="col-md-2">
+                              <div class=" form-inline"> 
+                               
+                                <label for="Description" style="margin-left: 18px;text-align: center;">Description :</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                            
+                               <textarea class="form-control" id="Description" maxlength="225" rows="5" style="margin: left 28px;"
+                            placeholder="Enter Description" formControlName="Description" ></textarea>
+                            </div>
+                                <div class="col-md-6"></div>
+                             
+                            </div>
+                          </div>
+                      </div>
+        
+                      
+                  </div>
+                  <div class="col-md-1"></div>
+                  <div class="col-md-11">
+                      <div class="card">
+                          <div class="card-body pb-4">
+                              <div class="form-group">
+                                  <div class="container-fluid">
+                                      <div class="dataTables_scroll">
+                                          <div class="dataTables_scrollHead"
+                                              style="overflow: hidden; position: relative; border: 0px; width: 100%;">
+                                              <div class="dataTables_scrollHeadInner"
+                                                  style="box-sizing: content-box; width:100%; padding-right: 17px;">
+                                                  <div class="row">
+                                                    
+                                                      <div class="col-md-12">
+                                                        <label style="color:red;padding-top: 12px;font-size: 12px;padding-right: 64rem;"  *ngIf=" errromsge!='' && submit ">
+                                                            {{errromsge}}</label>
+                                                            <label style="color:red;padding-top: 12px;font-size: 12px;padding-right: 64rem;"  *ngIf="Validpercentage!='' ">
+                                                                {{Validpercentage}}</label>
+                                                          <button type="button" class="btn btn-warning btnadd" style="float: right;margin-bottom: 15px;"
+                                                              data-toggle="modal" data-target="#TermsDetails"  (click)="Clear()"
+                                                              ><span style="margin-right: 5px;"><i
+                                                                 class="fa fa-plus"></i></span>Add Term Details</button>
+                                                      </div><br>
+        
+                                                  </div>
+                                                  <table class="table table-striped table-bordered dataTable" role="grid"
+                                                      style="margin-left: 0px;width: 100%;margin-bottom: 0px;text-align: center;">
+                                                      <thead>
+                                                          <tr role="row">
+                                                              <th style="width:15%;text-align: center!important;">S.No</th>
+                                                              <th style="width:28%;text-align: center!important;">PayName</th>
+                                                              <th style="width:28%;text-align: center!important;">Pay%</th>
+                                                              <!-- <th style="width:10%;text-align: center!important;">Received %</th>
+                                                              <th style="width:16%;text-align: center!important;">Received Amt</th>
+                                                              <th style="width:16%;text-align: center!important;">Pending %</th>
+                                                              <th style="width:20%;text-align: center!important;">Pending Amt</th> -->
+                                                            
+                                                              <th style="width:28%;">Actions</th>
+                                                            
+                                                              
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                          <tr *ngFor="let  d  of  TermsDetailslist; let ind=index">
+                                                            <td style="width:15%;">{{ind+1}}</td>
+                                                            <td style="width:28%;">{{d.PayName}}</td>
+                                                            <td style="width:28%;">{{d.Paypercentage}}</td>
+                                                        
+                                                            <!-- <td style="width:10%;">{{d.ReceivedPerCentage}}</td>
+                                                            <th style="width:16%;text-align: center !important;">{{d.ReceivedAmt}}</th>
+                                                            <td style="width:16%;">{{d.PendingPercentage}}</td>
+                                                            <td style="width:20%;">{{d.PendingAmt}}</td> -->
+
+                                                            <td style="width:28%;" data-toggle="modal"   
+                                                            data-target="#TermsDetails"  data-backdrop="static" data-keyboard="false"   >
+                                                          
+                                                             
+
+                                                               <div class="dropdown">
+                                                                   <a href="#" data-toggle="dropdown"
+                                                                       aria-expanded="false"
+                                                                       class="btn btn-gray btn-floating btn-icon btn-sm waves-effect waves-button waves-light">
+                                                                       <i aria-hidden="true"
+                                                                           class="fa fa-ellipsis-v"
+                                                                           style="color: white !important;"></i>
+                                                                   </a>
+                                                                   <div x-placement="bottom-end"
+                                                                       class="dropdown-menu dropdown-menu-right"
+                                                                       style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 24px, 0px);">
+                                                                                     
+                                                                       <button type="button" data-target="#TermsDetails"  data-toggle="modal"  (click)="EditTerms(d,ind)"
+                                                                       class="dropdown-item font-size-15">Edit<i
+                                                                       class="fas fa-edit"
+                                                                           style="float: right;"
+                                                                           aria-hidden="true"></i></button>
+
+
+                                                                       <button type="button" (click)="DeleteTermDetails(ind)"
+                                                                           class="dropdown-item font-size-15">Delete<i
+                                                                               class="fa fa-trash"
+                                                                               style="float: right;"
+                                                                               aria-hidden="true"></i></button>
+                                                                   </div>
+                                                               </div>
+                                                           
+                                                           </td>
+                                                              
+        
+                                                          </tr>
+                                                      </tbody>
+                                                  </table>
+                                              </div>
+                                          </div>
+        
+        
+        
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+        
+        
+                  </div>
+                  <div class="col-md-1"></div>
+        
+        
+        
+        
+        
+        
+        
+              </div>
+        
+          </div>
+        
+          <!-- pop up menu start code -->
+        
+        
+          <div class="modal fade" id="TermsDetails" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog" role="document" style="max-width: 800px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="background: #face30;">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Terms Details</h5>
+                      
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" 
+                        id="btnClose" (click)="ClosePopup()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                       
+
+                    </div>
+                    <div class="modal-body">
+        
+        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="PayName" class="m-0" >PayName</label>
+                                <input type="text" class="form-control"  formControlName="PayName" autocomplete="off"
+                                id="PayName"  >
+                                <!-- <label style="color:red" *ngIf=" f.PayName.value=='' && submitted ">
+                                     Enter PayName **</label> -->
+                                 <label style="color:red;font-size: 12px;margin-top: -13px"  *ngIf=" f.PayName.value=='' && submitted ">
+                                    Enter PayName **</label>
+                                
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="Paypercentage" class="m-0">Pay %</label>
+                                <input type="number" class="form-control"  formControlName="Paypercentage"
+                                id="Paypercentage"   min="0" value="0" step="0.01" pattern="^\d+(?:\.\d{1,2})?$"   >
+
+                                    <label style="color:red;font-size: 12px;margin-top: -13px" *ngIf=" f.Paypercentage.invalid && submitted " >
+                                        Enter Percentage**</label>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <!-- <label for="ReceivedPerCentage" class="m-0">Received %</label>
+                                
+                                <input type="number" class="form-control"  formControlName="ReceivedPerCentage"
+                                id="ReceivedPerCentage"  >
+                                <span style="color:red" *ngIf=" f.ReceivedPerCentage.invalid  && submitted ">
+                                    <small class=""><b> Enter Percentage**</b></small></span> -->
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <!-- <label for="ReceivedAmt" class="m-0">Received Amt%</label>
+                                <input type="number" class="form-control"  formControlName="ReceivedAmt"
+                                    id="ReceivedAmt"  >
+                                    <span style="color:red" *ngIf=" f.ReceivedAmt.value==0 && submitted ">
+                                        <small class=""><b> Enter ReceivedAmount**</b></small></span> -->
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <!-- <label for="PendingPercentage" class="m-0">Pending %</label>
+                                <input type="number" class="form-control"  formControlName="PendingPercentage"
+                                id="PendingPercentage"  >
+                                <span style="color:red" *ngIf=" f.PendingPercentage.value==0 && submitted ">
+                                    <small class=""><b> Enter Percentage**</b></small></span>  -->
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <!-- <label for="PendingAmt" class="m-0">Pending Amt%</label>
+                                <input type="number" class="form-control"  formControlName="PendingAmt"
+                                    id="PendingAmt"  >
+                                    <span style="color:red" *ngIf=" f.PendingAmt.value==0 && submitted ">
+                                        <small class=""><b> Enter PendingAmount**</b></small></span> -->
+                            </div>
+                        </div>
+        
+        
+        
+                    </div>
+                    <div class="modal-footer">
+        
+                        <button type="button" class="btn btn-warning"    style="margin-top: 5px !important;"
+                        (click)="ClosePopup()">Close</button>
+
+                        <button type="button" class="btn btn-warning"    style="margin-top: 5px !important;"
+                            (click)="AddTermslist()">Add</button>
+                          
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form> 
+</main>

@@ -1,0 +1,134 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton">       
+
+    </div>
+
+<div class="container-fluid">
+
+  
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-4">
+            <h3> Sales-Invoice-Report</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Sales</li>
+                    <li class="breadcrumb-item">Reports</li>
+                    <li class="breadcrumb-item active" aria-current="page">Sales-Invoice-Report</li>
+                </ol>
+            </nav> 
+        </div>
+        <div class="col-md-8"></div>
+       
+    </div>
+</div>
+</div>
+    <!-- end::page header -->
+
+
+
+
+     
+    <form [formGroup]="SalesInvoiceReport">
+    <div class="col-md-12">
+       
+
+        <div class="card">
+            <div class="card-body">
+            
+                <h6 class="card-title">Sales-Invoice-Report</h6>
+                <div class="row" [hidden]='hiddensection'>
+                    <div class="col-md-1" >
+                        FinancialYear
+                    </div>
+
+                    <div class="col-md-3" >
+                        <select class="js-select2" multiple="multiple"  >
+                            <option  value="{{e}}" *ngFor="let e of lstFinancialYear " >{{e}}</option>
+                        </select>
+                        <!-- <button id="clear">clear</button> -->
+                    </div>
+                    <div class="col-md-8"></div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-1">
+                        <label for="customer">Customer </label>
+                    </div>
+                    <div class="col-md-3">
+                        <select    id="drpCustomer" class="js-example-basic-single"    formControlName="CustomerId"
+                         >
+                       </select><br><br>
+                       <label style="color:red"
+                       *ngIf="f.CustomerId.invalid || f.CustomerId.value==0   && submitted" >
+                       <small >Select Customer **</small></label >
+                    </div>
+                    <div class="col-md-1">
+                        <label for="FromDate">FromDate</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="date" class="mb-3 form-control"  name="single-date-picker" [min]="minDate"  [max]="maxdate" formControlName="FromDate" id="FromDate" placeholder="Enter Date">
+                        <label style="color:red"
+                        *ngIf="f.FromDate.invalid   && submitted" >
+                        <small >Select FromDate **</small></label >
+                    </div>
+                    <div class="col-md-1">
+                        <label for="ToDate">ToDate</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="date" class="mb-3 form-control"  name="single-date-picker"  [min]="minDate"  [max]="maxdate" id="ToDate" formControlName="ToDate"  placeholder="Enter Date">
+                        <label style="color:red"
+                        *ngIf="f.ToDate.invalid  && submitted" >
+                        <small >Select ToDate **</small></label>
+                        <label style="color:red"
+                        *ngIf="SalesInvoiceReport.hasError('notValid')  && submitted"> 
+                        <small>End date Should Be greter than StartDate**</small></label>
+                    </div>
+                    <div class="col-md-2">
+                    <button  class="btn btn-warning float-right" style="margin-right:5px;" type="button" (click)="GetCustomerInvoices()" >Go</button>
+                    </div>
+                </div>
+                <br>
+                <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                    <thead >
+                    <tr>
+                        <th style="width:6%;">S.NO</th>
+                        <th style="width:12%;">Date</th>
+                        <th style="width:12%;">VoucherNo</th>                 
+                       <th style="width:18%;">CustomerName</th> 
+                        <th style="width:13%;">Gross</th>
+                        <th style="width:13%;">Tax</th>
+                        <th style="width:13%;">Total</th>
+                        <th style="width:13%;">Ref No</th>
+                       
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let d of lstSalesInvoice; let i=index"> 
+                     <td style="width:6%;" >{{i+1}}</td>
+                     <td style="width:12%;" >{{d.TransactionDate}}</td>
+                     <td style="width:12%;" >{{d.TransactionNo}}</td>
+                   
+                     <td style="width:18%;" >{{d.PartyName}}</td>
+                     <td style="width:13%;" >{{d.TotalGross}}</td>
+                     <td style="width:13%;" >{{d.TotalTax}}</td>
+                     <td style="width:13%;" >{{d.Total}}</td>
+                      <td style="width:13%;" >{{d.ReferNo}} </td>
+
+                    
+                    </tr>
+                    </tbody>
+                </table>
+               
+            </div>
+        </div> 
+
+
+
+        
+    </div>
+
+</form>
+</main>
+   
+

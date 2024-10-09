@@ -1,0 +1,211 @@
+<main class="main-content">
+    
+    <div class="container">
+        <div class="page-header" style="
+        margin-bottom: -13px;">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Customer Central</h3>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">Sales</li>
+                            <li class="breadcrumb-item">Customer</li>
+                            <li class="breadcrumb-item active" aria-current="page">CUSTOMER CENTRAL</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-md-4 text-right" style="margin-top: auto;">
+                    <button class="btn btn-warning" (click)="back()">Back</button>
+                </div>
+
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-md-12">
+                <strong style="
+                font-family: bebas neue;
+                font-size: 21px;
+                padding-left: 9em;
+                padding-top: -28px !important;
+                padding-top: 66px;">Customer : {{CustomerName}}
+                </strong>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div id="myTabContent" class="tab-content">
+                    <div aria-labelledby="Details-tab" id="Details" role="tabpanel"
+                        class="tab-pane fade active show">
+                        <div class="">
+                            <div class="">
+                                <div class="form-group" style="margin-bottom: 0px;">
+                                    <div class="row">
+                                        <div class="col-md-12" style="margin-top: 15px;">
+                                            <ul id="myTab" role="tablist" class="nav nav-tabs">
+                                                <li class="nav-item"><a aria-controls="home" aria-selected="true"
+                                                        data-toggle="tab" id="maintenance-tab" role="tab"
+                                                        (click)='SalesQuotationTab()'
+                                                        class="nav-link active">Sales Quotation
+                                                    </a></li>
+                                                <li class="nav-item"><a aria-controls="vehicleMovement"
+                                                        aria-selected="true" data-toggle="tab"
+                                                        id="vehicleMovement-tab" role="tab"
+                                                        (click)="SalesOrderTab()" class="nav-link">Sales Order
+                                                    </a></li>
+                                                <li class="nav-item"><a aria-controls="vehicleMovement"
+                                                        aria-selected="true" data-toggle="tab"
+                                                        id="vehicleMovement-tab" role="tab"
+                                                        (click)="SalesInvoiceTab()" class="nav-link">Sales Invoice
+                                                        
+                                                    </a></li>
+                                                <li class="nav-item"><a aria-controls="vehicleMovement"
+                                                        aria-selected="true" data-toggle="tab"
+                                                        id="vehicleMovement-tab" role="tab" (click)="DcTab()"
+                                                        class="nav-link">Delivery Challan</a></li>
+                                                <li class="nav-item"><a aria-controls="inspection"
+                                                        aria-selected="false" data-toggle="tab" id="inspection-tab"
+                                                        role="tab" (click)="ProformaInvoiceTab()" class="nav-link">Proforma Invoice
+                                                    </a></li>
+                                                <li class="nav-item"><a aria-controls="expenses"
+                                                        aria-selected="false" data-toggle="tab" id="expenses-tab"
+                                                        role="tab" (click)="SalesReturnsTab()"
+                                                        class="nav-link">Sales  Returns</a></li>
+                                               
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div id="maintenance" class="tab-content">
+                                                <div aria-labelledby="Details-tab" id="Details" role="tabpanel"
+                                                    class="tab-pane fade active show">
+                                                    <div class="dataTables_scroll">
+                                                        <div class="dataTables_scrollHead"
+                                                            style="overflow: hidden; position: relative; border: 0px; width: 100%;">
+                                                            <div class="dataTables_scrollHeadInner"
+                                                                style="box-sizing: content-box; width:100%; padding-right: 17px;">
+                                                                <table
+                                                                    class="table table-striped table-bordered dataTable"
+                                                                    role="grid"
+                                                                    style="margin-left: 0px;width: 100%;margin-bottom: 0px;">
+                                                                    <thead>
+                                                                        <tr role="row">
+                                                                            <th
+                                                                                style="width: 5%;text-align: center !important;">
+                                                                                S.NO</th>
+                                                                            <th
+                                                                                style="width: 10%;text-align: center !important;">
+                                                                                Date</th>
+                                                                            <th
+                                                                                style="width: 13%;text-align: center !important;">
+                                                                                VCH No</th>
+                                                                            <th 
+                                                                                style="width: 13%;text-align: center !important;">
+                                                                                Customer Name</th>
+                                                                            <th
+                                                                                style="width: 13%;text-align: center !important;">
+                                                                                Gross</th>
+                                                                            <th
+                                                                                style="width: 13%;text-align: center !important;">
+                                                                                Tax</th>
+                                                                            <th
+                                                                                style="width: 13%;text-align: center !important;">
+                                                                                Total </th>
+                                                                            
+                                                                          
+                                                                           
+                                                                               <th
+                                                                                style="width: 13%;text-align: center !important;">
+                                                                                 Created By
+                                                                            </th>
+                                                                            <th
+                                                                                style="width: 7%;text-align: center !important;">
+                                                                                Actions</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf="lstCustomerDetails.length==0" style="   font-size: 20px;  text-align: center !important">
+                                                            <br>
+                                                            <p><strong>Result Not Found! ....</strong></p>
+                                                        </div>
+                                                         <div class="dataTables_scrollBody"
+                                                            style="position: relative; overflow: auto; max-height: 400px; width: 100%;display: inline !important;">
+                                                            <table id="example2"
+                                                                class="table table-striped table-bordered dataTable"
+                                                                role="grid" aria-describedby="example2_info"
+                                                                style="width: 100%;">
+                                                                <tbody>
+                                                                    <tr *ngFor="let d of lstCustomerDetails;let i=index">
+                                                                        <td
+                                                                            style="width: 5%;text-align: center !important;">
+                                                                            {{i+1}}</td>
+                                                                        <td
+                                                                            style="width: 10%;text-align: center !important;">
+                                                                            {{d.TransactionDate}}</td>
+                                                                        <td
+                                                                            style="width: 13%;text-align: center !important;">
+                                                                            {{d.TransactionNo}}</td>
+                                                                        <td  
+                                                                            style="width: 13%;text-align: center !important;">
+                                                                            {{d.PartyName}}</td>
+                                                                        <td
+                                                                            style="width: 13%;text-align: center !important;">
+                                                                            {{(+d.GrossAmount).toFixed(2)}}</td>
+                                                                        <td
+                                                                            style="width: 13%;text-align: center !important;">
+                                                                            {{(+d.TaxAmount).toFixed(2)}}</td>
+                                                                        <td
+                                                                            style="width: 13%;text-align: center !important;">
+                                                                            {{(+d.Total).toFixed(2)}}</td>
+                                                                        <td
+                                                                            style="width: 13%;text-align: center !important;">
+                                                                            {{d.ModifiedBy}}</td>
+                                                       
+                                                                        <td
+                                                                            style="width: 7%;text-align: center !important;">
+                                                                            <div class="dropdown">
+                                                                                <a href="#" data-toggle="dropdown"
+                                                                                    aria-expanded="false"
+                                                                                    class="btn btn-gray btn-floating btn-icon btn-sm waves-effect waves-button waves-light">
+                                                                                    <i aria-hidden="true"
+                                                                                        class="fa fa-ellipsis-v"
+                                                                                        style="color: white !important;"></i>
+                                                                                </a>
+                                                                                <div x-placement="bottom-end"
+                                                                                    class="dropdown-menu dropdown-menu-right"
+                                                                                    style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 24px, 0px);">
+                                                                                    <button type="button"
+                                                                                        class="dropdown-item font-size-15"
+                                                                                        (click)="EditDetails(d)">Edit<i
+                                                                                            class="fa fa-pencil"
+                                                                                            style="float: right;"
+                                                                                            aria-hidden="true"></i></button>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</main>

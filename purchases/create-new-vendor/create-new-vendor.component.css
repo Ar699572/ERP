@@ -1,0 +1,13 @@
+#tableOne{
+    width: 100%;
+    margin-bottom: 3rem;
+    margin-left: 12px;
+    margin-right: 12px;
+    color: #212529;
+}
+
+.nav-link :active {
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+}

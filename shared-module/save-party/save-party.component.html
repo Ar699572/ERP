@@ -1,0 +1,113 @@
+<!-- <SaveParty
+
+[PartyType]="PartyType"
+(PartySaved)="PartySaved($event)"[formGroup]="CreateParty"
+></SaveParty> -->
+
+<div >
+
+<form >
+
+    <div class="row row-sm">
+        <div class="col-md-12">
+            <div >
+                <div class="card-body">
+                    <div >
+
+                        <div class="tab-content" id="CustomerTabContent">
+                            <div class="tab-pane fade active show" id="Overview" role="tabpanel" aria-labelledby="Overview-tab">
+                                <div class="row row-sm" style="margin-top: 12px;">
+                                    <div class="col-md-12">
+
+                                        <div class="row">
+                                                <div class="col-md-12" style="margin-bottom: 1rem!important;">
+                                                    <label>GST No</label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id="GstNo" placeholder="Enter GST No">
+                                                        <div class="input-group-prepend"  (click)="GstSearch()" style="cursor: pointer;">
+                                                    <!-- <span class="input-group-text"  >
+                                                        <i class="ti-search"></i>
+                                                    </span> -->
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="col-md-6"></div> -->
+                                                <div class="mb-3"></div>
+                                                
+                                                <div class="col-md-6">
+                                                    <label>Customer Name</label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="mb-3 form-control" placeholder="Enter Customer Name">
+                                                  </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label>Company Name</label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="mb-3 form-control" placeholder="Enter Company Name">
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Country</label>
+                                                    <div >
+                                                        <select id="drpBranchCountry"  class="js-example-basic-single"></select>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>State</label>
+                                                    <div >
+                                                        <select   class="js-example-basic-single"  id="drpBranchState">
+                                                                           
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3"></div>
+
+                                                <div class="col-md-6">
+                                                    <label>City</label>
+                                                    <div >
+                                                        <select   class="js-example-basic-single"  
+                                                                             id="drpBranchCity" >
+                                                                            
+                                                                            </select>
+                                                    </div>
+                                                </div>
+
+                                               
+
+                                                <div class="col-md-6">
+                                                    <label>Pin</label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" placeholder="Enter Pin Code">
+                                                  </div>
+                                                </div>
+
+                                                <div class="col-md-12 text-right">
+                                                    <button type="submit" class="btn btn-primary modal-btn waves-effect waves-button waves-light">
+                                                        <i class="ti-check m-r-5 modal-btn-icon"></i> Save</button>
+                                                </div>
+
+
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+    
+       
+    
+           
+        </div>
+    
+    
+           

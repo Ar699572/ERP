@@ -1,0 +1,264 @@
+
+ <div id="PrintArea">
+    <main class="main-content" style="margin-left: 0px;">
+        <div class="container">
+        <h2 class="text-center head">{{CompanyName}}</h2>
+        
+        <p style="margin: 0px !important;font-family:Arial, Helvetica, sans-serif;font-size: 11px; font-weight: 100; 
+        padding-top:0px; ">
+        <!-- 6-2-103/119, SHIRIDI SAI BABA COLONY, OPP, SHOBANA COLONY, BALANAGAR , HYDERABAD, MEDCHAL - MALKAJGIRI, TELANGANA-500042 -->
+        {{CompanyAddress}}<br>{{CompanyAddress1}},{{CompanyAddress2}}<br>
+        {{CompanyState}}-{{CompanyZipcode}}
+      
+      </p>
+        <p class="text-center add"><strong>GSTIN NO : {{CompanyGSTNo}}</strong></p>
+        
+        <table style="width: 100%;">
+            <thead>
+              <tr style="border: 1px solid black;">
+                <th scope="col" colspan="2" style="    font-family: -webkit-pictograph italic;font-size: 43px;text-align: center;font-style: italic;font-weight: 400;    border-right: 1px solid black;">Quotation</th>
+                <th scope="col" style="width: 45px;border-right: 1px solid black;border-left: 1px solid black;">
+                    <p style="border-bottom: 1px solid black;padding: 6px;color: white;">.</p>
+                    <p style="border-bottom: 1px solid black;padding: 6px;margin-top: -13px;color: white;">.</p>
+                    <p style="padding: 6px;margin-bottom: 1px;margin-top: -14px;color: white;">.</p>
+                </th>
+                <th scope="col" style="width: 233px;border-right:1px solid black">
+                <p style="border-bottom: 1px solid black;padding: 6px;">Original For Receipient</p>
+                <p style="border-bottom: 1px solid black;padding: 6px;margin-top: -13px;">Duplicate For Supplier / Transporter</p>
+                <p style="padding: 6px;margin-bottom: 1px;margin-top: -14px;">Triplicate For Supplier</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody style="border: 1px solid black;">
+              <tr>
+                <th style="width: 50%;padding: 5px;border-right: 4px double;font-family: auto;font-size: 14px;border-bottom: 1px solid black;">Reverse Charge :</th>
+                <td colspan="5" style="border-bottom: 1px solid black;font-family: auto;font-family: auto;font-size: 14px;font-weight: 600;padding: 5px;">Transportation Mode : </td>
+                
+              </tr>
+              <tr>
+                <th style="width: 50%;padding: 5px;border-right: 4px double;font-family: auto;font-size: 14px;border-bottom: 1px solid black;">Quotation No : {{TransactionNo}}</th>
+                <td colspan="5" style="border-bottom: 1px solid black;font-family: auto;font-family: auto;font-size: 14px;font-weight: 600;padding: 5px;">Vehicle No : </td>
+                
+              </tr> 
+              <tr>
+                <th style="width: 50%;padding: 5px;border-right: 4px double;font-family: auto;font-size: 14px;border-bottom: 1px solid black;">Invoice Date : {{TransactionDate|date:'mediumDate'}}</th>
+                <td colspan="5" style="border-bottom: 1px solid black;font-family: auto;font-family: auto;font-size: 14px;font-weight: 600;padding: 5px;">Date Of Supply :{{RequiredDate|date:'mediumDate'}}</td>        
+                
+              </tr> 
+              <tr>
+                <th style="padding: 5px;border-right: 4px double;font-family: auto;font-size: 14px;border-bottom: 1px solid black;">Place Of Supply :</th>
+                <th colspan="2" style="font-family: auto;font-family: auto;font-size: 14px;padding: 5px;border-bottom: 1px soplid black;border-bottom: 1px solid black;">State : {{CompanyState}}</th>        
+                <th style="font-family: auto;font-size: 14px;padding: 5px;border-bottom: 1px solid black;border-right: 1px solid black;">State Code : {{CompanyStateCode}}</th>
+              </tr> 
+              <tr>
+                <th style="padding: 5px;border-right: 4px double;font-family: -webkit-pictograph italic;font-size: 14px;font-size: 14px;font-style: italic;text-align: center;border-bottom: 1px solid black;">Details Of Receiver / Billed To : </th>
+                <td colspan="5" style="font-family: auto;font-family: -webkit-pictograph italic;font-size: 14px;padding: 5px;font-weight: 600;font-style: italic;text-align: center;border-bottom: 1px solid black;">Details Of Consignee / Shipped To : </td>        
+                
+              </tr>
+              <tr>
+                <th style="width: 50%;padding: 5px;border-right: 4px double;font-family: auto;font-size: 14px;border-bottom: 1px solid black;">Name : {{PartyName}}</th>
+                <td colspan="5" style="border-bottom: 1px solid black;font-family: auto;font-family: auto;font-size: 14px;font-weight: 600;padding: 5px;">Name : <span>  {{PartyName}}</span></td>
+    
+              </tr>
+              <tr>
+                <th style="width: 50%;padding: 5px;border-right: 4px double;font-family: auto;font-size: 14px;border-bottom: 1px solid black;">Address : 
+                   <span >
+                    {{Billto}}
+                
+                </span></th>
+                <td colspan="5" style="border-bottom: 1px solid black;font-family: auto;font-family: auto;font-size: 14px;font-weight: 600;padding: 5px;">Address :<span>  {{ShiptoAddress}}  </span></td>
+                
+              </tr>
+              <tr>
+                <th style="width: 50%;padding: 5px;border-right: 4px double;font-family: auto;font-size: 14px;border-bottom: 1px solid black;">GSTIN : <span>{{PartyGSTNo}}</span></th>
+                <td colspan="5" style="border-bottom: 1px solid black;font-family: auto;font-family: auto;font-size: 14px;font-weight: 600;padding: 5px;">GSTIN : <span>  {{PartyGSTNo}}</span></td>
+               
+              </tr>
+              <tr>
+                <th style="padding: 5px;border-right: 4px double;font-family: auto;font-size: 14px;">State : {{BillToStateName}} <span style="margin-left: 175px;">State Code : {{BillToStateCode}}</span>        </th>
+                <th colspan="2" style="font-family: auto;font-family: auto;font-size: 14px;padding: 5px;">State :  <span>{{BillToStateName}}</span></th>        
+                <th style="font-family: auto;font-size: 14px;padding: 5px;border-right: 1px solid black;">State Code : {{BillToStateCode}}</th>
+              </tr>
+            </tbody>
+           
+          </table>
+          <table style="border-top: none !important;border-top: none !important;
+          width: 100%;
+          border-left: 1px solid black;
+          border-right: 1px solid black;">
+            <tbody >
+            <tr style="border-bottom: 1px solid black;">
+            <th style="border-right: 1px solid black;">S.No</th>
+            <th style="border-right: 1px solid black;">Part No</th>
+            <th style="border-right: 1px solid black;">Description</th>
+            <th style="border-right: 1px solid black;">HSN Code</th>
+            <th style="border-right: 1px solid black;">Qty</th>
+            <th style="border-right: 1px solid black;">Price/Unit</th>
+            <th style="border-right: 1px solid black;">Discount</th>
+            <th  *ngIf="CompanyStateCode==BillToStateCode" style="border-right: 1px solid black;">CSGT %</th>
+            <!-- <th  *ngIf="CompanyStateCode==BillToStateCode"  style="border-right: 1px solid black;">CSGT</th> -->
+            <th  *ngIf="CompanyStateCode==BillToStateCode"  style="border-right: 1px solid black;">SGST %</th>
+            <!-- <th  *ngIf="CompanyStateCode==BillToStateCode"  style="border-right: 1px solid black;">SGST</th> -->
+            <th  *ngIf="CompanyStateCode!=BillToStateCode"  style="border-right: 1px solid black;">IGST %</th>
+            <!-- <th  *ngIf="CompanyStateCode!=BillToStateCode"  style="border-right: 1px solid black;">IGST</th> -->
+            
+            <th style="border-right: 1px solid black;">Total</th>
+          </tr>
+          <tr *ngFor="let d of lstQuotationItems;let ind=index">
+            <td style="border-right: 1px solid black;">{{ind+1}}</td>
+            <td  style="border-right: 1px solid black;">{{d.Partno}}</td>
+            <td  style="border-right: 1px solid black;">{{d.Description}}</td>
+            <td  style="border-right: 1px solid black;">{{d.HSN}}</td>
+            <td  style="border-right: 1px solid black;text-align: center;">{{(+d.Qty).toFixed(1)}}</td>
+            <td  style="border-right: 1px solid black;text-align: right;">{{(+d.Rate).toFixed(2)}}</td>
+            <td  style="border-right: 1px solid black;text-align: right;">{{(+d.DiscountAmount).toFixed(2)}}</td>
+            <td  *ngIf="CompanyStateCode==BillToStateCode"  style="border-right: 1px solid black;text-align: right;">{{(+d.CGST).toFixed(2)}}</td>
+            <!-- <td  *ngIf="CompanyStateCode==BillToStateCode"  style="border-right: 1px solid black;text-align: right;">{{(+d.CGSTAmount).toFixed(2)}}</td> -->
+            <td  *ngIf="CompanyStateCode==BillToStateCode"  style="border-right: 1px solid black;text-align: right;">{{(+d.SGST).toFixed(2)}}</td>
+            <!-- <td  *ngIf="CompanyStateCode==BillToStateCode"  style="border-right: 1px solid black;text-align: right;">{{(+d.SGSTAmount).toFixed(2)}}</td> -->
+            <td   *ngIf="CompanyStateCode!=BillToStateCode" style="border-right: 1px solid black;text-align: right;">{{(+d.IGST).toFixed(2)}}</td>
+            <!-- <td  *ngIf="CompanyStateCode!=BillToStateCode"  style="border-right: 1px solid black;text-align: right;">{{(+d.IGSTAmount).toFixed(2)}}</td> -->
+            <td  style="border-right: 1px solid black;text-align: right;">{{((+d.Qty)*(+d.Rate)).toFixed(2)}}</td>
+          </tr>
+        </tbody>
+      </table>
+          <table style="border-top: none !important;border-top: none !important;
+          width: 100%;
+          border-left: 1px solid black;
+          border-right: 1px solid black;">
+            <tbody style="border-bottom: 1px solid black;">
+          <tr style="border-top: 1px solid black;">
+            <td colspan="8" style="padding: 5px;border-bottom: 1px solid black;    font-family: auto;font-size: 14px;font-weight: 600;">Amount In Words :</td>
+            <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;">Gross Amount : </td>
+            <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;border-right: 1px solid black;text-align: right;">{{TotalGross}}</td>
+          </tr>
+          <tr>
+            <td rowspan="3" colspan="8" style="padding: 5px;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;">{{Amountinwords}}</td>
+            <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;">Discount Amount :</td>
+            <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;border-right: 1px solid black;text-align: right;">{{TotalDiscount}}</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;">Total Amount Before Tax : </td>
+            <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;border-right: 1px solid black;text-align: right;">{{AfterDiscount}}</td>
+          </tr>
+          <tr>
+            <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;">Add : CGST</td>
+            <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;border-right: 1px solid black;text-align: right;">{{TotalCGST}}</td>
+          </tr>
+         <tr>
+           <td colspan="8" style="text-align: center;font-size: 14px;
+           padding: 5px;
+           font-family: auto;
+           font-weight: 900;
+           border-right: 1px solid black;border-bottom: 1px solid black;"># Bank Details #</td>
+           
+           <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;">Add : SGST</td>
+           <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;border-right: 1px solid black;text-align: right;">{{TotalSGST}}</td>
+         </tr>
+         <tr>
+          <td _ngcontent-aoe-c7="" colspan="4" style="text-align: left;font-size: 14px;
+          padding: 5px;
+          font-family: auto;
+          font-weight: 900;
+          border-right: 1px solid black;border-bottom: 1px solid black;">Bank :ICICI BANK</td>
+          <td _ngcontent-aoe-c7="" colspan="4" style="text-align: left;font-size: 14px;
+          padding: 5px;
+          font-family: auto;
+          font-weight: 900;
+          border-right: 1px solid black;border-bottom: 1px solid black;">Account No : 111505000470</td>
+           <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;">Add : IGST</td>
+           <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;border-right: 1px solid black;text-align: right;">{{TotalIGST}}</td>
+         </tr>
+         <tr>
+          <td _ngcontent-aoe-c7="" colspan="4" style="text-align: left;font-size: 14px;
+          padding: 5px;
+          font-family: auto;
+          font-weight: 900;
+          border-right: 1px solid black;border-bottom: 1px solid black;">Bank Branch :BALANAGAR HYDERABAD</td>
+          <td _ngcontent-aoe-c7="" colspan="4" style="text-align: left;font-size: 14px;
+          padding: 5px;
+          font-family: auto;
+          font-weight: 900;
+          border-right: 1px solid black;border-bottom: 1px solid black;">IFSC Code :ICIC0001115</td>
+          <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;">Total Tax</td>
+          <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;border-right: 1px solid black;text-align: right;">{{TotalTax}}</td>
+        </tr>
+        <tr>
+          <td colspan="8" style="text-align: center;font-size: 14px;
+          padding: 5px;
+          font-family: auto;
+          font-weight: 900;
+          border-right: 1px solid black;border-bottom: 1px solid black;font-style: italic;">Terms & Conditions</td>
+          <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;">P & F Charges : </td>
+          <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;border-right: 1px solid black;text-align: right;">0</td>
+        </tr>
+        <tr>
+          <td colspan="8" style="text-align: left;font-size: 14px;padding: 5px;font-family: auto;font-weight: 900;border-right: 1px solid black;font-style: italic;">
+            <span innerHTML="{{TermsandConditions}}"></span>
+          
+          </td>
+          
+          <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;">Total :</td>
+          <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;border-right: 1px solid black;text-align: right;">{{Total|currency:'INR' }}</td>
+        </tr>
+        <tr>
+          <td colspan="8" style="text-align: center;font-size: 14px;padding: 5px;font-family: auto;font-weight: 900;border-right: 1px solid black;font-style: italic;">
+          
+           
+          </td>
+    
+          <td style="padding: 5px;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;"></td>
+          <td style="padding: 5px;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;"></td>
+        </tr>
+        <tr>
+          <td colspan="8" style="text-align: center;font-size: 14px;padding: 5px;font-family: auto;font-weight: 900;border-right: 1px solid black;font-style: italic;"></td>
+    
+          <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 400;    width: 230px;">GST Payable On Reverse Charge</td>
+          <td style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;border-right: 1px solid black;"></td>
+        </tr>
+        
+        
+        <tr>
+          <td colspan="8" style="text-align: center;font-size: 14px;padding: 5px;font-family: auto;font-weight: 900;border-right: 1px solid black;font-style: italic;"></td>
+    
+          <td colspan="4" style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 400;text-align: center;">Certified that the particulars given above are true and correct.  </td>
+        </tr>
+        <tr>
+          <td colspan="8" style="text-align: center;font-size: 14px;padding: 5px;font-family: auto;font-weight: 900;border-right: 1px solid black;font-style: italic;border-top: 1px solid black;border-bottom: 1px solid black;">Payment Terms</td>
+    
+          <td colspan="4" style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;text-align: center;">For Mechknow India Pvt Ltd. </td>
+        </tr>
+        <tr>
+          <td colspan="8" style="text-align: left;font-size: 14px;padding: 5px;font-family: auto;font-weight: 900;border-right: 1px solid black;font-style: italic;">
+            <span *ngFor="let d of lstTermsChild" >{{d.TermDescription}}<br></span>
+          
+          
+          </td>
+          <td colspan="4" style="padding: 5px;height: 60px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;text-align: center;"></td>
+        </tr>
+        <tr>
+          <td colspan="8" style="text-align: center;font-size: 14px;padding: 5px;font-family: auto;font-weight: 900;border-right: 1px solid black;font-style: italic;"></td>
+          <td colspan="4" style="padding: 5px;border-left: 1px solid black;border-bottom: 1px solid black;font-family: auto;font-size: 14px;font-weight: 600;text-align: center;">Authorized Signatory  </td>
+        </tr>
+        
+        </tbody>
+          </table>
+          <br>
+         
+        </div>
+        </main>
+      </div>
+      <div class="text-right d-print-none">
+        <hr class="m-t-b-50">
+        <a hidden href="#" class="btn btn-primary waves-effect waves-button waves-light">
+            <i class="fa fa-send m-r-5"></i> Send Invoice
+        </a>
+        <a href="javascript:window.print()" class="btn btn-success m-l-5 waves-effect waves-button waves-light">
+            <i class="fa fa-print m-r-5"></i> Print
+        </a>
+    
+    
+        <a  (click)="btnClose()"  class="btn btn-primary m-l-5 waves-effect waves-button waves-light">
+                <i class="fa fa-print m-r-5"></i> Close
+            </a>
+    </div>

@@ -1,0 +1,273 @@
+<main class="main-content p-0">
+    <form  [formGroup]="Vendor">
+    <div class="container">
+
+
+        <div class="page-header">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Vendors</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Purchase</li>
+                    <li class="breadcrumb-item">Masters</li>
+                    <li class="breadcrumb-item active" aria-current="page">Vendors</li>
+                </ol>
+            </nav>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-6 text-right m-top-bot-auto" style="padding-right: 0px;">
+                            <button class="btn btn-warning" (click)="OnAdd()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-plus" style="margin-top: -2px;margin-right: 9px;"></i> New</button>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">To Pay</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">International</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option3">
+                                <label class="form-check-label" for="inlineRadio3">National</label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-control">
+                                <option>Overdues</option>
+                                <option>International</option>
+                                <option>National</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group" >
+                                <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2" style="background: #e9e9e9;">
+                                <div class="input-group-append">
+                                    <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2"  data-dismiss="modal" (click)="SearchClick()" style="border: none;background: none;border-bottom: 1px solid #ced4da;">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end::page header -->
+
+        <div class="row row-sm">
+            <div class="col-md-9">
+            <div class="row row-sm">
+                <div class="col-md-4 mb-3" *ngFor="let d of lstVendor;">
+                    <div class="card-body custom-card brd-14 " style="padding-top: 3px;border: 1px solid #e1e1e1;padding-bottom:0px;">
+                        <div class="row">
+                            <!-- <div class="col-md-4 m-top-bot-auto">
+                                <strong>Vendor Name <p style="float: right;" class="p-0 m-0">:</p></strong>
+                            </div> -->
+                            <div class="col-md-10 m-top-bot-auto">
+                                <label for="" class="m-0 p-0" style="color: #525050; font-family: auto; font-weight: bold; font-size: 18px;">{{d.companyname}}</label>
+                            </div>
+                            <div class="col-md-2 m-top-bot-auto pr-0">
+                                <!-- <div class="dropdown">
+                                    <button class="dropdown-toggle waves-effect waves-button waves-light dots" type="button" data-toggle="dropdown" style="border: none; float: right; background: #e9e9e9; border-radius: 50%;">
+                                        <i class="ti-more-alt"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" (click)="CreateVendor(d)" >Edit</a>
+                                    </div>
+                                </div> -->
+
+                                <i class="fa fa-file-text-o" style="font-size: 18px; margin-right: 12px; margin-top: 10px;cursor: pointer;" (click)="CreateVendor(d,'VendorCentral')"></i>
+                                <i class="fa fa-pencil" style="font-size: 16px;" (click)="CreateVendor(d,'')" style="font-size: 18px;cursor: pointer"></i>
+
+                            </div>
+                            <!-- 
+                            <div class="col-md-4 m-top-bot-auto">
+                                <strong>Vendor Code <p style="float: right;" class="p-0 m-0">:</p></strong>
+                            </div> -->
+                            <div class="col-md-12 m-top-bot-auto">
+                                <label for="" class="m-0 p-0">{{d.vendorcode}}</label>
+                            </div>
+
+                          <!-- <div class="col-md-4 m-top-bot-auto">
+                                <strong>Account Name <p style="float: right;" class="p-0 m-0">:</p></strong>
+                            </div>
+                            <div class="col-md-8 m-top-bot-auto">
+                                <label for="" class="m-0 p-0">{{d.AccountName}}</label>
+                            </div>  -->
+
+                            <div class="col-md-4 m-top-bot-auto">
+                                <strong>GST No<p style="float: right;" class="p-0 m-0">:</p></strong>
+                            </div>
+                            <div class="col-md-8 m-top-bot-auto">
+                                <label for="" class="m-0 p-0">{{d.gstno}}</label>
+                            </div>
+
+                            <div class="col-md-4 mb-3 m-top-bot-auto">
+                                <strong>Country<p style="float: right;" class="p-0 m-0">:</p></strong>
+                            </div>
+                            <div class="col-md-8 mb-3 m-top-bot-auto">
+                                <label for="" class="m-0 p-0">{{d.countryname}} <img src="https://cdn.britannica.com/97/1597-004-05816F4E/Flag-India.jpg" style="width: 20px;margin-left: 10px;"></label>
+                            </div>
+
+                            <!-- <div class="col-md-4 mb-3 m-top-bot-auto">
+                                <strong>Country Code <p style="float: right;" class="p-0 m-0">:</p></strong>
+                            </div>
+                            <div class="col-md-8 mb-3 m-top-bot-auto">
+                                <label for="" class="m-0 p-0">+91</label>
+                            </div> -->
+
+                            <div class="col-md-12" style="margin-bottom: 4px;">
+                                <div class="row">
+                                    <div  class="col-md-4 text-center" style="background: #f9c402;border-radius: 9px 0px 0px 9px;">
+                                        <div class="row">
+                                            <div class="col-md-12" style="margin-top: 7px;"><strong  style="color: #101920;">Purchase </strong></div>
+                                            <div class="col-md-12"><label  style="color: #101920;">1,00,000</label></div>
+                                        </div>
+                                    </div>
+                                    <div  class="col-md-4 text-center" style="background: #101920;">
+                                        <div class="row">
+                                            <div class="col-md-12" style="margin-top: 7px;"><strong  style="color: white;">Payments </strong></div>
+                                            <div class="col-md-12"><label  style="color: #fafafa;">50,000.00</label></div>
+                                        </div>
+                                    </div>
+                                    <div  class="col-md-4 text-center" style="background: #f9c402;border-radius: 0px 9px 9px 0px;">
+                                        <div class="row">
+                                            <div class="col-md-12" style="margin-top: 7px;"><strong  style="color: #101920;">Dues </strong></div>
+                                            <div class="col-md-12"><label  style="color: #101920;">50,000.00</label></div>
+                                        </div>
+                                    </div>
+                                   </div>
+                            </div>
+                           
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+       
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="svg-item">
+                            <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+                              <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="#fff"></circle>
+                              <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
+                              <circle class="donut-segment donut-segment-2" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5" stroke-dasharray="69 31" stroke-dashoffset="25"></circle>
+                              <g class="donut-text donut-text-1">
+                          
+                                <text y="50%" transform="translate(0, 2)">
+                                  <tspan x="50%" text-anchor="middle" class="donut-percent" >Purchases</tspan>   
+                                </text>
+                                <!-- <text y="60%" transform="translate(0, 2)">
+                                  <tspan x="50%" text-anchor="middle" class="donut-data">Purchases</tspan>   
+                                </text> -->
+                              </g>
+                            </svg>
+                          </div>
+                          <h5 style="display: contents; font-size: 25px; font-family: 'Poppins';">₹ 90,000.00</h5>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="svg-item">
+                            <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+                              <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="#fff"></circle>
+                              <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
+                              <circle class="donut-segment donut-segment-3" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5" stroke-dasharray="30 70" stroke-dashoffset="25"></circle>
+                              <g class="donut-text donut-text-2">
+                          
+                                <text y="50%" transform="translate(0, 2)">
+                                  <tspan x="50%" text-anchor="middle" class="donut-percent">Payments</tspan>   
+                                </text>
+                                <!-- <text y="60%" transform="translate(0, 2)">
+                                  <tspan x="50%" text-anchor="middle" class="donut-data">Payments</tspan>   
+                                </text> -->
+                              </g>
+                            </svg>
+                          </div>
+                          <h5 style="display: contents; font-size: 25px; font-family: 'Poppins';">₹ 90,000.00</h5>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="svg-item">
+                            <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+                              <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="#fff"></circle>
+                              <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
+                              <circle class="donut-segment donut-segment-4" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5" stroke-dasharray="1 99" stroke-dashoffset="25"></circle>
+                              <g class="donut-text donut-text-3">
+                          
+                                <text y="50%" transform="translate(0, 2)">
+                                  <tspan x="50%" text-anchor="middle" class="donut-percent">Dues</tspan>   
+                                </text>
+                                <!-- <text y="60%" transform="translate(0, 2)">
+                                  <tspan x="50%" text-anchor="middle" class="donut-data">Dues</tspan>   
+                                </text> -->
+                              </g>
+                            </svg>
+                          </div>
+                          <h5 style="display: contents; font-size: 25px; font-family: 'Poppins';">₹ 90,000.00</h5>
+                        </div>
+                </div>
+                
+            </div>
+            <!-- <div class="col-md-12">
+               
+
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Vendor </h6>
+                       
+                        <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                            <thead >
+                            <tr>
+                                <th style="width:16%;">#</th>
+                                <th style="width:16%;">Vendor Code</th>
+                               <th style="width:16%;">Vendor Name</th>
+                                <th style="width:16%;">Account Name</th>
+                                <th style="width:16%;">GST No</th>
+                                 <th style="width:20%;">Actions</th> 
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let d of lstVendor;"> 
+                             <td style="width:16%;" *ngIf="d.Show=='true'">{{d.SNO}}</td>
+                             <td style="width:16%;" *ngIf="d.Show=='true'">{{d.vendorcode}}</td>
+                                <td style="width:16%;" *ngIf="d.Show=='true'">{{d.vendorname}}</td>
+                                <td style="width:16%;" *ngIf="d.Show=='true'">{{d.AccountName}}</td>
+                                <td style="width:16%;" *ngIf="d.Show=='true'">{{d.gstno}}</td>
+                               <td style="width:20%;" *ngIf="d.Show=='true'">
+                                    <div class="dropdown">
+                                        <button class="dropdown-toggle waves-effect waves-button waves-light dots" type="button" data-toggle="dropdown" style="border: none;">
+                                            <i class="ti-more-alt"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" (click)="CreateVendor(d)" >Edit</a>
+                                        </div>
+                                    </div>
+                                </td>
+                               
+                                
+                               
+                            </tr>
+                            </tbody>
+                        </table>
+                       
+                    </div>
+                </div> 
+        
+        
+        
+                
+            </div> -->
+
+
+           
+        </div>
+
+    </div>
+
+</form>
+</main>
+

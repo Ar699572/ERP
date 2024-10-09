@@ -1,0 +1,64 @@
+
+    <!-- <div class="p-b-50 d-block d-lg-none"></div> -->
+    
+    <div class="container h-100-vh" style="max-width: 100% !important;background: #f9c402;">
+        <div class="row align-items-md-center h-100-vh">
+            <div class="col-md-6" style="margin-left: auto;margin-right: auto;border: 8px solid #101920;border-radius: 45px;">
+                <div class="row">
+                    <div class="col-lg-6 " style="padding: 5px;">
+                        <img class="img-fluid" src="./assets/media/svg/login.jpg" alt="..." style="border-radius:33px 0px 0px 33px;width: 100%;">
+                    </div>
+                    <div class="col-lg-6 offset-lg-1 m-top-bot-auto" style="margin-right: auto;margin-left: auto;">
+                        <div class="m-b-20">
+                            <img src="./assets/media/image/dark-logo.png" class="m-r-15" width="180" alt="">
+                        </div>
+                        <p style="font-size: 28px;text-transform: uppercase;font-weight: 600;">Sign in to continue.</p>
+                        <form  [formGroup]="Login"   autocomplete="off">
+
+                            <label for="drpdatabases" style="color: black;">Select Database</label>
+
+                            <select id="drpdatabases"  class="js-example-basic-single mb-3"  name="drpdatabases"  formControlName="ReferenceDbId"> </select><br><br>
+                            <label  style="color:red" *ngIf="( f.ReferenceDbId.invalid  || f.ReferenceDbId.value==0  )&& submitted "> Reference DataBase Required</label> <br>
+                                
+                            <div class="form-group mb-4">
+                                <input type="text" class="form-control form-control-lg" id="exampleInputEmail1"  formControlName="UserName" autofocus="" placeholder="username">
+                            <label style="color:red" *ngIf=" f.UserName.invalid && submitted "> UserName Required</label>
+                            </div>
+                            <div class="form-group mb-4">
+                                <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password"  formControlName="Password">
+                                <label style="color:red" *ngIf=" f.Password.invalid && submitted ">
+                                   password Required</label>
+                            </div>
+                            <div class="row m-t-25 text-left" *ngIf="ErrorMsg!=''">
+                                <div class="col-12">
+                                    <div class="checkbox-fade fade-in-primary d-">
+                                        <label style="color: red;">{{ErrorMsg}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-dark btn-lg btn-block btn-uppercase mb-4 waves-effect waves-button waves-light"(click)="LoginClick()" style="border-radius: 0px;">Sign In</button>
+                           <br>
+                           <br>
+                           <label style="text-align: center;margin-right: auto;color: #000;
+                           margin-left: auto;
+                           display: block;"><span style="border-bottom: 1px solid #000;">Generate Year End Process</span> </label>
+<br>
+<label style="text-align: center;margin-right: auto;color: #000;
+margin-left: auto;
+display: block;"><span style="border-bottom: 1px solid #000;" (click)="CreateCompany()">Create Company</span> </label>
+<!-- <label style="text-align: center;margin-right: auto;color: #000;
+margin-left: auto;
+display: block;"><span style="border-bottom: 1px solid #000;" (click)="CreateDashboard()">Create Dashboard</span> </label> -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="custom-control custom-checkbox"></div>
+                                <a href="#" hidden class="auth-link text-black">Forgot password?</a>
+                            </div>
+        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  

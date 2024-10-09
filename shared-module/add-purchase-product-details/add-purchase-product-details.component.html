@@ -1,0 +1,325 @@
+<!-- <add-part
+[TransactionType]="TransactionType"
+[ItemDet]="DisplayItemDet"
+
+[Description]="Description"
+[MakeDet]="DispalayMakeDet"
+
+[UOMName]="UOMName"
+
+[Price]="Price"
+[TaxType]="TaxType"
+[ShowStockSelection]="ShowStockSelection"
+(ItemValueChange)="ItemValueChange($event)"
+(MakeValueChange)="MakeValueChange($event)"
+(PriceValueChange)="PriceValueChange($event)"
+></add-part> -->
+
+
+
+<div class="form-group">
+
+
+    <div>
+        <div>
+
+            <div class="row">
+                <!-- <div class="col-md-12">
+            <b>  <label  style="float: right" >SNO:{{SNO}}</label></b>
+        </div> -->
+                <div class="col-md-6">
+                    <label for="drpParts">Part No</label>
+
+                    <select id="drpParts" class="js-example-basic-single mb-3" name="drpParts"> </select>
+                    <div class="mb-3"></div>
+
+
+
+
+
+                    <div class="mb-3"></div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="drpMake">Make</label>
+
+                            <select id="drpMake" class="js-example-basic-single" name="drpMake"> </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="txtLastPurchasePrice" *ngIf="_TransactionType!='Sales'">Last Purchase
+                                Price</label>
+                            <input type="text" *ngIf="_TransactionType!='Sales'" class="form-control mb-3"
+                                id="txtLastPurchasePrice" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="UOM">UOM</label>
+
+                            <input type="text" class="form-control mb-3" id="UOM" placeholder="Enter UOM">
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Percentage">Quantity</label>
+
+                            <input type="number" min="1" class="form-control mb-3" id="Quantity"
+                                placeholder="Enter Quantity" (change)="QuantityChange($event.target)">
+                        </div>
+
+                        
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6" *ngIf="Invoicetype11!='Import'">
+                            <label for="Price">Price</label>
+                            <input type="number" class="form-control mb-3" min="1" id="Price"
+                                (change)="PriceChange($event.target)" placeholder="Enter Price">
+                        </div>
+
+                        <div class="col-md-6" *ngIf="Invoicetype11!='Import'">
+                            <label for="Price">Price(inclusive Tax)</label>
+                            <input type="number" class="form-control mb-3" min="1" id="PriceInclusiveTax"
+                                (change)="InclusiveTaxPriceChange($event.target)" placeholder="Enter Price">
+                        </div>
+
+
+                        <div class="col-md-6" *ngIf="Invoicetype11=='Import'">
+                            <label for="Price">$ Price</label>
+                            <input type="number" class="form-control mb-3" min="1" id="dollarPrice"
+                                (change)="dollarPriceChange($event.target)" placeholder="Enter Price">
+                        </div>
+
+                        <div class="col-md-6" *ngIf="Invoicetype11=='Import'">
+                            <label for="Price">Ass.Value Per Unit</label>
+                            <input type="number" class="form-control mb-3" min="1" id="AssValuePerUnit1" readonly
+                                placeholder="Enter Price">
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6" *ngIf="Invoicetype11!='Import'">
+                        <label for="SGST" *ngIf="_TaxType=='Intra State'">SGST%</label>
+                        <input type="number" *ngIf="_TaxType=='Intra State'" class="form-control mb-3" id="SGST" readonly></div>
+    
+                        <div class="col-md-6" *ngIf="Invoicetype11!='Import'">
+                        <label for="SGSTAmount" *ngIf="_TaxType=='Intra State'">SGST Amount</label>
+                        <input type="number" class="form-control mb-3" *ngIf="_TaxType=='Intra State'" id="SGSTAmount"
+                            readonly></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12" *ngIf="Invoicetype11=='Import'">
+                            <label for="Price">Ass. Value</label>
+                            <input type="number" class="form-control mb-3" min="1" (change)="PriceChange($event.target)"
+                                id="Price" placeholder="Enter ass. value">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-6">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="Description">Description</label>
+                            <input type="text" class="form-control mb-3" id="Description"
+                                placeholder="Enter description">
+                        </div>
+
+                        <div class="col-md-5" *ngIf="Invoicetype11!='Import'">
+                            <label for="DiscountPercentage">Disc %</label>
+                            <!-- (input)="CalcValueChange($event.target)"  -->
+                            <input type="number" class="form-control mb-3" id="DiscountPercentage"
+                                placeholder="Enter Discount Percentage" (change)="DiscountPerChange($event.target)">
+                        </div>
+                        <div class="col-md-7" *ngIf="Invoicetype11!='Import'">
+                            <label for="DiscountAmount">Disc Amount</label>
+
+                            <input type="number" class="form-control mb-3" id="DiscountAmount"
+                                placeholder="Enter Discount Amount" (change)="DiscountAmountChange($event.target)">
+                        </div>
+
+
+                    </div>
+
+
+
+<div class="row">
+<div class="col-md-6" >
+                    <label for="CGST" *ngIf="_TaxType=='Intra State'">CGST%</label>
+
+                    <input type="number" *ngIf="_TaxType=='Intra State'" class="form-control mb-3" id="CGST" readonly></div>
+
+                    <div class="col-md-6" >
+                    <label for="CGSTAmount" *ngIf="_TaxType=='Intra State'">CGST Amount</label>
+
+                    <input type="number" *ngIf="_TaxType=='Intra State'" class="form-control mb-3" id="CGSTAmount"
+                        readonly></div>
+                    </div>
+
+                   
+
+                    <div class="row">
+                        <div class="col-md-6" *ngIf="Invoicetype11=='Import'">
+                            <label for="IGST">BCD ({{CUSTMTAX}}%)</label>
+                            <input type="number" class="form-control mb-3" id="bcd" readonly>
+                        </div>
+                        <div class="col-md-6" *ngIf="Invoicetype11=='Import'">
+                            <label for="IGST">SWS ({{SWTAX}}%)</label>
+                            <input type="number" class="form-control mb-3" id="sws" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="IGST" *ngIf="_TaxType=='Inter State'">IGST%</label>
+                            <input type="number" *ngIf="_TaxType=='Inter State'" class="form-control mb-3" id="IGST"
+                                readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="IGSTAmount" *ngIf="_TaxType=='Inter State'">IGST Amount</label>
+                            <input type="number" *ngIf="_TaxType=='Inter State'" class="form-control mb-3"
+                                id="IGSTAmount" readonly>
+                        </div>
+
+                        <div class="col-md-5">
+                            <label for="TotalTax">Total Tax</label>
+                            <input type="number" class="form-control mb-3" id="TotalTax" placeholder="Enter Total Tax"
+                                readonly>
+                        </div>
+
+                        <div class="col-md-7">
+                            <label for="NetTotal">Net Total</label>
+                            <input type="number" class="form-control" id="NetTotal" placeholder="Enter Net Total"
+                                readonly>
+                        </div>
+
+                        <div class="col-md-6"
+                            [ngStyle]="{'display': ((ShowStockControls &&  _ShowStockSelection) || _type=='purchaseInvoice' ) ? 'block' :'none' }">
+
+                            <label for="drpLocation">Location</label>
+
+                            <select id="drpLocation" class="js-example-basic-single" name="drpLocation"> </select>
+
+                        </div>
+
+                        <div class="col-md-6"
+                            [ngStyle]="{'display': ((ShowStockControls &&  _ShowStockSelection) || _type=='purchaseInvoice' ) ? 'block' :'none' }">
+
+
+
+                            <label for="drpBin">Bin</label>
+
+                            <select id="drpBin" class="js-example-basic-single" name="drpBin"> </select>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <div>
+            <div class="row">
+
+                <div class="col-md-12" *ngIf="_type==''">
+                    <label>Stock Availability</label>
+
+
+                    <!-- 
+    <div class="custom-control custom-switch" style="float:right"  *ngIf="_ShowStockSelection && _lstSelectedItemsStock.length>0">
+        <input type="checkbox" class="custom-control-input" id="customSwitch5_" (change)="StockSelection($event.target)" >
+        <label class="custom-control-label" for="customSwitch5_">Auto select</label>
+    </div> -->
+
+                    <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                        <thead>
+                            <tr>
+
+                                <th *ngIf="!_ShowStockSelection" style="text-align: center;width:10%">SNO</th>
+                                <th *ngIf="_ShowStockSelection" style="text-align: center;width:10%">ck</th>
+                                <th style="text-align: center;width:30%">Location</th>
+                                <th style="text-align: center;width:30%">Bin</th>
+                                <th style="text-align: center;width:15%">Live Stock</th>
+                                <th style="text-align: right;width:15%" *ngIf="_ShowStockSelection">Alloted</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let d of lstItemsStock;let ind=index">
+
+                                <td *ngIf="!_ShowStockSelection" style="text-align: center;width:10%">{{ind+1}}</td>
+                                <td *ngIf="_ShowStockSelection" style="text-align: center;width:10%"> <input
+                                        type="checkbox" [attr.checked]="(+d.Alloted) >0 ? 'checked' : null"
+                                        (change)="AllotedChange($event.target,ind)">
+                                </td>
+                                <td style="text-align: center;width:30%">{{d.locationname}}</td>
+                                <td style="text-align: center;width:30%">{{d.binname}}</td>
+                                <td style="text-align: right;width:15%">{{d.AvailablePhysical}}</td>
+                                <td style="text-align: right;width:15%">{{d.Alloted}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- <div class="card ">
+   
+        <div class="col-md-12 text-right card-body"  >
+
+                                                      
+            <button type="button" class="btn btn-secondary" (click)="CloseProduct()" data-dismiss="modal" style="margin-right:5px">Close
+            </button>
+        
+            <button type="button" class="btn btn-danger" (click)="RemoveItem()"  style="margin-right:5px" data-dismiss="modal">Remove
+                </button>
+            <button type="button" class="btn btn-primary" (click)="AddItemAndClose()" style="margin-right:5px">Add & Close</button>
+            <button type="button" class="btn btn-primary" (click)="AddItemAndNew()" style="margin-right:5px">Add & New</button>
+        
+        
+        </div>
+
+   
+
+</div> -->
+    <div class="col-md-12 modal-btn-margin text-right" style="margin-top: 13px;">
+
+        <button type="button" class="btn btn-secondary modal-btn" (click)="CloseProduct()" data-dismiss="modal">
+            <i class="ti-close m-r-5 modal-btn-icon"></i> Close
+        </button>
+
+        <button type="button" class="btn btn-danger modal-btn" (click)="RemoveItem()">
+            <i class="ti-trash m-r-5 modal-btn-icon"></i> Remove
+        </button>
+
+        <button type="button" class="btn btn-primary modal-btn" (click)="AddItemAndClose()">
+            <i class="ti-check m-r-5 modal-btn-icon"></i> Add
+        </button>
+
+        <button type="button" class="btn btn-primary modal-btn" (click)="AddItemAndNew()">
+            <i class="ti-check m-r-5 modal-btn-icon"></i> Add +
+        </button>
+
+    </div>
+</div>

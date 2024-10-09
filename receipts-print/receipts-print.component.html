@@ -1,0 +1,142 @@
+
+
+<main class="main-content">
+    <div class="container">
+    
+        <!-- begin::page header -->
+        <div class="page-header">
+            <h3>Receipt</h3>
+           
+        </div>
+        <!-- end::page header -->
+    
+        <div class="card">
+            <div class="card-body p-50">
+                <div class="invoice">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="font-weight-800 d-flex align-items-center">
+                            <img class="m-r-20" src="../assets/media/image/dark-logo.png" alt="..."  style="width:250px;height: 100%">
+                        </h2>
+                        <h3 class="text-right m-b-0">Receipt#{{ReceiptNo}}</h3>
+                    </div>
+                    <hr class="m-t-b-50">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                                <b>Car2Drive</b>
+                            </p>
+                            <p>104,<br>Minare SK,<br>Balanagar,Hyderabad, Telangana-500020.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-right">
+                                <b>Receipt to</b>
+                            </p>
+                            <p class="text-right">{{CustomerName}},<br>{{ContactNumber}},<br> {{ContactAddress}}</p>
+                        </div>
+                    </div>
+                    <div class="table-responsive" tabindex="1" style="overflow: hidden; outline: none; touch-action: none;">
+                        <table class="table m-t-b-50">
+                            <thead>
+                            <tr class="bg-dark text-white">
+                                <th>#</th>
+                                <th>Description</th>
+                                
+                                <th class="text-right">Amount</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                                    <tr class="text-right" *ngFor="let d of Charges;let i = index;">
+                                            <td class="text-left">{{i+1}}</td>
+                                            <td class="text-left">{{d.Description}}</td>
+                                          
+                                            <td>{{d.Amount}}</td>
+                                        </tr>
+
+
+                            <!-- <tr class="text-right" *ngIf="AdditionalKMCharges>0">
+                                <td class="text-left">1</td>
+                                <td class="text-left">Additional KM Charges</td>
+                              
+                                <td>{{AdditionalKMCharges}}</td>
+                            </tr>
+                            
+                            <tr class="text-right" *ngIf="DelayCharges>0">
+                                <td class="text-left">2</td>
+                                <td class="text-left">
+                                    Delay Charges
+                                </td>
+                                
+                                <td>{{DelayCharges}}</td>
+                            </tr>
+                            <tr class="text-right" *ngIf="DamageCharges>0">
+                                <td class="text-left">3</td>
+                                <td class="text-left">Damage Charges</td>
+                            
+                                <td>{{DamageCharges}}</td>
+                            </tr>
+                            <tr class="text-right" *ngIf="OverSpeedCharges>0">
+                                <td class="text-left">4</td>
+                                <td class="text-left">Over Speed Charges</td>
+                              
+                                <td>{{OverSpeedCharges}}</td>
+                            </tr>
+
+                            <tr class="text-right" *ngIf="TraficChallanCharges>0">
+                                <td class="text-left">5</td>
+                                <td class="text-left">Trafic Challan Charges</td>
+                              
+                                <td>{{TraficChallanCharges}}</td>
+                            </tr>
+
+
+                            <tr class="text-right" *ngIf="OtherCharges>0">
+                                <td class="text-left">6</td>
+                                <td class="text-left">Other Charges</td>
+                              
+                                <td>{{OtherCharges}}</td>
+                            </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    
+                    <div class="text-right">
+                        <p>Sub - Total Amount:{{Total}}</p>
+                        <p>Payment Mode :{{PaymentMode}}</p>
+                        <p>Bill Ref No  :{{BillRefNo}}</p>
+                        <p>Advance Amount  :{{BookingAdvance}}</p>
+                        
+                        
+                        <h4 class="font-weight-800">Settlement Amount:{{Amount}}</h4>
+                    </div>
+
+
+                    
+                    <p class="text-center small text-muted  m-t-50">
+                    <span class="row">
+                        <span class="col-md-6 offset-3">
+                            Car2Drive Pvt Ltd.
+                        </span>
+                    </span>
+                    </p>
+                </div>
+                <div class="text-right d-print-none">
+                    <hr class="m-t-b-50">
+                    <a hidden href="#" class="btn btn-primary waves-effect waves-button waves-light">
+                        <i class="fa fa-send m-r-5"></i> Send Invoice
+                    </a>
+                    <a (click)="Print()" class="btn btn-success m-l-5 waves-effect waves-button waves-light">
+                        <i class="fa fa-print m-r-5"></i> Print
+                    </a>
+
+
+                    <a  (click)="btnClose()"  class="btn btn-primary m-l-5 waves-effect waves-button waves-light">
+                            <i class="fa fa-print m-r-5"></i> Close
+                        </a>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    </main>

@@ -1,0 +1,183 @@
+<main class="main-content">
+    
+    <div class="container">
+        <div class="page-header" style="
+        margin-bottom: -13px;">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Vendor Central</h3>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">Purchase</li>
+                            <li class="breadcrumb-item">Vendor</li>
+                            <li class="breadcrumb-item active" aria-current="page">VENDOR CENTRAL</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-md-4 text-right" style="margin-top: auto;">
+                    <button class="btn btn-warning" (click)="back()">Back</button>
+                </div>
+
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-md-12">
+                <strong style="
+                font-family: bebas neue;
+                font-size: 21px;
+                padding-left: 14em;
+                padding-top: -28px !important;
+                padding-top: 66px;">VendorName : {{VendorName}}
+                </strong>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <div id="myTabContent" class="tab-content">
+                    <div aria-labelledby="Details-tab" id="Details" role="tabpanel"
+                        class="tab-pane fade active show">
+                        <div class="">
+                            <div class="">
+                                <div class="form-group" style="margin-bottom: 0px;">
+                                    <div class="row">
+                                        <div class="col-md-12" style="margin-top: 15px;">
+                                            <ul id="myTab" role="tablist" class="nav nav-tabs">
+                                                <li class="nav-item"><a aria-controls="home" aria-selected="true"
+                                                        data-toggle="tab" role="tab" id="maintenance"
+                                                        (click)='PurchaseQuotation()'
+                                                        class="nav-link active">Purchase Quotation
+                                                    </a></li>
+                                                <li class="nav-item"><a aria-controls="vehicleMovement"
+                                                        aria-selected="true" data-toggle="tab"
+                                                        role="tab" id="maintenance"
+                                                        (click)="PurchaseOrder()" class="nav-link">Purchase Order
+                                                    </a></li>
+                                                <li class="nav-item"><a aria-controls="vehicleMovement"
+                                                        aria-selected="true" data-toggle="tab"
+                                                        role="tab"
+                                                        (click)="PurchaseInvoice()" class="nav-link">Purchase
+                                                        invoice
+                                                    </a></li>
+                                                <li class="nav-item"><a aria-controls="vehicleMovement"
+                                                        aria-selected="true" data-toggle="tab"
+                                                        role="tab" (click)="RFQtab()"
+                                                        class="nav-link">RFQ</a></li>
+                                                <li class="nav-item"><a aria-controls="inspection"
+                                                        aria-selected="false" data-toggle="tab" id="inspection-tab"
+                                                        role="tab" (click)="MRNTab()" class="nav-link">MRN
+                                                    </a></li>
+                                                <li class="nav-item"><a aria-controls="expenses"
+                                                        aria-selected="false" data-toggle="tab" id="expenses-tab"
+                                                        role="tab" (click)="PurchaseReturns()"
+                                                        class="nav-link">Purchase Returns</a></li>
+                                                <!-- <li class="nav-item"><a aria-controls="expenses"
+                                                        aria-selected="false" data-toggle="tab" id="expenses-tab"
+                                                        role="tab" (click)="GRN()" class="nav-link">MRN</a></li>
+                                                <li class="nav-item"><a aria-controls="acttachments"
+                                                        aria-selected="false" data-toggle="tab"
+                                                        id="acttachments-tab" (click)="PurchaseInvoice()" role="tab"
+                                                        class="nav-link"> Purchase Invoice </a></li> -->
+                                            </ul>
+                                        </div>
+                                      <div class="col-md-12">
+                                            <div id="maintenance" class="tab-content">
+                                                <div aria-labelledby="Details-tab" id="Details" role="tabpanel"
+                                                    class="tab-pane fade active show">
+                                                    <div class="dataTables_scroll">
+                                                        <div class="dataTables_scrollHead"
+                                                            style="overflow: hidden; position: relative; border: 0px; width: 100%;">
+                                                            <div class="dataTables_scrollHeadInner"
+                                                                style="box-sizing: content-box; width:100%; padding-right: 17px;">
+                                                                <table
+                                                                    class="table table-striped table-bordered dataTable"
+                                                                    role="grid"
+                                                                    style="margin-left: 0px;width: 100%;margin-bottom: 0px;">
+                                                                    <thead>
+                                                                        <tr >
+                                                                        <th scope="col"> S.NO</th>
+                                                                        <th scope="col"> Date</th>   
+                                                                        <th scope="col">VCH No</th>
+                                                                        <th scope="col">{{ChangeTableHeading1}}</th>  
+                                                                        <th scope="col">{{ChangeTableHeading2}}</th> 
+                                                                        <th scope="col">{{ChangeTableHeading3}}</th> 
+                                                                        <th scope="col" *ngIf="disableField==false">Refer No</th>
+                                                                        <th scope="col">Created By</th>
+                                                                        <th scope="col"> Actions</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                </table>
+                                                            </div>
+                                                </div>
+                                                <!-- <div *ngIf="lstVendorDetails.length==0" style="
+                                                padding-top: 6em;
+                                                padding-left: 3em;
+                                                margin-left: 12em;
+                                                font-size: 26px;
+                                                font-weight: 500;">
+                                                <p><strong>Result Not Found</strong></p>
+                    </div> -->
+                    <div class="dataTables_scrollBody"
+                    style="position: relative; overflow: auto; max-height: 400px; width: 100%;display: inline !important;">
+                    <table id="example2"
+                        class="table table-striped table-bordered dataTable"
+                        role="grid" aria-describedby="example2_info"
+                        style="width: 100%;">
+                         <tbody>
+                            <tr *ngFor="let d of lstVendorDetails;let i=index">
+                               <td>{{i+1}}</td>
+                                <td>{{d.TransactionDate}}</td>
+                                <td>{{d.TransactionNo}}</td>
+                                <td>{{d.GrossAmount}}</td>
+                                <td>{{d.TaxAmount}}</td>
+                                <td>{{d.Total}}</td>
+                                <td *ngIf="disableField==false">{{d.ReferNo}}</td>                                                                                                                 
+                                <td>{{d.ModifiedBy}}</td>
+                               <td>
+                                    <div class="dropdown">
+                                        <a href="#" data-toggle="dropdown"
+                                            aria-expanded="false"
+                                            class="btn btn-gray btn-floating btn-icon btn-sm waves-effect waves-button waves-light">
+                                            <i aria-hidden="true"
+                                                class="fa fa-ellipsis-v"
+                                                style="color: white !important;"></i>
+                                        </a>
+                                        <div x-placement="bottom-end"
+                                            class="dropdown-menu dropdown-menu-right"
+                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 24px, 0px);">
+                                            <button type="button"
+                                                class="dropdown-item font-size-15"
+                                                (click)="EditDetails(d)">Edit<i
+                                                    class="fa fa-pencil"
+                                                    style="float: right;"
+                                                    aria-hidden="true"></i></button>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+             </div>
+             </div>
+                                            </div>
+                                        </div> 
+                                    
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</main>

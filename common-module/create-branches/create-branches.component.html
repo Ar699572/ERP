@@ -1,0 +1,445 @@
+<main class="main-content">
+    <div class="layoutactionbutton"
+       
+    >
+
+    <a class="actionbutton"  (click)="Search()"
+    href="javascript:void(0)" id="product_edit_submit">
+          <i class="fa fa-search" style="
+          font-size: 40px;
+          margin-top: 12px;
+      "></i>
+      </a>
+
+
+    <a class="actionbutton" (click)="ClearViewData()"
+    href="javascript:void(0)" id="product_edit_submit">
+          <i class="fa fa-file-text-o" style="
+          font-size: 40px; 
+          margin-top: 12px;
+      "></i>
+      </a>
+        <a class="actionbutton" (click)="OnSave()"
+      href="javascript:void(0)" id="product_edit_submit">
+            <i class="fa fa-floppy-o"  style="
+            font-size: 40px; 
+            margin-top: 12px;
+        "></i>
+        </a>
+
+        <a class="actionbutton" (click)="OnDelete()"
+        href="javascript:void(0)" id="product_edit_submit">
+              <i class="fa fa-trash-o" style="
+              font-size: 40px;
+              margin-top: 12px;
+          "></i>
+          </a>
+
+    </div>
+    <form  [formGroup]="CreateBranches">
+           
+
+         <div class="container">
+           
+        <!-- begin::page header -->
+        <div class="page-header">
+            <h3>Create/Modify Branches</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Inventory</a></li>
+                    <li class="breadcrumb-item"><a href="#">Masters</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Create Branches</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- end::page header -->
+
+        <div class="row row-sm">
+            
+              
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Overview</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            
+                          
+                        
+                            <label for="Code">Code</label>
+                            <input type="text" class="form-control" id="Code" formControlName="Code" placeholder="Enter Code"
+                            
+                            [ngClass]="{ 'is-invalid': submitted && f.Code.errors }"
+                            >
+                            <div *ngIf="submitted && f.Code.errors" class="invalid-feedback">
+                                <div *ngIf="f.Code.errors.required" style="color:red " >Code Required</div>
+                            </div>
+
+
+                            <label for="Name">Name</label>
+                            <input type="text" class="form-control" id="Name" formControlName="Name" placeholder="Enter Name"
+                            
+                            [ngClass]="{ 'is-invalid': submitted && f.Name.errors }"
+                            >
+                            <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+                                <div *ngIf="f.Name.errors.required" style="color:red " >Name Required</div>
+                            </div>
+                            <label for="HolidayCalendarID">Holiday Calendar</label>
+
+                            <select   class="js-example-basic-single"  
+                            formControlName="HolidayCalendarID" id="HolidayCalendarID" id="drpHolidayCalender" >
+
+                            </select>
+                            
+                            <label for="ContactNo">ContactNo</label>
+                            <input type="text" class="form-control" id="ContactNo" formControlName="ContactNo" placeholder="Enter   ContactNo"
+                            
+                            [ngClass]="{ 'is-invalid': submitted && f.ContactNo.errors }"
+                            >
+                            <div *ngIf="submitted && f.ContactNo.errors" class="invalid-feedback">
+                                <div *ngIf="f.ContactNo.errors.required" style="color:red " >ContactNo Required</div>
+                            </div>
+                            <label for="Email">Email</label>
+                            <input type="text" class="form-control" id="Email" formControlName="Email" placeholder="Enter   Email"
+                            
+                           
+                            >
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Address</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            
+                          
+                        
+                            <label for="ContactNo">State</label>
+                            <input type="text" class="form-control" id="State" formControlName="State" placeholder="Enter   State"
+                            
+                          
+                            >
+
+                            <label for="ContactNo">City</label>
+                            <input type="text" class="form-control" id="City" formControlName="City" placeholder="Enter   City"
+                            
+                        
+                            >
+
+                          
+
+                            <label for="ContactNo">PinCode</label>
+                            <input type="text" class="form-control" id="PinCode" formControlName="PinCode" placeholder="Enter   PinCode"
+                            
+                           
+                            >
+<br>
+                            <label for="Address">Address</label>
+                            <textarea  class="form-control" rows="5" cols="10" formControlName="Address">
+
+                            </textarea>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Image</div>
+                    <div class="card-body">
+                        <div class="form-group"></div>
+                        <img  id="Image"    alt=""  width="100%" height="300px">
+                        <input type="file" class="form-control-file"
+                        id="fileOpenModelImage"
+                        (change)="ImagefileChange($event,'Image')" accept="image/*"
+                        
+                        >
+                    </div>
+                </div>
+            </div> -->
+
+              
+               
+              
+        </div>
+
+           <!-- Grid Portion Starts -->
+        <div class="row row-sm">
+                                            
+
+            <div class="col-md-4" *ngIf="DeviceType=='Mobile'">
+                    
+                    <div class="card">
+                            <div class="card-header">Search</div>
+                            <div class="card-body">
+
+                               
+                                        <div class="custom-control custom-switch" style="float:left">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="FilterTypeChange($event)">
+                                                <label class="custom-control-label" for="customSwitch">All Data</label>
+                                            </div>
+
+                                           
+
+                                            <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                                    <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="SerchTypeChange($event.target.checked)">
+                                                    <label class="custom-control-label" for="customSwitch2_"> 
+                                                        Like</label>
+                                                </div>
+                                    
+
+                                             <div class="row  col-md-12">
+
+                                                    <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                                            <i class="ti-alert m-r-10"></i>If Like Off Search with  '='
+                                                        </div>
+                                             </div>
+                                
+
+                                <div class="input-group" *ngIf="FilterType=='All' && SerchType=='Like'">
+                                    <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="SearchClick()">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+
+<div class="row col-md-12" *ngIf="FilterType=='Field' ">
+
+
+
+
+<label for="searchModel"> Model</label>
+<input type="text" class="form-control" id="searchModel" formControlName="Model"  placeholder="Search Model">
+
+
+
+<div class="col-md-12 " style="float: right;padding-right:unset">
+<button type="button" class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"  style="float: right;margin-top:10px " (click)="SearchClick()">
+        <i class="ti-search m-r-5"></i> Search
+    </button>
+
+</div>
+</div>
+
+
+                            </div>
+                        </div>
+
+            </div>
+
+            <div class="col-md-8">
+                
+        
+
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title"  style=" float: left">Branch Timmings</h6>
+                        <a class="actionbutton" style="width:40px;height: 40px; float: right" 
+                        
+                        data-toggle="modal"   data-target="#exampleModalCenter"  data-backdrop="static" data-keyboard="false" 
+                        
+                        (click)="OnAdd()"
+href="javascript:void(0)" id="product_add_submit">
+
+      <i class="fa fa-plus" style="
+      font-size: 20px;
+      margin-top: 10px;
+  "></i>
+  </a>
+
+                        <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                            <thead >
+                            <tr>
+                                <th>#</th>
+                               
+                                <th>Week Name</th>
+                                <th>From Time</th>
+                                <th>To Time</th>
+                               
+                               
+                              
+                                 <th></th> 
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr  *ngFor="let d of lstbranchTimePropL;let i = index"> 
+                                    <td  *ngIf="d.Show=='true'"  >{{i+1}}</td>
+                              
+                                    <td *ngIf="d.Show=='true'">{{d.WeekName}}</td>
+                                    <td *ngIf="d.Show=='true'">{{d.From}}</td>
+                                    <td *ngIf="d.Show=='true'">{{d.To}}</td>
+                                  
+                              
+                                
+                                <td  *ngIf="d.Show=='true'"style="display: none">{{d.ID}}</td>
+                                
+                                <td *ngIf="d.Show=='true'"  data-toggle="modal"   data-target="#exampleModalCenter"  data-backdrop="static" data-keyboard="false"  (click)="EditBranchTimingClick(d,(i+1))"><i style="float: right" class="ti-angle-right"
+                                    data-toggle="modal"   data-target="#exampleModalCenter"  data-backdrop="static" data-keyboard="false" 
+                                    
+                                    (click)="EditBranchTimingClick(
+                                    
+                                    d,(i+1)
+                                    )"></i>
+                                
+                                
+                                
+                                
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                       
+                    </div>
+                </div> 
+
+            </div>
+
+ <!--Search Box Design -->
+            <div class="col-md-4" *ngIf="DeviceType!='Mobile'">
+                <div class="card">
+                    <div class="card-header">Search</div>
+                    <div class="card-body">
+
+                       
+                                <div class="custom-control custom-switch" style="float:left">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="FilterTypeChange($event)">
+                                        <label class="custom-control-label" for="customSwitch">All Data</label>
+                                    </div>
+
+                                   
+
+                                    <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="SerchTypeChange($event.target.checked)">
+                                            <label class="custom-control-label" for="customSwitch2_"> 
+                                                Like</label>
+                                        </div>
+                            
+
+                                     <div class="row  col-md-12">
+
+                                            <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                                    <i class="ti-alert m-r-10"></i>If Like Off Search with  '='
+                                                </div>
+                                     </div>
+                        
+
+                                     <!-- <div _ngcontent-pir-c2="" class="input-group"><input _ngcontent-pir-c2="" aria-describedby="button-addon2" aria-label="Recipient's username" class="form-control ng-pristine ng-valid ng-touched" formcontrolname="SearchString" placeholder="Search ..." type="text" ng-reflect-name="SearchString"><div _ngcontent-pir-c2="" class="input-group-append"><button _ngcontent-pir-c2="" class="btn btn-light waves-effect waves-button waves-light" data-dismiss="modal" id="button-addon2" type="button"><i _ngcontent-pir-c2="" class="fa fa-search"></i></button></div></div> -->
+
+
+                                     <div class="input-group" *ngIf="FilterType=='All' && SerchType=='Like'">
+                                        <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2" (click)="SearchClick()">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+<div class="row col-md-12" *ngIf="FilterType=='Field' ">
+
+
+<label for="searchModel"> Model</label>
+<input type="text" class="form-control" id="searchModel" formControlName="Model"  placeholder="Search Model">
+
+
+<div class="col-md-12 " style="float: right;padding-right:unset">
+<button type="button" class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"  style="float: right;margin-top:10px " (click)="SearchClick()">
+<i class="ti-search m-r-5"></i> Search
+</button>
+
+</div>
+</div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+     <!--POPup Portion Starts -->
+    <div class="col-md-4">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Add / Modify Branches Timmings</h5>
+                            <p *ngIf="showError" style="float: right" ><font color="red">{{errormsg}}</font></p>
+                            <button type="button"  id="btnClosePackageItems" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                              <b>  <label  style="float: right" >SNO:{{SNO}}</label></b>
+                                <br>
+                           
+                           <label for="Week Name">Week Name</label>
+                           <div class="row col-md-12" >
+
+                                <select class="form-control" formControlName="WeekName">
+                                        <option value="SUN">SUN</option>
+                                        <option value="MON">MON</option>
+                                        <option value="TUE">TUE</option>
+                                        <option value="WED">WED</option>
+                                        <option value="THU">THU</option>
+                                        <option value="FRI">FRI</option>
+                                        <option value="SAT">SAT</option>
+
+                                      </select>
+                        </div>
+
+                       
+                   <label for="PerHrPrice">From Time</label> 
+                    <div class="input-group clockpicker-demo">
+                        <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fa fa-clock-o"></i>
+                    </span>
+                        </div>
+                        <input type="text" class="form-control" value="09:30" formControlName="From">
+                    </div>
+                  
+ 
+                    <label for="KmsLimit">To Time</label>
+                    <div class="input-group clockpicker-demo">
+                        <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fa fa-clock-o"></i>
+                    </span>
+                        </div>
+                        <input type="text" class="form-control" value="09:30" formControlName="To">
+                    </div> 
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                            </button>
+
+                            <button type="button" class="btn btn-danger" (click)="RemoveBranchTiming()"  data-dismiss="modal">Remove
+                                </button>
+                            <button type="button" class="btn btn-primary" (click)="AddBranchTimmings('Close')">Add & Close</button>
+                            <button type="button" class="btn btn-primary" (click)="AddBranchTimmings('')">Add & New</button>
+                           
+
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</form>
+</main>
+
+

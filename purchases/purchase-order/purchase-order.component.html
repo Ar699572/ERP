@@ -1,0 +1,239 @@
+<main class="main-content p-0">
+    <div class="layoutactionbutton"
+       
+    >
+
+    
+
+      
+
+
+       
+    </div>
+    <form  [formGroup]="PurchaseOrder">
+    <div class="container pl-0">
+
+
+        <div class="page-header">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Purchase Order</h3>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">Purchase</li>
+                            <li class="breadcrumb-item">Transactions</li>
+                            <li class="breadcrumb-item active" aria-current="page">PurchaseOrder</li>
+                        </ol>
+            </nav>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-9 text-right m-top-bot-auto" style="padding-right: 0px;">
+                            <button class="btn btn-warning" (click)="OnAdd()" style="margin-right: 10px;background: #00aad7 !important; border: 1px solid #00aad7 !important;color: white;"><i class="fa fa-plus" style="margin-top: -2px;margin-right: 9px;"></i>New</button>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-warning waves-effect waves-button waves-light" type="button" id="button-addon2"  data-dismiss="modal" (click)="SearchClick()">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end::page header -->
+
+        <div class="row row-sm">
+            
+
+       
+            <div class="col-md-12">
+               
+
+                <div class="card">
+                    <div class="card-body">
+                     
+                       
+                        <table class="table table-bordered table-striped table-responsive-stack " id="tableOne">
+                            <thead >
+                            <tr>
+                                <th  style="width: 4%;" >#</th>
+                              
+                               <th style="width: 11%;" >Date</th>
+
+                               <th style="width:11%;" >Voucher No</th>
+
+
+                                <th style="width: 18%;" >Vendor Name</th>
+                               
+                                <th style="width: 12%;" >Gross</th>
+                                <th style="width: 8%;" >Tax</th>
+                                <th style="width: 12%;" >Total</th>
+
+                                <th style="width: 10%;" >Created By</th>
+
+                                <th style="width: 7%;" >Status</th>
+
+                                
+                                
+                                 <th style="width: 7%;" ></th> 
+                                
+                                
+                              
+                               
+                                
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let d of lstPurchaseOrder;"> 
+                             <td style="width: 4%;">{{d.SNO}}</td>
+                           
+                                <td style="width: 11%;">{{d.TransactionDate| date:'mediumDate'}}</td>
+                                <td style="width: 11%;">{{d.TransactionNo}}</td>
+                                <td style="width: 18%;">{{d.PartyName}}</td>
+
+                                <td style="width: 12%;">{{(+d.TotalGross).toFixed(2)}}</td>
+                                <td style="width: 8%;">{{(+d.TotalTax).toFixed(2)}}</td>
+                                <td style="width: 12%;">{{(+d.Total)|currency:'INR' }}</td>
+                                <td style="width: 10%;">{{d.CreatedBy}}</td>
+                                <td style="width: 7%;">{{d.TransactionStatus}}</td>
+                                
+                                
+                               <td style="width: 7%;">
+                                    <div class="dropdown">
+                                        <div class="dropdown-toggle waves-effect waves-button waves-light dots"  data-toggle="dropdown">
+                                           <i class="ti-more-alt"></i>
+                                        </div>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" (click)="CreatePurchaseOrder(d)" >Edit</a>
+                                           
+                                            <!-- <a class="dropdown-item" (click)="ViewPurchaseOrder(d)">Orders</a> -->
+                                            <!-- <a class="dropdown-item" (click)="CreatePurchaseOrder(d)">Create Orders</a> -->
+                                           
+                                            <!-- <a class="dropdown-item" (click)="ViewDC(d)">DC</a> -->
+                                            <a class="dropdown-item" (click)="CreateGRN(d)">Create MRN</a>
+
+                                            <a class="dropdown-item" (click)="CreatePurchaseInvoice(d)">Create Purchase Invoice</a>
+                                      
+                                        </div>
+                                    </div>
+                                </td>
+                               
+                                
+                               
+                            </tr>
+                            </tbody>
+                        </table>
+                       
+                    </div>
+                </div> 
+        
+        
+        
+                
+            </div>
+
+
+           
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="modal fade" id="SearchModel" tabindex="-1" role="dialog" aria-labelledby="SearchModelTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="SearchModelTitle">Search</h5>
+                            <p *ngIf="showError" style="float: right" ><font color="red">{{errormsg}}</font></p>
+                            <button type="button"  id="btnCloseDetailsItems" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="col-md-12">
+                    
+                                       <div class="card">
+                    <div class="card-header">Search</div>
+                    <div class="card-body">
+
+                       
+                                <div class="custom-control custom-switch" style="float:left">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitch" checked="" (change)="FilterTypeChange($event)">
+                                        <label class="custom-control-label" for="customSwitch">All Data</label>
+                                    </div>
+
+                                   
+
+                                    <div class="custom-control custom-switch custom-checkbox-success" style="float: right">
+                                            <input type="checkbox" class="custom-control-input" id="customSwitch2_" checked="" (change)="SerchTypeChange($event.target.checked)">
+                                            <label class="custom-control-label" for="customSwitch2_"> 
+                                                Like</label>
+                                        </div>
+                            
+
+                                     <div class="row  col-md-12">
+
+                                            <div class="alert alert-info alert-with-border alert-dismissible" role="alert">
+                                                    <i class="ti-alert m-r-10"></i>If Like Off Search with  '='
+                                                </div>
+                                     </div>
+                        
+
+                        <div class="input-group" *ngIf="FilterType=='All' && SerchType=='Like'">
+                            <input type="text" class="form-control" placeholder="Search ..." formControlName="SearchString" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-light waves-effect waves-button waves-light" type="button" id="button-addon2"  data-dismiss="modal" (click)="SearchClick()">
+                                    <i class="fa fa-search side-icons"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
+<div class="row col-md-12" *ngIf="FilterType=='Field' ">
+
+
+
+<label for="TransactionNo">Order No</label>
+<input type="text" class="form-control" id="TransactionNo" formControlName="TransactionNo"  placeholder="Search PurchaseOrder No">
+<label for="VendorName">Vendor Name</label>
+<input type="text" class="form-control" id="VendorName" formControlName="VendorName"  placeholder="search Vendor Name">
+
+
+<label for="Contactno">Contactno</label>
+<input type="text" class="form-control" id="Contactno" formControlName="Contactno"  placeholder="search Contactno">
+
+
+
+<div class="col-md-12 " style="float: right;padding-right:unset">
+<button type="button" class=" btn btn-primary btn-rounded btn-uppercase waves-effect waves-button waves-light"  style="float: right;margin-top:10px "  data-dismiss="modal" (click)="SearchClick()">
+<i class="ti-search m-r-5"></i> Search
+</button>
+
+</div>
+</div>
+
+
+ </div>
+ </div>
+
+
+ </div>
+                        </div>
+                        <div class="modal-footer">
+                          
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</form>
+</main>
+
